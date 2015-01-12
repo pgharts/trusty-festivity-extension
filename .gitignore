@@ -1,34 +1,40 @@
+.ruby-gemset
+.ruby-version
+config/dblogin.yml
+config/config.yml
+config/functional_tests.yml
+.idea/
+log/
+tmp/
+tmp/*
+db/schema.rb
+db/data.yml
+coverage/
+coverage.data
+coverage.info
+public/system/**/*
+public/assets/**/*
+public/uploads/**/*
+public/images/temp/*
+.eprj
+*.*~
+**/thumbs.db
+**/Thumbs.db
+**/.DS_Store
+public/javascripts/bundle_*.js
+public/compass/**/*
+public/images/**/*-sprite.png
+sinatra/recorded_responses/*
+sinatra/recorded_responses/**/*
+cruise-output
+sinatra/recorded_responses/*
+metrics/
+metrics/smells/
+metrics/complexity/
+tessitura_sync.output
+tessitura_sync.pid
+test/functional_test/mock_tessitura/recorded_responses/*.xml
+mock_server/recorded_responses/*.xml
+vendor/plugins/rails_upgrade
+*.rails2
 *.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/test/tmp/
-/test/version_tmp/
-/tmp/
-
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
-
-## Environment normalisation:
-/.bundle/
-/lib/bundler/man/
-
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
