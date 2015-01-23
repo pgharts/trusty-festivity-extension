@@ -2,7 +2,7 @@
 # require_dependency "application_controller"
 require "trusty-festivity-extension"
 
-class SnippetsExtension < TrustyCms::Extension
+class FestivityExtension < TrustyCms::Extension
   version     TrustyFestivityExtension::VERSION
   description TrustyFestivityExtension::DESCRIPTION
   url         TrustyFestivityExtension::URL

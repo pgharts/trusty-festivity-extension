@@ -1,0 +1,7 @@
+File Not Found:
+  title: File Not Found
+  slug:  file-not-found
+  parent: /
+  breadcrumb: File Not Found
+  status_id: 100
+  class_name: FileNotFoundPage

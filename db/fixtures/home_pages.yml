@@ -1,0 +1,38 @@
+The Pittsburgh Cultural Trust:
+  title: The Pittsburgh Cultural Trust
+  slug:  /
+  breadcrumb: home
+  status_id: 100
+  layout: normal
+
+Three Rivers Arts Festival:
+  title: Three Rivers Arts Festival
+  slug:  traf_home
+  parent: /
+  breadcrumb: home
+  status_id: 100
+  layout: normal
+
+Pittsburgh International Children's Theater:
+  title: Pittsburgh International Children's Theater
+  slug:  pict_home
+  parent: /
+  breadcrumb: home
+  status_id: 100
+  layout: normal
+
+First Night Pittsburgh:
+  title: First Night Pittsburgh
+  slug:  fn_home
+  parent: /
+  breadcrumb: home
+  status_id: 100
+  layout: normal
+
+Gallery Crawl:
+  title: Gallery Crawl
+  slug:  crawl_home
+  parent: /
+  breadcrumb: home
+  status_id: 100
+  layout: normal

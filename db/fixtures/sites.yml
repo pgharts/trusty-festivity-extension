@@ -1,0 +1,57 @@
+The Pittsburgh Cultural Trust:
+  id: 1
+  name: The Pittsburgh Cultural Trust
+  subtitle: main
+  domain: .*trustarts.[.\/]*
+  base_domain: trustarts.org
+  box_office_phone_number: 412-456-6666
+  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  position: 13
+
+Pittsburgh International Children's Theater:
+  id: 2
+  name: Pittsburgh International Children's Theater
+  subtitle: main
+  domain: .*pghkids.[.\/]*
+  base_domain: pghkids.org
+  box_office_phone_number: 412-456-6666
+  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  position: 2
+
+Three Rivers Arts Festival:
+  id: 3
+  name: Three Rivers Arts Festival
+  subtitle: main
+  domain: .*3riversartsfest.[.\/]*
+  base_domain: 3riversartsfest.org
+  box_office_phone_number: 412-456-6666
+  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  position: 3
+
+Gallery Crawl:
+  id: 4
+  name: Gallery Crawl
+  subtitle: main
+  domain: .*crawl.trustarts.[.\/]*
+  base_domain: crawl.trustarts.org
+  box_office_phone_number: 412-456-6666
+  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  position: 4
+
+First Night Pittsburgh:
+  id: 5
+  name: First Night Pittsburgh
+  subtitle: main
+  domain: .*firstnightpgh.[.\/]*
+  base_domain: firstnightpgh
+  box_office_phone_number: 412-456-6666
+  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  position: 5
+
+default_site:
+  id: 12
+  name: default_site
+  subtitle:
+  domain:
+  base_domain: localhost
+  position: 14
