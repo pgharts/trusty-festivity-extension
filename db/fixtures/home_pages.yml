@@ -3,7 +3,6 @@ The Pittsburgh Cultural Trust:
   slug:  /
   breadcrumb: home
   status_id: 100
-  layout: normal
 
 Three Rivers Arts Festival:
   title: Three Rivers Arts Festival
@@ -11,7 +10,6 @@ Three Rivers Arts Festival:
   parent: /
   breadcrumb: home
   status_id: 100
-  layout: normal
 
 Pittsburgh International Children's Theater:
   title: Pittsburgh International Children's Theater
@@ -19,7 +17,6 @@ Pittsburgh International Children's Theater:
   parent: /
   breadcrumb: home
   status_id: 100
-  layout: normal
 
 First Night Pittsburgh:
   title: First Night Pittsburgh
@@ -27,7 +24,6 @@ First Night Pittsburgh:
   parent: /
   breadcrumb: home
   status_id: 100
-  layout: normal
 
 Gallery Crawl:
   title: Gallery Crawl
@@ -35,4 +31,10 @@ Gallery Crawl:
   parent: /
   breadcrumb: home
   status_id: 100
-  layout: normal
+
+default_site:
+  title: Default Site
+  slug:  default
+  parent: /
+  breadcrumb: home
+  status_id: 100

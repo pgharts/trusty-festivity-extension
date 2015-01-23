@@ -1,13 +1,12 @@
 namespace :festivity do
   namespace :setup do
-    require File.dirname(__FILE__) + '/active_record_util'
+    require File.dirname(__FILE__) + '/active_record_utils'
 
     desc "bootstrap deployment. Creates DB, migrate db, migrate the extensions, and seed"
-    task :bootstrap => [:environment, 'db:drop', 'db:create', 'db:migrate', 'db:migrate:extensions', 'increment:create_or_update']
+    task :bootstrap => [:environment, 'db:drop', 'db:create', 'db:migrate', 'seed']
 
     desc "seed festivity sites and pages"
     task :seed do
-
       sites = sort(load_yaml_for("sites"), "position")
       home_pages = load_yaml_for("home_pages")
       pages = load_yaml_for("pages")
@@ -21,17 +20,13 @@ namespace :festivity do
         seed_page_for(home_page, master["slug"])
         site['homepage'] = site["name"] == 'default_site' ? Page.find(1) : find_by_slug_hierarchy([home_page["slug"]])
         site['base_domain'] += Rails.configuration.domain
-        Site.create_or_update(site, :organization_id)
+        Site.create_or_update(site)
 
         pages.each do |p_t, page|
-          seed_page_for(page, home_page["slug"])
+          seed_page_for(page.clone, home_page["slug"])
         end
 
       end
-      #for each site
-        #seed site
-        #seed homepage
-        #seed site-specific pages under homepage
     end
 
 
@@ -65,14 +60,32 @@ namespace :festivity do
 
     def create_or_update_page(page_hash, home_page_slug = nil)
       if page_hash["parent"]
-        parent_path = home_page_slug ? home_page_slug : []
+        parent_path = home_page_slug ? [home_page_slug] : []
         parent_path << page_hash["parent"].split('/')
-        page_hash["parent"] = find_by_slug_hierarchy(parent_path)
+        page_hash["parent"] = find_by_slug_hierarchy(parent_path.flatten)
       end
 
       page = (page_hash["parent"].nil? ? find_by_slug_hierarchy([page_hash["slug"]]) : find_by_slug_hierarchy([page_hash["slug"]], page_hash["parent"])) || Page.new
       page.create_or_update_with_attributes!(page_hash)
       page
+    end
+
+    def sort(hash, on_parameter)
+      hash.sort do |first, second|
+        first_value = first[1]
+        second_value = second[1]
+        first_value[on_parameter] <=> second_value[on_parameter]
+      end
+    end
+
+    def find_by_slug_hierarchy(slugs, current_page = Page.find_by_slug("/"))
+      return current_page if (slugs.nil? || slugs.empty?)
+      if (slugs[0] == "/")
+        slugs.shift
+        find_by_slug_hierarchy(slugs, current_page)
+      else
+        find_by_slug_hierarchy(slugs, Page.first(:conditions => {:slug => slugs.shift, :parent_id => current_page}))
+      end
     end
 
   end
