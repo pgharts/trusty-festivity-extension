@@ -35,8 +35,8 @@ namespace :festivity do
     end
 
 
-    def seed_page_for(page, home_page_slug)
-      trusty_page = create_or_update_page(page, home_page_slug, klass)
+    def seed_page_for(page_hash, home_page_slug = nil)
+      trusty_page = create_or_update_page(page_hash, home_page_slug)
       part = PagePart.new(:name => 'body')
       trusty_page.parts << part unless trusty_page.parts.find_by_name('body')
       trusty_page.save!
