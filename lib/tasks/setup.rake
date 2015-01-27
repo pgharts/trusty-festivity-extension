@@ -10,10 +10,12 @@ namespace :festivity do
       sites = sort(load_yaml_for("sites"), "position")
       home_pages = load_yaml_for("home_pages")
       pages = load_yaml_for("pages")
+      users = load_yaml_for("users")
 
       # create the root page
       master = home_pages["The Pittsburgh Cultural Trust"]
       create_or_update_page(master)
+      User.create_or_update_for_site(users["The Pittsburgh Cultural Trust"])
 
       sites.each do |t, site|
         home_page = home_pages[site["name"]]

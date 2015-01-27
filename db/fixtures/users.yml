@@ -1,0 +1,8 @@
+The Pittsburgh Cultural Trust:
+        name: Admin
+        login: admin
+        password: trusty
+        admin: true
+        designer: true
+        password_confirmation: trusty
+        site: The Pittsburgh Cultural Trust

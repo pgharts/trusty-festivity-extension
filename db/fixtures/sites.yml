@@ -2,8 +2,8 @@ The Pittsburgh Cultural Trust:
   id: 1
   name: The Pittsburgh Cultural Trust
   subtitle: main
-  domain: .*trustarts.[.\/]*
-  base_domain: trustarts.org
+  domain: .*festivity.trustarts.[.\/]*
+  base_domain: festivity.trustarts.org
   box_office_phone_number: 412-456-6666
   google_search_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 13
