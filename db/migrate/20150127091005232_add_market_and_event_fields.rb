@@ -11,8 +11,8 @@ class AddMarketAndEventFields < ActiveRecord::Migration
     # Market Fields
     add_column :pages, :booth_number, :string
     add_column :pages, :area_id, :integer
-    add_column :pages, :start_date, :date
-    add_column :pages, :end_date, :date
+    add_column :pages, :maket_start_date, :date
+    add_column :pages, :market_end_date, :date
 
   end
 
@@ -25,8 +25,8 @@ class AddMarketAndEventFields < ActiveRecord::Migration
     # Market Fields
     remove_column :pages, :booth_number
     remove_column :pages, :area_id
-    remove_column :pages, :start_date
-    remove_column :pages, :end_date
+    remove_column :pages, :market_start_date
+    remove_column :pages, :market_end_date
 
   end
 end
