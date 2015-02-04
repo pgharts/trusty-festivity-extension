@@ -1,0 +1,3 @@
+class FestivityBasePage < Page
+
+end

@@ -1,6 +1,6 @@
 class AddCategoriesTable < ActiveRecord::Migration
   def up
-    create_table :categories do |t|
+    create_table :festivity_categories do |t|
       t.string :name
       t.integer :category_type_id
       t.integer :parent_category_id
@@ -9,6 +9,6 @@ class AddCategoriesTable < ActiveRecord::Migration
   end
 
   def down
-    drop_table :categories
+    drop_table :festivity_categories
   end
 end

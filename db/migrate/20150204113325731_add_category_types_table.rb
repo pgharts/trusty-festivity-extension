@@ -1,6 +1,6 @@
 class AddCategoryTypesTable < ActiveRecord::Migration
   def up
-    create_table :category_types do |t|
+    create_table :festivity_category_types do |t|
       t.string :name
       t.integer :site_id
       t.boolean :inactive, default: false
@@ -8,6 +8,6 @@ class AddCategoryTypesTable < ActiveRecord::Migration
   end
 
   def down
-    drop_table :category_types
+    drop_table :festivity_category_types
   end
 end

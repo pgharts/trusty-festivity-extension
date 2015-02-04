@@ -1,0 +1,3 @@
+class FestivityMarketPage < FestivityBasePage
+
+end
