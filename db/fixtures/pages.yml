@@ -5,3 +5,11 @@ File Not Found:
   breadcrumb: File Not Found
   status_id: 100
   class_name: FileNotFoundPage
+
+Events:
+  title: Events
+  slug: events
+  parent: /
+  breadcrumb: Events
+  status_id: 100
+  class_name: Page
