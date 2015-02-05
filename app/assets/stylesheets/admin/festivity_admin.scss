@@ -1,0 +1,17 @@
+@import "compass/css3/border-radius";
+@import "modules/festivity_div";
+
+.festivity-space {
+  @include festivity-div;
+  margin: .5em 0em;
+}
+
+.festivity-fields {
+  @include festivity-div;
+
+  @include border-radius(5px);
+
+  margin: 2em 0.5em 2em 0.5em;
+  padding: 1em .5em;
+  background-color: #7e7e7e;
+}
