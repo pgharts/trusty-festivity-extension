@@ -8,6 +8,8 @@ class FestivityExtension < TrustyCms::Extension
   url         TrustyFestivityExtension::URL
 
   def activate
+
+    admin.page.edit.add(:form, "festivity_base_fields", :after => 'edit_page_parts')
   end
 
 end

@@ -29,6 +29,9 @@ namespace :festivity do
         end
 
       end
+
+      TrustyCms::Setup.new.load_default_configuration
+
     end
 
 
