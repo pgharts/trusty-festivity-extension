@@ -2,5 +2,10 @@
 = javascript_include_tag 'admin/festivity_admin'
 
 .festivity-space
-.festivity-fields
-  = "THIS IS WORKING TOO"
+.festivity-title
+  %h4
+    Festivity Setup
+%p
+  %label{for: "site_something"}
+    Event Something
+  %input.textbox{type: "text", id: "site_something", name: "site[something]"}

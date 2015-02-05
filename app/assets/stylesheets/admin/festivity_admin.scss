@@ -3,15 +3,13 @@
 
 .festivity-space {
   @include festivity-div;
-  margin: .5em 0em;
+  padding: .5em 0em;
 }
 
-.festivity-fields {
+.festivity-title {
   @include festivity-div;
-
   @include border-radius(5px);
-
-  margin: 2em 0.5em 2em 0.5em;
+  margin: 2em 0;
   padding: 1em .5em;
   background-color: #7e7e7e;
 }
