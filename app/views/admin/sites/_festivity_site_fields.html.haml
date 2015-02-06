@@ -12,11 +12,11 @@
 %p.festivity-third
   %label{for: "site_festivity_start_date"}
     Start Date
-  = self.text_field(:site, :festivity_start_date, class: "textbox")
+  = self.text_field :site, :festivity_start_date, :class=> "textbox date", :type=>"date", :value => (@site.festivity_start_date ? I18n.localize(@site.festivity_start_date.to_date, :format =>:default) : nil)
 %p.festivity-third
   %label{for: "site_festivity_end_date"}
     End Date
-  = self.text_field(:site, :festivity_end_date, class: "textbox")
+  = self.text_field :site, :festivity_end_date, :class=> "textbox date", :type=>"date", :value => (@site.festivity_end_date ? I18n.localize(@site.festivity_end_date.to_date, :format =>:default) : nil)
 %p.festivity-third
   %label{for: "site_festivity_google_api_key"}
     Google Search API Key
