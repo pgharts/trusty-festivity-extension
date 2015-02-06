@@ -29,5 +29,5 @@
 %p.festivity-third
   %label{for: "festival_categories"}
     Filter Categories
-  = self.select_tag(:festival_categories, options_from_collection_for_select(@site.festivity_category_types, "id", "name"),
+  = self.select_tag(:festival_categories, options_from_collection_for_select(@site.festivity_active_category_types, "id", "name"),
                                   {:multiple => true, :class => "textbox"})
