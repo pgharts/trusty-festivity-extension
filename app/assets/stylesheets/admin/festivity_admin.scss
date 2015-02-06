@@ -1,5 +1,5 @@
 @import "compass/css3/border-radius";
-@import "modules/festivity_div";
+@import "modules/festivity_form_styles";
 
 .festivity-space {
   @include festivity-div;
@@ -12,4 +12,23 @@
   margin: 2em 0;
   padding: 1em .5em;
   background-color: #7e7e7e;
+}
+
+p.festivity-full {
+  @include festivity-form-paragraph;
+  width: 100%;
+}
+
+p.festivity-third {
+  @include festivity-form-paragraph;
+  width: 40%;
+}
+
+
+#content div.form-area p.festivity-full .textbox,
+#content div.form-area p.festivity-third .textbox,
+#content div.form-area p.festivity-third select {
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  font-size: 140%;
+  width: 100%;
 }

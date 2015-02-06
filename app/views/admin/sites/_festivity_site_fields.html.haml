@@ -4,8 +4,25 @@
 .festivity-space
 .festivity-title
   %h4
-    Festivity Setup
-%p
-  %label{for: "site_something"}
-    Event Something
-  %input.textbox{type: "text", id: "site_something", name: "site[something]"}
+    Festival Setup
+%p.festivity-full
+  %label{for: "site_festivity_festival_name"}
+    Festival Name
+  = self.text_field( :site, :festivity_festival_name, class: "textbox")
+%p.festivity-third
+  %label{for: "site_festivity_start_date"}
+    Start Date
+  = self.text_field(:site, :festivity_start_date, class: "textbox")
+%p.festivity-third
+  %label{for: "site_festivity_end_date"}
+    End Date
+  = self.text_field(:site, :festivity_end_date, class: "textbox")
+%p.festivity-third
+  %label{for: "site_festivity_google_api_key"}
+    Google Search API Key
+  = self.text_field(:site, :festivity_google_api_key, class: "textbox")
+
+.festivity-space
+.festivity-title
+  %h4
+    Category Setup
