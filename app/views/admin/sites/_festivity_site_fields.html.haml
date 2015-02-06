@@ -26,3 +26,8 @@
 .festivity-title
   %h4
     Category Setup
+%p.festivity-third
+  %label{for: "festival_categories"}
+    Filter Categories
+  = self.select_tag(:festival_categories, options_from_collection_for_select(@site.festivity_category_types, "id", "name"),
+                                  {:multiple => true, :class => "textbox"})
