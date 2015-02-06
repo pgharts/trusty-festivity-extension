@@ -4,8 +4,8 @@ The Pittsburgh Cultural Trust:
   subtitle: main
   domain: .*festivity.trustarts.[.\/]*
   base_domain: festivity.trustarts.org
-  box_office_phone_number: 412-456-6666
-  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  festivity_festival_name: The Pittsburgh Cultural Trust
+  festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 13
 
 Pittsburgh International Children's Theater:
@@ -14,8 +14,8 @@ Pittsburgh International Children's Theater:
   subtitle: main
   domain: .*pghkids.[.\/]*
   base_domain: pghkids.org
-  box_office_phone_number: 412-456-6666
-  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  festivity_festival_name: Pittsburgh International Children's Theater
+  festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 2
 
 Three Rivers Arts Festival:
@@ -24,8 +24,8 @@ Three Rivers Arts Festival:
   subtitle: main
   domain: .*3riversartsfest.[.\/]*
   base_domain: 3riversartsfest.org
-  box_office_phone_number: 412-456-6666
-  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  festivity_festival_name: Three Rivers Arts Festival
+  festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 3
 
 Gallery Crawl:
@@ -34,8 +34,8 @@ Gallery Crawl:
   subtitle: main
   domain: .*crawl.trustarts.[.\/]*
   base_domain: crawl.trustarts.org
-  box_office_phone_number: 412-456-6666
-  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  festivity_festival_name: Gallery Crawl
+  festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 4
 
 First Night Pittsburgh:
@@ -44,8 +44,8 @@ First Night Pittsburgh:
   subtitle: main
   domain: .*firstnightpgh.[.\/]*
   base_domain: firstnightpgh
-  box_office_phone_number: 412-456-6666
-  google_search_api_key: 004905679161489350096:p0nv7wwdf1m
+  festivity_festival_name: First Night Pittsburgh
+  festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 5
 
 default_site:
