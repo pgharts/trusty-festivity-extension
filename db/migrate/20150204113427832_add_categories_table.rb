@@ -3,7 +3,8 @@ class AddCategoriesTable < ActiveRecord::Migration
     create_table :festivity_categories do |t|
       t.string :name
       t.integer :category_type_id
-      t.integer :parent_category_id
+      t.integer :parent_id
+      t.integer :position
       t.boolean :inactive, default: false
     end
   end
