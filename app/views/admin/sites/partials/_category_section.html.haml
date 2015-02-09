@@ -1,8 +1,8 @@
 %p.festivity-third
   %label{for: "festival_categories"}
     Filter Categories
-    %br
-      %button{type: "button",  class: "btn btn-default", aria: {label: "Left Align"}}
-        %span{class: "glyphicon glyphicon-plus", aria: {hidden: "true"}}
+    %button{type: "button",  class: "btn btn-default btn-sm", aria: {label: "Left Align"}}
+      %span{class: "glyphicon glyphicon-plus", aria: {hidden: "true"}}
+      Add Category
     - @site.festivity_active_category_types.each do |type|
       = type.name
