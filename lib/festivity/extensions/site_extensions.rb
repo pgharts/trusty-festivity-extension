@@ -5,8 +5,8 @@ module Festivity
       def self.included(base)
         base.class_eval {
           has_many :festivity_category_types
+          include Festivity::Extensions::SiteExtensions::SiteMethods
         }
-        include Festivity::Extensions::SiteExtensions::SiteMethods
       end
 
       module SiteMethods
