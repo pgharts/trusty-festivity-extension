@@ -1,1 +1,1 @@
-//this
+//= require ./categories/category_types
