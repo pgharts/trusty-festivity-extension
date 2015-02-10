@@ -12,11 +12,12 @@
         %label{:for => 'type_name_field'}
           Category Type (i.e. Genre)
         = f.text_field :name, :id => 'type_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
+        = hidden_field_tag "type_site_id", @site.id
       %p
         %label{:for => 'type_page_class'}
           Show Type
         = f.select(:page_class, options_from_collection_for_select(FestivityBasePage.descendants.map, "name", "display_name"), {:id => "type_page_class", :class => "textbox big"})
       .buttons
-        = submit_tag "Add Filter Category", :id => 'add_part_button', :class => "button"
+        = submit_tag "Add Filter Category", :id => 'add_type_button', :class => "button"
         = t('or')
         = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
