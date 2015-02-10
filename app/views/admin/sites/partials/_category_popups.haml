@@ -5,13 +5,18 @@
       .content
   #add_category_type_popup.popup{:style => "display: none"}
     #add_category_type_busy.busy{:style => "display: none"}= image('spinner.gif', :alt => "")
-    .popup_title= t('add_part')
+    .popup_title
+      Add Filter Category
     = form_for [:admin, FestivityCategoryType.new] do |f|
       %p
-        %label{:for => 'part_name_field'}= t('name')
-        = f.text_field :name, :id => 'part_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
-        = hidden_field_tag 'index', 0, :id => 'page_part_index_field'
+        %label{:for => 'type_name_field'}
+          Category Type (i.e. Genre)
+        = f.text_field :name, :id => 'type_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
+      %p
+        %label{:for => 'type_page_class'}
+          Show Type
+        = f.select(:page_class, options_from_collection_for_select(FestivityBasePage.descendants.map, "name", "display_name"), {:id => "type_page_class", :class => "textbox big"})
       .buttons
-        = submit_tag t('add_part'), :id => 'add_part_button', :class => "button"
+        = submit_tag "Add Filter Category", :id => 'add_part_button', :class => "button"
         = t('or')
         = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
