@@ -13,7 +13,6 @@ class Admin::FestivityCategoryTypesController  < Admin::ResourceController
       render head: :bad_request
     end
 
-
   end
 
 end

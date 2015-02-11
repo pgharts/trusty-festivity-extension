@@ -6,26 +6,53 @@ $icon-font-path: "/assets/bootstrap/";
 @import "../bootstrap/buttons";
 @import "modules/festivity_form_styles";
 
-.festivity-space {
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.festivity-space, .list-item{
   @include festivity-div;
   padding: .5em 0em;
 }
 
-.festivity-title {
+.festivity-list, .festivity-title{
   @include festivity-div;
   @include border-radius(5px);
+}
+
+.festivity-list {
+  margin: .5em 0;
+  background-color: white;
+  color: #2e2e2e;
+}
+
+.list-item {
+  clear: both;
+  border-bottom: 2px solid #ddd;
+  padding: .5em .5em;
+}
+
+.list-item:last-child {
+  border: none;
+}
+
+.festivity-title {
   margin: 2em 0;
   padding: 1em .5em;
   background-color: #7e7e7e;
 }
 
-p.festivity-full {
-  @include festivity-form-paragraph;
+p.festivity-full, div.festivity-full {
+  @include festivity-form-section;
   width: 100%;
 }
 
-p.festivity-third {
-  @include festivity-form-paragraph;
+p.festivity-third, div.festivity-third {
+  @include festivity-form-section;
   width: 40%;
 }
 
