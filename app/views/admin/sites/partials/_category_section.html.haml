@@ -13,7 +13,6 @@
       %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
       &nbsp;
       Add Category
-    - @site.festivity_active_category_types.each do |type|
-      = type.name
+  = render partial: 'admin/sites/partials/category_types', :locals => { :category_types => @site.festivity_active_category_types}
 
 = render partial: 'admin/sites/partials/category_popups'
