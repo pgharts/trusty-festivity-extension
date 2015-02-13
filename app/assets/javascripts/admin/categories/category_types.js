@@ -15,7 +15,9 @@ $(function () {
         page_class: $("#festivity_category_type_page_class").val()
       },
       success: function(data, textStatus, jqXHR){
-        alert(data);
+        $("#festivity-types-list").replaceWith(data);
+        Popup.close();
+        $("#type_name_field").val("");
       },
       error: function(){
         alert("bye");
