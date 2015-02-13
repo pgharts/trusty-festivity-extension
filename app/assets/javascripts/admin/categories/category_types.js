@@ -18,9 +18,10 @@ $(function () {
         $("#festivity-types-list").replaceWith(data);
         Popup.close();
         $("#type_name_field").val("");
+        $("#category-type-error").html("");
       },
-      error: function(){
-        alert("bye");
+      error: function(jqXHR, textStatus, errorThrown){
+        $("#category-type-error").html(jqXHR.responseText);
       }
     });
 

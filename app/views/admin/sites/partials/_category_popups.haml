@@ -9,6 +9,7 @@
       Add Filter Category
     = form_for [:admin, FestivityCategoryType.new] do |f|
       %p
+        %span#category-type-error.festivity-error
         %label{:for => 'type_name_field'}
           Category Type (i.e. Genre)
         = f.text_field :name, :id => 'type_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
