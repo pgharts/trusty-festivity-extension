@@ -4,6 +4,10 @@ class Admin::FestivityCategoryTypesController  < Admin::ResourceController
 
   end
 
+  def show
+
+  end
+
   def create
     site = Site.find(params[:site_id])
 
@@ -13,6 +17,14 @@ class Admin::FestivityCategoryTypesController  < Admin::ResourceController
       render status: :conflict, text: "Category Type name must be unique."
     end
 
+  end
+
+  def destroy
+    category_type = FestivityCategoryType.find(params[:id])
+    site = Site.find(category_type.site_id)
+    if category_type.destroy
+      render partial: 'admin/sites/partials/category_types', :locals => { :category_types => site.festivity_active_category_types}
+    end
   end
 
 end

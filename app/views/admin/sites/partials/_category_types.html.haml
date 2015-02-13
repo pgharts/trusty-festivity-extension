@@ -4,4 +4,5 @@
       .left
         = type.name
       .right
-        Controls
+        %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, type])}", id: "festivity-type-#{type.id}"}
+          Delete

@@ -1,8 +1,27 @@
+function updateCategoryTypeList(html) {
+  $("#festivity-types-list").replaceWith(html);
+  attachListEvents();
+}
+
+function attachListEvents() {
+  $('a.festivity-type').click(function(e){
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('href'),
+      type: "DELETE",
+      success: function(data, textStatus, jqXHR) {
+        updateCategoryTypeList(data);
+      }
+    });
+  });
+}
 
 $(function () {
   $('button.popup').each(function(){
     Popup.setup(this);
   });
+
+  attachListEvents();
 
   $('#add_type_button').click(function(e){
     e.preventDefault();
@@ -15,7 +34,7 @@ $(function () {
         page_class: $("#festivity_category_type_page_class").val()
       },
       success: function(data, textStatus, jqXHR){
-        $("#festivity-types-list").replaceWith(data);
+        updateCategoryTypeList(data);
         Popup.close();
         $("#type_name_field").val("");
         $("#category-type-error").html("");

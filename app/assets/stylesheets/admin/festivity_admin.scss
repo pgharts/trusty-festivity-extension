@@ -68,3 +68,12 @@ p.festivity-third, div.festivity-third {
 .festivity-error {
   color: red;
 }
+
+.festivity-list a {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+
+.festivity-list a:hover {
+  text-decoration: underline;
+}
