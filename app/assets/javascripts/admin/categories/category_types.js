@@ -6,13 +6,15 @@ function updateCategoryTypeList(html) {
 function attachListEvents() {
   $('a.festivity-type').click(function(e){
     e.preventDefault();
-    $.ajax({
-      url: $(this).attr('href'),
-      type: "DELETE",
-      success: function(data, textStatus, jqXHR) {
-        updateCategoryTypeList(data);
-      }
-    });
+    if (confirm("Are you sure you want to delete this Category?")){
+      $.ajax({
+        url: $(this).attr('href'),
+        type: "DELETE",
+        success: function(data, textStatus, jqXHR) {
+          updateCategoryTypeList(data);
+        }
+      });
+    }
   });
 }
 

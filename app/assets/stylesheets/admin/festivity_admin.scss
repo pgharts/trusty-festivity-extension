@@ -14,6 +14,10 @@ $icon-font-path: "/assets/bootstrap/";
   float: right;
 }
 
+.subtext {
+  font-size: .8em;
+}
+
 .festivity-space, .list-item{
   @include festivity-div;
   padding: .5em 0em;

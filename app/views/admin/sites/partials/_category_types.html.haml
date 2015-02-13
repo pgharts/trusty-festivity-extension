@@ -2,7 +2,9 @@
   - category_types.each do |type|
     .list-item
       .left
-        = type.name
+        = "#{type.name} "
+        %span.subtext
+          = "(#{Object.const_get(type.page_class).display_name})"
       .right
         %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, type])}", id: "festivity-type-#{type.id}"}
           Delete
