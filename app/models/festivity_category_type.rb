@@ -1,3 +1,4 @@
 class FestivityCategoryType < ActiveRecord::Base
-  acts_as_list :scope => :site_id
+  acts_as_list scope: :site_id
+  validates_uniqueness_of :name, scope: :site_id
 end
