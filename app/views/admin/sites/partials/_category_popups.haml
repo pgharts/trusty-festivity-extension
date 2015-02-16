@@ -32,14 +32,14 @@
         %p
           %span#category-error.festivity-error
           %label{:for => 'filter_name_field'}
-            Category Type (i.e. Genre)
-          = f.text_field :name, :id => 'filter_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
-          = hidden_field_tag "filter_category_type_id", @site.id
+            = category_type.name
+          = f.text_field :name, :id => 'category_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
+          = hidden_field_tag "category_category_type_id", category_type.id
         %p
-          %label{:for => 'filter_parent'}
-            Show Type
-          = f.select(:parent_id, options_from_collection_for_select(FestivityBasePage.descendants.map, "name", "display_name"), {:id => "type_page_class", :class => "textbox big"})
+          %label{:for => 'category_parent'}
+            = "Parent #{category_type.name}"
+          = f.select(:parent_id, options_from_collection_for_select(category_type.festivity_categories, "is", "name"), {:id => "type_page_class", :class => "textbox big"})
         .buttons
-          = submit_tag "Add #{category_type.name}", :id => 'add_filter_button', :class => "button"
+          = submit_tag "Add #{category_type.name}", :id => 'add_category_button', :class => "button"
           = t('or')
           = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
