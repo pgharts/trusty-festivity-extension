@@ -1,0 +1,10 @@
+%div{role: "tabpanel", id: "festivity-filters"}
+  %ul.nav.nav-tabs{role: "tablist"}
+    - category_types.each do |filter_category|
+      %li{role: "presentation"}
+        %a{href: "##{filter_category.name.parameterize}", role: "tab", aria: {controls: filter_category.name.parameterize}, data: {toggle: "tab"}}
+          = filter_category.name
+  .tab-content
+    - category_types.each do |filter_category|
+      %div{role: "tabpanel", class:"tab-pane", id: filter_category.name.parameterize}
+        = filter_category.name

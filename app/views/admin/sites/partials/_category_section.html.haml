@@ -15,5 +15,6 @@
         &nbsp;
         Add Category
     = render partial: 'admin/sites/partials/category_types', :locals => { :category_types => @site.festivity_active_category_types}
+    = render partial: 'admin/sites/partials/filters', :locals => { :category_types => @site.festivity_active_category_types}
 
 = render partial: 'admin/sites/partials/category_popups'
