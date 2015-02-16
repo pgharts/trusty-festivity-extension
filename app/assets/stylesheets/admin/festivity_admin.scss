@@ -7,14 +7,6 @@ $icon-font-path: "/assets/bootstrap/";
 @import "../bootstrap/navs";
 @import "modules/festivity_form_styles";
 
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
 .subtext {
   font-size: .8em;
 }
@@ -81,4 +73,12 @@ p.festivity-third, div.festivity-third {
 
 .festivity-list a:hover {
   text-decoration: underline;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }

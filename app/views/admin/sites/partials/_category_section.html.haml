@@ -5,7 +5,7 @@
     Category Setup
 
 #festivity-category-types.festivity-full
-  .festivity-third
+  .festivity-third.left
     %h4
       Filter Categories
       %button{type: "button", id: "add-cat-type", href: "#add_category_type_popup",
@@ -15,6 +15,7 @@
         &nbsp;
         Add Category
     = render partial: 'admin/sites/partials/category_types', :locals => { :category_types => @site.festivity_active_category_types}
+  .festivity-third.right
     = render partial: 'admin/sites/partials/filters', :locals => { :category_types => @site.festivity_active_category_types}
 
 = render partial: 'admin/sites/partials/category_popups'
