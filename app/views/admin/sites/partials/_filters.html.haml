@@ -7,4 +7,10 @@
   .tab-content
     - category_types.each do |filter_category|
       %div{role: "tabpanel", class:"tab-pane", id: filter_category.name.parameterize}
-        = filter_category.name
+        .festivity-space
+        %button{type: "button", id: "add-#{filter_category.name.parameterize}", href: "#add_#{filter_category.name.parameterize}_popup",
+          class: "popup right btn btn-default btn-sm filter-btn",
+          aria: {label: "Left Align"}, data: {toggle: "modal", target: "#add-filter-form"}}
+          %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
+          &nbsp;
+          = "Add #{filter_category.name}"
