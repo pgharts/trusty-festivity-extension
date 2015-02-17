@@ -24,22 +24,24 @@
         = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
 
   - @site.festivity_active_category_types.each do |category_type|
-    %div{id: "add_#{category_type.name.parameterize}_popup", class: "popup", :style => "display: none"}
-      %div{id: "add_#{category_type.name.parameterize}_busy", class: "busy", :style => "display: none"}= image('spinner.gif', :alt => "")
+    - type_name = category_type.name
+    - type_id = type_name.parameterize
+    %div{id: "add_#{type_id}_popup", class: "popup", :style => "display: none"}
+      %div{id: "add_#{type_id}_busy", class: "busy", :style => "display: none"}= image('spinner.gif', :alt => "")
       .popup_title
-        = "Add #{category_type.name}"
-      = form_for [:admin, FestivityCategory.new] do |f|
+        = "Add #{type_name}"
+      = form_for [:admin, FestivityCategory.new], :html => { :id => "new_#{type_id}" } do |f|
         %p
           %span#category-error.festivity-error
-          %label{:for => 'category_name_field'}
-            = category_type.name
-          = f.text_field :name, :id => 'category_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
-          = hidden_field_tag "category_type_id", category_type.id
+          %label{:for => "#{type_id}_name_field"}
+            = type_name
+          = f.text_field :name, :id => "#{type_id}_name_field", :maxlength => 100, :style => "width: 15em", :class => "textbox big"
+          = hidden_field_tag "#{type_id}_type_id", category_type.id
         %p
-          %label{:for => 'category_parent_id'}
-            = "Parent #{category_type.name}"
-          = f.select(:parent_id, options_from_collection_for_select(category_type.festivity_categories, "is", "name"), {:id => "type_page_class", :class => "textbox big"})
+          %label{:for => "#{type_id}_parent_id"}
+            = "Parent #{type_name}"
+          = f.select(:parent_id, options_from_collection_for_select(category_type.festivity_categories, "id", "name"), {:id => "#{type_id}_parent_id", :class => "textbox big"})
         .buttons
-          = submit_tag "Add #{category_type.name}", :id => 'add_category_button', :class => "button"
+          = submit_tag "Add #{type_name}", :id => "add_#{type_id}_button", :class => "button", :data => {:role => "add_category", :category => "#{type_id}", :form => "new_#{type_id}"}
           = t('or')
           = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
