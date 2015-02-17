@@ -22,7 +22,8 @@ class Admin::FestivityCategoryTypesController  < Admin::ResourceController
   def destroy
     category_type = FestivityCategoryType.find(params[:id])
     site = Site.find(category_type.site_id)
-    if category_type.destroy
+    category_type.inactive = true
+    if category_type.save!
       render partial: 'admin/sites/partials/category_types', :locals => { :category_types => site.festivity_active_category_types}
     end
   end
