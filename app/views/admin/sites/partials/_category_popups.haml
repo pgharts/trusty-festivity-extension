@@ -34,7 +34,7 @@
           %label{:for => 'category_name_field'}
             = category_type.name
           = f.text_field :name, :id => 'category_name_field', :maxlength => 100, :style => "width: 15em", :class => "textbox big"
-          = hidden_field_tag "category_category_type_id", category_type.id
+          = hidden_field_tag "category_type_id", category_type.id
         %p
           %label{:for => 'category_parent_id'}
             = "Parent #{category_type.name}"
