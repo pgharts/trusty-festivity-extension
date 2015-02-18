@@ -13,6 +13,7 @@
             - filter_category.parent_categories.each do |parent_category|
               %tr.page{:class =>"branch", :data => { :tt_branch => parent_category.name.parameterize,  :tt_id => parent_category.id, :tt_parent_id => parent_category.parent_id, :tt_page_id => parent_category.id}, :id => "#{filter_category.name.parameterize}_#{parent_category.name.parameterize}"}
                 %td
+                  %span.fa.fa-angle-right
                   = parent_category.name
               - parent_category.children.each do |child_category|
                 %tr.page{:class =>"branch", :data => { :tt_branch => child_category.name.parameterize,  :tt_id => child_category.id, :tt_parent_id => child_category.parent_id, :tt_page_id => child_category.id}, :id => "#{filter_category.name.parameterize}_#{child_category.name.parameterize}"}

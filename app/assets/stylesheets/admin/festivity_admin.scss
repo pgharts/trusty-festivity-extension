@@ -15,6 +15,14 @@ table.category-table {
   border: none;
   margin-top: auto;
   margin-bottom: auto;
+  font-size: 1em;
+}
+table.category-table tbody tr td {
+  padding-left: 0;
+}
+
+table.category-table .fa {
+  padding-left: 0;
 }
 
 .festivity-space, .list-item{
