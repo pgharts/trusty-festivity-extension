@@ -1,11 +1,20 @@
 function updateCategoryTypeList(html) {
   $("#festivity-types-list").replaceWith(html);
+  attachPopupEvents();
   attachListEvents();
+  attachCategoryEvents(null);
 }
 
-function updateCategoryLists(html) {
+function updateCategoryLists(html, category) {
   $("#festivity-filters").replaceWith(html);
-  $('#festivity-filters li a:first').tab('show');
+  attachPopupEvents();
+  attachCategoryEvents(category);
+}
+
+function attachPopupEvents() {
+  $('button.popup').each(function(){
+    Popup.setup(this);
+  });
 }
 
 function attachListEvents() {
@@ -23,12 +32,22 @@ function attachListEvents() {
   });
 }
 
-$(function () {
-  $('button.popup').each(function(){
-    Popup.setup(this);
-  });
+function attachCategoryEvents(category) {
 
+  if(category == null) {
+    $('#festivity-filters li a:first').tab('show');
+  }
+  else {
+    $('#festivity-filters a[href="#' + category + '"]').tab('show');
+  }
+  $(".category-table").treetable();
+}
+
+$(function () {
+
+  attachPopupEvents();
   attachListEvents();
+  attachCategoryEvents(null);
 
   $('#add_type_button').click(function(e){
     e.preventDefault();
@@ -65,7 +84,7 @@ $(function () {
         parent_id: $("#" + category + "_parent_id").val()
       },
       success: function(data, textStatus, jqXHR){
-        updateCategoryLists(data);
+        updateCategoryLists(data, category);
         Popup.close();
         $("#" + category + "_name_field").val("");
         $("#category-type-error").html("");
@@ -77,7 +96,5 @@ $(function () {
 
   });
 
-  $('#festivity-filters li a:first').tab('show');
-  $(".category-table").treetable();
 
 });
