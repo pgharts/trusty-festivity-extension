@@ -1,10 +1,23 @@
-#festivity-types-list.festivity-list
-  - category_types.each do |type|
-    .list-item
-      .left
-        = "#{type.name} "
-        %span.subtext
-          = "(#{Object.const_get(type.page_class).display_name})"
-      .right
-        %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, type])}", id: "festivity-type-#{type.id}"}
-          Delete
+#festivity-category-types.festivity-full
+  .festivity-third.left
+    %h4
+      Filter Categories
+    #festivity-types-list.festivity-list
+      - category_types.each do |type|
+        .list-item
+          .left
+            = "#{type.name} "
+            %span.subtext
+              = "(#{Object.const_get(type.page_class).display_name})"
+          .right
+            %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, type])}", id: "festivity-type-#{type.id}"}
+              Delete
+    .right
+      %button{type: "button", id: "add-cat-type", href: "#add_category_type_popup",
+          class: "popup btn btn-default btn-sm cat-type-btn",
+          aria: {label: "Left Align"}, data: {toggle: "modal", target: "#add-category-type-form"}}
+        %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
+        &nbsp;
+        Add Category
+  .festivity-third.right
+    = render partial: 'admin/sites/partials/filters', :locals => { :category_types => category_types}

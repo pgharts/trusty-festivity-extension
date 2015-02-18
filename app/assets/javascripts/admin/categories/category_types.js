@@ -1,5 +1,5 @@
 function updateCategoryTypeList(html) {
-  $("#festivity-types-list").replaceWith(html);
+  $("#festivity-category-types").replaceWith(html);
   attachPopupEvents();
   attachListEvents();
   attachCategoryEvents(null);

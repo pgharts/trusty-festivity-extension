@@ -3,20 +3,5 @@
   %h4
     %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
     Category Setup
-
-#festivity-category-types.festivity-full
-  .festivity-third.left
-    %h4
-      Filter Categories
-    = render partial: 'admin/sites/partials/category_types', :locals => { :category_types => @site.festivity_active_category_types}
-    .right
-      %button{type: "button", id: "add-cat-type", href: "#add_category_type_popup",
-          class: "popup btn btn-default btn-sm cat-type-btn",
-          aria: {label: "Left Align"}, data: {toggle: "modal", target: "#add-category-type-form"}}
-        %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
-        &nbsp;
-        Add Category
-  .festivity-third.right
-    = render partial: 'admin/sites/partials/filters', :locals => { :category_types => @site.festivity_active_category_types}
-
+= render partial: 'admin/sites/partials/category_types', :locals => { :category_types => @site.festivity_active_category_types}
 = render partial: 'admin/sites/partials/category_popups'
