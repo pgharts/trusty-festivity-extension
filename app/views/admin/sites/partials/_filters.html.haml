@@ -8,9 +8,20 @@
     - category_types.each do |filter_category|
       %div{role: "tabpanel", class:"tab-pane", id: filter_category.name.parameterize}
         .festivity-space
-        %button{type: "button", id: "add-#{filter_category.name.parameterize}", href: "#add_#{filter_category.name.parameterize}_popup",
-          class: "popup right btn btn-default btn-sm filter-btn",
-          aria: {label: "Left Align"}, data: {toggle: "modal", target: "#add-filter-form"}}
-          %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
-          &nbsp;
-          = "Add #{filter_category.name}"
+        .festivity-full
+          %button{type: "button", id: "add-#{filter_category.name.parameterize}", href: "#add_#{filter_category.name.parameterize}_popup",
+            class: "popup right btn btn-default btn-sm filter-btn",
+            aria: {label: "Left Align"}, data: {toggle: "modal", target: "#add-filter-form"}}
+            %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
+            &nbsp;
+            = "Add #{filter_category.name}"
+        .festivity-full
+          %table{:id => "#{filter_category.name.parameterize}-table", :class => " index category-table"}
+            - filter_category.parent_categories.each do |parent_category|
+              %tr.page{:class =>"branch", :data => { :tt_branch => parent_category.name.parameterize,  :tt_id => parent_category.id, :tt_parent_id => parent_category.parent_id, :tt_page_id => parent_category.id}, :id => "#{filter_category.name.parameterize}_#{parent_category.name.parameterize}"}
+                %td
+                  = parent_category.name
+              - parent_category.children.each do |child_category|
+                %tr.page{:class =>"branch", :data => { :tt_branch => child_category.name.parameterize,  :tt_id => child_category.id, :tt_parent_id => child_category.parent_id, :tt_page_id => child_category.id}, :id => "#{filter_category.name.parameterize}_#{child_category.name.parameterize}"}
+                  %td
+                    = child_category.name

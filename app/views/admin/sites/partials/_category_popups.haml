@@ -40,7 +40,7 @@
         %p
           %label{:for => "#{type_id}_parent_id"}
             = "Parent #{type_name}"
-          = f.select(:parent_id, options_from_collection_for_select(category_type.festivity_categories, "id", "name"), {:id => "#{type_id}_parent_id", :class => "textbox big"})
+          = f.select(:parent_id, options_from_collection_for_select(category_type.parent_categories, "id", "name"), {:include_blank => true}, {:id => "#{type_id}_parent_id", :class => "textbox big"})
         .buttons
           = submit_tag "Add #{type_name}", :id => "add_#{type_id}_button", :class => "button", :data => {:role => "add_category", :category => "#{type_id}", :form => "new_#{type_id}"}
           = t('or')

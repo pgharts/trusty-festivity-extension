@@ -78,5 +78,6 @@ $(function () {
   });
 
   $('#festivity-filters li a:first').tab('show');
+  $(".category-table").treetable();
 
 });
