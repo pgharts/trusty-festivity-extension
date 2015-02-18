@@ -11,6 +11,12 @@ $icon-font-path: "/assets/bootstrap/";
   font-size: .8em;
 }
 
+table.category-table {
+  border: none;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .festivity-space, .list-item{
   @include festivity-div;
   padding: .5em 0em;
@@ -27,7 +33,7 @@ $icon-font-path: "/assets/bootstrap/";
   color: #2e2e2e;
 }
 
-.list-item {
+.list-item{
   clear: both;
   border-bottom: 2px solid #ddd;
   padding: .5em .5em;
