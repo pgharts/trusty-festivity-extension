@@ -10,9 +10,9 @@ class Admin::FestivityCategoryTypesController  < Admin::ResourceController
 
   def create
     site = Site.find(params[:site_id])
-
-    if site.festivity_category_types.new(name: params[:name], page_class: params[:page_class]).save
-      render partial: 'admin/sites/partials/category_types', :locals => { :category_types => site.festivity_active_category_types}
+    new_category_type = site.festivity_category_types.new(name: params[:name], page_class: params[:page_class])
+    if new_category_type.save
+      render partial: 'admin/sites/partials/new_category_type', :locals => { :new_category_type => new_category_type, :category_types => site.festivity_active_category_types}
     else
       render status: :conflict, text: "Category Type name must be unique."
     end

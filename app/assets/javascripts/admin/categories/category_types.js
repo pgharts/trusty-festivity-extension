@@ -1,5 +1,8 @@
 function updateCategoryTypeList(html) {
+  popupHtml = $(html).siblings(".new-category-popup").html();
+  $(html).siblings(".new-category-popup").remove();
   $("#festivity-category-types").replaceWith(html);
+  $("#popups").append(popupHtml);
   attachPopupEvents();
   attachListEvents();
   attachCategoryEvents(null);

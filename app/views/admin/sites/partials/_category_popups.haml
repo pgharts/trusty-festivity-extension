@@ -24,24 +24,4 @@
         = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
 
   - @site.festivity_active_category_types.each do |category_type|
-    - type_name = category_type.name
-    - type_id = type_name.parameterize
-    %div{id: "add_#{type_id}_popup", class: "popup", :style => "display: none"}
-      %div{id: "add_#{type_id}_busy", class: "busy", :style => "display: none"}= image('spinner.gif', :alt => "")
-      .popup_title
-        = "Add #{type_name}"
-      = form_for [:admin, FestivityCategory.new], :html => { :id => "new_#{type_id}" } do |f|
-        %p
-          %span#category-error.festivity-error
-          %label{:for => "#{type_id}_name_field"}
-            = type_name
-          = f.text_field :name, :id => "#{type_id}_name_field", :maxlength => 100, :style => "width: 15em", :class => "textbox big"
-          = hidden_field_tag "#{type_id}_type_id", category_type.id
-        %p
-          %label{:for => "#{type_id}_parent_id"}
-            = "Parent #{type_name}"
-          = f.select(:parent_id, options_from_collection_for_select(category_type.parent_categories, "id", "name"), {:include_blank => true}, {:id => "#{type_id}_parent_id", :class => "textbox big"})
-        .buttons
-          = submit_tag "Add #{type_name}", :id => "add_#{type_id}_button", :class => "button", :data => {:role => "add_category", :category => "#{type_id}", :form => "new_#{type_id}"}
-          = t('or')
-          = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
+    = render partial: "admin/sites/partials/category_popup", :locals => { category_type: category_type, type_name: category_type.name, type_id: category_type.name.parameterize}
