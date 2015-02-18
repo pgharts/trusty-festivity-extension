@@ -12,7 +12,7 @@ class Admin::FestivityCategoriesController  < Admin::ResourceController
     category_type = FestivityCategoryType.find(params[:category_type_id])
 
     if category_type.festivity_categories.new(name: params[:name], parent_id: params[:parent_id]).save
-      render partial: 'admin/sites/partials/filters', :locals => { :category_types => category_type.site.festivity_active_category_types}
+      render partial: 'admin/sites/partials/new_category', :locals => { :category_type => category_type, :category_types => category_type.site.festivity_active_category_types}
     else
       render status: :conflict, text: "#{category_type.name} must be unique."
     end

@@ -9,7 +9,10 @@ function updateCategoryTypeList(html) {
 }
 
 function updateCategoryLists(html, category) {
+  popupHtml = $(html).siblings(".new-category-popup").html();
+  $(html).siblings(".new-category-popup").remove();
   $("#festivity-filters").replaceWith(html);
+  $("#add_" + category + "_popup").replaceWith(popupHtml);
   attachPopupEvents();
   attachCategoryEvents(category);
 }

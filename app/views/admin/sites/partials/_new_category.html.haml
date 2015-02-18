@@ -1,0 +1,3 @@
+= render partial: 'admin/sites/partials/filters', :locals => { category_types: category_types}
+.new-category-popup
+  = render partial: "admin/sites/partials/category_popup", :locals => { category_type: category_type, type_name: category_type.name, type_id: category_type.name.parameterize}
