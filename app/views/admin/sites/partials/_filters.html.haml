@@ -15,10 +15,17 @@
                 %td
                   %span.fa.fa-angle-right
                   = parent_category.name
+                  .right
+                    %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, parent_category])}", id: "festivity-category-#{parent_category.id}"}
+                      Delete
               - parent_category.children.each do |child_category|
                 %tr.page{:class =>"branch", :data => { :tt_branch => child_category.name.parameterize,  :tt_id => child_category.id, :tt_parent_id => child_category.parent_id, :tt_page_id => child_category.id}, :id => "#{filter_category.name.parameterize}_#{child_category.name.parameterize}"}
                   %td
+                    %span.fa.fa-angle-right
                     = child_category.name
+                    .right
+                      %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, child_category])}", id: "festivity-type-#{child_category.id}"}
+                        Delete
 
         .festivity-space
         .festivity-full
