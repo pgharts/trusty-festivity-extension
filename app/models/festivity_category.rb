@@ -8,7 +8,7 @@ class FestivityCategory < ActiveRecord::Base
   end
 
   def children
-    FestivityCategory.where(parent_id: self.id)
+    FestivityCategory.where(parent_id: self.id, inactive: false)
   end
 
 end

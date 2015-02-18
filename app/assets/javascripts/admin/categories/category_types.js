@@ -12,7 +12,9 @@ function updateCategoryLists(html, category) {
   popupHtml = $(html).siblings(".new-category-popup").html();
   $(html).siblings(".new-category-popup").remove();
   $("#festivity-filters").replaceWith(html);
-  $("#add_" + category + "_popup").replaceWith(popupHtml);
+  if(popupHtml != undefined) {
+    $("#add_" + category + "_popup").replaceWith(popupHtml);
+  }
   attachPopupEvents();
   attachCategoryEvents(category);
 }
@@ -63,6 +65,22 @@ function attachCategoryEvents(category) {
     });
 
   });
+
+  $('a.festivity-delete-category').unbind("click");
+  $('a.festivity-delete-category').click(function(e){
+    e.preventDefault();
+    var category =  $(this).attr('data-category');
+    if (confirm("Are you sure you want to delete this Category?")){
+      $.ajax({
+        url: $(this).attr('href'),
+        type: "DELETE",
+        success: function(data, textStatus, jqXHR) {
+          updateCategoryLists(data, category);
+        }
+      });
+    }
+  });
+
   if(category == null) {
     $('#festivity-filters li a:first').tab('show');
   }
