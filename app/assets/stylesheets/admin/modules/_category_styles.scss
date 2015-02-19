@@ -1,5 +1,13 @@
 @import "list_styles";
 
+.nav-tabs li {
+  margin-top: .5em;
+}
+.nav-tabs li a {
+  background-color: $light-background;
+  color: $list-text-color;
+}
+
 table.category-table {
   border: none;
   margin-top: auto;
