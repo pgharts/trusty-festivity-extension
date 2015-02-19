@@ -1,26 +1,26 @@
 = stylesheet_link_tag 'admin/festivity_admin'
 = javascript_include_tag 'admin/festivity_admin'
 
-.festivity-space
-.festivity-title
+.festivity-div.festivity-space
+.festivity-div.festivity-title
   %h4
     %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
     Festival Setup
 %p.festivity-full
   %label{for: "site_festivity_festival_name"}
     Festival Name
-  = self.text_field( :site, :festivity_festival_name, class: "textbox")
+  = self.text_field( :site, :festivity_festival_name, class: "textbox festivity-control")
 %p.festivity-third
   %label{for: "site_festivity_start_date"}
     Start Date
-  = self.text_field :site, :festivity_start_date, :class=> "textbox date", :type=>"date", :value => (@site.festivity_start_date ? I18n.localize(@site.festivity_start_date.to_date, :format =>:default) : nil)
+  = self.text_field :site, :festivity_start_date, :class=> "textbox date festivity-control", :type=>"date", :value => (@site.festivity_start_date ? I18n.localize(@site.festivity_start_date.to_date, :format =>:default) : nil)
 %p.festivity-third
   %label{for: "site_festivity_end_date"}
     End Date
-  = self.text_field :site, :festivity_end_date, :class=> "textbox date", :type=>"date", :value => (@site.festivity_end_date ? I18n.localize(@site.festivity_end_date.to_date, :format =>:default) : nil)
+  = self.text_field :site, :festivity_end_date, :class=> "textbox date festivity-control", :type=>"date", :value => (@site.festivity_end_date ? I18n.localize(@site.festivity_end_date.to_date, :format =>:default) : nil)
 %p.festivity-third
   %label{for: "site_festivity_google_api_key"}
     Google Search API Key
-  = self.text_field(:site, :festivity_google_api_key, class: "textbox")
+  = self.text_field(:site, :festivity_google_api_key, class: "textbox festivity-control")
 
 = render partial: 'admin/sites/partials/category_section'

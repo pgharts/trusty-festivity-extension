@@ -2,12 +2,12 @@
   .festivity-third.left
     %h4
       Filter Categories
-    #festivity-types-list.festivity-list
+    #festivity-types-list.festivity-list.festivity-div
       - category_types.each do |type|
-        .list-item
+        .festivity-div.list-item
           .left
             = "#{type.name} "
-            %span.subtext
+            %span
               = "(#{Object.const_get(type.page_class).display_name})"
           .right
             %a.festivity-type.fa.fa-minus-circle{href: "#{url_for([:admin, type])}", id: "festivity-type-#{type.id}"}

@@ -8,7 +8,7 @@
     - category_types.each do |filter_category|
       %div{role: "tabpanel", class:"tab-pane", id: filter_category.name.parameterize}
         .festivity-space
-        .festivity-full.festivity-list
+        .festivity-full.festivity-list.festivity-div
           %table{:id => "#{filter_category.name.parameterize}-table", :class => "index category-table"}
             - filter_category.parent_categories.each do |parent_category|
               %tr.page{:class =>"branch", :data => { :tt_branch => parent_category.name.parameterize,  :tt_id => parent_category.id, :tt_parent_id => parent_category.parent_id, :tt_page_id => parent_category.id}, :id => "#{filter_category.name.parameterize}_#{parent_category.name.parameterize}"}
