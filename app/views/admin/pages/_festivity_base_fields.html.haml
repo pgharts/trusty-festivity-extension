@@ -48,4 +48,16 @@
       Home Page
     = self.text_field(:page, :artist_homepage, class: "textbox festivity-control")
 
-    .festivity-space
+  .festivity-div.festivity-title
+    %h4
+      %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
+      Performances
+
+
+  .festivity-div.festivity-title
+    %h4
+      %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
+      Categories
+  = render partial: 'admin/pages/partials/categories', locals: { :category_types => @page.organization.festivity_active_category_types}
+
+  .festivity-space
