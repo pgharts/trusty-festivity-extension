@@ -1,5 +1,5 @@
 @mixin festivity-form-section {
-  margin: 0 1em 0 0;
+  margin: 1em 0;
   overflow: hidden;
 }
 
@@ -21,13 +21,15 @@
   color: red;
 }
 
-.festivity-full {
+.festivity-full, .festivity-third {
   @include festivity-form-section;
+}
+
+.festivity-full {
   width: 100%;
 }
 
 .festivity-third {
-  @include festivity-form-section;
   width: 40%;
 }
 

@@ -1,13 +1,51 @@
-- if @page.is_a?(FestivityBasePage)
+- if @page.is_a?(FestivityBasePage) && @page.id
   = stylesheet_link_tag 'admin/festivity_admin'
   = javascript_include_tag 'admin/festivity_admin'
 
-  .festivity-title
+  .festivity-div.festivity-title
     %h4
+      %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
       Event Setup
-  %p
-    %label{for: "event_something"}
-      Event Something
-    %input.textbox{type: "text", id: "event_something", name: "page[something]"}
+  %p.festivity-full
+    %label{for: "page_short_description"}
+      Short Description
+    = self.text_area( :page, :short_description, class: "textbox festivity-control", rows: 4)
+  %p.festivity-third
+    %label{for: "page_header"}
+      Header
+    = self.text_field( :page, :header, class: "textbox festivity-control")
+  %p.festivity-third
+    %label{for: "page_sub_header"}
+      Subheader
+    = self.text_field( :page, :sub_header, class: "textbox festivity-control")
+  %p.festivity-third
+    %label{for: "page_featured_item"}
+      Featured
+    = self.check_box( :page, :featured_item, class: "textbox festivity-control")
+  %p.festivity-third
+    %label{for: "page_buy_url"}
+      Buy Tickets URL
+    = self.text_field( :page, :buy_url, class: "textbox festivity-control")
 
-  .festivity-space
+  .festivity-div.festivity-title
+    %h4
+      %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
+      Artist Info
+  %p.festivity-third
+    %label{for: "page_artist_twitter"}
+      Twitter
+    = self.text_field(:page, :artist_twitter, class: "textbox festivity-control")
+  %p.festivity-third
+    %label{for: "page_artist_facebook"}
+    Facebook
+    = self.text_field(:page, :artist_facebook, class: "textbox festivity-control")
+  %p.festivity-third
+    %label{for: "page_artist_instagram"}
+      Instagram
+    = self.text_field(:page, :artist_instagram, class: "textbox festivity-control")
+  %p.festivity-third
+    %label{for: "page_artist_homepage"}
+      Home Page
+    = self.text_field(:page, :artist_homepage, class: "textbox festivity-control")
+
+    .festivity-space
