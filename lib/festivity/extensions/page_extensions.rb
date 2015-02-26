@@ -16,7 +16,7 @@ module Festivity
       module PageMethods
 
         def image
-          image_url('subnav_image')
+          image_url('featured_image')
         end
 
         def organization
