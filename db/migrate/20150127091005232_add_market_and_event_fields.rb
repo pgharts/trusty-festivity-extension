@@ -1,8 +1,5 @@
 class AddMarketAndEventFields < ActiveRecord::Migration
   def up
-    # page parts sponsor_area, video, description
-    # fields
-    # media(linking table?)
 
     # Event Fields
     add_column :pages, :featured_item, :boolean

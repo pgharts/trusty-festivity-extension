@@ -1,11 +1,5 @@
 class AddBaseEventFields < ActiveRecord::Migration
   def up
-    # page parts sponsor_area, video, description
-    # fields
-    # genres(linking table?), featured_image, age_group(how to handle?)
-    # TEST SORTING EARLY
-    # performances
-
 
     add_column :pages, :short_description, :string
     add_column :pages, :artist_twitter, :string
