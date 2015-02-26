@@ -13,3 +13,11 @@ Events:
   breadcrumb: Events
   status_id: 100
   class_name: Page
+
+Location Areas:
+  title: Location Areas
+  slug: areas
+  parent: /
+  breadcrumb: Location Areas
+  status_id: 100
+  class_name: Page

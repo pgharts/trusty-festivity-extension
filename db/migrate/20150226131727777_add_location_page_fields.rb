@@ -5,7 +5,7 @@ class AddLocationPageFields < ActiveRecord::Migration
     add_column :pages, :festivity_city, :string
     add_column :pages, :festivity_state, :string
     add_column :pages, :festivity_zip, :string
-    add_column :pages, :festivity_directions_link, :string
+    add_column :pages, :festivity_directions_url, :string
   end
 
   def down
@@ -14,6 +14,6 @@ class AddLocationPageFields < ActiveRecord::Migration
     remove_column :pages, :festivity_city
     remove_column :pages, :festivity_state
     remove_column :pages, :festivity_zip
-    remove_column :pages, :festivity_directions_link
+    remove_column :pages, :festivity_directions_url
   end
 end
