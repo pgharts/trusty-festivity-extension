@@ -11,6 +11,7 @@ class FestivityExtension < TrustyCms::Extension
     admin.page.edit.add(:form, "festivity_base_fields", :after => 'edit_page_parts')
     admin.site.edit.add(:form, "festivity_site_fields", :after => 'edit_homepage')
 
+    Admin::AssetsController.send :include, Festivity::Extensions::PaperclippedExtensions
     Site.send :include, Festivity::Extensions::SiteExtensions
     Page.send :include, Festivity::Extensions::PageExtensions
   end

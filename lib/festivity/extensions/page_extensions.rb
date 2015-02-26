@@ -7,11 +7,17 @@ module Festivity
           has_many :festivity_category_types
           has_many :festivity_page_categories
           has_many :festivity_categories, through: :festivity_page_categories
+
           include Festivity::Extensions::PageExtensions::PageMethods
+          include Festivity::Admin::AssetsHelper
         }
       end
 
       module PageMethods
+
+        def image
+          image_url('subnav_image')
+        end
 
         def organization
           page_organization = nil
