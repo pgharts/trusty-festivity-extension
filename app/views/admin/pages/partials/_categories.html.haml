@@ -11,14 +11,8 @@
         .festivity-full.festivity-list.festivity-div
           %table{:id => "#{filter_category.name.parameterize}-table", :class => "index category-table"}
             - filter_category.parent_categories.each do |parent_category|
-              %tr.page{:class =>"branch", :data => { :tt_branch => parent_category.name.parameterize,  :tt_id => parent_category.id, :tt_parent_id => parent_category.parent_id, :tt_page_id => parent_category.id}, :id => "#{filter_category.name.parameterize}_#{parent_category.name.parameterize}"}
-                %td
-                  = check_box_tag "page[festivity_category_ids][]", parent_category.id, @page.festivity_category_ids.include?(parent_category.id), id: dom_id(parent_category)
-                  = label_tag dom_id(parent_category), parent_category.name
+              = render partial: "admin/pages/partials/category", locals: {category: parent_category, filter_category: filter_category}
               - parent_category.children.each do |child_category|
-                %tr.page{:class =>"branch", :data => { :tt_branch => child_category.name.parameterize,  :tt_id => child_category.id, :tt_parent_id => child_category.parent_id, :tt_page_id => child_category.id}, :id => "#{filter_category.name.parameterize}_#{child_category.name.parameterize}"}
-                  %td
-                    = check_box_tag "page[festivity_category_ids][]", child_category.id, @page.festivity_category_ids.include?(child_category.id), id: dom_id(child_category)
-                    = label_tag dom_id(child_category), child_category.name
+                = render partial: "admin/pages/partials/category", locals: {category: child_category, filter_category: filter_category}
 
         .festivity-space

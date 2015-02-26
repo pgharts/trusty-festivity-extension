@@ -1,0 +1,7 @@
+%tr.page{:class =>"branch", :data => { :tt_branch => category.name.parameterize,  :tt_id => category.id, :tt_parent_id => category.parent_id, :tt_page_id => category.id}, :id => "#{filter_category.name.parameterize}_#{category.name.parameterize}"}
+  %td
+    %span.fa.fa-angle-right
+    = category.name
+    .right
+      %a.festivity-delete-category.fa.fa-minus-circle{href: "#{url_for([:admin, category])}", id: "festivity-category-#{category.id}", data: { category:filter_category.name.parameterize}}
+        Delete

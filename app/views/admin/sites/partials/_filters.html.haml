@@ -11,21 +11,9 @@
         .festivity-full.festivity-list.festivity-div
           %table{:id => "#{filter_category.name.parameterize}-table", :class => "index category-table"}
             - filter_category.parent_categories.each do |parent_category|
-              %tr.page{:class =>"branch", :data => { :tt_branch => parent_category.name.parameterize,  :tt_id => parent_category.id, :tt_parent_id => parent_category.parent_id, :tt_page_id => parent_category.id}, :id => "#{filter_category.name.parameterize}_#{parent_category.name.parameterize}"}
-                %td
-                  %span.fa.fa-angle-right
-                  = parent_category.name
-                  .right
-                    %a.festivity-delete-category.fa.fa-minus-circle{href: "#{url_for([:admin, parent_category])}", id: "festivity-category-#{parent_category.id}", data: { category:filter_category.name.parameterize}}
-                      Delete
+              = render partial: "admin/sites/partials/category", locals: {category: parent_category, filter_category: filter_category}
               - parent_category.children.each do |child_category|
-                %tr.page{:class =>"branch", :data => { :tt_branch => child_category.name.parameterize,  :tt_id => child_category.id, :tt_parent_id => child_category.parent_id, :tt_page_id => child_category.id}, :id => "#{filter_category.name.parameterize}_#{child_category.name.parameterize}"}
-                  %td
-                    %span.fa.fa-angle-right
-                    = child_category.name
-                    .right
-                      %a.festivity-delete-category.fa.fa-minus-circle{href: "#{url_for([:admin, child_category])}", id: "festivity-type-#{child_category.id}", data: { category: filter_category.name.parameterize}}
-                        Delete
+                = render partial: "admin/sites/partials/category", locals: {category: child_category, filter_category: filter_category}
 
         .festivity-space
         .festivity-full

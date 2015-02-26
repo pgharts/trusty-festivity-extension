@@ -1,0 +1,4 @@
+%tr.page{:class =>"branch", :data => { :tt_branch => category.name.parameterize,  :tt_id => category.id, :tt_parent_id => category.parent_id, :tt_page_id => category.id}, :id => "#{filter_category.name.parameterize}_#{category.name.parameterize}"}
+  %td
+    = check_box_tag "page[festivity_category_ids][]", category.id, @page.festivity_category_ids.include?(category.id), id: dom_id(category)
+    = label_tag dom_id(category), category.name
