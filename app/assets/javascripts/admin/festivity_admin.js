@@ -4,6 +4,7 @@
 //= require ../lodash.min
 //= require ../bootstrap.min
 //= require ../bootstrap/tab
+//= require ../ajaxupload.js
 //= require ../festivity.js
 
 // Site javascript
@@ -11,7 +12,9 @@
 //= require ./sites/categories.js
 
 // Page javascript
+//= require ./pages/ajax_image_uploader.js
 
 
 // Event binding scripts
-//=require ./sites/site_bindings.js
+//= require ./sites/site_bindings.js
+//= require ./pages/page_bindings.js

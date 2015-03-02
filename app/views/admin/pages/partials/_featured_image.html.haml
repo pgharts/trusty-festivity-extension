@@ -8,6 +8,7 @@
     #featured_image_icons
       - if @page.image
         %img{:src => "#{@page.image}", :alt=>""}
+  .festivity-space
   %input{:type => "submit", :id => "featured_image_upload", :value => "Upload Featured Image"}
 
   %input{:type=>'hidden', :id=> "async_create_asset_path", :value=>"#{admin_async_create_asset_path}"}

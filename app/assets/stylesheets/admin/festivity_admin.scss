@@ -15,6 +15,10 @@ $icon-font-path: "/assets/bootstrap/";
   @include rounded-box;
 }
 
+.image_icons img {
+  max-width: 200px;
+}
+
 .left {
   float: left;
 }
