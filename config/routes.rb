@@ -4,5 +4,6 @@ TrustyCms::Application.routes.draw do
 
     resources :festivity_category_types
     resources :festivity_categories
+    resources :festivity_performances
   end
 end

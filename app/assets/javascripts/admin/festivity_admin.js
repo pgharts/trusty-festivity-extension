@@ -14,6 +14,7 @@
 
 // Page javascript
 //= require ./pages/ajax_image_uploader.js
+//= require ./pages/performances.js
 
 
 // Event binding scripts

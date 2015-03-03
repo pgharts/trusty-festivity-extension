@@ -11,3 +11,11 @@
         Notes
     - performances.each do |performance|
       = render partial: "admin/pages/partials/performance", locals: {performance: performance}
+.right
+  %button{type: "button", id: "add-performance", href: "#{admin_festivity_performances_path}",
+      class: "btn btn-default btn-sm cat-type-btn",
+      aria: {label: "Left Align"}, data: {id: @page.id}}
+    %span{class: "fa fa-plus-square fa-lg", aria: {hidden: "true"}}
+    &nbsp;
+    Add Performance
+.festivity-space
