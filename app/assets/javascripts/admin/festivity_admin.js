@@ -4,6 +4,7 @@
 //= require ../lodash.min
 //= require ../bootstrap.min
 //= require ../bootstrap/tab
+//= require ../jquery.inputmask.bundle.min
 //= require ../ajaxupload.js
 //= require ../festivity.js
 
