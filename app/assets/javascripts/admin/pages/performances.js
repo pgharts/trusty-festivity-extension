@@ -25,7 +25,7 @@ Festivity.Performances = {
   },
 
   updatePerformancesTable: function(data) {
-
+    $("#festivity-performances-table").append(data);
   }
 
 };
