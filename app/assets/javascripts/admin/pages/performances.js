@@ -8,6 +8,7 @@ Festivity.Performances = {
       e.preventDefault();
       Festivity.Performances.addPerformance($(this).attr('href'), $(this).attr('data-id'));
     });
+    $(".date_field").inputmask("festivitydatetime12");
   },
 
   addPerformance: function(url, event_page_id){
@@ -18,9 +19,13 @@ Festivity.Performances = {
         event_page_id: event_page_id
       },
       success: function(data, textStatus, jqXHR) {
-        //Festivity.CategoryTypes.updateCategoryTypeList(data);
+        Festivity.Performances.updatePerformancesTable(data);
       }
     });
+  },
+
+  updatePerformancesTable: function(data) {
+
   }
 
 };

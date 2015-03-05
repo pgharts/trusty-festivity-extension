@@ -1,9 +1,10 @@
 %tr
   %td
-    Start Date
+    = hidden_field_tag "page[performances][][performance_id]", performance.id, id: "performance_#{performance.id}_id"
+    = text_field_tag "page[performances][][start_date]", performance.start_date, id: "performance_#{performance.id}_start_date", class: "date_field"
   %td
-    End Date
+    = text_field_tag "page[performances][][end_date]", performance.end_date, id: "performance_#{performance.id}_end_date", class: "date_field"
   %td
     Location
   %td
-    Notes
+    = text_field_tag "page[performances][][notes]", performance.notes, id: "performance_#{performance.id}_notes"
