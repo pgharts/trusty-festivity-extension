@@ -8,8 +8,4 @@ module Festivity::Extensions::PagesHelperExtensions
     end
   end
 
-  module HelperMethods
-
-  end
-
 end
