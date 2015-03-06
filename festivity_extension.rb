@@ -15,6 +15,7 @@ class FestivityExtension < TrustyCms::Extension
     Admin::AssetsController.send :include, Festivity::Extensions::PaperclippedExtensions
     Site.send :include, Festivity::Extensions::SiteExtensions
     Page.send :include, Festivity::Extensions::PageExtensions
+    Admin::PagesHelper.send :include, Festivity::Extensions::PagesHelperExtensions
   end
 
 end

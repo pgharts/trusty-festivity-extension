@@ -1,9 +1,9 @@
 %tr
   %td
     = hidden_field_tag "page[festivity_performances][][performance_id]", performance.id, id: "performance_#{performance.id}_id"
-    = text_field_tag "page[festivity_performances][][start_date]", performance.start_date, id: "performance_#{performance.id}_start_date", class: "date_field"
+    = text_field_tag "page[festivity_performances][][start_date]", format_date(performance.start_date), id: "performance_#{performance.id}_start_date", class: "date_field"
   %td
-    = text_field_tag "page[festivity_performances][][end_date]", performance.end_date, id: "performance_#{performance.id}_end_date", class: "date_field"
+    = text_field_tag "page[festivity_performances][][end_date]", format_date(performance.end_date), id: "performance_#{performance.id}_end_date", class: "date_field"
   %td
     Location
   %td
