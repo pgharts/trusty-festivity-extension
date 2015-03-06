@@ -6,7 +6,6 @@ class FestivityEventPage < FestivityBasePage
       performance_id = performance.delete(:performance_id)
       FestivityPerformance.find(performance_id).update_attributes(performance)
     end
-
   end
 
 end

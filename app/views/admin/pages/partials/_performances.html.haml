@@ -1,3 +1,4 @@
+- locations = FestivityLocationPage.all
 .festivity-full.festivity-list.festivity-div
   %table{:id => "festivity-performances-table", :class => "index performances-table"}
     %tr
@@ -10,7 +11,7 @@
       %th
         Notes
     - performances.each do |performance|
-      = render partial: "admin/pages/partials/performance", locals: {performance: performance}
+      = render partial: "admin/pages/partials/performance", locals: {performance: performance, locations: locations}
 .right
   %button{type: "button", id: "add-performance", href: "#{admin_festivity_performances_path}",
       class: "btn btn-default btn-sm cat-type-btn",

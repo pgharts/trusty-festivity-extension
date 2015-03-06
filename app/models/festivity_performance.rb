@@ -11,6 +11,10 @@ class FestivityPerformance < ActiveRecord::Base
     super(parse_date(date))
   end
 
+  def festivity_location_page=(location)
+    super(FestivityLocationPage.find(location[:id])) unless location[:id].blank?
+  end
+
   private
 
   def parse_date(date)
