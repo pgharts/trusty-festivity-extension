@@ -1,3 +1,3 @@
-class FestivityLocationAreaPage < FestivityBasePage
+class FestivityLocationAreaPage < Page
 
 end
