@@ -1,0 +1,17 @@
+.location-landing-page-header {
+  background-color: $ghost-gray;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-bottom: 4em;
+  padding: 30px;
+}
+
+.dollar-bank-stage-header {
+  @media #{$medium-up} {
+    background-image: image_url("dollar-bank-stage-photo.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+  }
+}

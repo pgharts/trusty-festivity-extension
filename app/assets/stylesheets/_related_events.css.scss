@@ -1,0 +1,20 @@
+.related-events {
+  border-top: 1px solid $ghost-gray;
+  margin-top: 5rem;
+  .related-events__header {
+    padding: 4rem 0;
+  }
+  .related-events__event {
+    padding-bottom: 4rem;
+    @media #{$small-up} {
+      padding-bottom: 0rem;
+    }
+    .photo {
+      height: 200px;
+      overflow: hidden;
+    }
+    h3, h4 {
+      line-height: 1.5;
+    }
+  }
+}

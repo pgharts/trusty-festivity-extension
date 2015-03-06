@@ -1,0 +1,18 @@
+footer {
+  margin-top: 7.5rem;
+  padding: 7.5rem 0;
+  background-color: lighten($middle-gray, 38);
+  .footer-navigation-header {
+    font-weight: 700;
+  }
+  li {
+    padding: 1rem 0 1rem 0;
+    border-bottom: 1px solid darken($ghost-gray, 5);
+  }
+  .copyright {
+    padding-top: 3rem;
+    text-align: center;
+    font-size: .75em;
+  }
+}
+

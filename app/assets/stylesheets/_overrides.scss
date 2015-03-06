@@ -1,0 +1,11 @@
+// bootstrap overrides
+
+/* Column gutters are a bit to narrow for us on desktop */
+
+@media #{$small-up} {
+  *[class^="col"] {
+    /* TODO: This needs fixing */
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
