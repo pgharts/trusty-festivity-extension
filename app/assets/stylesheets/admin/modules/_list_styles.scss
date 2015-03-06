@@ -1,7 +1,11 @@
-.festivity-list {
+.festivity-list, .festivity-list table.index, .festivity-list table.index th  {
   margin: .5em 0;
   background-color: white;
   color: $list-text-color;
+}
+
+.festivity-list table.index th {
+  font-weight: bolder;
 }
 
 .list-item{
