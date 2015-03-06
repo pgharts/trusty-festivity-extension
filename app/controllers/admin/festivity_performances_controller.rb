@@ -12,8 +12,9 @@ class Admin::FestivityPerformancesController  < Admin::ResourceController
 
   def destroy
     performance = FestivityPerformance.find(params[:id])
+    page_id = performance.festivity_event_page.id
     if performance.destroy
-      render status: :ok
+      render partial: 'admin/pages/partials/performances_table', :locals => { :performances => FestivityEventPage.find(page_id).festivity_performances, :page_id => page_id, locations: FestivityLocationPage.all}
     end
   end
 

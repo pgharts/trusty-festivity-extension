@@ -8,3 +8,6 @@
     = select_tag("page[festivity_performances][][festivity_location_page][id]", options_from_collection_for_select(locations, "id", "title", performance.location_page_id), {id: "performance_#{performance.id}_location_page_id", class: "textbox big", prompt: "Select location"})
   %td
     = text_field_tag "page[festivity_performances][][notes]", performance.notes, id: "performance_#{performance.id}_notes", size: 50
+  %td
+    %a.festivity-delete-performance.fa.fa-minus-circle{href: "#{url_for([:admin, performance])}", id: "festivity-delete-performance-#{performance.id}"}
+      Delete

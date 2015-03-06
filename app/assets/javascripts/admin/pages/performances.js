@@ -9,6 +9,24 @@ Festivity.Performances = {
       Festivity.Performances.addPerformance($(this).attr('href'), $(this).attr('data-id'));
     });
     $(".date_field").inputmask("festivitydatetime12");
+
+    Festivity.Performances.bindDeleteEvents();
+
+  },
+  bindDeleteEvents: function() {
+    $('a.festivity-delete-performance').unbind('click');
+    $('a.festivity-delete-performance').click(function(e){
+      e.preventDefault();
+      if (confirm("Are you sure you want to delete this performance?")){
+        $.ajax({
+          url: $(this).attr('href'),
+          type: "DELETE",
+          success: function(data, textStatus, jqXHR) {
+            Festivity.Performances.updatePerformancesTable(data);
+          }
+        });
+      }
+    });
   },
 
   addPerformance: function(url, event_page_id){
@@ -19,13 +37,19 @@ Festivity.Performances = {
         event_page_id: event_page_id
       },
       success: function(data, textStatus, jqXHR) {
-        Festivity.Performances.updatePerformancesTable(data);
+        Festivity.Performances.addPerformanceRow(data);
       }
     });
   },
 
-  updatePerformancesTable: function(data) {
+  addPerformanceRow: function(data) {
     $("#festivity-performances-table").append(data);
+    Festivity.Performances.bindDeleteEvents();
+  },
+
+  updatePerformancesTable: function(data) {
+    $("#festivity-performances-table").replaceWith(data);
+    Festivity.Performances.bindDeleteEvents();
   }
 
 };

@@ -1,0 +1,14 @@
+%table{:id => "festivity-performances-table", :class => "index performances-table"}
+  %tr
+    %th
+      Start Date
+    %th
+      End Date
+    %th
+      Location
+    %th
+      Notes
+    %th
+      Delete
+  - performances.each do |performance|
+    = render partial: "admin/pages/partials/performance", locals: {performance: performance, locations: locations}
