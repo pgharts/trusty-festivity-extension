@@ -39,11 +39,14 @@
           %li.list-group-item.list-group-title
             %h3
               Dates/Times
-            -# - for i in e.event_dates_and_times do
-              li.list-group-item
-                strong="#{i.date}"
-                | &nbsp; - &nbsp;
-                span="#{i.time}"
+            - @event.festivity_performances.each do |perf|
+              %li.list-group-item
+                %strong
+                  = perf.start_date.strftime("%A, %B %d")
+                = "-"
+                = perf.start_date.strftime("%I:%M%p").downcase
+                = "-"
+                = perf.end_date.strftime("%I:%M%p").downcase
       .event-sidebar__connect-with-artist.sidebar-item
         %ul.list-group
           %li.list-group-item.list-group-title
