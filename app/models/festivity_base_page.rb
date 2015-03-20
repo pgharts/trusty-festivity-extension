@@ -9,7 +9,7 @@ class FestivityBasePage < Page
   end
 
   def sponsor_logo?
-    !self.part("sponsor_logo").empty?
+    !self.part("sponsor_logo").content.empty?
   end
 
   def video
@@ -17,7 +17,7 @@ class FestivityBasePage < Page
   end
 
   def video?
-    !self.part("video").empty?
+    !self.part("video").content.empty?
   end
 
 end

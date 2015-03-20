@@ -77,10 +77,11 @@
                   %i.fa.fa-external-link-square
                   %span.icon-text
                     Home Page
-      .event-sidebar__sponsor-logo
-        .sponsor-logo
-          %img.img-responsive{src: "http://www.universitysettlement.net/wp-content/uploads/2014/07/dollar-bank-logo6.jpg"}
-          .small Thanks to Our Generous Sponsors
+      -if @event.sponsor_logo?
+        .event-sidebar__sponsor-logo
+          .sponsor-logo
+            = @event.sponsor_logo
+            .small Thanks to Our Generous Sponsors
 
   .row
     .col-xs-12.event-buttons
