@@ -3,7 +3,7 @@ class FestivityLocationAreasController < ApplicationController
   trusty_layout "normal"
 
   def show
-    @area = FestivityLocationAreaPage.find_by_slug_for_site(params[:id])
+    @area = FestivityLocationAreaPage.find_by_slug_for_site(params[:id]).first
   end
 
 end

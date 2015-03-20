@@ -17,17 +17,6 @@ module Festivity
           include Festivity::Admin::AssetsHelper
         }
 
-        base.extend(ClassMethods)
-
-      end
-
-      module ClassMethods
-
-        def find_by_slug_for_site(slug)
-          self.where(slug: slug, site_id: Page.current_site.id)
-
-        end
-
       end
 
       module PageMethods

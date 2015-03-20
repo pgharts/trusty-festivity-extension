@@ -28,10 +28,10 @@
             - if @event.locations.count == 1
               - event_location = @event.locations.first
               =link_to location_path(id: event_location.slug) do
-                = @event.locations.first.title
+                = event_location.title
               |  @&nbsp;
-              =link_to "locations/#{@event.title}.html" do
-                e.event_location
+              =link_to area_path(id: event_location.parent.slug) do
+                = event_location.parent.title
             -else
               Multiple Locations
       .event-sidebar__dates-and-times.sidebar-item
