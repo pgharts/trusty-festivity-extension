@@ -48,25 +48,35 @@
                 = "-"
                 = perf.end_date.strftime("%I:%M%p").downcase
       .event-sidebar__connect-with-artist.sidebar-item
-        %ul.list-group
-          %li.list-group-item.list-group-title
-            %h3
-              Connect with This Artist
-          %li.list-group-item
-            = link_to "#" do
-              %i.fa.fa-twitter-square
-              %span.icon-text
-                Twitter
-          %li.list-group-item
-            = link_to "#" do
-              %i.fa.fa-facebook-square
-              %span.icon-text
-                Facebook
-          %li.list-group-item
-            = link_to "#" do
-              %i.fa.fa-external-link-square
-              %span.icon-text
-                Home Page
+        - if @event.has_social?
+          %ul.list-group
+            %li.list-group-item.list-group-title
+              %h3
+                Connect with This Artist
+            - if @event.has_twitter?
+              %li.list-group-item
+                = link_to @event.artist_twitter do
+                  %i.fa.fa-twitter-square
+                  %span.icon-text
+                    Twitter
+            - if @event.has_facebook?
+              %li.list-group-item
+                = link_to @event.artist_facebook do
+                  %i.fa.fa-facebook-square
+                  %span.icon-text
+                    Facebook
+            - if @event.has_instagram?
+              %li.list-group-item
+                = link_to @event.artist_instagram do
+                  %i.fa.fa-instagram
+                  %span.icon-text
+                    Instagram
+            - if @event.has_homepage?
+              %li.list-group-item
+                = link_to @event.artist_homepage do
+                  %i.fa.fa-external-link-square
+                  %span.icon-text
+                    Home Page
       .event-sidebar__sponsor-logo
         .sponsor-logo
           %img.img-responsive{src: "http://www.universitysettlement.net/wp-content/uploads/2014/07/dollar-bank-logo6.jpg"}
