@@ -1,0 +1,94 @@
+.container
+  .row
+    .col-sm-12.col-md-12
+      .event-header
+        %h1.event-header__page-title
+          = @event.title
+        %span.event-header__name
+          = @event.header
+        %p.event-header__subheadline
+          = @event.sub_header
+
+  %article.row.event-details
+    .col-md-8.col-xs-12.event-details__event-description
+      %img.img-responsive.img-largesrc{src: "#{@event.image  }"}
+      .event-long-description
+        = @event.body
+    .col-md-4.col-xs-12.event-sidebar
+      - unless @event.buy_url.empty?
+        .tickets.sidebar-item
+          %a.tickets-button.btn.btn-primary.btn-lg.btn-block{href: "#{@event.buy_url}"}
+            Buy Tickets
+      .event-sidebar__location.sidebar-item
+        %ul.list-group
+          %li.list-group-item.list-group-title
+            %h3
+              Location
+          %li.list-group-item
+            - if @event.locations.count == 1
+              =link_to "#{@event.locations.first.path}" do
+                = @event.locations.first.title
+              |  @&nbsp;
+              =link_to "locations/#{@event.title}.html" do
+                e.event_location
+            -else
+              Multiple Locations
+      .event-sidebar__dates-and-times.sidebar-item
+        %ul.list-group
+          %li.list-group-item.list-group-title
+            %h3
+              Dates/Times
+            -# - for i in e.event_dates_and_times do
+              li.list-group-item
+                strong="#{i.date}"
+                | &nbsp; - &nbsp;
+                span="#{i.time}"
+      .event-sidebar__connect-with-artist.sidebar-item
+        %ul.list-group
+          %li.list-group-item.list-group-title
+            %h3
+              Connect with This Artist
+          %li.list-group-item
+            = link_to "#" do
+              %i.fa.fa-twitter-square
+              %span.icon-text
+                Twitter
+          %li.list-group-item
+            = link_to "#" do
+              %i.fa.fa-facebook-square
+              %span.icon-text
+                Facebook
+          %li.list-group-item
+            = link_to "#" do
+              %i.fa.fa-external-link-square
+              %span.icon-text
+                Home Page
+      .event-sidebar__sponsor-logo
+        .sponsor-logo
+          %img.img-responsive{src: "http://www.universitysettlement.net/wp-content/uploads/2014/07/dollar-bank-logo6.jpg"}
+          .small Thanks to Our Generous Sponsors
+
+  .row
+    .col-xs-12.event-buttons
+      %button.btn.btn-default.btn-lg{href: "#", data: {toggle: "modal", target: "#video-modal"}, type: "button", value: "Watch Video"}
+      %button.btn.btn-default.btn-lg{type: "button", value: "Get Directions", href: ""}
+      %button.btn.btn-default.btn-lg{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button", value: "Share This"}
+
+  -#== partial "partials/share_modal"
+  -#== partial "partials/video_modal"
+
+  .row.related-events
+    .col-xs-12
+      %h3.text-center.related-events__header
+        Related Events
+    -#- data.events.events_details[0..2].each do |e|
+      .col-xs-12.col-md-4.related-events__event
+        .photo
+          =link_to "#{e.slug}.html"
+            img.img-responsive(src="#{e.image_url}")
+        =link_to "#{e.slug}.html"
+          h3= e.event_title
+        h4
+          span.strong= e.event_name
+          span.light= e.event_sponsor
+

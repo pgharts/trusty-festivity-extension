@@ -1,0 +1,29 @@
+%p
+  = link_to "LOCATION AREA URL"
+    = "LOCATION AREA"
+  | @&nbsp;
+  = link_to "LOCATION URL"
+    = "LOCATION"
+-# - if e.event_dates_and_times.count > 1
+  %p
+    | Multiple dates and times (not implemented)
+-# - else
+  - e.event_dates_and_times.each do |date,index|
+    %p
+      "#{date.date}, #{date.time}"
+%hr
+.more-dates.hidden
+  %ul
+  -# - e.event_dates_and_times.each do |date,index|
+  -#   li = "#{date.date}, #{date.time}"
+%p
+  .event-list-item__info_short_description
+    -#- for c in e.event_categories do
+      a.strong(href='#')= c
+      | :&nbsp;
+      span= e.event_short_description
+  .event-list-item__button-group
+  =link_to  "Details", "#{@event.slu}.html", class: 'btn event-list-item__btn'
+  =link_to  "Tickets", "#{e.tickets_link}", class: 'btn event-list-item__btn', target: '_blank'
+  =link_to  "Share", "#", class: 'btn event-list-item__btn'
+  =link_to  "Directions", "#{e.map_link}", class: 'btn event-list-item__btn', target: '_blank'

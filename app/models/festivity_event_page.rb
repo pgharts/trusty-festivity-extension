@@ -8,4 +8,19 @@ class FestivityEventPage < FestivityBasePage
     end
   end
 
+  def locations
+    @locations ||= event_locations
+  end
+
+
+  private
+
+  def event_locations
+    # Return array of unique locations
+    self.festivity_performances.
+        map{ |performance| performance.festivity_location_page }.
+        uniq{ |location| location.id }
+  end
+
+
 end
