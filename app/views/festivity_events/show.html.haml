@@ -26,7 +26,8 @@
               Location
           %li.list-group-item
             - if @event.locations.count == 1
-              =link_to "#{@event.locations.first.path}" do
+              - event_location = @event.locations.first
+              =link_to location_path(id: event_location.slug) do
                 = @event.locations.first.title
               |  @&nbsp;
               =link_to "locations/#{@event.title}.html" do

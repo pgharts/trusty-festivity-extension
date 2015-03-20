@@ -12,9 +12,22 @@ module Festivity
           has_many :festivity_page_categories
           has_many :festivity_categories, through: :festivity_page_categories
 
+          include ActsAsTree::InstanceMethods
           include Festivity::Extensions::PageExtensions::PageMethods
           include Festivity::Admin::AssetsHelper
         }
+
+        base.extend(ClassMethods)
+
+      end
+
+      module ClassMethods
+
+        def find_by_slug_for_site(slug)
+          self.where(slug: slug, site_id: Page.current_site.id)
+
+        end
+
       end
 
       module PageMethods
