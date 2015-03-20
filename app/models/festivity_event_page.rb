@@ -12,6 +12,10 @@ class FestivityEventPage < FestivityBasePage
     @locations ||= event_locations
   end
 
+  def can_buy?
+    !self.buy_url.empty?
+  end
+
   def has_social?
     (has_twitter? or has_facebook? or has_homepage? or has_instagram?)
   end
@@ -25,7 +29,7 @@ class FestivityEventPage < FestivityBasePage
   end
 
   def has_instagram?
-    !self.artist_facebook.empty?
+    !self.artist_instagram.empty?
   end
 
   def has_homepage?
