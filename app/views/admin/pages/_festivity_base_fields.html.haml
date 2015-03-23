@@ -6,6 +6,11 @@
     %h4
       %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
       Event Setup
+  - if @page.status_id == Status[:published].id
+    %p.festivity-full
+      View page:
+      = link_to "http://#{@page.site.base_domain}#{event_path(@page)}" do
+        = "http://#{@page.site.base_domain}#{event_path(@page)}"
   %p.festivity-full
     %label{for: "page_short_description"}
       Short Description
