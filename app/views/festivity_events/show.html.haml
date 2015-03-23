@@ -25,7 +25,7 @@
             %h3
               Location
           %li.list-group-item
-            - if @event.locations.count == 1
+            - if @event.single_location?
               - event_location = @event.locations.first
               =link_to location_path(id: event_location.slug) do
                 = event_location.title
@@ -88,8 +88,9 @@
       - if @event.video?
         %button.btn.btn-default.btn-lg{href: "#", data: {toggle: "modal", target: "#video-modal"}, type: "button"}
           Watch Video
-      %button.btn.btn-default.btn-lg{type: "button", href: ""}
-        Get Directions
+      - if @event.single_location?
+        %a.btn.btn-default.btn-lg{type: "button", target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
+          Get Directions
       %button.btn.btn-default.btn-lg{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button"}
         Share This
 

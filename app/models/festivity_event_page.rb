@@ -12,6 +12,10 @@ class FestivityEventPage < FestivityBasePage
     self.festivity_performances.select {|perf| perf.festivity_location_page && perf.start_date && perf.end_date }
   end
 
+  def single_location?
+    @single_location ||= self.locations.count == 1
+  end
+
   def locations
     @locations ||= event_locations
   end
