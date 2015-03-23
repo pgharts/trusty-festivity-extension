@@ -13,11 +13,11 @@ class FestivityBasePage < Page
   end
 
   def video
-    self.part("video").content.html_safe
+    self.part("video_embed").content.html_safe
   end
 
   def video?
-    !self.part("video").content.empty?
+    !self.part("video_embed").content.empty?
   end
 
 end

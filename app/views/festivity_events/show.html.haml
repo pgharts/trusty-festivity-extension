@@ -85,8 +85,9 @@
 
   .row
     .col-xs-12.event-buttons
-      %button.btn.btn-default.btn-lg{href: "#", data: {toggle: "modal", target: "#video-modal"}, type: "button"}
-        Watch Video
+      - if @event.video?
+        %button.btn.btn-default.btn-lg{href: "#", data: {toggle: "modal", target: "#video-modal"}, type: "button"}
+          Watch Video
       %button.btn.btn-default.btn-lg{type: "button", href: ""}
         Get Directions
       %button.btn.btn-default.btn-lg{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button"}
@@ -111,6 +112,25 @@
         .modal-footer
           %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
             Close
+  - if @event.video?
+    #video-modal.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{data: {dismiss: "modal"}, type: "button"}
+              %span{aria: {hidden: "true"}}
+                x
+              %span.sr-only
+                Close
+            %h2.modal-title
+              Watch Video
+          .modal-body
+            .row
+              .col-xs-12.col-md-12
+                = @event.video
+          .modal-footer
+            %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
+              Close
   -#== partial "partials/video_modal"
 
   .row.related-events
