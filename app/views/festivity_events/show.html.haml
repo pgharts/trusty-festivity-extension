@@ -105,8 +105,9 @@
           %h2.modal-title
             Share
         .modal-body
-          %p
-            Share on Facebook, Twitter or email.
+          .row
+            .col-xs-12.col-md-12
+              = rad_share_widget({})
         .modal-footer
           %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
             Close
