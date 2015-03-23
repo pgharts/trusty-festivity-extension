@@ -8,6 +8,10 @@ class FestivityEventPage < FestivityBasePage
     end
   end
 
+  def performances
+    self.festivity_performances.select {|perf| perf.festivity_location_page && perf.start_date && perf.end_date }
+  end
+
   def locations
     @locations ||= event_locations
   end
@@ -41,7 +45,7 @@ class FestivityEventPage < FestivityBasePage
 
   def event_locations
     # Return array of unique locations
-    self.festivity_performances.
+    self.performances.
         map{ |performance| performance.festivity_location_page }.
         uniq{ |location| location.id }
   end

@@ -39,7 +39,7 @@
           %li.list-group-item.list-group-title
             %h3
               Dates/Times
-            - @event.festivity_performances.each do |perf|
+            - @event.performances.each do |perf|
               %li.list-group-item
                 %strong
                   = perf.start_date.strftime("%A, %B %d")
@@ -93,6 +93,23 @@
         Share This
 
   -#== partial "partials/share_modal"
+  #share-modal.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{data: {dismiss: "modal"}, type: "button"}
+            %span{aria: {hidden: "true"}}
+              x
+            %span.sr-only
+              Close
+          %h2.modal-title
+            Share
+        .modal-body
+          %p
+            Share on Facebook, Twitter or email.
+        .modal-footer
+          %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
+            Close
   -#== partial "partials/video_modal"
 
   .row.related-events
