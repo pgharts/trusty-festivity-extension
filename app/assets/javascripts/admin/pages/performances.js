@@ -8,10 +8,12 @@ Festivity.Performances = {
       e.preventDefault();
       Festivity.Performances.addPerformance($(this).attr('href'), $(this).attr('data-id'));
     });
-    $(".date_field").inputmask("festivitydatetime12");
-
+    Festivity.Performances.bindDateTimeMask();
     Festivity.Performances.bindDeleteEvents();
 
+  },
+  bindDateTimeMask: function() {
+    $(".date_field").inputmask("festivitydatetime12");
   },
   bindDeleteEvents: function() {
     $('a.festivity-delete-performance').unbind('click');
@@ -44,11 +46,13 @@ Festivity.Performances = {
 
   addPerformanceRow: function(data) {
     $("#festivity-performances-table").append(data);
+    Festivity.Performances.bindDateTimeMask();
     Festivity.Performances.bindDeleteEvents();
   },
 
   updatePerformancesTable: function(data) {
     $("#festivity-performances-table").replaceWith(data);
+    Festivity.Performances.bindDateTimeMask();
     Festivity.Performances.bindDeleteEvents();
   }
 
