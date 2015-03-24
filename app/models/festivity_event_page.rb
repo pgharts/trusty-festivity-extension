@@ -8,6 +8,15 @@ class FestivityEventPage < FestivityBasePage
     end
   end
 
+  # Search criteria should be ???
+  def search(criteria = {}, order_by = "title")
+
+    # find events WHERE site_id = current site
+    # JOIN Page Categories; Where
+    @events = FestivityEventPage
+  end
+
+
   def performances
     self.festivity_performances.select {|perf| perf.festivity_location_page && perf.start_date && perf.end_date }
   end
