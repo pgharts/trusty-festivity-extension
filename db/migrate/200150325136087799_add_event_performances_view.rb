@@ -8,9 +8,9 @@ class AddEventPerformancesView < ActiveRecord::Migration
           location.id AS location_id, location.title AS location_title, location.festivity_directions_url,
           area.id AS area_id, area.title AS area_title
         FROM festivity_performances performance
-        JOIN pages event
+        INNER JOIN pages event
           ON event.id = performance.event_page_id
-        JOIN pages location
+        INNER JOIN pages location
           ON location.id = performance.location_page_id
         INNER JOIN pages area
           ON area.id = location.parent_id
