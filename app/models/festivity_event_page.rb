@@ -12,8 +12,9 @@ class FestivityEventPage < FestivityBasePage
   def search(criteria = {}, order_by = "title")
 
     # find events WHERE site_id = current site
-    # JOIN Page Categories; Where
-    @events = FestivityEventPage
+    # JOIN Page Categories; Where category_id in [list]
+    # JOIN Performances on event_id
+    @events = FestivityEventPage.includes(:title, :artist)
   end
 
 
