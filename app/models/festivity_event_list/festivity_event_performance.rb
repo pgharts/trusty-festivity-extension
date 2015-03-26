@@ -1,4 +1,4 @@
-class FestivityEventPerformance < ActiveRecord::Base
+class FestivityEventList::FestivityEventPerformance < ActiveRecord::Base
   self.table_name = 'festivity_event_performances'
   after_initialize :readonly!
 

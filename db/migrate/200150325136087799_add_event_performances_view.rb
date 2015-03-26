@@ -4,7 +4,7 @@ class AddEventPerformancesView < ActiveRecord::Migration
       CREATE OR REPLACE VIEW festivity_event_performances AS
         SELECT
           performance.id AS performance_id, performance.start_date, performance.end_date,
-          event.id AS event_id, event.title AS event_title, event.short_description, event.buy_url,
+          event.id AS event_id, event.title AS event_title, event.short_description, event.buy_url, event.featured_item,
           location.id AS location_id, location.title AS location_title, location.festivity_directions_url,
           area.id AS area_id, area.title AS area_title
         FROM festivity_performances performance

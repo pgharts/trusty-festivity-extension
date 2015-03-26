@@ -8,16 +8,6 @@ class FestivityEventPage < FestivityBasePage
     end
   end
 
-  # Search criteria should be ???
-  def search(criteria = {}, order_by = "title")
-
-    # find events WHERE site_id = current site
-    # JOIN Page Categories; Where category_id in [list]
-    # JOIN Performances on event_id
-    @events = FestivityEventPage.includes(:title, :artist)
-  end
-
-
   def performances
     self.festivity_performances.select {|perf| perf.festivity_location_page && perf.start_date && perf.end_date }
   end
@@ -53,9 +43,6 @@ class FestivityEventPage < FestivityBasePage
   def has_homepage?
     !self.artist_facebook.empty?
   end
-
-
-  private
 
   def event_locations
     # Return array of unique locations
