@@ -67,11 +67,11 @@
             %hr
             %p
               .event-list-item__info_short_description
-                - category = event.categories.first
-                %a.strong(href='#')
+                -# category = event.categories.first
+                -# %a.strong(href='#')
                   = category.name
                 %span
-                  = event.short_description
+                  = event.short_description.html_safe
             .event-list-item__button-group
               = link_to  "Details", event_path(event.id), class: 'btn event-list-item__btn'
               = link_to  "Tickets", "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'
