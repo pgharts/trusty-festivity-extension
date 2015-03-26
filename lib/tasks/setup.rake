@@ -7,6 +7,8 @@ namespace :festivity do
 
     desc "seed festivity sites and pages"
     task :seed do
+      Page.connection.schema_cache.clear!
+      Page.reset_column_information
       sites = sort(load_yaml_for("sites"), "position")
       home_pages = load_yaml_for("home_pages")
       pages = load_yaml_for("pages")
@@ -14,11 +16,13 @@ namespace :festivity do
 
       # create the root page
       master = home_pages["The Pittsburgh Cultural Trust"]
+      master[:site_id] = 1
       create_or_update_page(master)
       User.create_or_update_for_site(users["The Pittsburgh Cultural Trust"])
 
       sites.each do |t, site|
         home_page = home_pages[site["name"]]
+        home_page[:site_id] = site["id"]
         seed_page_for(home_page, master["slug"])
         site['homepage'] = site["name"] == 'default_site' ? Page.find(1) : find_by_slug_hierarchy([home_page["slug"]])
         site['base_domain'] += Rails.configuration.domain
