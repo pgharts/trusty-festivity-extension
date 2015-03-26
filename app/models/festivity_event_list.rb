@@ -13,7 +13,7 @@ class FestivityEventList
     # find events WHERE site_id = current site
     # JOIN Page Categories; Where category_id in [list]
     # JOIN Performances on event_id
-    FestivityEventList.new(FestivityEventList::FestivityEventPerformance.includes(:festivity_categories))
+    FestivityEventList.new(FestivityEventList::FestivityEventPerformance.includes(:festivity_categories, :assets))
   end
 
 

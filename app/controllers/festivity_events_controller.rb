@@ -3,7 +3,7 @@ class FestivityEventsController < ApplicationController
   trusty_layout 'normal'
 
   def index
-
+    @events = FestivityEventList.search({}).events
   end
 
   def show
