@@ -1,0 +1,9 @@
+header.site-header .secondary-navigation li {
+	font-weight: bold;
+	color: #000000;}
+header.site-header .secondary-navigation li a:hover,a:focus {
+	color: #03616b;}  	
+  @media all and (min-width: 62em) {
+    header.site-header {
+	  background-image: url(header.png); 
+	  height: 100%;}} 
