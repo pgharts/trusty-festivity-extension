@@ -1,9 +1,9 @@
--# ==partial "partials/filter-bar-mobile"
+= render partial: "filter_bar_mobile"
 
 .container
   .row
     .event-filter-bar.col-md-3.hidden-xs.hidden-sm
-      -# == partial 'partials/events_filters'
+      = render partial: 'event_filters'
     #myNavmenu.event-filter-bar.hidden-lg.navmenu.navmenu-default.navmenu-fixed-left.offcanvas
       -# == partial 'partials/events_filters'
     .event-list.col-xs-12.col-md-9

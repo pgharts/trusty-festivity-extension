@@ -15,6 +15,18 @@ module Festivity
           self.festivity_category_types.where(["inactive = false"])
         end
 
+        def festival_dates
+          @festival_dates ||= calculate_festival_dates
+        end
+
+        def calculate_festival_dates
+          dates = [self.festivity_start_date]
+          until dates.last >= self.festivity_end_date do
+            dates << dates.last.advance(days: 1)
+          end
+          dates
+        end
+
       end
 
     end

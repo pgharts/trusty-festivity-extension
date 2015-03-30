@@ -67,13 +67,7 @@
 // indent with these data attributes
 
 .checkbox {
-  &.music,
-  &.theater-dance,
-  &.juried-visual-art,
-  &.public-art,
-  &.gallery,
-  &.art-on-film,
-  &.artist-market {
+  &.child {
     padding-left: 3rem;
   }
 }
