@@ -4,6 +4,14 @@ class FestivityEventsController < ApplicationController
 
   def index
     @events = FestivityEventList.search({}).events
+
+    # If the request is AJAX, only return the event list itself, not the full page
+    if request.xhr?
+      render partial: "event_list"
+    else
+      render 'index'
+    end
+
   end
 
   def show

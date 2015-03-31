@@ -9,11 +9,28 @@ Festivity.Filters = {
       Festivity.Filters.queryEvents();
     });
 
+    $( document ).ajaxStart(function() {
+      $("i#spinner").removeClass('hide');
+      $('input[type="checkbox"]').attr('disabled', true);
+      $('select').attr('disabled', true);
+    });
+
+    $( document ).ajaxStop(function() {
+      $('input[type="checkbox"]').removeAttr('disabled');
+      $('select').removeAttr('disabled');
+      $("i#spinner").addClass('hide');
+    });
+
   },
 
   queryEvents: function() {
-
-    alert(Festivity.Filters.eventsUrl());
+    $.ajax({
+      url: Festivity.Filters.eventsUrl(),
+      type: "GET",
+      success: function(data, textStatus, jqXHR){
+        $("#event-list-items").html(data);
+      }
+    });
   },
 
   eventsUrl: function() {
