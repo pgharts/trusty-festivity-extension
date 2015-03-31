@@ -20,7 +20,7 @@
       - current_site.festivity_active_category_types.each do |type|
         %h3
           = type.name
-        %ul.filter-bar_filters.genre-filters
+        %ul.filter-bar_filters.category-filters
           - type.parent_categories.each do |parent|
             %li
               .checkbox.checkbox.parent

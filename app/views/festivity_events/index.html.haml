@@ -15,13 +15,11 @@
               %label.col-xs-3.control-label{for: "sort"}
                 Sort
               .col-xs-9
-                %select.form-control#sort
+                %select.form-control.sort-control#sort
                   %option
                     Date/Time
                   %option
                     Alphabetical
-                  %option
-                    Featured
       .row
       - @events.each do |event|
         .row.event-list-item{class: event.id, data:{ genre: event.categories.first.id, date: event.performances.first.start_date, location: event.locations.first.id} }
@@ -66,12 +64,13 @@
                   = perf.start_date.strftime("%I:%M%p").downcase
             %hr
             %p
-              .event-list-item__info_short_description
-                -# category = event.categories.first
-                -# %a.strong(href='#')
-                  = category.name
-                %span
-                  = event.short_description.html_safe
+            .event-list-item__info_short_description
+              -# category = event.categories.first
+              -# %a.strong(href='#')
+                = category.name
+              %span
+                = event.short_description.html_safe
+            %p
             .event-list-item__button-group
               = link_to  "Details", event_path(event.id), class: 'btn event-list-item__btn'
               = link_to  "Tickets", "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'

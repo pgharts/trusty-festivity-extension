@@ -9,3 +9,5 @@
 //= require jquery.collapse.js
 //= require script
 //= require festivity
+//= require events/filters
+//= require events/event_list_bindings
