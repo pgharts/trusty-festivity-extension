@@ -1,5 +1,5 @@
 = render partial: "filter_bar_mobile"
-
+%input#events-url{type: "hidden", value: "#{events_url}"}
 .container
   .row
     .event-filter-bar.col-md-3.hidden-xs.hidden-sm
@@ -16,11 +16,11 @@
                 Sort
               .col-xs-9
                 %select.form-control.sort-control#sort
-                  %option
+                  %option{value:"start_date"}
                     Date/Time
-                  %option
+                  %option{value:"title"}
                     Alphabetical
-      .row
+      .row#event-list-row
       - @events.each do |event|
         .row.event-list-item{class: event.id, data:{ genre: event.categories.first.id, date: event.performances.first.start_date, location: event.locations.first.id} }
           %hr
