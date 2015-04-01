@@ -3,7 +3,11 @@ class FestivityEventsController < ApplicationController
   trusty_layout 'base'
 
   def index
-    @events = FestivityEventList.search({}).events
+
+    @events = FestivityEventList.search(
+        {dates: params[:dates],
+         categories: params[:categories]},
+        params[:sort]).events
 
     # If the request is AJAX, only return the event list itself, not the full page
     if request.xhr?

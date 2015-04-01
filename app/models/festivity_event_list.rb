@@ -9,11 +9,23 @@ class FestivityEventList
 
   end
 
-  def self.search(criteria, order_by = "title")
+  def self.search(criteria, order_by = "start_date")
     # find events WHERE site_id = current site
     # JOIN Page Categories; Where category_id in [list]
     # JOIN Performances on event_id
-    FestivityEventList.new(FestivityEventList::FestivityEventPerformance.includes(:festivity_categories, :assets))
+    FestivityEventList.new(
+        FestivityEventList::FestivityEventPerformance.
+            includes(:assets).
+            joins(:festivity_categories).
+            where("festivity_categories.id" => [1]).
+            preload(:festivity_categories)
+    )
+  end
+
+  private
+
+  def parse_criteria(criteria)
+
   end
 
 
