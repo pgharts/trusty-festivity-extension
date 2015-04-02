@@ -30,7 +30,7 @@ class FestivityEventList
 
   def self.date_criteria(dates_string)
     date_queries = dates_string.split(',').map do |date_string|
-      start_date = DateTime.parse(dates_string)
+      start_date = DateTime.parse(date_string)
       end_date = start_date.advance(hours: 23, minutes: 59)
       <<-SQL
         (
