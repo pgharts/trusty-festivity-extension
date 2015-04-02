@@ -8,7 +8,14 @@
       = render partial: 'event_filters'
     .event-list.col-xs-12.col-md-9
       .row
-        .col-xs-8
+        .col-sm-8.col-xs-12.current-filters
+          #current-filters.hide
+            You're currently filtering by
+            %span#current-filters-list
+              %strong
+                Date
+            %a#clear-filters.btn.btn-default{href: ""}
+              Clear All Filters
         .sort.col-xs-4
           %form.form-horizontal.row
             .form-group

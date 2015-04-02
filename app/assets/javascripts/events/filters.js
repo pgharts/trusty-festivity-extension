@@ -4,6 +4,12 @@ Festivity.Filters = {
       Festivity.Filters.queryEvents();
     });
 
+    $("#clear-filters").click(function(e){
+      e.preventDefault();
+      $("input[type='checkbox']").removeAttr("checked");
+      Festivity.Filters.queryEvents();
+    });
+
     $(".sort-control").change(function(e){
       $(".sort-control").val(e.currentTarget.value);
       Festivity.Filters.queryEvents();
@@ -21,11 +27,21 @@ Festivity.Filters = {
       $("i#spinner").addClass('hide');
     });
     Festivity.Filters.bindListEvents();
+    Festivity.Filters.toggleClearButton();
   },
 
   bindListEvents: function() {
     // init popovers
     $("[data-toggle=popover]").popover();
+  },
+
+  toggleClearButton: function() {
+    if($("input[type='checkbox']:checked").length > 0) {
+      $("#current-filters").removeClass("hide");
+    }
+    else {
+      $("#current-filters").addClass("hide");
+    }
   },
 
   queryEvents: function() {
@@ -37,6 +53,7 @@ Festivity.Filters = {
       success: function(data, textStatus, jqXHR){
         $("#event-list-items").html(data);
         Festivity.Filters.bindListEvents();
+        Festivity.Filters.toggleClearButton();
       }
     });
   },
