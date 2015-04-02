@@ -53,6 +53,8 @@
         %p
         .event-list-item__button-group
           = link_to  "Details", event_path(event.id), class: 'btn event-list-item__btn'
-          = link_to  "Tickets", "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'
-          = link_to  "Share", "#", class: 'btn event-list-item__btn'
+          - unless event.buy_url.empty?
+            = link_to  "Tickets", "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'
+          -#%button.btn.event-list-item__btn{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button"}
+            Share
           = link_to  "Directions", "#{event.locations.first.directions_url}", class: 'btn event-list-item__btn', target: '_blank'
