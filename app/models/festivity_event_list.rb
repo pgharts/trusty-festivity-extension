@@ -8,7 +8,7 @@ class FestivityEventList
 
   end
 
-  def self.search(criteria, order_by = "start_date")
+  def self.search(criteria, order_by)
     where_clause = parse_criteria(criteria)
     # where in event ids
     FestivityEventList.new(
@@ -17,6 +17,7 @@ class FestivityEventList
             joins(:festivity_categories).
             where(where_clause).
             group("performance_id").
+            order("#{order_by} ASC").
             preload(:festivity_categories)
     )
   end
