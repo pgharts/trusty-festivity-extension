@@ -29,6 +29,8 @@ class FestivityEventList
     FestivityEventList::FestivityEventPerformance.where(date_criteria(dates)).map {|e| e.event_id}.uniq
   end
 
+  # Create a condition for start and end date between midnight and 11:59pm
+  # for each date passed in and return the SQL condition
   def self.date_criteria(dates_string)
     date_queries = dates_string.split(',').map do |date_string|
       start_date = DateTime.parse(date_string)
@@ -44,6 +46,11 @@ class FestivityEventList
     date_queries.join(" OR ")
   end
 
+  # The order of querying, depending on what is passed:
+  # - If dates are passed, we search both start and end date between midnight and 11:59pm of that date.
+  #   That query returns any matching event ids.
+  # - The event ids returned, if any, are added to the where clause for the next query
+  # - Any category ids passed are added to the where clause as well.
   def self.parse_criteria(criteria)
     where_clause = {}
     event_ids = event_ids_for_dates(criteria[:dates]) if criteria[:dates]
