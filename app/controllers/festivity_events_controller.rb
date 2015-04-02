@@ -8,7 +8,9 @@ class FestivityEventsController < ApplicationController
         {dates: params[:dates],
          categories: params[:categories]},
         order_by).events
-
+    @selected_dates = params[:dates] ? params[:dates].split(",") : []
+    @selected_categories = params[:categories] ? params[:categories].split(",") : []
+    @selected_sort = order_by
     # If the request is AJAX, only return the event list itself, not the full page
     if request.xhr?
       render partial: "event_list"

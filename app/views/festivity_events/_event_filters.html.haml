@@ -16,7 +16,8 @@
           %li
             .checkbox
               %label
-                %input{type: "checkbox", value: day.to_s,  data: {sort: day.to_s}}
+                - checked = @selected_dates.include? day.to_s
+                %input{type: "checkbox", value: day.to_s, checked: checked,  data: {sort: day.to_s}}
                   = day.strftime("%a, %B %-d")
       - current_site.festivity_active_category_types.each do |type|
         %h3
@@ -26,11 +27,13 @@
             %li
               .checkbox.checkbox.parent
                 %label
-                  %input{type: "checkbox", value: parent.id, data: {sort: parent.name.downcase}}
+                  - checked = @selected_categories.include? parent.id.to_s
+                  %input{type: "checkbox", value: parent.id, data: {sort: parent.name.downcase}, checked: checked}
                     = parent.name
             - parent.children.each do |child|
               %li
                 .checkbox.checkbox.child
                   %label
-                    %input{type: "checkbox", value: child.id, data: {sort: parent.name.downcase}}
+                    - checked = @selected_categories.include? child.id.to_s
+                    %input{type: "checkbox", value: child.id, data: {sort: parent.name.downcase}, checked: checked}
                       = child.name
