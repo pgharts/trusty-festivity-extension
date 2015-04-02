@@ -20,16 +20,23 @@ Festivity.Filters = {
       $('select').removeAttr('disabled');
       $("i#spinner").addClass('hide');
     });
+    Festivity.Filters.bindListEvents();
+  },
+
+  bindListEvents: function() {
     // init popovers
     $("[data-toggle=popover]").popover();
   },
 
   queryEvents: function() {
+    var url = Festivity.Filters.eventsUrl();
+    history.pushState(null, "A new title!", url);
     $.ajax({
-      url: Festivity.Filters.eventsUrl(),
+      url: url,
       type: "GET",
       success: function(data, textStatus, jqXHR){
         $("#event-list-items").html(data);
+        Festivity.Filters.bindListEvents();
       }
     });
   },

@@ -6,7 +6,7 @@ module FestivityEventsHelper
   end
 
   def date_time_list_items(performances)
-    performances.map {|perf| "<li>#{perf.start_date.strftime('%a, %B %d')}, #{perf.start_date.strftime('%I:%M%p').downcase} - #{perf.end_date.strftime('%I:%M%p').downcase}</li>" }.join("")
+    performances.map {|perf| "<li>#{perf.start_date.strftime('%A, %B %d')}, #{perf.start_date.strftime('%I:%M %p').downcase} - #{perf.end_date.strftime('%I:%M %p').downcase}</li>" }.join("")
   end
 
 end

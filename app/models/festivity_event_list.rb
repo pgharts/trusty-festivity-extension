@@ -3,7 +3,6 @@ class FestivityEventList
   attr_reader :events
 
   def initialize(event_performances)
-
     @events = event_performances.group_by {|perf| perf.event_id }.
         map { |perfs| FestivityEventList::FestivityEvent.new(perfs[0], perfs[1]) }
 
@@ -17,6 +16,7 @@ class FestivityEventList
             includes(:assets).
             joins(:festivity_categories).
             where(where_clause).
+            group("performance_id").
             preload(:festivity_categories)
     )
   end
