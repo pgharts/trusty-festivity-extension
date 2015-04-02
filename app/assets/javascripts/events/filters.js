@@ -1,6 +1,9 @@
 Festivity.Filters = {
   bindEvents: function() {
-    $(".date-filters input[type='checkbox'], .category-filters input[type='checkbox']").click(function(){
+    $(".date-filters input[type='checkbox'], .category-filters input[type='checkbox']").click(function(e){
+      if (e.target.checked == false) {
+        $(e.target).removeAttr('checked');
+      }
       Festivity.Filters.queryEvents();
     });
 
@@ -28,6 +31,7 @@ Festivity.Filters = {
     });
     Festivity.Filters.bindListEvents();
     Festivity.Filters.toggleClearButton();
+    Festivity.Filters.updateActiveFilters();
   },
 
   bindListEvents: function() {
@@ -54,8 +58,14 @@ Festivity.Filters = {
         $("#event-list-items").html(data);
         Festivity.Filters.bindListEvents();
         Festivity.Filters.toggleClearButton();
+        Festivity.Filters.updateActiveFilters();
       }
     });
+  },
+
+  updateActiveFilters: function() {
+    var filter_types = _.uniq(_.map($("input[type='checkbox']:checked"), Festivity.Filters.checkboxFilterType));
+    $("#current-filters-list").html(filter_types.join(", "))
   },
 
   eventsUrl: function() {
@@ -68,6 +78,10 @@ Festivity.Filters = {
 
   checkboxValues: function(checkbox) {
     return $(checkbox).val();
+  },
+
+  checkboxFilterType: function(checkbox) {
+    return $(checkbox).attr('data-filter');
   },
 
   arrayToParams: function(param, array) {
