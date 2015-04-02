@@ -34,19 +34,36 @@ jQuery(document).ready(function($) {
   //   }
   // });
 
-  var popOverSettings = {
-      placement: 'top',
-      container: 'body',
-      html: true,
-      title: 'All Dates and Times',
-      selector: '.btn-popover', //Sepcify the selector here
-      content: "<div><ul class='list-unstyled'><li>Friday, June 6, 12:00 pm - 9 pm</li><li>Saturday, June 7, 12:00 pm - 9 pm</li><li>Sunday, June 9, 12:00 pm - 9 pm</li><li>Monday, June 12, 12:00 pm - 9 pm</li></ul></div>"
+// // this is a very rudimentary multifaceted search implementation.
+// // Should be considered for demo/prototype purposes only.
+// // Still in progress -- doesn't quite work yet.
+
+var datesArray = [], genresArray = [], locationsArray = [];
+
+
+var updateEventList = function(array) {
+  // first we hide everything.
+  $('.event-list-item').addClass('hidden-event');
+  // make sure the array isn't empty, if it is we want to show everything.
+  if (_.isEmpty(array)) {
+    $('.event-list-item').removeClass('hidden-event');
+  } else {
+
+    // go through the event list and find split the arrays.
+
+    $('.event-list-item').each(function() {
+      var el = $(this);
+      var tmpArray = el.data('date').split(',');
+      console.log("Tmp Array: " + tmpArray);
+      console.log("Array: " + array);
+      var toShow =  _.intersection(array, tmpArray);
+      console.log("To Show: " + toShow);
+      if(! _.isEmpty(toShow)) {
+        el.removeClass('hidden-event');
+      }
+    });
   }
-
-  $('body').popover(popOverSettings);
-
-// init popovers
-$("[data-toggle=popover]").popover();
+};
 
 
 });

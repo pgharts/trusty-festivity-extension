@@ -20,7 +20,8 @@ Festivity.Filters = {
       $('select').removeAttr('disabled');
       $("i#spinner").addClass('hide');
     });
-
+    // init popovers
+    $("[data-toggle=popover]").popover();
   },
 
   queryEvents: function() {
