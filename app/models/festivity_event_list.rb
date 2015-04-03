@@ -17,7 +17,7 @@ class FestivityEventList
             joins(:festivity_categories).
             where(where_clause).
             group("performance_id").
-            order("#{order_by} ASC").
+            order("featured_item DESC, #{order_by} ASC").
             preload(:festivity_categories)
     )
   end
