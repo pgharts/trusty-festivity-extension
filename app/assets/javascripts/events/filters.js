@@ -2,7 +2,10 @@ Festivity.Filters = {
   bindEvents: function() {
     $(".date-filters input[type='checkbox'], .category-filters input[type='checkbox']").click(function(e){
       if (e.target.checked == false) {
-        $(e.target).removeAttr('checked');
+        $("input[data-sort='" + $(e.target).attr("data-sort") + "']").removeAttr('checked');
+      }
+      else {
+        $("input[data-sort='" + $(e.target).attr("data-sort") + "']").attr('checked', true);
       }
       Festivity.Filters.queryEvents();
     });
@@ -72,7 +75,7 @@ Festivity.Filters = {
     var dates = _.map($(".date-filters input[type='checkbox']:checked"), Festivity.Filters.checkboxValues);
     var categories = _.map($(".category-filters input[type='checkbox']:checked"), Festivity.Filters.checkboxValues);
     var sort_string = "?sort=" + $("#sort").val();
-    var params_string = Festivity.Filters.arrayToParams("dates", dates) + Festivity.Filters.arrayToParams("categories", categories);
+    var params_string = Festivity.Filters.arrayToParams("dates", _.uniq(dates)) + Festivity.Filters.arrayToParams("categories", _.uniq(categories));
     return $("#events-url").val() + sort_string + params_string;
   },
 

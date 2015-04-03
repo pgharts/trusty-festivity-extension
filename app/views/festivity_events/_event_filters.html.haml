@@ -35,5 +35,5 @@
                 .checkbox.checkbox.child
                   %label
                     - checked = @selected_categories.include? child.id.to_s
-                    %input{type: "checkbox", value: child.id, data: {filter: type.name, sort: parent.name.downcase}, checked: checked}
+                    %input{type: "checkbox", value: child.id, data: {filter: type.name, sort: child.name.downcase}, checked: checked}
                       = child.name
