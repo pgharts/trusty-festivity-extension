@@ -56,6 +56,7 @@ Festivity.Filters = {
     history.pushState(null, "A new title!", url);
     $.ajax({
       url: url,
+      cache: false,
       type: "GET",
       success: function(data, textStatus, jqXHR){
         $("#event-list-items").html(data);
