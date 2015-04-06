@@ -57,4 +57,5 @@
             = link_to  "Tickets", "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'
           -#%button.btn.event-list-item__btn{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button"}
             Share
-          = link_to  "Directions", "#{event.locations.first.directions_url}", class: 'btn event-list-item__btn', target: '_blank'
+          - unless event.locations.first.directions_url.empty?
+            = link_to  "Directions", "#{event.locations.first.directions_url}", class: 'btn event-list-item__btn', target: '_blank'

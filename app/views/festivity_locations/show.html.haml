@@ -10,7 +10,8 @@
         = @location.festivity_address
         %br
         = "#{@location.festivity_city}, #{@location.festivity_state} #{@location.festivity_zip}"
-      = link_to  "Directions", "#{@location.festivity_directions_url}", class: 'btn btn-default', target: '_blank'
+      - unless @location.festivity_directions_url.empty?
+        = link_to  "Directions", "#{@location.festivity_directions_url}", class: 'btn btn-default', target: '_blank'
     .col-xs-12
     %h2
       Events at
@@ -58,6 +59,6 @@
         .event-list-item__button-group.col-xs-12.col-md-2
           %p
             = link_to  "Details", event_path(event.id), class: 'btn btn-default'
-          - if event.buy_url
+          - unless event.buy_url.empty?
             %p
               =link_to  "Tickets", "#{event.buy_url}", class: 'btn btn-default', target: '_blank'
