@@ -22,6 +22,18 @@ class FestivityEventList
     )
   end
 
+  def self.find_by_location(location_id)
+    FestivityEventList.new(
+        FestivityEventList::FestivityEventPerformance.
+            includes(:assets).
+            joins(:festivity_categories).
+            where(location_id: location_id).
+            group("performance_id").
+            order("featured_item DESC, start_date ASC").
+            preload(:festivity_categories)
+    )
+  end
+
   private
 
   # Return a list of unique event ids that match the provided dates

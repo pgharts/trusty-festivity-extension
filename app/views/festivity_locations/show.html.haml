@@ -15,31 +15,40 @@
     %h2
       Events at
       = @location.title
-  -#.event-list
-    - data.events.events_details.each do |e|
-      .row.event-list-item data-genre=e.data_genre data-date=e.data_date data-location=e.data_location class=e.slug
-        hr
+  .event-list
+    - @location_events.events.each do |event|
+      .row.event-list-item{data:{genre: event.categories.first.name.to_slug, date: event.performances.first.start_date, location: @location.slug}, class: event.title.to_slug}
+        %hr
         .event-list-item__photo.col-xs-12.col-md-2
           .photo
-            =link_to "#{e.slug}.html"
-              img.img-responsive(src="#{e.image_url}")
-            ul.categories.list-inline
-            .event_list-item__photo-featured-item Featured Event!
+            = link_to event_path(event.id) do
+              %img.img-responsive{ src: "#{event.image}"}
+            - if event.featured_item
+              .event_list-item__photo-featured-item
+                Featured Event!
         .event-list-item__info.col-xs-12.col-md-8
-          =link_to "../#{e.slug}.html"
-            h2= e.event_title
-          h3
-            span.strong= e.event_name
-            span.light= e.event_sponsor
-          - if e.event_dates_and_times.count > 1
-            p
-              | Multiple dates and times&nbsp;
-              button.btn.btn-sm.btn-default.btn-popover Show all
-
+          = link_to event_path(event.id) do
+            %h2
+              = event.title
+          %h3
+            %span.strong
+              = event.title
+            %span.light
+              = event.header
+          - if event.performances.count > 1
+            %p
+              Multiple dates and times&nbsp;
+              %button.btn.btn-sm.btn-default.btn-popover{type: "button", data: {content: date_time_popover(event.performances), html: "true",  placement:"top", toggle: "popover"}, title:"Popover title"}
+                Show all
           - else
-            - e.event_dates_and_times.each do |date,index|
-              p= "#{date.date}, #{date.time}"
-          - for c in e.event_categories do
+            - event.performances.each do |perf|
+              %p
+                = perf.start_date.strftime("%A, %B %d")
+                = ", "
+                = perf.start_date.strftime("%I:%M%p").downcase
+                = " - "
+                = perf.end_date.strftime('%I:%M%p').downcase
+          -#- for c in e.event_categories do
             p
               a.strong(href="#")= c
           .more-dates.hidden
@@ -47,7 +56,8 @@
         / - e.event_dates_and_times.each do |date,index|
         /   li = "#{date.date}, #{date.time}"
         .event-list-item__button-group.col-xs-12.col-md-2
-          p
-            =link_to  "Details", "../#{e.slug}.html", class: 'btn btn-default'
-          p
-            =link_to  "Tickets", "#{e.tickets_link}", class: 'btn btn-default', target: '_blank'
+          %p
+            = link_to  "Details", event_path(event.id), class: 'btn btn-default'
+          - if event.buy_url
+            %p
+              =link_to  "Tickets", "#{event.buy_url}", class: 'btn btn-default', target: '_blank'
