@@ -13,7 +13,8 @@
 
       .col-xs-12.col-md-4.landing-page-plug
         .map-thumb
-          %img{src: location.image, alt: location.title}
+          %a{href:location_path(location.slug)}
+            %img{src: location.image, alt: location.title}
         %h3.strong
           %a{href:location_path(location.slug)}
             = location.title
@@ -23,5 +24,6 @@
           = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
         %p
           = location.short_description
-        %a.btn.btn-default{type: "button", href: location_path(location.slug) }
-          Events and Directions
+        %button.btn.btn-default
+          %a{href: location_path(location.slug) }
+            Events and Directions
