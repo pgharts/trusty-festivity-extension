@@ -21,5 +21,7 @@
           = location.festivity_address
           %br
           = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
+        %p
+          = location.short_description
         %a.btn.btn-default{type: "button", href: location_path(location.slug) }
           Events and Directions
