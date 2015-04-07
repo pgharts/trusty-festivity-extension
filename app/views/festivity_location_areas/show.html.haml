@@ -1,2 +1,25 @@
-%h1
-  = @area.title
+.container
+  .row
+    .landing-page-header.col-xs-12.location-landing-page-header{style: "background-image: url('#{@area.image}')"}
+      %h1.landing-page-header__title
+        = @area.title
+
+  .row
+    .col-xs-12.col-md-12
+      %h2.landing-page-intro
+        = @area.description
+
+    - @area.children.each do |location|
+
+      .col-xs-12.col-md-4.landing-page-plug
+        .map-thumb
+          %img{src: location.image, alt: location.title}
+        %h3.strong
+          %a{href:location_path(location.slug)}
+            = location.title
+        %p
+          = location.festivity_address
+          %br
+          = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
+        %a.btn.btn-default{type: "button", href: location_path(location.slug) }
+          Events and Directions
