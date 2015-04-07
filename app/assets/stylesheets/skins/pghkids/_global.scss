@@ -26,3 +26,10 @@ h3 {
     background-color: #fff;
     border-color: #ccc;
 }
+.btn-default:focus,.btn-default:hover {
+    color: #fff;
+    background-color: #0495A4;
+    border-color: #000;
+    text-decoration: none;
+    font-weight: normal;
+}

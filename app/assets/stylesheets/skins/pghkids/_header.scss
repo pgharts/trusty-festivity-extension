@@ -6,4 +6,8 @@ header.site-header .secondary-navigation li a:hover,a:focus {
   @media all and (min-width: 62em) {
     header.site-header {
 	  background-image: url(header.png); 
-	  height: 100%;}} 
+	  height: 100%;}}
+  @media all and (max-width: 62em) {
+    header.site-header {
+	  background-image: url(header_mobile.png);
+	  background-repeat: no-repeat;}} 
