@@ -66,6 +66,7 @@ class FestivityEventList
   def self.parse_criteria(criteria)
     where_clause = {}
     event_ids = event_ids_for_dates(criteria[:dates]) if criteria[:dates]
+    where_clause["site_id"] = Page.current_site.id
     where_clause["event_id"] = event_ids if event_ids
     where_clause["festivity_categories.id"] = criteria[:categories].split(",") if criteria[:categories]
     where_clause

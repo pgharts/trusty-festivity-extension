@@ -15,6 +15,10 @@ module Festivity
           self.festivity_category_types.where(["inactive = false"])
         end
 
+        def date_during_festival?(date)
+          self.festival_dates.include?(date)
+        end
+
         def festival_dates
           @festival_dates ||= calculate_festival_dates
         end
@@ -25,6 +29,8 @@ module Festivity
             dates << dates.last.advance(days: 1)
           end
           dates
+        rescue
+          []
         end
 
       end
