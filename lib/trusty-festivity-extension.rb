@@ -1,5 +1,5 @@
 module TrustyFestivityExtension
-  VERSION     = "0.1.9"
+  VERSION     = "0.1.10"
   SUMMARY     = "Festival microsite engine for Trusty CMS"
   DESCRIPTION = "Event management for arts festivals."
   URL         = "http://github.com/pgharts/trusty-festivity-extension"
