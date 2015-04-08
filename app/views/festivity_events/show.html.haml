@@ -132,20 +132,22 @@
           .modal-footer
             %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
               Close
-  -#== partial "partials/video_modal"
 
   .row.related-events
     .col-xs-12
       %h3.text-center.related-events__header
         Related Events
-    -#- data.events.events_details[0..2].each do |e|
+    - @related_events[0..2].each do |e|
       .col-xs-12.col-md-4.related-events__event
         .photo
-          =link_to "#{e.slug}.html"
-            img.img-responsive(src="#{e.image_url}")
-        =link_to "#{e.slug}.html"
-          h3= e.event_title
-        h4
-          span.strong= e.event_name
-          span.light= e.event_sponsor
+          = link_to event_path(id: e.id) do
+            %img.img-responsive{src:"#{e.image}"}
+        = link_to event_path(id: e.id) do
+          %h3
+            = e.title
+        %h4
+          %span.strong
+            = e.header
+          %span.light
+            = e.sub_header
 

@@ -34,6 +34,19 @@ class FestivityEventList
     )
   end
 
+  def self.find_related_events(criteria)
+    where_clause = parse_criteria(criteria)
+    FestivityEventList.new(
+        FestivityEventList::FestivityEventPerformance.
+            includes(:assets).
+            joins(:festivity_categories).
+            where(where_clause).
+            group("performance_id").
+            order("featured_item DESC, start_date ASC").
+            preload(:festivity_categories)
+    )
+  end
+
   private
 
   # Return a list of unique event ids that match the provided dates

@@ -24,6 +24,9 @@ class FestivityEventsController < ApplicationController
 
   def show
     @event = FestivityEventPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
+    @related_events = FestivityEventList.find_related_events(
+        {dates: search_dates.join(","),
+         categories: @event.festivity_categories.map{|cat| cat.id}}).events
     @title = "#{current_site.festivity_festival_name}: #{@event.title}"
   end
 
