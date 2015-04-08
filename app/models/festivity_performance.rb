@@ -18,7 +18,7 @@ class FestivityPerformance < ActiveRecord::Base
   private
 
   def parse_date(date)
-    DateTime.strptime(date, '%m/%d/%Y %I:%M %p')
+    Time.strptime(date, '%m/%d/%Y %I:%M %p')
   rescue
     nil
   end
