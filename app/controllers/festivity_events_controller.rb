@@ -4,7 +4,7 @@ class FestivityEventsController < ApplicationController
 
   def index
     order_by = params[:sort] ? params[:sort] : "start_date"
-
+    @title = "#{current_site.festivity_festival_name}: Events"
     @events = FestivityEventList.search(
         {dates: search_dates.join(","),
          categories: params[:categories]},
@@ -24,6 +24,7 @@ class FestivityEventsController < ApplicationController
 
   def show
     @event = FestivityEventPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
+    @title = "#{current_site.festivity_festival_name}: #{@event.title}"
   end
 
   private

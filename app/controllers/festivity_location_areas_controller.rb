@@ -4,6 +4,7 @@ class FestivityLocationAreasController < ApplicationController
 
   def show
     @area = FestivityLocationAreaPage.find_by_slug_for_site(params[:id]).first
+    @title = "#{current_site.festivity_festival_name}: #{@area.title}"
   end
 
 end
