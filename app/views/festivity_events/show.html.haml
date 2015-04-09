@@ -55,25 +55,25 @@
                 Connect with This Artist
             - if @event.has_twitter?
               %li.list-group-item
-                = link_to @event.artist_twitter do
+                = link_to @event.artist_twitter, target: "_blank" do
                   %i.fa.fa-twitter-square
                   %span.icon-text
                     Twitter
             - if @event.has_facebook?
               %li.list-group-item
-                = link_to @event.artist_facebook do
+                = link_to @event.artist_facebook, target: "_blank" do
                   %i.fa.fa-facebook-square
                   %span.icon-text
                     Facebook
             - if @event.has_instagram?
               %li.list-group-item
-                = link_to @event.artist_instagram do
+                = link_to @event.artist_instagram, target: "_blank" do
                   %i.fa.fa-instagram
                   %span.icon-text
                     Instagram
             - if @event.has_homepage?
               %li.list-group-item
-                = link_to @event.artist_homepage do
+                = link_to @event.artist_homepage, target: "_blank" do
                   %i.fa.fa-external-link-square
                   %span.icon-text
                     Home Page
