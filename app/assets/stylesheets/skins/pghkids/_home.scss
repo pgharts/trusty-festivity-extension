@@ -5,24 +5,30 @@
 	color: #000;}
 .home .title {
 	font-weight: bold;
-	font-size: 24px;}
+	font-size: 24px;
+	text-shadow: 1px 1px #000;}
 .home .title .subtitle{
 	font-size: 24px;
 	font-weight: bold;
 	color: #fcba36;
-	text-shadow: 1px 1px #000000;}
+	text-shadow: 1px 1px #000;}
 .home-header {
 	font-size: 48px;
 	font-weight: bold;
 	color: #22bdcd;
-	text-shadow: 1px 1px #000000;}	
+	text-shadow: 1px 1px #000;}	
 .home-primary {
   background-color: #008379; }
 .home-secondary-1 {
   background-color: #c05917;} 
 .home-secondary-2 {
   background-color: #c30f38;}
-.home-hightlight-1 {
+.home .highlight .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  text-shadow: none;}
+.home-highlight-1 {
   background-color: #93d6de;} 
-.home-hightlight-2 {
-  background-color: #fbb72d;}  
+.home-highlight-2 {
+  background-color: #fbb72d;}   
