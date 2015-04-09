@@ -6,7 +6,7 @@ TrustyCms::Application.routes.draw do
     resources :festivity_categories
     resources :festivity_performances
   end
-
+  get 'search' => 'search#show'
   resources :events, controller: :festivity_events, only: [:index, :show]
   resources :locations, controller: :festivity_locations, only: [:show]
   resources :areas, controller: :festivity_location_areas, only: [:show]

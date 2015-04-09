@@ -1,0 +1,19 @@
+- @title = "Search Results for '#{h(params[:q])}'"
+
+
+.container.search-results
+  .search-results__header.row
+    .col-xs-12.col-sm-10.col-sm-offset-1
+      .row
+        .col-xs-7
+          %h1
+            = "Search Results for '#{ (h(params[:q]))}'"
+      %hr
+  .row
+    .col-xs-12.col-sm-10.col-sm-offset-1
+      - if @result.items.count == 0
+        No results found. Please refine your search.
+      = render :partial => "result_item", :collection => @result.items
+      %p
+      = render :partial => "pagination_links"
+      %p

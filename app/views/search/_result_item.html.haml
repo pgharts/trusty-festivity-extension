@@ -1,0 +1,6 @@
+%article.search-result-item
+  %h2
+    = link_to sanitize(result_item.title), result_item.url
+  %p
+    = sanitize(result_item.content)
+  .link

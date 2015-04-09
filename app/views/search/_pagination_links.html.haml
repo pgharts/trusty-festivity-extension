@@ -1,0 +1,7 @@
+.pagination-links
+  - if @result.items.count > 0
+    - unless @result.first_page?
+      = render :partial => "page", :locals => {:page_number => @result.previous_page_number, :label => "< Previous"}
+
+    - unless @result.last_page?
+      = render :partial => "page", :locals => {:page_number => @result.next_page_number, :label => "Next >"}
