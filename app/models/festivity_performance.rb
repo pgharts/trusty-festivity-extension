@@ -18,7 +18,8 @@ class FestivityPerformance < ActiveRecord::Base
   private
 
   def parse_date(date)
-    Time.strptime("#{date} #{Time.zone.now.formatted_offset(false)}", '%m/%d/%Y %I:%M %p %Z')
+    time = Time.strptime("#{date}", '%m/%d/%Y %I:%M %p')
+    Time.zone.local(time.year, time.month, time.day, time.hour, time.min, time.sec)
   rescue
     nil
   end
