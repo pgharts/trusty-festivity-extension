@@ -41,7 +41,7 @@ class FestivityEventPage < FestivityBasePage
   end
 
   def has_homepage?
-    !self.artist_facebook.empty?
+    !self.artist_homepage.empty?
   end
 
   def event_locations
