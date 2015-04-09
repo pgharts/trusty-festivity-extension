@@ -41,6 +41,7 @@ class FestivityEventList
             includes(:assets).
             joins(:festivity_categories).
             where(where_clause).
+            where("event_id != ?", criteria[:event_id]).
             group("performance_id").
             order("featured_item DESC, start_date ASC").
             preload(:festivity_categories)
