@@ -1,17 +1,7 @@
 .page-template
   .row
     .col-xs-12.col-md-12
-    - current_page.children.each do |page|
-
-      .col-xs-12.col-md-4.landing-page-plug
-        .map-thumb
-          %a{href: page.path}
-            %img{src: page.image, alt: page.title}
-        %h3.strong
-          %a{href: page.path}
-            = page.title
-        %p
-          = page.short_description
-        %button.btn.btn-default{type: "button", href: page.path }
-          %a{href: page.path}
-            Learn More
+      - current_page.children.each_with_index do |page, index|
+        - if index%3 == 0
+          .row
+        = render partial: 'navigation/three_column_item', locals: {page: page}
