@@ -11,4 +11,7 @@ li.list-group-item .a:hover {
 	text-decoration: none;}
 .event-filter-bar__header {
   background-color: #c2e8eb !important;}
-
+.related-events .related-events__event h3:hover,.related-events .related-events__event h3:focus {
+    color: #03616b;}
+.related-events .related-events__event a h3{
+    color: #0495A4;}
