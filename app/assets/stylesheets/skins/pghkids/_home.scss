@@ -1,12 +1,18 @@
 .home {
 	color: #fff;
-	font-size: 16px;}
+	font-size: 16px;
+	padding: 0px 0px 10px 0px;}
 .home a {
 	color: #000;}
 .home .title {
 	font-weight: bold;
 	font-size: 24px;
-	text-shadow: 1px 1px #000;}
+	text-shadow: 1px 1px #000;
+	padding: 0px;}
+.home hr{
+    padding: 10px 0px 10px 0px;
+    margin: 0px;
+	font-weight: bold;}
 .home .title .subtitle{
 	font-size: 24px;
 	font-weight: bold;
@@ -20,20 +26,38 @@
 .home-primary {
   background-color: #008379; }
 .home-secondary-1 {
-  background-color: #c05917;} 
+   background-color: #c05917;
+   margin-top: 10px;}
+   @media all and (min-width: 62em) {
+    .home-secondary-1 {
+    width: 49.5%;
+    margin-right: .5% }}
 .home-secondary-2 {
-  background-color: #c30f38;}
-.home .highlight .title {
-  font-size: 24px;
-  font-weight: bold;
+  background-color: #c30f38;
+  margin-top: 10px;}
+  @media all and (min-width: 62em) {
+    .home-secondary-2 {
+    width: 49.5%;
+    margin-left: .5% } }
+.home .highlight {
   color: #000;
   text-shadow: none;}
-.home-highlight-1 {
-  background-color: #93d6de;} 
-.home-highlight-2 {
-  background-color: #fbb72d;}
-.home .highlight {
+.home .highlight .title{
   font-size: 24px;
   font-weight: bold;
   color: #000;
   text-shadow: none;}  
+.home-highlight-1 {
+  background-color: #93d6de;
+  margin-top: 10px;}
+  @media all and (min-width: 62em) {
+    .home-highlight-1 {
+    width: 49.5%;
+    margin-right: .5% } }  
+.home-highlight-2 {
+  background-color: #fbb72d;
+  margin-top: 10px;}
+  @media all and (min-width: 62em) {
+    .home-highlight-2 {
+    width: 49.5%;
+    margin-left: .5% } }  
