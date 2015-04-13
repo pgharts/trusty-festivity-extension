@@ -63,3 +63,40 @@
       margin-left: .5% } }
 .home ul  {
   padding:20px;}
+
+
+
+/* set column height */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .home-secondary-1, .home-secondary-2 {
+    height: 100%;
+  }
+
+  .home-highlight-1, .home-highlight-2 {
+    height: 100%;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .home-secondary-1, .home-secondary-2 {
+    height: 575px;
+  }
+  .home-highlight-1, .home-highlight-2 {
+    height: 210px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .home-secondary-1, .home-secondary-2 {
+    height: 475px;
+  }
+  .home-highlight-1, .home-highlight-2 {
+    height: 210px;
+  }
+
+}
+
