@@ -1,4 +1,5 @@
 class FestivityEventsController < ApplicationController
+  include Festivity::Mixins::NotFound
   no_login_required
   trusty_layout 'base'
 
@@ -24,10 +25,15 @@ class FestivityEventsController < ApplicationController
 
   def show
     @event = FestivityEventPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
-    @related_events = FestivityEventList.find_related_events(
-        {dates: search_dates.join(","), event_id: @event.id,
-         categories: @event.festivity_categories.map{|cat| cat.id}}).events
-    @title = "#{current_site.festivity_festival_name}: #{@event.title}"
+    if @event
+      @related_events = FestivityEventList.find_related_events(
+          {dates: search_dates.join(","), event_id: @event.id,
+           categories: @event.festivity_categories.map{|cat| cat.id}}).events
+      @title = "#{current_site.festivity_festival_name}: #{@event.title}"
+    else
+      file_not_found_for_site
+    end
+
   end
 
   private
