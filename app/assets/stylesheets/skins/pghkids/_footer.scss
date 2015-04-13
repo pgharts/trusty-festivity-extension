@@ -1,10 +1,22 @@
 footer {
   background: #bfd857;
-  border-top: 10px solid #00a700; }
-  footer a {
-    color: #000; 
-    text-decoration: none;}
-  footer a:hover {
-   	font-weight: bold;
-	color: #fff;
-}
+  margin-top: 0rem;  
+  padding-top: 0rem;}
+footer .birds {
+  background-position: center top; 
+  background-repeat: no-repeat;
+  margin-bottom: 20px;}
+  @media all and (min-width: 62em) {
+	  footer .birds {
+      background-image: url(footer.png);
+      height: 229px;} }
+  @media all and (max-width: 62em) {
+	  footer .birds {
+      background-image: url(footer_mobile.png);
+      height: 102px;} }
+footer a {
+  color: #000;
+  text-decoration: none; }
+footer a:hover {
+  font-weight: bold;
+  color: #fff; } 
