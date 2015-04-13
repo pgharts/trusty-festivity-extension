@@ -24,7 +24,12 @@
   color: #22bdcd;
   text-shadow: 1px 1px #000;}  
 .home-primary {
-  background-color: #008379; }
+  background-color: #008379; } 
+  @media all and (min-width: 62em) {
+    .home-primary{
+      background-image: url(seafoam.jpg);
+      background-position: right top; 
+	  background-repeat: no-repeat;} }
 .home-secondary-1 {
   background-color: #c05917;
   margin-top: 10px;}
