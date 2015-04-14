@@ -4,8 +4,8 @@ module Tags::HeaderTags
   desc "Meta Tags"
   tag "festivity_meta" do |tag|
     page = Page.find_by_slug_for_site(tag.locals.page.slug).first
-    description = CGI.escapeHTML(page.field(:description).content) unless page.field(:description).content.blank?
-    keywords = CGI.escapeHTML(page.field(:keywords).content) unless page.field(:keywords).content.blank?
+    description = get_content(page, :description)
+    keywords = get_content(page, :keywords)
     domain = "#{request.protocol}#{request.host}"
     request.env["action_controller.instance"].render_to_string :partial => "header/meta_tags",
                                                                :locals => {:domain => domain,
@@ -27,6 +27,13 @@ module Tags::HeaderTags
   var s_code=s.t();
 //--></script>}
     end
+  end
+
+  def get_content(page, type)
+    if page.field(type) && !page.field(type).content.blank?
+      CGI.escapeHTML(page.field(type).content)
+    end
+
   end
 
 end
