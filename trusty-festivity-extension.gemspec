@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "trusty-layouts-extension"     , "~> 1.1"
   s.add_dependency "trusty-rad-social-extension"  , "~> 1.1"
   s.add_dependency "trusty-multi-site-extension"  , "~> 1.2"
+  s.add_dependency 'dalli-elasticache'            ,'~> 0.1.2'
 
   s.add_dependency 'trusty_google_custom_search'
   s.add_dependency 'fog'                          , "~> 1.26"
