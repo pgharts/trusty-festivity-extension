@@ -13,6 +13,7 @@ module Tags::HeaderTags
                                                                            :keywords => keywords,
                                                                            :page => page,
                                                                            :url => request.url}
+
   end
 
   desc "Omniture Variables"
