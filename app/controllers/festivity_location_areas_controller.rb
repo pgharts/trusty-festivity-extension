@@ -2,6 +2,7 @@ class FestivityLocationAreasController < ApplicationController
   include Festivity::Mixins::NotFound
   no_login_required
   trusty_layout "normal"
+  caches_action :show
 
   def show
     @area = FestivityLocationAreaPage.find_by_slug_for_site(params[:id]).first
