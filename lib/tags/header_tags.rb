@@ -4,6 +4,7 @@ module Tags::HeaderTags
   desc "Meta Tags"
   tag "festivity_meta" do |tag|
     page = Page.find_by_slug_for_site(tag.locals.page.slug).first
+    page = Page.current_site.homepage unless page
     description = get_content(page, :description)
     keywords = get_content(page, :keywords)
     domain = "#{request.protocol}#{request.host}"
