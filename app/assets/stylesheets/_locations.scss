@@ -9,3 +9,9 @@
   background-repeat: no-repeat;
   background-position: center right;
 }
+
+.location-landing-page-header {
+  @media #{$small-down} {
+    background-image: none !important;
+  }
+}
