@@ -1,6 +1,20 @@
+.logolink {
+    position: absolute;
+    z-index: 1000;
+    background: none;}
+@media all and (min-width: 62em) {
+    .logolink {
+        margin: 45px 0 0 0;
+        height: 135px;
+        width: 385px;}}
+@media all and (max-width: 62em) {
+    .logolink {
+        margin: 0;
+        height: 60px;
+        width: 165px;}}
 header.site-header .secondary-navigation li {
 	font-weight: bold;
-	color: #000000;}
+	color: #000;}
 header.site-header .secondary-navigation li a:hover,a:focus {
 	color: #03616b;}  	
   @media all and (min-width: 62em) {
