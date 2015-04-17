@@ -24,6 +24,5 @@
           = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
         %p
           = location.short_description
-        %button.btn.btn-default
-          %a{href: location_path(location.slug) }
-            Events and Directions
+        %a.btn.btn-default{href: location_path(location.slug) }
+          Events and Directions
