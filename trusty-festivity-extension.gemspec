@@ -22,13 +22,13 @@ Gem::Specification.new do |s|
   # s.executables   = Dir['bin/*'] - ignores
   s.require_paths = ["lib"]
 
-  s.add_dependency "trusty-cms"                   , "~> 1.2"
-  s.add_dependency "trusty-clipped-extension"     , "~> 1.1"
-  s.add_dependency "trusty-snippets-extension"    , "~> 1.1"
-  s.add_dependency "trusty-reorder-extension"     , "~> 1.1"
-  s.add_dependency "trusty-layouts-extension"     , "~> 1.1"
-  s.add_dependency "trusty-rad-social-extension"  , "~> 1.1"
-  s.add_dependency "trusty-multi-site-extension"  , "~> 1.2"
+  s.add_dependency "trusty-cms"                   , "~> 2.0.0-beta"
+  s.add_dependency "trusty-clipped-extension"     , "~> 2.0.0-beta"
+  s.add_dependency "trusty-snippets-extension"    , "~> 2.0.0-beta"
+  s.add_dependency "trusty-reorder-extension"     , "~> 2.0.0-beta"
+  s.add_dependency "trusty-layouts-extension"     , "~> 2.0.0-beta"
+  s.add_dependency "trusty-rad-social-extension"  , "~> 2.0.0-beta"
+  s.add_dependency "trusty-multi-site-extension"  , "~> 2.0.0-beta"
   s.add_dependency 'dalli-elasticache'            ,'~> 0.1.2'
 
   s.add_dependency 'trusty_google_custom_search'
