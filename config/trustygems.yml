@@ -1,2 +1,2 @@
-gemfile: trusty-gestivity-extension.gemspec
+gemspec: trusty-festivity-extension.gemspec
 deploy_command: gem inabox
