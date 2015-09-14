@@ -3,6 +3,8 @@ class FestivityPerformance < ActiveRecord::Base
   belongs_to :festivity_event_page, foreign_key: :event_page_id
   belongs_to :festivity_location_page, foreign_key: :location_page_id
 
+  attr_accessible :start_date, :end_date, :festivity_location_page, :notes
+
   def start_date=(date)
     super(parse_date(date))
   end
