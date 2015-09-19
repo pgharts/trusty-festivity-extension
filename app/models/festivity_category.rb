@@ -4,6 +4,8 @@ class FestivityCategory < ActiveRecord::Base
   has_many :pages, through: :festivity_page_categories
   #self.reflections[:children].options[:position] = "position ASC"
 
+  attr_accessible :name, :festivity_category_type_id, :parent_id, :position, :inactive
+
   def parent
     FestivityCategory.find(self.parent_id)
   end

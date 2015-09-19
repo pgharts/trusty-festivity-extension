@@ -4,6 +4,8 @@ class FestivityCategoryType < ActiveRecord::Base
   belongs_to :site
   validates_uniqueness_of :name, scope: :site_id
 
+  attr_accessible :name, :page_class
+
 
   def parent_categories
     self.festivity_categories.where(inactive: false, parent_id: nil)
