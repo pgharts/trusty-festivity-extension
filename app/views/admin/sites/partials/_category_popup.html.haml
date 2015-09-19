@@ -16,4 +16,4 @@
     .buttons
       = submit_tag "Add #{type_name}", :id => "add_#{type_id}_button", :class => "button", :data => {:role => "add_category", :category => "#{type_id}", :form => "new_#{type_id}"}
       = t('or')
-      = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
+      = link_to t('cancel'), "javascript:void(0);", :class=>"cancel"

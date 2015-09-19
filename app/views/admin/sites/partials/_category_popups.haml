@@ -21,7 +21,7 @@
       .buttons
         = submit_tag "Add Filter Category", :id => 'add_type_button', :class => "button"
         = t('or')
-        = link_to_function t('cancel'), "Popup.close();", :class=>"cancel"
+        = link_to t('cancel'), "javascript:void(0);", :class=>"cancel"
 
   - @site.festivity_active_category_types.each do |category_type|
     = render partial: "admin/sites/partials/category_popup", :locals => { category_type: category_type, type_name: category_type.name, type_id: category_type.name.parameterize}

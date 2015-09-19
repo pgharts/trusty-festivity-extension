@@ -5,6 +5,11 @@ Festivity.Categories = {
   },
 
   bindFormEvents: function() {
+    $('#popup_window .buttons .cancel, .popup .buttons .cancel').unbind("click");
+    $('#popup_window .buttons .cancel, .popup .buttons .cancel').click(function(e) {
+      e.preventDefault();
+      Popup.close();
+    });
     $('input[data-role="add_category"]').unbind("click");
     $('input[data-role="add_category"]').click(function(e){
       e.preventDefault();
