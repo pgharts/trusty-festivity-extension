@@ -1,28 +1,29 @@
-.container
-  .row
-    .landing-page-header.col-xs-12.location-landing-page-header{style: "background-image: url('#{@area.image}')"}
-      %h1.landing-page-header__title
-        = @area.title
+- cache(@area) do
+  .container
+    .row
+      .landing-page-header.col-xs-12.location-landing-page-header{style: "background-image: url('#{@area.image}')"}
+        %h1.landing-page-header__title
+          = @area.title
 
-  .row
-    .col-xs-12.col-md-12
-      %h2.landing-page-intro
-        = @area.body
+    .row
+      .col-xs-12.col-md-12
+        %h2.landing-page-intro
+          = @area.body
 
-    - @area.children.each do |location|
+      - @area.children.each do |location|
 
-      .col-xs-12.col-md-4.landing-page-plug
-        .map-thumb
-          %a{href:location_path(location.slug)}
-            %img{src: location.image, alt: location.title}
-        %h3.strong
-          %a{href:location_path(location.slug)}
-            = location.title
-        %p
-          = location.festivity_address
-          %br
-          = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
-        %p
-          = location.short_description
-        %a.btn.btn-default{href: location_path(location.slug) }
-          Events and Directions
+        .col-xs-12.col-md-4.landing-page-plug
+          .map-thumb
+            %a{href:location_path(location.slug)}
+              %img{src: location.image, alt: location.title}
+          %h3.strong
+            %a{href:location_path(location.slug)}
+              = location.title
+          %p
+            = location.festivity_address
+            %br
+            = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
+          %p
+            = location.short_description
+          %a.btn.btn-default{href: location_path(location.slug) }
+            Events and Directions
