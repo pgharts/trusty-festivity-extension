@@ -8,8 +8,6 @@ module Festivity
           before_save :set_page_defaults
           after_create  :create_page_defaults
 
-          has_many :page_attachments
-          has_many :assets, through: :page_attachments
           has_many :festivity_category_types
           has_many :festivity_page_categories
           has_many :festivity_categories, through: :festivity_page_categories
