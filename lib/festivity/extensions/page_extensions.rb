@@ -34,7 +34,7 @@ module Festivity
         end
 
         def image
-          image_url('featured_image')
+          page_image_url('featured_image')
         end
 
         def organization
