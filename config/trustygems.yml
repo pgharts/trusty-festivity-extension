@@ -1,2 +1,2 @@
 gemspec: trusty-festivity-extension.gemspec
-deploy_command: gem inabox
+deploy_command: gem push
