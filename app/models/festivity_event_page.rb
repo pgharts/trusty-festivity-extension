@@ -1,5 +1,6 @@
 class FestivityEventPage < FestivityBasePage
   has_many :festivity_performances, foreign_key: :event_page_id
+  has_many :festivity_page_categories
   has_many :festivity_categories, through: :festivity_page_categories
 
   def festivity_performances=(performances)
