@@ -78,12 +78,20 @@ class FestivityEventList
   # - The event ids returned, if any, are added to the where clause for the next query
   # - Any category ids passed are added to the where clause as well.
   def self.parse_criteria(criteria)
-    where_clause = {}
     event_ids = event_ids_for_dates(criteria[:dates]) if criteria[:dates]
-    where_clause["site_id"] = Page.current_site.id
-    where_clause["event_id"] = event_ids if event_ids
-    where_clause["festivity_categories.id"] = criteria[:categories].split(",") if criteria[:categories]
+    where_clause = "site_id = #{ Page.current_site.id}"
+    where_clause += " AND event_id IN (#{event_ids.join(",")})" if event_ids
+    where_clause += " AND #{parse_categories(criteria[:categories].split(","))}" if criteria[:categories]
     where_clause
+  end
+
+  def self.parse_categories(category_ids)
+    grouped_ids = FestivityCategory.find(category_ids).group_by {|category| category.festivity_category_type}
+    category_clauses = grouped_ids.map do |categories|
+      "page_id IN (SELECT page_id FROM festivity_page_categories WHERE festivity_category_id IN (#{categories[1].map {|category| category.id}.join(",")}))"
+    end
+    "(#{category_clauses.join(" AND ")})"
+
   end
 
 
