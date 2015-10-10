@@ -3,7 +3,8 @@ class FestivityEventsController < ApplicationController
   no_login_required
   trusty_layout 'base'
 
-  #caches_action :show
+  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?)}
+  caches_action :show
 
   def index
     order_by = params[:sort] ? params[:sort] : "start_date"

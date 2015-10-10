@@ -80,7 +80,7 @@ class FestivityEventList
   def self.parse_criteria(criteria)
     event_ids = event_ids_for_dates(criteria[:dates]) if criteria[:dates]
     where_clause = "site_id = #{ Page.current_site.id}"
-    where_clause += " AND event_id IN (#{event_ids.join(",")})" if event_ids
+    where_clause += " AND event_id IN (#{event_ids.join(",")})" if event_ids.present?
     where_clause += " AND #{parse_categories(criteria[:categories].split(","))}" if criteria[:categories]
     where_clause
   end
@@ -96,3 +96,4 @@ class FestivityEventList
 
 
 end
+

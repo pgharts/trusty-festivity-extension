@@ -8,6 +8,7 @@ class FestivityExtension < TrustyCms::Extension
 
   def activate
     require 'fog'
+    require 'actionpack/action_caching'
     admin.page.edit.add(:form, "festivity_includes", :before => 'edit_page_parts')
     admin.page.edit.add(:form, "festivity_featured_image_fields", :after => 'edit_page_parts')
     admin.page.edit.add(:form, "festivity_base_fields", :after => 'edit_page_parts')
