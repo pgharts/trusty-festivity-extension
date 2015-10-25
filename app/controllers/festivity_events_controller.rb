@@ -9,10 +9,12 @@ class FestivityEventsController < ApplicationController
   def index
     order_by = params[:sort] ? params[:sort] : "start_date"
     @title = "#{current_site.festivity_festival_name}: Events"
+    @filter_type = current_site.festivity_filter_type
     @events =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
       FestivityEventList.search(
           {dates: search_dates.join(","),
-           categories: params[:categories]},
+           categories: params[:categories],
+          filter_type: current_site.festivity_filter_type},
           order_by).events
     end
 
@@ -59,9 +61,9 @@ class FestivityEventsController < ApplicationController
   end
 
   def collect_festival_dates
-    festival_dates = current_site.festival_dates
-    if current_site.date_during_festival?(Date.today)
-      festival_dates = festival_dates.select{ |date| date == Date.today }
+    festival_dates = current_site.festival_datetimes
+    if current_site.date_during_festival?(DateTime.now)
+      festival_dates = festival_dates.select{ |date| date == DateTime.now }
     end
 
     festival_dates.map{ |date| date.to_s }

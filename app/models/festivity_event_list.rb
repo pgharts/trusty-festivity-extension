@@ -51,16 +51,16 @@ class FestivityEventList
   private
 
   # Return a list of unique event ids that match the provided dates
-  def self.event_ids_for_dates(dates)
-    FestivityEventList::FestivityEventPerformance.where(date_criteria(dates)).map {|e| e.event_id}.uniq
+  def self.event_ids_for_datetimes(datetimes, filter_type)
+    FestivityEventList::FestivityEventPerformance.where(datetime_criteria(datetimes, filter_type)).map {|e| e.event_id}.uniq
   end
 
   # Create a condition for start and end date between midnight and 11:59pm
   # for each date passed in and return the SQL condition
-  def self.date_criteria(dates_string)
-    date_queries = dates_string.split(',').map do |date_string|
-      start_date = DateTime.parse(date_string)
-      end_date = start_date.advance(hours: 23, minutes: 59)
+  def self.datetime_criteria(datetimes_string, filter_type)
+    date_queries = datetimes_string.split(',').map do |date_string|
+      start_date = DateTime.parse(URI.decode(date_string))
+      end_date = start_date.advance(advance_by(filter_type))
       <<-SQL
         (
           (start_date >= '#{start_date}' AND start_date <= '#{end_date}')
@@ -72,13 +72,19 @@ class FestivityEventList
     date_queries.join(" OR ")
   end
 
+  def self.advance_by(filter_type)
+    advance_by_hash = {minutes: 59}
+    advance_by_hash[:hours] = 23 if filter_type == "date"
+    advance_by_hash
+  end
+
   # The order of querying, depending on what is passed:
   # - If dates are passed, we search both start and end date between midnight and 11:59pm of that date.
   #   That query returns any matching event ids.
   # - The event ids returned, if any, are added to the where clause for the next query
   # - Any category ids passed are added to the where clause as well.
   def self.parse_criteria(criteria)
-    event_ids = event_ids_for_dates(criteria[:dates]) if criteria[:dates]
+    event_ids = event_ids_for_datetimes(criteria[:dates], criteria[:filter_type]) if criteria[:dates]
     where_clause = "site_id = #{ Page.current_site.id}"
     where_clause += " AND event_id IN (#{event_ids.join(",")})" if event_ids.present?
     where_clause += " AND #{parse_categories(criteria[:categories].split(","))}" if criteria[:categories]

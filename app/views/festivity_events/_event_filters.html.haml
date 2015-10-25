@@ -8,17 +8,18 @@
     Done
 
   %form
+    -
     %div#collapse-wrapper{data: {collapse: true}}
       %h3.open
         Dates
       %ul.filter-bar_filters.date-filters
-        - current_site.festival_dates.each do |day|
+        - current_site.festival_datetimes.each do |datetime|
           %li
             .checkbox
               %label
-                - checked = @selected_dates.include? day.to_s
-                %input{type: "checkbox", value: day.to_s, checked: checked,  data: {filter: "Date", sort: day.to_s}}
-                  = day.strftime("%a, %B %-d")
+                - checked = @selected_dates.include? datetime
+                %input{type: "checkbox", value: datetime.to_s, checked: checked,  data: {filter: "Date", sort: datetime.to_s}}
+                  = datetime.display
       - current_site.festivity_active_category_types.each do |type|
         %h3
           = type.name
