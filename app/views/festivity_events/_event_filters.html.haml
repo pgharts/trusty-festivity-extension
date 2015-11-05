@@ -1,3 +1,4 @@
+- current_date = FestivityDatetimePresenter.new current_site.festival_datetimes.first.datetime - 1.day
 .events-filter-bar__wrapper
 
   %p.event-filter-bar__header
@@ -14,6 +15,12 @@
         Dates
       %ul.filter-bar_filters.date-filters
         - current_site.festival_datetimes.each do |datetime|
+          - unless current_site.date_filter?
+            - unless current_date.to_date == datetime.to_date
+              - current_date = datetime
+              %li
+                %h4
+                  = current_date.display_as_date
           %li
             .checkbox
               %label

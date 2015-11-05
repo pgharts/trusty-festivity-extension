@@ -1,7 +1,7 @@
 class FestivityDatePresenter < FestivityDatetimePresenter
 
   def display
-    @datetime.strftime("%a, %B %-d")
+    display_as_date
   end
 
 end
