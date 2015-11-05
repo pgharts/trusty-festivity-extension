@@ -1,4 +1,4 @@
-- locations = FestivityLocationPage.where(site_id: current_site.id)
+- locations = FestivityLocationPage.where(site_id: @page.site.id)
 .festivity-full.festivity-list.festivity-div
   = render partial: 'admin/pages/partials/performances_table', locals: {performances: performances, locations: locations, page_id: page_id}
 .right

@@ -3,7 +3,7 @@ class Admin::FestivityPerformancesController  < Admin::ResourceController
     event = FestivityEventPage.find(params[:event_page_id])
     performance = event.festivity_performances.new
     if performance.save
-      render partial: 'admin/pages/partials/performance', :locals => { :performance => performance, :locations => FestivityLocationPage.all }
+      render partial: 'admin/pages/partials/performance', :locals => {:performance => performance, :locations => FestivityLocationPage.where(site_id: event.site.id) }
     else
       render status: :bad_request
     end

@@ -65,7 +65,7 @@
       %h4
         %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
         Performances
-    = render partial: "admin/pages/partials/performances", locals: {performances: @page.festivity_performances, page_id: @page.id}
+    = render partial: "admin/pages/partials/performances", locals: {performances: @page.festivity_performances.sort {|a, b| a.start_date <=> b.start_date}, page_id: @page.id}
 
 
   .festivity-div.festivity-title
