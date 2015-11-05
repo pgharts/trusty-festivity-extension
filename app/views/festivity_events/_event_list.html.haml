@@ -56,7 +56,7 @@
             .event-list-item__button-group
               = link_to  "Details", event_path(event.id), class: 'btn event-list-item__btn'
               - unless event.buy_url.blank?
-                = link_to  "Tickets", "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'
+                = link_to  current_site.festivity_buy_ticket_text, "#{event.buy_url}", class: 'btn event-list-item__btn', target: '_blank'
               -#%button.btn.event-list-item__btn{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button"}
                 Share
               - unless event.locations.first.directions_url.blank?

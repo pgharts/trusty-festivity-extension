@@ -18,7 +18,7 @@
       - if @event.can_buy?
         .tickets.sidebar-item
           %a.tickets-button.btn.btn-primary.btn-lg.btn-block{href: "#{@event.buy_url}", target: "_blank"}
-            Buy Tickets
+            = current_site.festivity_buy_ticket_text
       .event-sidebar__location.sidebar-item
         %ul.list-group
           %li.list-group-item.list-group-title

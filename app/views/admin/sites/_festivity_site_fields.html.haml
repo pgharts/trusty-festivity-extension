@@ -23,6 +23,10 @@
     Festival Filter Type
   = self.select :site, :festivity_filter_type,  [['Date', 'date'], ['Time', 'time']], :class=> "textbox festivity-control"
 %p.festivity-third
+  %label{for: "site_festivity_end_date"}
+    Buy Tickets Button Text
+  = self.text_field :site, :festivity_buy_ticket_text, :class=> "textbox festivity-control"
+%p.festivity-third
   %label{for: "site_festivity_google_api_key"}
     Google Search API Key
   = self.text_field(:site, :festivity_google_api_key, class: "textbox festivity-control")
