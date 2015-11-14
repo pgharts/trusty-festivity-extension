@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
   s.add_dependency "trusty-multi-site-extension"  , "~> 2.0"
   s.add_dependency 'actionpack-action_caching'    , '~> 1.1.1'
   s.add_dependency 'dalli-elasticache'            ,'~> 0.1.2'
+  s.add_dependency 'instagram'                    , '~> 1.1'
+  s.add_dependency 'immutable-struct'             , '~> 2.1'
 
   s.add_dependency 'trusty_google_custom_search'
   s.add_dependency 'fog'                          , "~> 1.26"
