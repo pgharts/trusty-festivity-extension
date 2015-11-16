@@ -27,7 +27,7 @@ Social::InstagramPostPresenter = ImmutableStruct.new(
                user_username: post.user.username,
                id: post.id,
                created_time: Time.at(post.created_time.to_i),
-               text: post.text,
+               text: post.caption.text,
                filter: post.filter,
                low_res_image_url: post.images.low_resolution.url,
                low_res_image_height: post.images.low_resolution.height,

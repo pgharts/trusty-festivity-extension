@@ -22,6 +22,7 @@ class FestivityExtension < TrustyCms::Extension
     Admin::SitesHelper.send :include, Festivity::Extensions::PagesHelperExtensions
     Page.send :include, Tags::NavigationTags
     Page.send :include, Tags::HeaderTags
+    Page.send :include, Tags::SocialFeedTags
   end
 
 end
