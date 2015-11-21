@@ -62,8 +62,8 @@ class FestivityEventsController < ApplicationController
 
   def collect_festival_dates
     festival_dates = current_site.festival_datetimes
-    if current_site.date_during_festival?(DateTime.now)
-      festival_dates = festival_dates.select{ |date| date == DateTime.now }
+    if current_site.date_during_festival?(Time.now)
+      festival_dates = festival_dates.select{ |date| date.datetime == Time.now }
     end
 
     festival_dates.map{ |date| date.to_s }

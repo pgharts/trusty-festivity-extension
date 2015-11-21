@@ -24,7 +24,7 @@ module Festivity
         end
 
         def date_during_festival?(date)
-          self.festival_datetimes.include?(date)
+          self.festival_datetimes.any? {|festival_date| festival_date.datetime == date}
         end
 
         def festival_datetimes
