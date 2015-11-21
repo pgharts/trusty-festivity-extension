@@ -24,7 +24,7 @@
           %li
             .checkbox
               %label
-                - checked = @selected_dates.include? datetime
+                - checked = @selected_dates.any? {|selected_date| selected_date == datetime}
                 %input{type: "checkbox", value: datetime.to_s, checked: checked,  data: {filter: "Date", sort: datetime.to_s}}
                   = datetime.display
       - current_site.festivity_active_category_types.each do |type|

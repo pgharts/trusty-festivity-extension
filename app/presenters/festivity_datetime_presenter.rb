@@ -5,6 +5,10 @@ class FestivityDatetimePresenter
     @datetime = datetime
   end
 
+  def ==(other_object)
+    @datetime == other_object.datetime
+  end
+
   def display_as_date
     @datetime.strftime("%a, %B %-d")
   end

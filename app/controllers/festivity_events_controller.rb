@@ -19,7 +19,7 @@ class FestivityEventsController < ApplicationController
     end
 
 
-    @selected_dates = params[:dates] ? params[:dates].split(",") : []
+    @selected_dates = params[:dates] ? FestivityDatetimeFilterPresenter.parse(params[:dates].split(","), current_site.festivity_filter_type) : []
     @selected_categories = params[:categories] ? params[:categories].split(",") : []
     @selected_sort = order_by
     # If the request is AJAX, only return the event list itself, not the full page

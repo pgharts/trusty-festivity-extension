@@ -9,7 +9,12 @@ class FestivityEventList
   end
 
   def self.search(criteria, order_by)
+    begin
     where_clause = parse_criteria(criteria)
+    rescue ActiveRecord::RecordNotFound
+      return FestivityEventList.new([])
+    end
+
     # where in event ids
     FestivityEventList.new(
         FestivityEventList::FestivityEventPerformance.
@@ -59,7 +64,7 @@ class FestivityEventList
   # for each date passed in and return the SQL condition
   def self.datetime_criteria(datetimes_string, filter_type)
     date_queries = datetimes_string.split(',').map do |date_string|
-      start_date = DateTime.parse(URI.decode(date_string))
+      start_date = Chronic.parse(date_string)
       end_date = start_date.advance(advance_by(filter_type))
       <<-SQL
         (
@@ -84,7 +89,11 @@ class FestivityEventList
   # - The event ids returned, if any, are added to the where clause for the next query
   # - Any category ids passed are added to the where clause as well.
   def self.parse_criteria(criteria)
-    event_ids = event_ids_for_datetimes(criteria[:dates], criteria[:filter_type]) if criteria[:dates]
+    if criteria[:dates]
+      event_ids = event_ids_for_datetimes(criteria[:dates], criteria[:filter_type])
+      raise ActiveRecord::RecordNotFound unless event_ids.any?
+    end
+
     where_clause = "site_id = #{ Page.current_site.id}"
     where_clause += " AND event_id IN (#{event_ids.join(",")})" if event_ids.present?
     where_clause += " AND #{parse_categories(criteria[:categories].split(","))}" if criteria[:categories]

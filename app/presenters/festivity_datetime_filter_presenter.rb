@@ -5,6 +5,10 @@ class FestivityDatetimeFilterPresenter
 
   end
 
+  def self.parse(datetimes, datetime_type)
+    self.new(datetimes.map{|date| Chronic.parse(date)}, datetime_type)
+  end
+
   private
 
   def self.datetime_type_class(datetime_type)
