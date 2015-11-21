@@ -12,11 +12,11 @@ module Festivity
       module SiteMethods
 
         def festivity_start_date=(value)
-          super(Time.strptime(value, "%m/%d/%Y %l:%M %P"))
+          super(Chronic.parse(value))
         end
 
         def festivity_end_date=(value)
-          super(Time.strptime(value, "%m/%d/%Y %l:%M %P"))
+          super(Chronic.parse(value))
         end
 
         def festivity_active_category_types

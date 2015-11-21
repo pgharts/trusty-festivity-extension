@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'instagram'                    , '~> 1.1'
   s.add_dependency 'twitter'                      , '~> 5.15'
   s.add_dependency 'immutable-struct'             , '~> 2.1'
+  s.add_dependency 'chronic'                      , '~> 0.10.2'
 
   s.add_dependency 'trusty_google_custom_search'
   s.add_dependency 'fog'                          , "~> 1.26"
