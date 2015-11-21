@@ -64,7 +64,7 @@ class FestivityEventList
   # for each date passed in and return the SQL condition
   def self.datetime_criteria(datetimes_string, filter_type)
     date_queries = datetimes_string.split(',').map do |date_string|
-      start_date = Chronic.parse(date_string)
+      start_date = Chronic.parse(URI.decode(date_string)).utc
       end_date = start_date.advance(advance_by(filter_type))
       <<-SQL
         (
