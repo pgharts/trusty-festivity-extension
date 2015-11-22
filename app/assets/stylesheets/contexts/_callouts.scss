@@ -1,0 +1,11 @@
+.callout {
+	&.dates {
+		ul {
+			list-style-type: disc;
+			margin-left: 1.0em;
+		}
+		li {
+			margin-bottom: 0.5em;
+		}
+	}
+}

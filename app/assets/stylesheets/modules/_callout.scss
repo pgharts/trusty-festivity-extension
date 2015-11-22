@@ -1,0 +1,87 @@
+.callout {
+	@include divider-bottom;
+
+	&:last-of-type {
+		@include divider-none;
+	}
+
+  a {
+    @include link-highlight;
+
+    &.button {
+      @include button;
+    }
+  }
+
+  .callout-title {
+    @include subtle-heading;
+  }
+
+  &.dates {
+    @include breakpoint($breakpoint-s) {
+      padding-bottom: 1em;
+    }
+    
+    @include breakpoint($breakpoint-l) {
+      padding-bottom: 2em;
+    }
+
+    ul {
+      @include reset-list;
+      @include pie-clearfix;
+      
+      li {
+        margin-top: 1em;
+        margin-bottom: 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        @include breakpoint($breakpoint-s) {
+          @include column(6);
+          @include last-col2;
+          margin-top: 0;
+          margin-bottom: 1em;
+        }
+        
+        @include breakpoint($breakpoint-l) {
+          @include column(12);
+          @include last;
+          margin-top: 1em;
+          margin-bottom: 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .day {
+        @include heading-6;
+        display: block;
+      }
+    }
+  }
+
+  &.connect {
+    li {
+      margin-bottom: 0.5em;
+
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      @include breakpoint($breakpoint-s) {
+        display: inline-block;
+        margin-right: 1em;
+      }
+      
+      @include breakpoint($breakpoint-l) {
+        display: block;
+        margin-right: 0;
+      }
+    }
+  }
+}

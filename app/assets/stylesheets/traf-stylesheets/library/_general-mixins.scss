@@ -1,0 +1,72 @@
+/// Typographic Mixins
+
+@mixin copy-face {
+  font-family: "azo-sans-web", arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@mixin title-face {
+  font-family: "azo-sans-web", arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 700;
+}
+
+@mixin title-face-highlight {
+  font-family: "azo-sans-web", arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 400;
+  color: $heading-highlight-color;
+}
+
+@mixin reversed-text-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin no-text-smoothing {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+@mixin subtle-heading {
+  @include heading-5;
+  @include copy-face;
+  color: $heading-highlight-color;
+  margin-bottom: 1em;
+}
+
+@mixin link-reverse-alt {
+  color: $link-color-reverse-alt;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid transparent;
+
+  &:hover, &:focus {
+    color: shade($link-color-reverse-alt, 40%);
+    text-decoration: none;
+    border-color: $highlight-color;
+  }
+}
+
+@mixin button-highlight {
+  @include button;
+  color: $text-color;
+  background-color: $highlight-color;
+  &:hover,
+  &:focus {
+    color:$text-color;
+    background-color: $highlight-color-hover;
+  }
+}
+
+@mixin navigation-link {
+  color:$highlight-color;
+
+  &:hover, &:focus {
+    color: $highlight-color-hover;
+    border-color: transparent;
+  }
+  @include breakpoint($breakpoint-nav) {
+    @include link-reverse-alt;
+  }
+}
+
+
+

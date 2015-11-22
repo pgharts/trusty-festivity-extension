@@ -1,0 +1,30 @@
+.event-detail {
+  .page-header {
+    background-color: $background-color;
+    padding-top: 1em;
+  }
+
+  .page-header {
+    padding-top: 2em;
+
+    .page-title {
+      padding-bottom: 0.5em;
+    }
+  }
+
+  .primary-content {
+    @include pie-clearfix;
+  }
+
+	.event-media{
+		img {
+      width: 100%;
+    }
+	}
+
+  .buy-tickets {
+    a {
+      width: 100%;
+    }
+  }
+}

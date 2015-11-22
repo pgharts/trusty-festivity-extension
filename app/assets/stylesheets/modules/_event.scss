@@ -1,0 +1,93 @@
+.event {
+	@include breakpoint($breakpoint-l) {
+		@include pie-clearfix;
+	}
+
+	&:last-of-type {
+		@include divider-none;
+	}
+}
+.event-media {
+	margin-bottom: 1.5em;
+	.is-featured {
+		@include title-face;
+		background-color: $link-color;
+		color: $background-color;
+		display: block;
+		padding: 0.25em;
+		text-align: center;
+    margin-top: -1.8em;
+    z-index: 10;
+    position: relative;
+	}
+}
+.event-body {
+}
+.event-location {
+	margin-bottom: 0.5em;
+}
+.event-title {
+	@include heading-2;
+	margin-bottom:0.15em;
+}
+.event-subtitle {
+	font-weight: 400;
+	color: $text-color-subtle;
+}
+.event-date {
+	margin-bottom: 1.0em;
+}
+.event-genre {
+	@include title-face;
+	color: $link-color;
+	&:after {
+		content: '\003a';
+		margin-left: -3px;
+	}
+}
+.event-description {}
+.event-tags-group {
+}
+.event-tags {
+	li {
+		margin-bottom: 0.5em;
+		@include breakpoint($breakpoint-xxs) {
+			display: inline-block;
+			margin-right: 0.5em;
+			margin-bottom:0;
+		}
+
+		@include breakpoint($breakpoint-l) {
+			display: block;
+			margin-right: 0;
+		}
+
+		@include breakpoint($breakpoint-xl) {
+			display: inline-block;
+			margin-right: 1em;
+		}
+	}
+
+	a {
+		@include button-subtle-list;
+	}
+}
+
+.event-tools {
+	padding-top: 2em;
+
+	li {
+		display: block;
+		margin-bottom: 0.5em;
+
+		@include breakpoint($breakpoint-s) {
+			display: inline-block;
+			margin-bottom: 0;
+			margin-right: 1em;
+		}
+	}
+
+	a {
+		@include button-subtle-list;
+	}
+}

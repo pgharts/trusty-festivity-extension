@@ -1,0 +1,162 @@
+.events-list {
+  .content-wrapper {
+    background-color: $background-color;
+    padding-top: 1em;
+
+    @include breakpoint($breakpoint-l) {
+      padding-top: 2em;
+    }
+  }
+
+	.secondary-content {
+		padding-top: 0;
+		border-top: 0 none;
+		margin-top: 0;
+	}
+
+	.event {
+		@include divider-bottom;
+		margin-bottom: 2.0em;
+	}
+	.page-title {
+		@include breakpoint($breakpoint-l) {
+			float: left;
+		}
+	}
+
+	.sort-results {
+		margin-bottom: 2.0em;
+
+		select {
+
+			@include breakpoint($breakpoint-l) {
+				width: 50%;
+			}
+		}
+
+		label {
+	    @include subtle-heading;
+		}
+	}
+
+	.event-description {
+	  margin-top: 1.5em;
+	}
+	.event-location {
+		margin-top:1em;
+	}
+	.events-group {
+		@include breakpoint($breakpoint-l) {
+			@include pie-clearfix;
+			clear: both;
+		}
+	}
+	.event-media {
+		@include breakpoint($breakpoint-xl) {
+			@include column(4);
+			margin-bottom: 0;
+		}
+	}
+	.event-body {
+		@include breakpoint($breakpoint-xl) {
+			@include column(8);
+			@include last;
+		}
+
+		.event-tags li {
+			@include breakpoint($breakpoint-l) {
+				display: inline-block;
+				margin-right: 1em;
+			}
+		}
+	}
+}
+
+.sorting-tools {
+	@include pie-clearfix;
+}
+
+.filter-notification {
+	display: block;
+	margin-bottom: 1em;
+	@include breakpoint($breakpoint-nav) {
+		display: flex;
+		width: 100%;
+	}
+	@include breakpoint($breakpoint-xxl) {
+		float: left;
+		width: 65%;
+	}
+	span {
+		margin: 0.25em 1em 0 0;
+	}
+}
+
+.clear-filters {
+	border: none;
+	border-radius: 2px;
+	padding: 0.5em 0.75em;
+	font-size: 0.875em;
+	color: $text-color;
+	background-color: lighten($background-color-subtle, 12%);
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.sort-results {
+	margin-bottom: 2.0em;
+
+	@include breakpoint($breakpoint-nav) {
+		float: right;
+		display: flex;
+		justify-content: flex-end;
+		width: 45%;
+		.filters-applied & {
+			float: none;
+			justify-content: flex-start;
+			width: 100%;
+		}
+	}
+
+	@include breakpoint($breakpoint-xxl) {
+		.filters-applied & {
+			float: left;
+			justify-content: flex-end;
+			width: 35%;
+		}
+	}
+
+	label {
+    @include subtle-heading;
+    @include breakpoint($breakpoint-nav) {
+    	margin: .45em 1em 0 0;
+    }
+	}
+	select {
+		font-size: 1.0em;
+		height: 2em;
+		@include breakpoint($breakpoint-nav) {
+			width: auto;
+		}
+	}
+}
+
+.event-body {
+  .toggler-trigger {
+  	@include button-outlined;
+	  padding: 0.25em 0.5em;
+  	font-size: 0.75em;
+  	border-radius: 2px;
+  	&:hover {
+  		cursor: pointer;
+  	}
+	}
+  .toggler-content {
+    padding: 0.5em 0;
+    li {
+      margin-top: 0.25em;
+      padding-top:0.25em;
+    }
+  }
+}

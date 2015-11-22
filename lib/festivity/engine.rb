@@ -3,7 +3,7 @@ module Festivity
     paths["app/helpers"] = []
 
     initializer "trusty_cms.assets.precompile" do |app|
-      app.config.assets.precompile += %w(admin/festivity_admin.css admin/festivity_admin.js festivity.css festivity_app.js skins/pghkids/skin.css)
+      app.config.assets.precompile += %w(main.css first-night.css traf.css admin/festivity_admin.css admin/festivity_admin.js festivity.css festivity_app.js skins/pghkids/skin.css)
     end
   end
 end

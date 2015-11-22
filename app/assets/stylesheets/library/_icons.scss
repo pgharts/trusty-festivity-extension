@@ -1,0 +1,45 @@
+@mixin icon-base {
+  background-size: contain;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  vertical-align: top;
+}
+
+%icon-base {
+  @include icon-base;
+}
+
+$icons: menu search instagram twitter facebook envelope external-link chevron-down chevron-up chevron-right chevron-left;
+
+@each $icon in $icons {
+	.icon-#{$icon} {
+		@extend %icon-base;
+	}
+}
+
+.icon-twitter,
+.icon-facebook,
+.icon-instagram,
+.icon-external-link,
+.icon-envelope {
+  svg {
+    width: 1.25em;
+    height: 1.25em;
+    .social-link-item-group & {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+  path {
+    fill: $icon-secondary-color;
+    .social-link-item-group & {
+      fill: $icon-primary-color;
+    }
+  }
+}
+
+.icon-chevron-down {
+  width: 20px;
+  height: 20px;
+}

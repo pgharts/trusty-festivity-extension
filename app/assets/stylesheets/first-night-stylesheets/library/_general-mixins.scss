@@ -1,0 +1,39 @@
+@mixin copy-face {
+  font-family: "proxima-nova", arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@mixin title-face {
+  font-family: "jaf-bernino-sans-condensed", arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 700;
+}
+
+@mixin title-face-highlight {
+  font-family: "jaf-bernino-sans-condensed", arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 400;
+  color: $heading-highlight-color;
+}
+
+@mixin reversed-text-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin no-text-smoothing {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+@mixin text-highlighted {
+	background-color: $text-highlight-color;
+}
+
+@mixin callout-primary-link {
+	@include title-face;
+	color: $text-color;
+}
+
+@mixin callout-secondary-link {
+	color: $link-color;
+}
+

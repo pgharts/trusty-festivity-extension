@@ -1,0 +1,23 @@
+.toggler-root {
+
+}
+.toggler-trigger {
+	border: none;
+	background-color: transparent;
+	path {
+		fill: $link-color;
+	}
+	[class^=icon-] {
+		transition: transform .2s linear;
+		.content-expanded & {
+			transform: rotate(-180deg);
+		}
+	}
+}
+
+.toggler-content {
+	clear: both;
+	.js & {
+		display: none;
+	}
+}

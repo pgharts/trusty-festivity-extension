@@ -1,0 +1,234 @@
+// styles not specific to any particular site page.
+// place things like "general" paragraph styles, heading styles, base list styles, etc. here.
+
+// if you're calling the container mixin, you can define a custom max-width
+// otherwise, the max-width's default value is 81.25em (1300px)
+//.container {
+//  @include container(70em);
+//}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  // change your max-width like so:
+  // @include container(68.75em);
+  // default max-width is 81.25em (1300px)
+  @include container;
+  width: 95%;
+}
+
+html {
+  background-color: $footer-color;
+}
+
+.overflow-wrapper {
+  overflow: hidden;
+
+  .menu-content-wrapper {
+    transition: 0.33s transform ease-in;
+    transform: translateX(0);
+
+    @include breakpoint($breakpoint-nav) {
+      transform: none;
+      transition: none;
+    }
+  }
+
+  &.show-filters{
+    .menu-content-wrapper {
+      transform: translateX(300px);
+
+      @include breakpoint($breakpoint-nav) {
+        transform: none;
+        transition: none;
+      }
+    }
+  }
+}
+.main-content {
+  @include pie-clearfix;
+  padding-bottom: 1em;
+  background-color: $background-color;
+  padding-top: 1em;
+
+  .constrained {
+    max-width: 40em;
+    margin: 0 auto 0 auto;
+  }
+
+  .content-wrapper {
+    @include pie-clearfix;
+  }
+
+  .primary-content {
+    @include breakpoint($breakpoint-m) {
+      width: 90%;
+      margin:0 auto;
+    }
+    @include breakpoint($breakpoint-nav) {
+      @include column(8);
+      margin-bottom: 2em;
+      width: 100%;
+    }
+
+    .event-detail & {
+      @include breakpoint($breakpoint-nav) {
+        @include column(7);
+        @include append(1);
+      }
+    }
+
+    .events-list & {
+      @include breakpoint($breakpoint-nav) {
+        @include column(7);
+        @include prepend(1);
+        @include last;
+      }
+    }
+  }
+
+  .secondary-content {
+    @include divider-top;
+
+    @include breakpoint($breakpoint-nav) {
+      @include column(4);
+      @include last;
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0 none;
+      margin-bottom: 2em;
+    }
+
+    .events-list & {
+      @include breakpoint($breakpoint-l) {
+        margin-right: 3.5%;
+      }
+    }
+  }
+}
+
+
+// General Typographic Styles
+//////////////////////////////////////
+
+body {
+  @include copy-face;
+  color: $text-color;
+  line-height: 1.4;
+}
+
+////////// Block-level Elements
+
+p {
+  margin-bottom: 1em;
+}
+
+ul, ol {
+  li li {
+    font-size: inherit;
+  }
+}
+
+// In Main Content Area
+
+.primary {
+  ul, ol {
+    margin: 0 0 0.5em 2em;
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    margin-top: 0.5em;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
+///// Headings
+
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+h3 {
+  @include heading-3;
+}
+
+h4 {
+  @include heading-4;
+}
+
+h5 {
+  @include heading-5;
+}
+
+h6 {
+  @include heading-6;
+}
+
+////////// Inline Elements
+
+a {
+  @include link;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.button {
+  @include button;
+}
+
+.button-highlight {
+  @include button-highlight;
+}
+
+.button-subtle {
+  @include button-subtle;
+}
+
+.button-reverse {
+  @include button-reverse;
+}
+
+.button-wrapper {
+  display: inline-block;
+
+  .note {
+    display: block;
+    text-align: center;
+    margin-top: 0.35em;
+  }
+}
+
+// Other elements
+//////////////////////////////////////
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.not-visually-hidden {
+  @include not-visually-hidden;
+}

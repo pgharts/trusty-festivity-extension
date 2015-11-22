@@ -1,0 +1,142 @@
+// typographic mixins and extends
+
+@mixin copy-face {
+  font-family: proxima-nova, arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@mixin title-face {
+  font-family: proxima-nova, arial, "helvetica neue", helvetica, sans-serif;
+  font-weight: 700;
+}
+
+@mixin alternate-face {
+  @include title-face;
+  text-transform: uppercase;
+}
+
+@mixin reversed-text-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin no-text-smoothing {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+@mixin link {
+  color: $link-color;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover, &:focus {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+@mixin link-highlight {
+  color: $highlight-color;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+
+  &:hover, &:focus {
+    color: $highlight-color-hover;
+    text-decoration: underline;
+  }
+}
+
+@mixin link-reverse {
+  color: $link-color-reverse;
+  transition: color 0.3s ease-in-out;
+
+  &:hover, &:focus {
+    color: $link-color-reverse-hover;
+    text-decoration: none;
+  }
+}
+
+@mixin link-reverse-alt {
+  color: $link-color-reverse-alt;
+  transition: color 0.3s ease-in-out;
+
+  &:hover, &:focus {
+    color: $background-color;
+    text-decoration: none;
+  }
+}
+
+@mixin link-arrow {
+  @include link;
+  &:after {
+    content: " →";
+  }
+}
+
+@mixin link-underline {
+  @include link;
+  border-bottom: 1px solid $link-color;
+
+  &:hover, &:focus {
+    border-color: $link-color-hover;
+    text-decoration: none;
+  }
+}
+
+@mixin heading-link {
+  color: $heading-color;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: darken($heading-color, 15%);
+    text-decoration: underline;
+  }
+}
+
+@mixin heading {
+  @include title-face;
+  margin-bottom: 0.35em;
+  line-height: 1.2;
+  color: $heading-color;
+  a {
+    @include heading-link;
+  }
+}
+
+@mixin heading-1 {
+  @include heading;
+  font-size: 2.5em;
+}
+
+@mixin heading-2 {
+  @include heading;
+  font-size: 1.8em;
+}
+
+@mixin heading-3 {
+  @include heading;
+  font-size: 1.4em;
+}
+
+@mixin heading-4 {
+  @include heading;
+  font-size: 1.2em;
+}
+
+@mixin heading-5 {
+  @include heading;
+  font-size: 1em;
+}
+
+@mixin heading-6 {
+  @include heading;
+  font-size: 0.875em;
+}
+
+@mixin subtle-heading {
+  @include heading-5;
+  @include alternate-face;
+  color: $text-color-subtle;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,257 @@
+.site-header {
+  @include pie-clearfix;
+  background: url('/assets/images/gc-header-bg.svg') repeat-x $link-color;
+
+  @include breakpoint($breakpoint-nav) {
+    padding-bottom: 1em;
+    background-size: auto 100%;
+  }
+
+  .gallery-crawl-mark {
+    clear: both;
+    padding-top: 1em;
+
+    @include breakpoint($breakpoint-nav) {
+      @include column(3);
+    }
+
+    .gallery-crawl-logo-lg {
+      width: inherit;
+      height: inherit;
+      max-width: 100%;
+      margin-bottom: 1em;
+      display: none;
+      margin-top: 1em;
+
+      @include breakpoint($breakpoint-nav) {
+        display: block;
+        width: 200px;
+        max-width: 100%;
+      }
+
+    }
+
+    .gallery-crawl-logo-sm {
+      width: 90%;
+      height: inherit;
+      max-width: 100%;
+      margin-bottom: 1em;
+      margin-top: 0.25em;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include breakpoint($breakpoint-xs) {
+        @include column(7);
+        @include append(1);
+        margin-bottom: 0;
+        padding-top: 0.5em;
+      }
+
+      @include breakpoint($breakpoint-s) {
+        padding-top: 0.4em;
+      }
+
+      @include breakpoint($breakpoint-m) {
+        padding-top: 0.2em;
+      }
+
+      @include breakpoint($breakpoint-nav) {
+        display: none;
+      }
+    }
+  }
+}
+
+.mobile-navigation {
+  padding-bottom: 1em;
+  @include pie-clearfix;
+  $iconDuration: 0.6s;
+  $iconEasing: cubic-bezier(.25,1.7,.35,.8);
+
+  @include breakpoint($breakpoint-xs) {
+    @include column(4);
+    @include last;
+  }
+
+  .menu-trigger {
+    width: 100%;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .iconmenu-button {
+      display:inline-block;
+      position:relative;
+      padding: 0px 5px 10px 10px;
+      transition: $iconDuration/2;
+      cursor:pointer;
+      user-select: none;
+      opacity: 1;
+      vertical-align: middle;
+
+      .iconmenu:before, .iconmenu:after {
+        transition: $iconDuration/2;
+      }
+    }
+
+    .iconmenu {
+      position: relative;
+      display:inline-block;
+      width: 20px;
+      height: 2px;
+      background: $background-color;
+      transition: all $iconDuration $iconEasing;
+      border-radius: 10px;
+      z-index:1;
+
+      &:before, &:after {
+        display: block;
+        content: "";
+        height: 2px;
+        width: 20px;
+        background: $background-color;
+        position: absolute;
+        z-index: -1;
+        transition: all $iconDuration $iconEasing;
+        border-radius: 16px;
+      }
+
+      &:before {
+        top: 5px;
+      }
+      &:after {
+        top: -5px;
+      }
+    }
+
+    .open:not(.steps) .iconmenu:before,
+    .open:not(.steps) .iconmenu:after {
+      top: 0 !important;
+    }
+
+    .open .iconmenu:before,
+    .open .iconmenu:after {
+      transition: $iconDuration $iconEasing;
+    }
+    .open.x {
+      .iconmenu {
+        background: transparent;
+
+        &:before {
+          transform: rotate(-45deg);
+        }
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+.nav-wrapper {
+  display: none;
+  clear:both;
+  margin-top: 1em;
+
+  @include breakpoint($breakpoint-xs) {
+    padding: 1em;
+  }
+
+  @include breakpoint($breakpoint-nav) {
+    @include column(9);
+    @include last;
+    display: inline-block;
+    padding: 0;
+    padding-top: 2em;
+    clear:none;
+  }
+}
+
+.utility-navigation {
+  @include breakpoint($breakpoint-nav) {
+    text-transform: uppercase;
+    float: right;
+    font-size: 0.875em;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+    padding-top: 0.4em;
+  }
+}
+
+.primary-navigation {
+  @include breakpoint($breakpoint-nav) {
+    clear: both;
+    padding-top: 1em;
+  }
+}
+///// Site search styling
+
+.site-search {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+
+  @include breakpoint($breakpoint-nav) {
+    float: right;
+    margin-bottom: 0.5em;
+    margin-left: inherit;
+    margin-right: inherit;
+    max-width: inherit;
+  }
+
+  input {
+    display: inline-block;
+    font-size: 1.0em;
+    padding: 0.55em;
+    width: 82%;
+    border: 0 none;
+    background-color: $link-color-reverse-alt;
+    border-radius: 0;
+    max-width: inherit;
+    @include copy-face;
+
+    @include breakpoint($breakpoint-nav) {
+      width: inherit;
+      padding: 0.31em;
+    }
+
+    // Webkit & Blink
+    &::-webkit-input-placeholder {
+      color: $search-placeholder-color;
+    }
+    // Firefox
+    &::-moz-placeholder {
+      color: $search-placeholder-color;
+    }
+    // IE
+    &:-ms-input-placeholder {
+      color: $search-placeholder-color;
+    }
+  }
+}
+
+button.search-submit {
+  @include button-reverse;
+  background-color: $link-color-reverse;
+  display: inline-block;
+  padding: 0.55em 0.5em;
+  margin-left: -0.3em;
+  width: 18%;
+
+  @include breakpoint($breakpoint-nav) {
+    width: inherit;
+    padding: 0.3em 0.5em;
+  }
+
+  .icon-search {
+    height: 15px;
+    width: 15px;
+    path {
+      fill: $icon-search-color;
+    }
+  }
+}

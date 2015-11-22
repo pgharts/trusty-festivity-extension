@@ -1,0 +1,151 @@
+.secondary-content > .filters-wrapper {
+	display: none;
+
+	@include breakpoint($breakpoint-nav) {
+		display: inherit;
+	}
+	.cancel-filters {
+		@include breakpoint($breakpoint-nav) {
+			display: none;
+		}
+	}
+}
+
+.overflow-wrapper .menu-content-wrapper {
+
+  > .filters-wrapper {
+    @include breakpoint($breakpoint-nav) {
+      display: none;
+    }
+
+    .cancel-filters {
+    	@include button-subtle;
+    	cursor: pointer;
+    }
+
+    .submit-filters {
+    	@include button;
+    	cursor: pointer;
+
+    	@include breakpoint($breakpoint-nav) {
+    		display: none;
+    	}
+    }
+  }
+}
+
+.show-filters-trigger {
+	margin-bottom: 1.5em;
+	display: block;
+	width: 100%;
+	text-align: center;
+	@include breakpoint($breakpoint-s) {
+		display: inline-block;
+		text-align: left;
+		width: auto;
+	}
+
+	@include breakpoint($breakpoint-nav) {
+		display: none;
+	}
+}
+
+.filters-wrapper {
+	position: absolute;
+	left: -300px;
+	top: 0;
+	bottom: 0;
+	overflow-y: hidden;
+	background-color: tint($text-color, 2%);
+	width: 300px;
+	padding: 1.5em 2em 0 2em;
+
+	@include breakpoint($breakpoint-nav){
+		display: block;
+		position: static;
+		width: auto;
+		overflow: inherit;
+		background-color: inherit;
+		padding: 0;
+	}
+
+	.title {
+    @include subtle-heading;
+    color: lighten($text-color-subtle, 10%);
+    font-weight: 400;
+	}
+}
+
+.filters {
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+		ul {
+			margin-left: 1.2em;
+			margin-bottom: 1em;
+
+			> li {
+				margin-top: 0.35em;
+			}
+		}
+	}
+
+	.submit-filters {
+		margin-top: 2em;
+		@include breakpoint($breakpoint-nav){
+			display: none;
+		}
+	}
+}
+
+.filter-type {
+	margin-bottom: 2.5em;
+	position: relative;
+	border-top: 1px solid darken($text-color, 10%);
+	padding-top: 0.5em;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.toggler-trigger {
+		position: relative;
+		&:hover,
+		&:focus {
+			cursor: pointer;
+		}
+		[class^=icon-] {
+			position: absolute;
+			right: 0.25em;
+			padding: 0;
+		}
+	}
+
+	.toggler-content {
+		clear: both;
+		color: lighten($text-color-subtle, 25%);
+
+		@include breakpoint($breakpoint-nav){
+			color: $text-color;
+		}
+
+		li {
+			margin-bottom: 0.5em;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.filter-category {
+	@include heading-4;
+	padding-right: 2em;
+	color: lighten($link-color, 3%);
+	@include reversed-text-smoothing;
+
+	@include breakpoint($breakpoint-nav) {
+		color: $text-color;
+	}
+}
