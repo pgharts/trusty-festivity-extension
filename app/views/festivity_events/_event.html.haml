@@ -10,7 +10,7 @@
 
   .event-body
     %h3.event-title
-      = link_to event_path(event) do
+      = link_to event_path(event.id) do
         = event.title
     - if event.header
       %h4.event-subtitle
