@@ -1,152 +1,92 @@
-.container
-  .row
-    .col-sm-12.col-md-12
-      .event-header
-        %h1.event-header__page-title
-          = @event.title
-        %span.event-header__name
-          = @event.header
-        %p.event-header__subheadline
-          = @event.sub_header
+%header.page-header
+  %h1.page-title
+    = @event.title
+  - if @event.header
+    %h3.page-subtitle
+      = @event.header
 
-  %article.row.event-details
-    .col-md-8.col-xs-12.event-details__event-description
-      %img.img-responsive.img-largesrc{src: "#{@event.image  }"}
-      .event-long-description
-        = @event.body
-    .col-md-4.col-xs-12.event-sidebar
-      - if @event.can_buy?
-        .tickets.sidebar-item
-          %a.tickets-button.btn.btn-primary.btn-lg.btn-block{href: "#{@event.buy_url}", target: "_blank"}
-            = current_site.festivity_buy_ticket_text
-      .event-sidebar__location.sidebar-item
-        %ul.list-group
-          %li.list-group-item.list-group-title
-            %h3
-              Location
-          %li.list-group-item
-            - if @event.single_location?
-              - event_location = @event.locations.first
-              =link_to location_path(id: event_location.slug) do
-                = event_location.title
-              @
-              =link_to area_path(id: event_location.parent.slug) do
-                = event_location.parent.title
-            -else
-              Multiple Locations
-      .event-sidebar__dates-and-times.sidebar-item
-        %ul.list-group
-          %li.list-group-item.list-group-title
-            %h3
-              Dates/Times
-            - @event.performances.each do |perf|
-              %li.list-group-item
-                %strong
-                  = perf.start_date.strftime("%A, %B %d")
-                = "-"
-                = perf.start_date.strftime("%I:%M%p").downcase
-                = "-"
-                = perf.end_date.strftime("%I:%M%p").downcase
-      .event-sidebar__connect-with-artist.sidebar-item
-        - if @event.has_social?
-          %ul.list-group
-            %li.list-group-item.list-group-title
-              %h3
-                Connect with This Artist
-            - if @event.has_twitter?
-              %li.list-group-item
-                = link_to @event.artist_twitter, target: "_blank" do
-                  %i.fa.fa-twitter-square
-                  %span.icon-text
-                    Twitter
-            - if @event.has_facebook?
-              %li.list-group-item
-                = link_to @event.artist_facebook, target: "_blank" do
-                  %i.fa.fa-facebook-square
-                  %span.icon-text
-                    Facebook
-            - if @event.has_instagram?
-              %li.list-group-item
-                = link_to @event.artist_instagram, target: "_blank" do
-                  %i.fa.fa-instagram
-                  %span.icon-text
-                    Instagram
-            - if @event.has_homepage?
-              %li.list-group-item
-                = link_to @event.artist_homepage, target: "_blank" do
-                  %i.fa.fa-external-link-square
-                  %span.icon-text
-                    Home Page
-      -if @event.sponsor_logo?
-        .event-sidebar__sponsor-logo
-          .sponsor-logo
-            = @event.sponsor_logo
+.content-wrapper
+  %section.primary-content
+    - if @event.sub_header
+      %h4.tertiary-title
+        = @event.sub_header
 
-  .row
-    .col-xs-12.event-buttons
-      - if @event.video?
-        %button.btn.btn-default.btn-lg{href: "#", data: {toggle: "modal", target: "#video-modal"}, type: "button"}
-          Watch Video
+    .event-media
+      %img{src: @event.image, alt: "Lead Image"}
+
+    .event-body
+      = @event.body
+
+      %ul.event-tools
+        - if @event.video?
+          %li
+            %a{href: "#", data: {toggle: "modal", target: "#video-modal"}}
+            Watch Video
       - if @event.single_location?
-        %a.btn.btn-default.btn-lg{type: "button", target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
-          Get Directions
-      %button.btn.btn-default.btn-lg{href: "", data: {toggle:"modal", target:"#share-modal"}, type: "button"}
-        Share This
+        %li
+          %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
+            Get Directions
+        %li
+          %a{href: "#", data: {toggle:"modal", target:"#share-modal"}}
+            Share This
 
-  -#== partial "partials/share_modal"
-  #share-modal.modal.fade
-    .modal-dialog
-      .modal-content
-        .modal-header
-          %button.close{data: {dismiss: "modal"}, type: "button"}
-            %span{aria: {hidden: "true"}}
-              x
-            %span.sr-only
-              Close
-          %h2.modal-title
-            Share
-        .modal-body
-          .row
-            .col-xs-12.col-md-12
-              = rad_share_widget({})
-        .modal-footer
-          %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
-            Close
-  - if @event.video?
-    #video-modal.modal.fade
-      .modal-dialog
-        .modal-content
-          .modal-header
-            %button.close{data: {dismiss: "modal"}, type: "button"}
-              %span{aria: {hidden: "true"}}
-                x
-              %span.sr-only
-                Close
-            %h2.modal-title
-              Watch Video
-          .modal-body
-            .row
-              .col-xs-12.col-md-12
-                = @event.video
-          .modal-footer
-            %button.btn.btn-default{data: {dismiss: "modal"}, type: "button"}
-              Close
+  %aside.secondary-content
+    - if @event.can_buy?
+      .callout.buy-tickets
+        = link_to current_site.festivity_buy_ticket_text, @event.buy_url, class: "button buy-tickets", target: "_blank"
 
-  .row.related-events
-    .col-xs-12
-      %h3.text-center.related-events__header
-        Related Events
+    .callout.location
+      %h3.callout-title
+        Location
+      .location-links
+        - if @event.single_location?
+          - event_location = @event.locations.first
+          = link_to location_path(id: event_location.slug) do
+            = event_location.title
+          @
+          = link_to area_path(id: event_location.parent.slug) do
+            = event_location.parent.title
+        -else
+          Multiple Locations
+
+    .callout.dates
+      %h3.callout-title
+        Dates/Times
+      %ul
+        - @event.performances.each do |perf|
+          %li
+            %span.day
+              = perf.start_date.strftime("%A, %B %d")
+            %span.time
+              = "-"
+              = perf.start_date.strftime("%I:%M%p").downcase
+              = "-"
+              = perf.end_date.strftime("%I:%M%p").downcase
+
+    .callout.connect
+      %h3.callout-title
+        Connect with this artist
+      %ul
+        - if @event.has_twitter?
+          %li
+            = link_to @event.artist_twitter, target: "_blank" do
+              %span.icon-twitter{:data => {'grunticon-embed' => true}}
+              %span.icon-text
+                Twitter
+        - if @event.has_facebook?
+          %li
+            = link_to @event.artist_facebook, target: "_blank" do
+              %span.icon-facebook{:data => {'grunticon-embed' => true}}
+              %span.icon-text
+                Facebook
+        - if @event.has_homepage?
+          %li
+            = link_to @event.artist_homepage, target: "_blank" do
+              %span.icon-external-link{:data => {'grunticon-embed' => true}}
+              %span.icon-text
+                Homepage
+- if @related_events.any?
+  %section.related-events
+    %h3 Related Events
     - @related_events[0..2].each do |e|
-      .col-xs-12.col-md-4.related-events__event
-        .photo
-          = link_to event_path(id: e.id) do
-            %img.img-responsive{src:"#{e.image}"}
-        = link_to event_path(id: e.id) do
-          %h3
-            = e.title
-        %h4
-          %span.strong
-            = e.header
-          %span.light
-            = e.sub_header
-
+      = render partial: 'partials/event-item', locals: {e: e,}
