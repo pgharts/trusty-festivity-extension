@@ -21,7 +21,11 @@ module Tags::HeaderTags
   tag "festivity_body_class" do |tag|
     page = Page.find_by_slug_for_site(tag.locals.page.slug).first
     body_class = page && page == Page.current_site.homepage ? "home" : "internal"
-    body_class += " #{tag.locals.page_type}" if tag.locals.page_type
+    if request.env["action_controller.instance"].class == FestivityEventsController && request.env["action_controller.instance"].action_name == "index"
+      body_class += " events-list"
+    elsif request.env["action_controller.instance"].class == FestivityEventsController && request.env["action_controller.instance"].action_name == "show"
+      body_class += " event-detail"
+    end
     body_class
   end
 

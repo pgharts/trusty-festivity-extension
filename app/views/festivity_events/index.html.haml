@@ -1,34 +1,14 @@
-= render partial: "filter_bar_mobile"
-%input#events-url{type: "hidden", value: "#{events_url}"}
-.container
-  .row
-    .event-filter-bar.col-md-3.hidden-xs.hidden-sm
-      = render partial: 'event_filters'
-    #myNavmenu.event-filter-bar.hidden-lg.navmenu.navmenu-default.navmenu-fixed-left.offcanvas
-      = render partial: 'event_filters'
-    .event-list.col-xs-12.col-md-9
-      .row
-        .col-sm-8.col-xs-12.current-filters
-          #current-filters.hide
-            You're currently filtering by
-            %span
-              %strong#current-filters-list
-            %a#clear-filters.btn.btn-default{href: ""}
-              Clear All Filters
-        .sort.col-xs-4
-          %form.form-horizontal.row
-            .form-group
-              %label.col-xs-3.control-label{for: "sort"}
-                Sort
-              .col-xs-9
-                %select.form-control.sort-control#sort
-                  %option{value:"start_date"}
-                    Date/Time
-                  - if @selected_sort == "event_title"
-                    %option{value:"event_title", selected: true}
-                      Alphabetical
-                  -else
-                    %option{value:"event_title"}
-                      Alphabetical
-      .row#event-list-row
-      = render partial: "event_list"
+.content-wrapper
+  %aside.secondary-content
+    = render partial: 'filters'
+
+  %section.primary-content
+    %a.button.show-filters-trigger{href: '#'} Show Filters
+
+    .sorting-tools
+      %form.sort-results{:action => "#"}
+        %label{for: "sort"} Sort
+        %select{id: "sort"}
+          %option{value: "start_date"} Date/Time
+          %option{value: "event_title"} Alphabetical
+    = render partial: "event_list"

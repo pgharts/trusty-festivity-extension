@@ -8,7 +8,6 @@ class FestivityEventsController < ApplicationController
 
   def index
     order_by = params[:sort] ? params[:sort] : "start_date"
-    @page_type = "event-list"
     @title = "#{current_site.festivity_festival_name}: Events"
     @filter_type = current_site.festivity_filter_type
     @events =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
@@ -34,7 +33,6 @@ class FestivityEventsController < ApplicationController
 
   def show
     @event = FestivityEventPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
-    @page_type = "event-detail"
     if @event
       @page = @event
       @related_events = FestivityEventList.find_related_events(

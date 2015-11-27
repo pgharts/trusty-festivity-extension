@@ -1,0 +1,61 @@
+- show_dates ||= false
+
+%article.event
+  - if event.image
+    .event-media
+      = image_tag event.image
+      - if event.featured_item
+        %span.is-featured
+          Featured Event!
+
+  .event-body
+    %h3.event-title
+      = link_to event_path(event) do
+        = event.title
+    - if event.header
+      %h4.event-subtitle
+        = event.header
+        - if event.sub_header
+          = event.sub_header
+    - if event.locations.count == 1
+      - event_location = event.locations.first
+      .event-location
+        = link_to location_path(id: event_location.slug) do
+          = event_location.title
+        @
+        = link_to area_path(id: event_location.area_slug) do
+          = event_location.area_title
+    - else
+      .event-location
+        Multiple Locations
+
+    - if event.performances.count > 1 && show_dates
+      %span.multiple-dates-text
+        Multiple dates and times
+      %span.toggler-root
+        %button.toggler-trigger{aria: {expanded: "false", controls: 'multiple-dates'}}
+          Show All
+        .toggler-content.multiple-dates{aria: {hidden: "true"}}
+          %ul
+            - event.performances.each do |perf|
+              %li
+                = perf.start_date.strftime("%A, %B %d")
+                = ", "
+                = perf.start_date.strftime("%I:%M%p").downcase
+                = " - "
+                = perf.end_date.strftime('%I:%M%p').downcase
+    - else
+      - if show_dates
+        .event-date
+          - if event.performances.first
+            = event.performances.first.start_date.strftime("%A, %B %d")
+            %span.time
+              = event.performances.first.start_date.strftime("%I:%M%p").downcase
+              = " - "
+              = event.performances.first.end_date.strftime('%I:%M%p').downcase
+
+    .event-description
+      %p
+        %span.event-genre
+          = event.categories.first.name
+        = event.short_description
