@@ -3,11 +3,12 @@ class FestivityEventsController < ApplicationController
   no_login_required
   trusty_layout 'base'
 
-  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?)}
+  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?).merge(domain: current_site.base_domain)}
   caches_action :show
 
   def index
     order_by = params[:sort] ? params[:sort] : "start_date"
+    @page_type = "event-list"
     @title = "#{current_site.festivity_festival_name}: Events"
     @filter_type = current_site.festivity_filter_type
     @events =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
@@ -33,6 +34,7 @@ class FestivityEventsController < ApplicationController
 
   def show
     @event = FestivityEventPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
+    @page_type = "event-detail"
     if @event
       @page = @event
       @related_events = FestivityEventList.find_related_events(

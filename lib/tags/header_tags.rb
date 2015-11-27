@@ -17,6 +17,14 @@ module Tags::HeaderTags
 
   end
 
+  desc "body class"
+  tag "festivity_body_class" do |tag|
+    page = Page.find_by_slug_for_site(tag.locals.page.slug).first
+    body_class = page && page == Page.current_site.homepage ? "home" : "internal"
+    body_class += " #{tag.locals.page_type}" if tag.locals.page_type
+    body_class
+  end
+
   desc "Omniture Variables"
   tag "omniture_vars" do |tag|
     domain = "#{request.protocol}#{request.host}"
