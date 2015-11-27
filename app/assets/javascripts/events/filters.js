@@ -59,7 +59,7 @@ Festivity.Filters = {
       cache: false,
       type: "GET",
       success: function(data, textStatus, jqXHR){
-        $("#event-list-items").html(data);
+        $("section.events-group").html(data);
         Festivity.Filters.bindListEvents();
         Festivity.Filters.toggleClearButton();
         Festivity.Filters.updateActiveFilters();

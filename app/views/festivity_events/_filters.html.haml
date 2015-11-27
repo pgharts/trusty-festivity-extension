@@ -10,7 +10,7 @@
       %span.visually-hidden
         Open/Close Filters
       .toggler-content.filters-list{aria: {hidden: "true"}}
-        %ul
+        %ul.date-filters
           - current_site.festival_datetimes.each do |datetime|
             - checked = @selected_dates.any? {|selected_date| selected_date == datetime}
             %li
@@ -30,7 +30,7 @@
           %span.visually-hidden
             Open/Close Filters
         .toggler-content.filters-list{aria: {hidden: "true"}}
-          %ul
+          %ul.category-filters
             - type.parent_categories.each do |parent|
               - checked = @selected_categories.include? parent.id.to_s
               %li
