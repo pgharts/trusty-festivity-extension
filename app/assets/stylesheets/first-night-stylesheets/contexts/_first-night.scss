@@ -1,7 +1,7 @@
 //Header
 
 .site-header {
-  background: url(image-path('fn-header-background.jpg')) no-repeat $header-bg-color;
+  background: asset_url('fn-header-background.jpg') no-repeat $header-bg-color;
 
   @include breakpoint($breakpoint-nav) {
     padding-bottom: 1em;
