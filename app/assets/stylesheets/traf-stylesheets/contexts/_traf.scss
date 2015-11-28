@@ -214,7 +214,7 @@ button.search-submit {
 
 .internal {
   .site-header {
-    background: url('/assets/images/traf-internalpage-bg.svg') no-repeat $background-color-alt;
+    background: url('/traf-internalpage-bg.svg') no-repeat $background-color-alt;
     @include breakpoint($breakpoint-s) {
       background: $background-color-alt;
     }
@@ -222,7 +222,7 @@ button.search-submit {
     .container {
       @include pie-clearfix;
       @include breakpoint($breakpoint-s) {
-        background: url('/assets/images/traf-internalpage-bg.svg') no-repeat $background-color-alt;
+        background: url('/traf-internalpage-bg.svg') no-repeat $background-color-alt;
       }
     }
   }

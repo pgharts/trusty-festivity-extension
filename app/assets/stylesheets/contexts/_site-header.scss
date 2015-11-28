@@ -1,6 +1,6 @@
 .site-header {
   @include pie-clearfix;
-  background: url('/assets/images/gc-header-bg.svg') repeat-x $link-color;
+  background: url('/gc-header-bg.svg') repeat-x $link-color;
 
   @include breakpoint($breakpoint-nav) {
     padding-bottom: 1em;
