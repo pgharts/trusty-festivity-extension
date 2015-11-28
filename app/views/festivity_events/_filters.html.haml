@@ -6,9 +6,9 @@
       %h4.filter-category.toggler-trigger{aria: {expanded: "false", controls: 'filters-list'}}
         %span.category-text
           Dates
-      %span.icon-chevron-down{:data => {'grunticon-embed' => true}}
-      %span.visually-hidden
-        Open/Close Filters
+        %span.icon-chevron-down{:data => {'grunticon-embed' => true}}
+        %span.visually-hidden
+          Open/Close Filters
       .toggler-content.filters-list{aria: {hidden: "true"}}
         %ul.date-filters
           - current_site.festival_datetimes.each do |datetime|
