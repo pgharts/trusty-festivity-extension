@@ -89,4 +89,4 @@
   %section.related-events
     %h3 Related Events
     - @related_events[0..2].each do |e|
-      = render partial: 'partials/event-item', locals: {e: e,}
+      = render partial: 'event', locals: {e: e}

@@ -13,7 +13,9 @@ module Festivity
         festivity_app.js
         skins/pghkids/skin.css
         production/grunticon.loader.js
-        production/*.css)
+        production/icons.data.png.css
+        production/icons.data.svg.css
+        production/icons.fallback.css)
     end
   end
 end
