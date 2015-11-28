@@ -22,13 +22,14 @@
           %li
             %a{href: "#", data: {toggle: "modal", target: "#video-modal"}}
             Watch Video
-      - if @event.single_location?
-        %li
-          %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
-            Get Directions
-        %li
-          %a{href: "#", data: {toggle:"modal", target:"#share-modal"}}
-            Share This
+        - if @event.single_location?
+          %li
+            %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
+              Get Directions
+          -# TODO: Get the modal working.
+          -#%li
+          -#  %a{href: "#", data: {toggle:"modal", target:"#share-modal"}}
+          -#    Share This
 
   %aside.secondary-content
     - if @event.can_buy?
