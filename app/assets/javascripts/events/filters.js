@@ -1,5 +1,36 @@
 Festivity.Filters = {
+  parentClass: function(){ return "content-expanded"},
+  expandedClass: function(){ return "is-expanded"},
+  togglerTrigger: function(){ return $('.toggler-trigger')},
+  toggler: function() {
+    Festivity.Filters.togglerTrigger().off("click");
+    Festivity.Filters.togglerTrigger().on("click", function(e) {
+      e.preventDefault();
+
+      var content = $(this).next();
+
+      if (content.hasClass(Festivity.Filters.expandedClass())) {
+        Festivity.Filters.contentCollapse(content);
+        $(this).attr('aria-expanded', false)
+        content.attr('aria-hidden', true);
+      } else {
+        Festivity.Filters.contentExpand(content);
+        $(this).attr('aria-expanded', true)
+        content.attr('aria-hidden', false);
+      }
+    });
+  },
+  contentExpand: function(content) {
+    content.parent().addClass(Festivity.Filters.parentClass());
+    content.addClass(Festivity.Filters.expandedClass()).stop().slideDown();
+  },
+
+ contentCollapse: function(content) {
+    content.parent().removeClass(Festivity.Filters.parentClass());
+    content.removeClass(Festivity.Filters.expandedClass()).stop().slideUp();
+  },
   bindEvents: function() {
+    Festivity.Filters.toggler();
     $(".date-filters input[type='checkbox'], .category-filters input[type='checkbox']").click(function(e){
       if (e.target.checked == false) {
         $("input[data-sort='" + $(e.target).attr("data-sort") + "']").removeAttr('checked');
@@ -63,6 +94,7 @@ Festivity.Filters = {
         Festivity.Filters.bindListEvents();
         Festivity.Filters.toggleClearButton();
         Festivity.Filters.updateActiveFilters();
+        Festivity.Filters.toggler();
       }
     });
   },

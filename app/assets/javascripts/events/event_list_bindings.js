@@ -1,39 +1,8 @@
 $(document).ready(function() {
-    var $toggler = $('.toggler-root')
-    $togglerTrigger = $('.toggler-trigger'),
+    var $toggler = $('.toggler-root'),
         parentClass = "content-expanded",
         expandedClass = "is-expanded",
         $sidebarFilters = $('.menu-content-wrapper > .filters-wrapper');
-
-    function toggler() {
-        $togglerTrigger.on("click", function(e) {
-            e.preventDefault();
-
-            var content = $(this).next();
-
-            if (content.hasClass(expandedClass)) {
-                contentCollapse(content);
-                $(this).attr('aria-expanded', false)
-                content.attr('aria-hidden', true);
-            } else {
-                contentExpand(content);
-                $(this).attr('aria-expanded', true)
-                content.attr('aria-hidden', false);
-            }
-        });
-    };
-
-    function contentExpand(content) {
-        content.parent().addClass(parentClass);
-        content.addClass(expandedClass).stop().slideDown();
-    };
-
-    function contentCollapse(content) {
-        content.parent().removeClass(parentClass);
-        content.removeClass(expandedClass).stop().slideUp();
-    };
-
-    toggler();
 
     $('.show-filters-trigger').on('click', function(e){
         e.preventDefault();
