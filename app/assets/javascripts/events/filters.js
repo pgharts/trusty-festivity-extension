@@ -47,8 +47,8 @@ Festivity.Filters = {
       Festivity.Filters.queryEvents();
     });
 
-    $(".sort-control").change(function(e){
-      $(".sort-control").val(e.currentTarget.value);
+    $("#sort").change(function(e){
+      $("#sort").val(e.currentTarget.value);
       Festivity.Filters.queryEvents();
     });
 
