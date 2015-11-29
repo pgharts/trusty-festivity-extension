@@ -3,7 +3,7 @@ class FestivityEventsController < ApplicationController
   no_login_required
   trusty_layout 'base'
 
-  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?, base_domain: current_site.base_domain)}
+  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?, base_domain: "#{request.subdomain}.#{request.domain}")}
   caches_action :show
 
   def index
