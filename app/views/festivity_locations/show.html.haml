@@ -1,66 +1,27 @@
-- cache(@location) do
-  .container
-    .row
-      .col-xs-12.location-landing-page-header{style: "background-image: url('#{@location.image}')"}
-        %h1
-          = @location.title
+- cache(@location, base_domain: current_site.base_domain) do
+  %header.page-header
+    %h1.page-title
+      = @location.title
+    %h3.page-subtitle
+      =link_to area_path(id: @location.parent.slug) do
+        = @location.parent.title
+  .content-wrapper
+    %section.primary-content
+      %h4.tertiary-title
+        = @location.festivity_address
+        %br
+        = "#{@location.festivity_city}, #{@location.festivity_state} #{@location.festivity_zip}"
+      - unless @location.festivity_directions_url.blank?
         %p
-          =link_to area_path(id: @location.parent.slug) do
-            = @location.parent.title
-        %p
-          = @location.festivity_address
-          %br
-          = "#{@location.festivity_city}, #{@location.festivity_state} #{@location.festivity_zip}"
-        - unless @location.festivity_directions_url.blank?
           = link_to  "Directions", "#{@location.festivity_directions_url}", class: 'btn btn-default', target: '_blank'
-      .col-xs-12
-      %h2
-        Events at
-        = @location.title
-    .event-list
-      - cache(@location_events) do
-        - @location_events.events.each do |event|
-          .row.event-list-item{data:{genre: event.categories.first.name.to_slug, date: event.performances.first.start_date, location: @location.slug}, class: event.title.to_slug}
-            %hr
-            .event-list-item__photo.col-xs-12.col-md-2
-              .photo
-                = link_to event_path(event.id) do
-                  %img.img-responsive{ src: "#{event.image}"}
-                - if event.featured_item
-                  .event_list-item__photo-featured-item
-                    Featured Event!
-            .event-list-item__info.col-xs-12.col-md-8
-              = link_to event_path(event.id) do
-                %h2
-                  = event.title
-              %h3
-                %span.strong
-                  = event.title
-                %span.light
-                  = event.header
-              - if event.performances.count > 1
-                %p
-                  Multiple dates and times&nbsp;
-                  %button.btn.btn-sm.btn-default.btn-popover{type: "button", data: {content: date_time_popover(event.performances), html: "true",  placement:"top", toggle: "popover"}, title:"All Dates and Times"}
-                    Show all
-              - else
-                - event.performances.each do |perf|
-                  %p
-                    = perf.start_date.strftime("%A, %B %d")
-                    = ", "
-                    = perf.start_date.strftime("%I:%M%p").downcase
-                    = " - "
-                    = perf.end_date.strftime('%I:%M%p').downcase
-              -#- for c in e.event_categories do
-                p
-                  a.strong(href="#")= c
-              .more-dates.hidden
-                ul
-            / - e.event_dates_and_times.each do |date,index|
-            /   li = "#{date.date}, #{date.time}"
-            .event-list-item__button-group.col-xs-12.col-md-2
-              %p
-                = link_to  "Details", event_path(event.id), class: 'btn btn-default'
-              - unless event.buy_url.blank?
-                %p
-                  =link_to  "Tickets", "#{event.buy_url}", class: 'btn btn-default', target: '_blank'
+      .event-media
+        %img{src: @location.image, alt: "Lead Image"}
+
+    - if @location_events.events.any?
+      %section.related-events
+        %h3
+          Events at
+          = @location.title
+        - cache(@location_events.events, base_domain: current_site.base_domain) do
+          - @location_events.events.each do |event|
+            = render partial: 'festivity_events/event', locals: {event: event}

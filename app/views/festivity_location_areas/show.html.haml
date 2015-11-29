@@ -1,29 +1,27 @@
 - cache(@area) do
-  .container
-    .row
-      .landing-page-header.col-xs-12.location-landing-page-header{style: "background-image: url('#{@area.image}')"}
-        %h1.landing-page-header__title
-          = @area.title
-
-    .row
-      .col-xs-12.col-md-12
-        %h2.landing-page-intro
-          = @area.body
-
+  %header.page-header
+    %h1.page-title
+      = @area.title
+  .content-wrapper
+    %section.primary-content
+      .event-media
+        %img{src: @area.image, alt: "Lead Image"}
+      .event-body
+        = @area.body
+    %section.related-events
       - @area.children.each do |location|
+        %article.event
+          - if location.image
+            .event-media
+              = image_tag location.image
 
-        .col-xs-12.col-md-4.landing-page-plug
-          .map-thumb
-            %a{href:location_path(location.slug)}
-              %img{src: location.image, alt: location.title}
-          %h3.strong
-            %a{href:location_path(location.slug)}
-              = location.title
-          %p
-            = location.festivity_address
-            %br
-            = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
-          %p
-            = location.short_description
-          %a.btn.btn-default{href: location_path(location.slug) }
-            Events and Directions
+          .event-body
+            %h3.event-title
+              = link_to location_path(location.slug) do
+                = location.title
+            %h4.event-subtitle
+              = location.festivity_address
+              %br
+              = "#{location.festivity_city}, #{location.festivity_state} #{location.festivity_zip}"
+            %h4.event-subtitle
+              = link_to  "Events and Directions", location_path(location.slug), class: 'btn btn-default', target: '_blank'
