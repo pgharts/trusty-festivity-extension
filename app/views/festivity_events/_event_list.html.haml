@@ -1,5 +1,4 @@
 %section.events-group
-  - cache(@events, base_domain: current_site.base_domain) do
-    - @events.each do |event|
-      - cache(event, base_domain: current_site.base_domain) do
-        = render partial: 'event', locals: {event: event, show_dates: true}
+  - @events.each do |event|
+    - cache(event, base_domain: current_site.base_domain) do
+      = render partial: 'event', locals: {event: event, show_dates: true}
