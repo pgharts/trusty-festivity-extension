@@ -3,10 +3,11 @@ class FestivityEventsController < ApplicationController
   no_login_required
   trusty_layout 'base'
 
-  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?).merge(domain: current_site.base_domain)}
+  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?).merge(base_domain: current_site.base_domain)}
   caches_action :show
 
   def index
+
     order_by = params[:sort] ? params[:sort] : "start_date"
     @title = "#{current_site.festivity_festival_name}: Events"
     @filter_type = current_site.festivity_filter_type
