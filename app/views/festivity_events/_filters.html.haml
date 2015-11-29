@@ -12,7 +12,7 @@
       .toggler-content.filters-list{aria: {hidden: "true"}}
         %ul.date-filters
           - current_site.festival_datetimes.each do |datetime|
-            - checked = @selected_dates.any? {|selected_date| selected_date == datetime}
+            - checked = selected_dates.any? {|selected_date| selected_date == datetime}
             %li
               %label{for: datetime.to_s}
                 %input.input-checkbox{type: "checkbox", id: datetime.to_s, value: datetime.to_s, checked: checked,  data: {filter: "Date", sort: datetime.to_s}}
@@ -32,7 +32,7 @@
         .toggler-content.filters-list{aria: {hidden: "true"}}
           %ul.category-filters
             - type.parent_categories.each do |parent|
-              - checked = @selected_categories.include? parent.id.to_s
+              - checked = selected_categories.include? parent.id.to_s
               %li
                 %label{for: parent.id}
                   %input.input-checkbox{type: "checkbox", id: parent.id, value: parent.id, data: {filter: type.name, sort: parent.name.downcase}, checked: checked}
@@ -41,8 +41,10 @@
                 - if parent.children.any?
                   %ul
                     - parent.children.each do |child|
-                      - checked = @selected_categories.include? child.id.to_s
+                      - checked = selected_categories.include? child.id.to_s
                       %li
                         %label{for: child.id}
                           %input.input-checkbox{type: "checkbox", id: child.id, value: child.id, data: {filter: type.name, sort: child.name.downcase}, checked: checked}
                           = child.name
+    %a.cancel-filters Cancel
+    %a.submit-filters Filter

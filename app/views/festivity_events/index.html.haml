@@ -1,7 +1,7 @@
 %input#events-url{type: "hidden", value: "#{events_url}"}
 .content-wrapper
   %aside.secondary-content
-    = render partial: 'filters'
+    = render partial: 'filters', locals: {selected_dates: @selected_dates, selected_categories: @selected_categories}
 
   %section.primary-content
     %a.button.show-filters-trigger{href: '#'} Show Filters
