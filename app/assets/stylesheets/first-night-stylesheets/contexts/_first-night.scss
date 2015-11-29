@@ -381,16 +381,17 @@
       width: 3.25%;
     }
     .instagram-post {
-      background: url(image-path('/fn-instagram-bg.svg')) no-repeat $link-color;
+      background: url(image-path('fn-instagram-bg.svg')) no-repeat $link-color;
       background-position: 90% 93%;
       background-size: 35px auto;
     }
     .twitter-post {
-      background: url(image-path('/fn-twitter-bg.svg')) no-repeat $homepage-featured-background;
+      background: url(image-path('fn-twitter-bg.svg')) no-repeat $homepage-featured-background;
       background-position: 90% 85%;
       background-size: 38px 31px;
     }
     .post-text {
+      overflow: hidden;
       padding: 1.5em;
       .user-account, time {
         max-width: 85%;

@@ -1,4 +1,19 @@
-.social-posts
-  - posts.each do |post|
-    "BUTTS"
-    = post.text
+%section.social-feed
+  .section-wrapper
+    %h3.section-title
+      Photo Album
+      %a
+        FirstNightPGH
+    .social-posts
+      .grid-sizer
+      - posts.each do |post|
+        %article.instagram-post
+          = link_to post.url do
+            = image_tag post.standard_res_image_url, class: "insta-image", alt: "Lead Image"
+          .post-text
+            %p.post
+              = post.text
+            %span.user-account
+              = "@#{post.user_username}"
+            %time
+              = time_ago_in_words(post.created_time)
