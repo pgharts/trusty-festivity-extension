@@ -3,7 +3,7 @@ function toggleNavWrapper() {
   var $menuTrigger = $('.menu-trigger'),
     $navWrapper = $('.nav-wrapper'),
     $iconMenuButton = $('.iconmenu-button');
-  
+
   $menuTrigger.on("click", function(e) {
     $menuTrigger.toggleClass('is-active');
     $iconMenuButton.toggleClass('open');
