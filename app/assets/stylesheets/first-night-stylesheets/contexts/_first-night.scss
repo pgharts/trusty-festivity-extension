@@ -183,7 +183,7 @@
 
       @include breakpoint($breakpoint-m) {
         @include column(8);
-        background: url(image-path('/fn-featured-bg.svg')) no-repeat transparent;
+        background: url(image-path('/production/assets/fn-featured-bg.svg')) no-repeat transparent;
         position: absolute;
         bottom: 0;
       }
@@ -286,11 +286,11 @@
     }
   }
 	.how-it-works {
-    background: url(image-path('/fn-homepage-howitworks-topbg.svg')) -1.5em 0 no-repeat, url(image-path('/fn-homepage-howitworks-bg-sm.jpg')) no-repeat, $text-color;
+    background: url(image-path('/production/assets/fn-homepage-howitworks-topbg.svg')) -1.5em 0 no-repeat, url(image-path('/fn-homepage-howitworks-bg-sm.jpg')) no-repeat, $text-color;
 		@include pie-clearfix;
 
     @include breakpoint($breakpoint-l){
-      background: url(image-path('/fn-homepage-howitworks-topbg.svg')) -1.5em 0 no-repeat, url(image-path('/fn-homepage-howitworks-bg.jpg')) no-repeat, $text-color;
+      background: url(image-path('/production/assets/fn-homepage-howitworks-topbg.svg')) -1.5em 0 no-repeat, url(image-path('/fn-homepage-howitworks-bg.jpg')) no-repeat, $text-color;
     }
     h3.section-title {
       @include reversed-text-smoothing;
