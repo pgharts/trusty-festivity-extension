@@ -34,7 +34,7 @@ module Festivity
         def calculate_festival_datetimes
           dates = [self.festivity_start_date]
           advance_by = date_filter? ? {days: 1} : {hours: 1}
-          until dates.last >= self.festivity_end_date do
+          until dates.last.advance(advance_by) >= self.festivity_end_date do
             dates << dates.last.advance(advance_by)
           end
           FestivityDatetimeFilterPresenter.new(dates, self.festivity_filter_type)
