@@ -183,7 +183,7 @@
 
       @include breakpoint($breakpoint-m) {
         @include column(8);
-        background: url(image-path(fn-featured-bg.svg)) no-repeat transparent;
+        background: url(fn-featured-bg.svg) no-repeat transparent;
         position: absolute;
         bottom: 0;
       }
@@ -286,11 +286,11 @@
     }
   }
 	.how-it-works {
-    background: url(image-path(fn-homepage-howitworks-topbg.svg)) -1.5em 0 no-repeat, url(image-path(fn-homepage-howitworks-bg-sm.jpg)) no-repeat, $text-color;
+    background: url(fn-homepage-howitworks-topbg.svg) -1.5em 0 no-repeat, url(fn-homepage-howitworks-bg-sm.jpg) no-repeat, $text-color;
 		@include pie-clearfix;
 
     @include breakpoint($breakpoint-l){
-      background: url(image-path(fn-homepage-howitworks-topbg.svg)) -1.5em 0 no-repeat, url(image-path(fn-homepage-howitworks-bg.jpg)) no-repeat, $text-color;
+      background: url(fn-homepage-howitworks-topbg.svg) -1.5em 0 no-repeat, url(fn-homepage-howitworks-bg.jpg) no-repeat, $text-color;
     }
     h3.section-title {
       @include reversed-text-smoothing;
@@ -381,12 +381,12 @@
       width: 3.25%;
     }
     .instagram-post {
-      background: url(image-path('fn-instagram-bg.svg')) no-repeat $link-color;
+      background: url('fn-instagram-bg.svg') no-repeat $link-color;
       background-position: 90% 93%;
       background-size: 35px auto;
     }
     .twitter-post {
-      background: url(image-path('fn-twitter-bg.svg')) no-repeat $homepage-featured-background;
+      background: url('fn-twitter-bg.svg') no-repeat $homepage-featured-background;
       background-position: 90% 85%;
       background-size: 38px 31px;
     }
