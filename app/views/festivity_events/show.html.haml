@@ -87,9 +87,7 @@
                   Homepage
     - if @event.sponsor_logo?
       .callout.sponsor
-        %ul
-          %li
-            = @event.sponsor_logo
+        = @event.sponsor_logo
 - if @related_events.any?
   %section.related-events
     %h3 Related Events
