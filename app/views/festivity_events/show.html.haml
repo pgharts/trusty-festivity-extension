@@ -62,29 +62,34 @@
               = perf.start_date.strftime("%I:%M%p").downcase
               = "-"
               = perf.end_date.strftime("%I:%M%p").downcase
-
-    .callout.connect
-      %h3.callout-title
-        Connect with this artist
-      %ul
-        - if @event.has_twitter?
+    - if @event.has_social?
+      .callout.connect
+        %h3.callout-title
+          Connect with this artist
+        %ul
+          - if @event.has_twitter?
+            %li
+              = link_to @event.artist_twitter, target: "_blank" do
+                %span.icon-twitter{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Twitter
+          - if @event.has_facebook?
+            %li
+              = link_to @event.artist_facebook, target: "_blank" do
+                %span.icon-facebook{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Facebook
+          - if @event.has_homepage?
+            %li
+              = link_to @event.artist_homepage, target: "_blank" do
+                %span.icon-external-link{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Homepage
+    - if @event.sponsor_logo?
+      .callout.sponsor
+        %ul
           %li
-            = link_to @event.artist_twitter, target: "_blank" do
-              %span.icon-twitter{:data => {'grunticon-embed' => true}}
-              %span.icon-text
-                Twitter
-        - if @event.has_facebook?
-          %li
-            = link_to @event.artist_facebook, target: "_blank" do
-              %span.icon-facebook{:data => {'grunticon-embed' => true}}
-              %span.icon-text
-                Facebook
-        - if @event.has_homepage?
-          %li
-            = link_to @event.artist_homepage, target: "_blank" do
-              %span.icon-external-link{:data => {'grunticon-embed' => true}}
-              %span.icon-text
-                Homepage
+            = @event.sponsor_logo
 - if @related_events.any?
   %section.related-events
     %h3 Related Events
