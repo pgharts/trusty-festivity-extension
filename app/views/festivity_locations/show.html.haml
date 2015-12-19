@@ -1,22 +1,26 @@
 - cache(@location, base_domain: current_site.base_domain) do
-  %header.page-header
-    %h1.page-title
-      = @location.title
-    %h3.page-subtitle
-      =link_to area_path(id: @location.parent.slug) do
-        = @location.parent.title
-  .content-wrapper
-    %section.primary-content
-      %h4.tertiary-title
-        = @location.festivity_address
-        %br
-        = "#{@location.festivity_city}, #{@location.festivity_state} #{@location.festivity_zip}"
-      - unless @location.festivity_directions_url.blank?
-        %p
-          = link_to  "Directions", "#{@location.festivity_directions_url}", class: 'btn btn-default', target: '_blank'
-      .event-media
+  .location-content
+    %header.location-header
+      .location-info
+        .location-title
+          %h1.page-title
+            = @location.title
+          %h3.tertiary-title
+            =link_to area_path(id: @location.parent.slug) do
+              = @location.parent.title
+        .location-address
+
+          %h4.tertiary-title
+            = @location.festivity_address
+            %br
+            = "#{@location.festivity_city}, #{@location.festivity_state} #{@location.festivity_zip}"
+          - unless @location.festivity_directions_url.blank?
+            = link_to  "Directions", "#{@location.festivity_directions_url}", class: 'button', target: '_blank'
+      .location-media
         %img{src: @location.image, alt: "Lead Image"}
 
+    .content-wrapper
+      %section.primary-content
     - if @location_events.events.any?
       %section.related-events
         %h3
