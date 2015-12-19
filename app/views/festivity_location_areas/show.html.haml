@@ -1,12 +1,15 @@
-- cache(@area) do
-  %header.page-header
-    %h1.page-title
-      = @area.title
-  .content-wrapper
-    %section.primary-content
-      .event-media
+- cache(@area, base_domain: current_site.base_domain) do
+  .location-content
+    %header.location-header
+      .location-info
+        .location-title
+          %h1.page-title
+            = @area.title
+      .location-media
         %img{src: @area.image, alt: "Lead Image"}
-      .event-body
+
+    .content-wrapper
+      %section.primary-content
         = @area.body
     %section.related-events
       - @area.children.each do |location|

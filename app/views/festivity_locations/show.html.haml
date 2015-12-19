@@ -21,6 +21,7 @@
 
     .content-wrapper
       %section.primary-content
+        = @location.body
     - if @location_events.events.any?
       %section.related-events
         %h3
