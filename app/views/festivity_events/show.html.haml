@@ -15,7 +15,8 @@
       %img{src: @event.image, alt: "Lead Image"}
 
     .event-body
-      = @event.body
+      .event-body-text
+        = @event.body
 
       %ul.event-tools
         - if @event.video?
