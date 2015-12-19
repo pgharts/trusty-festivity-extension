@@ -17,5 +17,6 @@
 //= require responders
 //= require navigation
 //= require home-social
+//= require modal
 
 //= require modernizr/modernizr

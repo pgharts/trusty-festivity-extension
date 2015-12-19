@@ -20,9 +20,15 @@
 
       %ul.event-tools
         - if @event.video?
-          %li
+          %li.modal-link
             %a{href: "#", data: {toggle: "modal", target: "#video-modal"}}
-            Watch Video
+              Watch Video
+          .videos-modal.modal
+            .modal-wrapper
+              .modal-content
+                %button.close-btn
+                  %span.icon-close{:data => {'grunticon-embed' => true}}
+                = @event.video.html_safe
         - if @event.single_location?
           %li
             %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
