@@ -1,11 +1,18 @@
-.col-xs-12.col-md-4.landing-page-plug
-  .map-thumb
-    %a{href: page.path}
-      %img{src: page.image, alt: page.title}
-  %h3.strong
-    %a{href: page.path}
-      = page.title
-  %p
-    = page.short_description
-  %a.btn.btn-default{href: page.path}
-    Learn More
+%article.event
+  - if page.image
+    .event-media
+      %a{href: page.path}
+        = image_tag page.image, alt: page.title
+
+  .event-body
+    %h3.event-title
+      = link_to page.path do
+        = page.title
+
+    .event-description
+      %p
+        = page.short_description
+    .event-tags-group
+      %ul.event-tags
+        %li
+          = link_to "Learn More", page.path

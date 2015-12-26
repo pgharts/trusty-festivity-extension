@@ -1,7 +1,3 @@
-.page-template
-  .row
-    .col-xs-12.col-md-12
-      - current_page.children.each_with_index do |page, index|
-        - if index%3 == 0
-          .row
-        = render partial: 'navigation/three_column_item', locals: {page: page}
+%section.related-events
+  - current_page.children.each_with_index do |page, index|
+    = render partial: 'navigation/three_column_item', locals: {page: page}
