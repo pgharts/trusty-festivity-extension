@@ -1,18 +1,18 @@
-%article.event
+%article.subnav-item
   - if page.image
-    .event-media
+    .subnav-item-media
       %a{href: page.path}
         = image_tag page.image, alt: page.title
 
-  .event-body
+  .subnav-item-body
     %h3.event-title
       = link_to page.path do
         = page.title
 
-    .event-description
+    .subnav-item-description
       %p
         = page.short_description
-    .event-tags-group
-      %ul.event-tags
+    .subnav-item-tags-group
+      %ul.subnav-item-tags
         %li
           = link_to "Learn More", page.path
