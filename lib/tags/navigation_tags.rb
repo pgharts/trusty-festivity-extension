@@ -27,16 +27,14 @@ module Tags::NavigationTags
   desc %{Three Column Subnavigation Tag
 
           *Usage:*
-<pre><r:subnav_three_column show_detail="true" /></pre>
+<pre><r:subnav_three_column /></pre>
 
-show_detail will display the page abstract and a Read More link.
 }
   tag "subnav_three_column" do |tag|
 
     request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav_three_column",
                                                                :locals => {:current_page => tag.locals.page,
-                                                                           :top_level_page => top_level_page(tag.locals.page),
-                                                                           :show_detail => show_detail(tag.attr["show_detail"])}
+                                                                           :top_level_page => top_level_page(tag.locals.page)}
   end
 
 
