@@ -1,0 +1,3 @@
+%section{class: "subnav #{subnav_class}"}
+  - current_page.children.each_with_index do |page, index|
+    = render partial: 'navigation/subnav_item', locals: {page: page}

@@ -1,14 +1,31 @@
-.subnav-three-column {
+.subnav-one-column {
 
   .subnav-item {
 
     @include breakpoint($breakpoint-l) {
-      @include column(4);
-      @include last-col3;
+      @include column(12);
       border-bottom: 0 none;
       padding-bottom: 0;
     }
     .subnav-item-media {
+      @include breakpoint($breakpoint-l) {
+        @include column(3);
+        border-bottom: 0 none;
+        padding-bottom: 0;
+      }
+      margin-bottom: 1.5em;
+    }
+
+    .subnav-item-title {
+      padding-bottom: 1em;
+    }
+
+    .subnav-item-body {
+      @include breakpoint($breakpoint-l) {
+        @include column(8);
+        border-bottom: 0 none;
+        padding-bottom: 0;
+      }
       margin-bottom: 1.5em;
     }
 

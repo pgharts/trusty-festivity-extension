@@ -1,15 +1,19 @@
-.subnav-three-column {
+.subnav {
+  @include divider-top;
+  @include pie-clearfix;
+  clear: both;
+
+  @include breakpoint($breakpoint-l) {
+    margin-top: 4em;
+  }
 
   .subnav-item {
-
-    @include breakpoint($breakpoint-l) {
-      @include column(4);
-      @include last-col3;
-      border-bottom: 0 none;
-      padding-bottom: 0;
+    @include divider-bottom;
     }
-    .subnav-item-media {
-      margin-bottom: 1.5em;
+
+    .subnav-item-title {
+      @include heading-2;
+      margin-bottom:0.15em;
     }
 
     .subnav-item-tags {
@@ -40,5 +44,4 @@
       }
     }
 
-  }
 }

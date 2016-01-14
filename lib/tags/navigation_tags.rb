@@ -8,9 +8,11 @@ module Tags::NavigationTags
 <pre><r:subnav_one_column /></pre>
 }
   tag "subnav_one_column" do |tag|
-    request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav_one_column",
-                                                               :locals => {:current_page => tag.locals.page,
-                                                                           :top_level_page => top_level_page(tag.locals.page)}
+    request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav",
+                                                               :locals => {
+                                                                 :subnav_class => 'subnav-one-column',
+                                                                 :current_page => tag.locals.page,
+                                                                 :top_level_page => top_level_page(tag.locals.page)}
   end
 
   desc %{Two Column Subnavigation Tag
@@ -19,9 +21,11 @@ module Tags::NavigationTags
 <pre><r:subnav_two_column /></pre>
 }
   tag "subnav_two_column" do |tag|
-    request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav_two_column",
-                                                               :locals => {:current_page => tag.locals.page,
-                                                                           :top_level_page => top_level_page(tag.locals.page)}
+    request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav",
+                                                               :locals => {
+                                                                 :subnav_class => 'subnav-two-column',
+                                                                 :current_page => tag.locals.page,
+                                                                 :top_level_page => top_level_page(tag.locals.page)}
   end
 
   desc %{Three Column Subnavigation Tag
@@ -32,9 +36,11 @@ module Tags::NavigationTags
 }
   tag "subnav_three_column" do |tag|
 
-    request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav_three_column",
-                                                               :locals => {:current_page => tag.locals.page,
-                                                                           :top_level_page => top_level_page(tag.locals.page)}
+    request.env["action_controller.instance"].render_to_string :partial => "navigation/subnav",
+                                                               :locals => {
+                                                                 :subnav_class => 'subnav-three-column',
+                                                                 :current_page => tag.locals.page,
+                                                                 :top_level_page => top_level_page(tag.locals.page)}
   end
 
 
