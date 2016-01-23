@@ -1,0 +1,23 @@
+- unless @page.is_a?(VanityUrlPage)
+  .fieldset#content
+    %label Page Redirect
+    %br
+    %em
+      If this page has expired and you would like all traffic redirected to a new page, please enter the new url below:
+    %br
+    = label :page, :redirect_url, "Redirect URL"
+    = text_field :page, :redirect_url, :size => 100
+    %br
+
+- if @page.is_a?(VanityUrlPage)
+  %br
+  %hr
+  .vanity_url
+    = label :page, :vanity_url, "Vanity URL"
+    = text_field :page, :vanity_url, :size => 100
+  %br
+  .target_url
+    = label :page, :target_url, "Target URL"
+    = text_field :page, :target_url, :size => 100
+  %br
+  %br

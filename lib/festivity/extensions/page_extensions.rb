@@ -15,6 +15,8 @@ module Festivity
           include ActsAsTree::InstanceMethods
           include Festivity::Extensions::PageExtensions::PageMethods
           include Festivity::Admin::AssetsHelper
+
+          alias_method_chain :find_by_path, :vanity_urls
         }
 
       end
@@ -45,6 +47,16 @@ module Festivity
             page_parent = page_parent.parent
           end
           page_organization
+        end
+
+        def find_by_path_with_vanity_urls(path, live = true, clean = true)
+          raise MissingRootPageError unless root
+          page = self.find_by_path_without_vanity_urls(path, live, clean)
+          if page.is_a?(FileNotFoundPage)
+            page = nil
+            vanity_url = VanityUrlPage.find_vanity_url_by_path(path, live)
+          end
+          vanity_url ? vanity_url : page
         end
 
         private
