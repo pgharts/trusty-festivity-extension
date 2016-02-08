@@ -11,11 +11,10 @@ module Festivity
 
       def process_page_with_redirection(page)
         if page.is_a?(VanityUrlPage)
-          redirect_to page.clean_target_url
-          false
+          false if redirect_to page.clean_target_url
+
         elsif !page.redirect_url.nil? && !page.redirect_url.empty?
-          redirect_to page.redirect_url
-          false
+          false if redirect_to page.redirect_url
         else
           process_page_without_redirection(page)
         end

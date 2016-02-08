@@ -53,7 +53,6 @@ module Festivity
           raise MissingRootPageError unless root
           page = self.find_by_path_without_vanity_urls(path, live, clean)
           if page.is_a?(FileNotFoundPage)
-            page = nil
             vanity_url = VanityUrlPage.find_vanity_url_by_path(path, live)
           end
           vanity_url ? vanity_url : page

@@ -50,22 +50,27 @@
 }
 .event-tags {
 	li {
-		margin-bottom: 0.5em;
-		@include breakpoint($breakpoint-xxs) {
-			display: inline-block;
-			margin-right: 0.5em;
-			margin-bottom:0;
-		}
+      margin-bottom: 0.5em;
+      @include breakpoint($breakpoint-xxs) {
+        display: inline-block;
+        margin-right: 0.5em;
+        margin-bottom:0;
+      }
 
-		@include breakpoint($breakpoint-l) {
-			display: block;
-			margin-right: 0;
-		}
+      @include breakpoint($breakpoint-m) {
+        margin-top: 1em;
+      }
 
-		@include breakpoint($breakpoint-xl) {
-			display: inline-block;
-			margin-right: 1em;
-		}
+      @include breakpoint($breakpoint-l) {
+        display: block;
+        margin-right: 0;
+      }
+
+      @include breakpoint($breakpoint-xl) {
+        display: inline-block;
+        margin-right: 1em;
+        margin-top: 0;
+      }
 	}
 
 	a {
