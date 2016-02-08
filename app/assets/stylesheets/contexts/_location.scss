@@ -29,6 +29,7 @@
       .button {
         @include button-subtle-list;
         background-color: white;
+        margin-bottom: 1em;
       }
 
     }
