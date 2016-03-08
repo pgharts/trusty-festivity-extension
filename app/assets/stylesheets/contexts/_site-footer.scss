@@ -1,7 +1,7 @@
 .social-footer {
-  background-color: $text-color;
+  background-color: $social-footer-color;
   padding: 1.25em 0 1.5em 0;
-  text-align: center;    
+  text-align: center;
 
   @include breakpoint($breakpoint-m) {
     padding: 2.25em 0 2.5em 0;
@@ -55,7 +55,7 @@
 .footer-navigation {
   padding-top: 1em;
   padding-bottom: 1em;
-  
+
   h3, h4 {
     color: $background-color;
   }
