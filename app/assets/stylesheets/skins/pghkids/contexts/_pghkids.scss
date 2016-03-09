@@ -1,0 +1,557 @@
+//Header
+
+.site-header {
+  background: url(/assets/skins/pghkids/header_mobile.png) no-repeat $header-bg-color;
+  @include breakpoint($breakpoint-xl) {
+    background: url(/assets/skins/pghkids/header.png) no-repeat $header-bg-color;
+  }
+
+  @include breakpoint($breakpoint-nav) {
+    padding-bottom: 1em;
+  }
+
+  .first-night-mark {
+    clear: both;
+    padding-top: 1em;
+
+    @include breakpoint($breakpoint-xs) {
+      @include column(7);
+      @include append(1);
+    }
+
+    @include breakpoint($breakpoint-nav) {
+      @include column(3);
+      padding-top:0;
+    }
+
+    .first-night-logo-lg {
+      height: inherit;
+      max-width: 40%;
+      margin-bottom: 1em;
+      display: none;
+      margin-top: 1em;
+
+      @include breakpoint($breakpoint-nav) {
+        display: block;
+        max-width: 60%;
+      }
+      @include breakpoint($breakpoint-l) {
+        max-width: 40%;
+      }
+    }
+
+    .first-night-logo-sm {
+      width: 60%;
+      height: inherit;
+      max-width: 100%;
+      margin: 0.75em auto 1.5em auto;
+      display: block;
+
+      @include breakpoint($breakpoint-xs) {
+        margin-top: 0.15em;
+        margin-left: 0;
+        width: 180px;
+      }
+
+      @include breakpoint($breakpoint-nav) {
+        display: none;
+      }
+    }
+  }
+}
+
+//Navigation
+
+.mobile-navigation {
+  padding: .5em 0;
+  @include breakpoint($breakpoint-xs) {
+    float: right;
+  }
+}
+
+.nav-wrapper {
+  background-color: $header-bg-color;
+  @include breakpoint($breakpoint-nav) {
+    background-color: transparent;
+    margin-top:0;
+  }
+  @include breakpoint($breakpoint-nav) {
+    @include column(12);
+    margin-top:4em;
+  }
+}
+
+.primary-navigation {
+	a {
+		color: $background-color;
+    @include breakpoint($breakpoint-xl) {
+      color: $text-color;
+      &:hover,
+      &:focus {
+        color: $link-color;
+      }
+    }
+	}
+}
+
+.utility-navigation {
+	a {
+		color: $background-color;
+		@include breakpoint($breakpoint-nav) {
+      color: $utility-nav-color;
+    }
+	}
+}
+
+.site-search {
+	input {
+		background-color: $search-input-bg-color;
+    color: $background-color;
+    padding: 0.6em;
+    border-radius: 3px 0 0 3px;
+    @include reversed-text-smoothing;
+
+    @include breakpoint($breakpoint-nav) {
+      padding: 0.36em;
+    }
+	}
+  button.search-submit {
+    background-color: $link-color-reverse;
+    vertical-align:top;
+    border-radius: 0 3px 3px 0;
+    &:hover,
+    &:focus {
+      background-color: darken($link-color-reverse, 5%);
+    }
+    .icon-search {
+      vertical-align: baseline;
+    }
+  }
+}
+
+.overflow-wrapper .menu-content-wrapper .filters-wrapper {
+  background-color: $footer-color;
+  @include breakpoint($breakpoint-nav) {
+    background-color: transparent;
+  }
+  .title {
+    @include breakpoint($breakpoint-nav) {
+      @include heading-4;
+    }
+  }
+  .filter-type {
+    @include breakpoint($breakpoint-xs) {
+    h4 {
+      color: $text-color;
+    }
+    .toggler-content {
+      color: $text-color;
+    }
+  }
+}
+  .cancel-filters {
+    background-color: lighten($text-color, 15%);
+    color: $background-color;
+    &:hover,
+    &:focus {
+      color: $background-color;
+      background-color: darken($text-color, 10%);
+    }
+  }
+}
+
+//Home
+
+.home {
+  .main-content {
+    padding-top: 0;
+    .container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .section-wrapper {
+    max-width: 81.25em;
+    margin-left: auto;
+    margin-right: auto;
+    @include pie-clearfix;
+  }
+  .featured {
+    position: relative;
+    background-color: $header-bg-color;
+
+    .lead-image {
+      width: 100%;
+      @include breakpoint($breakpoint-m) {
+        max-width: 100em;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    h1.featured-text {
+      background-color: $homepage-featured-background;
+      padding: 0.5em;
+      margin-bottom:0;
+      line-height: 1;
+      font-size:2em;
+      max-width: 800px;
+
+      @include breakpoint($breakpoint-s) {
+        padding: 1em 0.5em;
+      }
+
+      @include breakpoint($breakpoint-m) {
+        @include column(8);
+        background: url(fn-featured-bg.svg) no-repeat transparent;
+        position: absolute;
+        bottom: 0;
+      }
+
+      @include breakpoint($breakpoint-xl) {
+        @include column(6);
+        padding: 1em;
+        font-size: 2.25em;
+      }
+      @include breakpoint($breakpoint-xxl) {
+        font-size: 2.5em;
+      }
+
+      span {
+        @include title-face-highlight;
+        color: $background-color;
+        display: block;
+        font-size: 0.5em;
+        text-transform: uppercase;
+
+        @include breakpoint($breakpoint-m) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  .get-access, .how-it-works {
+    .section-wrapper {
+      padding: 1.5em;
+
+      @include breakpoint($breakpoint-xl) {
+        padding: 4em 1.5em;
+      }
+    }
+  }
+  .get-access {
+    .section-wrapper {
+      padding-top: 2.5em;
+      @include breakpoint($breakpoint-m) {
+        padding: 4em 1.5em 3em 1.5em;
+      }
+      @include breakpoint($breakpoint-xl) {
+        padding-top:5em;
+      }
+    }
+    .pin-img {
+      display:none;
+      @include breakpoint($breakpoint-s){
+        @include column(4);
+        display:block;
+        img {
+          max-width: 150px;
+        }
+      }
+      @include breakpoint($breakpoint-nav) {
+        @include column(3);
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+    .description {
+      @include breakpoint($breakpoint-s) {
+        @include column(8);
+        @include last;
+      }
+      @include breakpoint($breakpoint-nav) {
+        @include column(6);
+
+        p{
+          font-size: 1.25em;
+        }
+      }
+    }
+    .buy-button-group {
+      @include breakpoint($breakpoint-s) {
+        @include column(8);
+        @include last;
+      }
+      @include breakpoint($breakpoint-nav) {
+        @include column(3);
+        @include last;
+        text-align:center;
+        margin-top:2em;
+      }
+    }
+    .title {
+      @include breakpoint($breakpoint-nav){
+        @include heading-2;
+      }
+    }
+    .price {
+      @include title-face;
+      display: inline-block;
+      margin-left: 1em;
+      @include breakpoint($breakpoint-nav) {
+        display: block;
+        margin-left: 0;
+      }
+    }
+  }
+	.how-it-works {
+    background: url(fn-homepage-howitworks-topbg.svg) -1.5em 0 no-repeat, url(fn-homepage-howitworks-bg-sm.jpg) no-repeat, $text-color;
+		@include pie-clearfix;
+
+    @include breakpoint($breakpoint-l){
+      background: url(fn-homepage-howitworks-topbg.svg) -1.5em 0 no-repeat, url(fn-homepage-howitworks-bg.jpg) no-repeat, $text-color;
+    }
+    h3.section-title {
+      @include reversed-text-smoothing;
+      color: $background-color;
+      text-transform: uppercase;
+      margin-bottom: 2em;
+      margin-top: 2em;
+
+      @include breakpoint($breakpoint-m){
+        text-align:center;
+        @include heading-2;
+        color: $background-color;
+        text-transform: uppercase;
+        margin-bottom: 2em;
+      }
+    }
+
+		article {
+      @include pie-clearfix;
+      @include divider-bottom;
+      text-align: center;
+      @include breakpoint($breakpoint-xs) {
+        text-align: left;
+      }
+			@include breakpoint($breakpoint-m) {
+				@include column(4);
+        border: 0 none;
+        padding: 0;
+        text-align: center;
+			}
+      img {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 60px;
+        margin-bottom: 1em;
+        @include breakpoint($breakpoint-xs) {
+          @include column(3);
+        }
+        @include breakpoint($breakpoint-m) {
+          @include reset-column;
+          margin: 0.5em auto 1em auto;
+          max-width: 80px;
+        }
+      }
+      .title {
+        @include reversed-text-smoothing;
+        color: $background-color;
+      }
+		}
+    article.last {
+      @include divider-none;
+      @include breakpoint($breakpoint-m) {
+        @include last;
+      }
+    }
+	}
+  .social-posts {
+    @include pie-clearfix;
+  }
+  .social-feed {
+    .section-wrapper {
+      padding: 1.5em;
+    }
+    .section-title {
+      text-align:center;
+      margin-bottom: 1.5em;
+      @include breakpoint($breakpoint-l) {
+        margin-top: 1.5em;
+      }
+      a {
+        color: $link-color;
+      }
+    }
+    article {
+      margin-bottom: 1em;
+      width: 100%;
+      @include breakpoint($breakpoint-s) {
+        width: 48.3%;
+      }
+      @include breakpoint($breakpoint-nav) {
+        width: 31.15%;
+      }
+      @include breakpoint($breakpoint-xl) {
+        width: 22.53%;
+      }
+    }
+    .grid-sizer {
+      width: 3.25%;
+    }
+    .instagram-post {
+      background: url('fn-instagram-bg.svg') no-repeat $link-color;
+      background-position: 90% 93%;
+      background-size: 35px auto;
+    }
+    .twitter-post {
+      background: url('fn-twitter-bg.svg') no-repeat $homepage-featured-background;
+      background-position: 90% 85%;
+      background-size: 38px 31px;
+    }
+    .post-text {
+      overflow: hidden;
+      padding: 1.5em;
+      .user-account, time {
+        max-width: 85%;
+      }
+      .user-account {
+        display:block;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+
+//Internal
+
+.events-list {
+	.content-wrapper {
+		background-image: none;
+	}
+  .event {
+    .event-title {
+      @include breakpoint($breakpoint-l) {
+        @include heading-2;
+        margin-bottom:0.15em;
+      }
+    }
+  }
+  .event-location {
+    margin-top: 1em;
+    margin-bottom:0;
+  }
+}
+
+.event-subtitle, .page-subtitle {
+  font-weight:400;
+  color:$text-color-subtle;
+}
+.event-detail {
+	.page-header {
+		background-image: none;
+		margin-bottom: 2.5em;
+		.page-title {
+			margin-bottom: 0.25em;
+			padding-bottom: 0;
+		}
+	}
+	.page-subtitle {
+		color: $link-color-reverse;
+	}
+}
+
+.event-genre {
+  text-transform: uppercase;
+}
+
+.event-date {
+	.time {
+		@include text-highlighted;
+	}
+}
+
+.event-tags {
+	a {
+		color: $text-color;
+	}
+}
+
+.pricing-free {
+	@include heading-2;
+	@include text-highlighted;
+	display: inline-block;
+}
+
+.callout {
+	.callout-title {
+		color: $link-color-reverse;
+	}
+	&.location {
+		a {
+      color: $link-color;
+		}
+	}
+  &.dates ul .day,  {
+    @include copy-face;
+    font-size: 1em;
+  }
+	.time {
+		@include text-highlighted;
+	}
+	&.connect {
+		a {
+			@include callout-secondary-link;
+		}
+	}
+}
+
+.social-footer {
+  border-top: 1em solid #00A734;
+  .title {
+    color: $text-color;
+  }
+}
+.footer-navigation-header {
+  @include heading-4;
+  color: $text-color;
+}
+.footer-navigation  {
+  a {
+    color: $text-color;
+  }
+  li {
+    border-bottom: 1px solid $text-color-subtle;
+    padding: .6em;
+  }
+}
+
+.site-footer {
+  .copyright {
+    color: $text-color;
+  }
+}
+
+button.search-submit .icon-search {
+    height: 16px;
+    width: 16px;
+}
+
+.logolink {
+  position: absolute;
+  z-index: 1000;
+  background: none;
+}
+  @media all and (min-width: 62em) {
+    .logolink {
+      margin: 45px 0 0 0;
+      height: 135px;
+      width: 385px;}
+    }
+      @media all and (max-width: 62em) {
+        .logolink {
+          margin: 0;
+          height: 60px;
+          width: 165px;}
+        }
