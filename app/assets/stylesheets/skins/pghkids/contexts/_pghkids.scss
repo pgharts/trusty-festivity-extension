@@ -9,55 +9,6 @@
   @include breakpoint($breakpoint-nav) {
     padding-bottom: 1em;
   }
-
-  .first-night-mark {
-    clear: both;
-    padding-top: 1em;
-
-    @include breakpoint($breakpoint-xs) {
-      @include column(7);
-      @include append(1);
-    }
-
-    @include breakpoint($breakpoint-nav) {
-      @include column(3);
-      padding-top:0;
-    }
-
-    .first-night-logo-lg {
-      height: inherit;
-      max-width: 40%;
-      margin-bottom: 1em;
-      display: none;
-      margin-top: 1em;
-
-      @include breakpoint($breakpoint-nav) {
-        display: block;
-        max-width: 60%;
-      }
-      @include breakpoint($breakpoint-l) {
-        max-width: 40%;
-      }
-    }
-
-    .first-night-logo-sm {
-      width: 60%;
-      height: inherit;
-      max-width: 100%;
-      margin: 0.75em auto 1.5em auto;
-      display: block;
-
-      @include breakpoint($breakpoint-xs) {
-        margin-top: 0.15em;
-        margin-left: 0;
-        width: 180px;
-      }
-
-      @include breakpoint($breakpoint-nav) {
-        display: none;
-      }
-    }
-  }
 }
 
 //Navigation
@@ -166,12 +117,14 @@
   .main-content {
     padding-top: 0;
     .container {
-      width: 100%;
-      max-width: 100%;
+      @include breakpoint($breakpoint-xl) {
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
   .section-wrapper {
-    max-width: 81.25em;
+    max-width: 73.25em;
     margin-left: auto;
     margin-right: auto;
     @include pie-clearfix;
@@ -250,7 +203,7 @@
     }
     .pin-img {
       display:none;
-      @include breakpoint($breakpoint-s){
+      @include breakpoint($breakpoint-s) {
         @include column(4);
         display:block;
         img {
@@ -507,8 +460,20 @@
 	}
 }
 
+.footer-banner {
+  height: 102px;
+  background: url('/assets/skins/pghkids/footer_mobile.png') no-repeat;
+  @include breakpoint($breakpoint-xl) {
+    background: url('/assets/skins/pghkids/footer.png') no-repeat;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    height: 229px;
+  }
+}
+
 .social-footer {
-  border-top: 1em solid #00A734;
+  // border-top: 1em solid #00A734;
   .title {
     color: $text-color;
   }
