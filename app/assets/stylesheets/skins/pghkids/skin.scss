@@ -15,7 +15,7 @@ $link-color-reverse-alt: $text-color;
 
 $heading-highlight-color: #dfe0e5;
 
-$border-color: #01bfe1;
+$border-color: #fff;
 
 $background-color: #fff;
 $background-color-subtle: #cbcbcb;
@@ -47,6 +47,7 @@ $icon-search-color: $text-color;
 
 @import "../../main.scss";
 @import "contexts/pghkids";
+@import "contexts/homepage";
 
 // this is a temporary spacer
 // @import "header";

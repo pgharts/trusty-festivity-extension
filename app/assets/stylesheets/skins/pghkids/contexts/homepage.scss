@@ -1,0 +1,164 @@
+section.homepage {
+  a.link-reverse {
+    @include link-arrow;
+    @include link-reverse;
+    color: #fcba36;
+    &:hover {
+      color: lighten(#fcba36, 10%);
+    }
+  }
+
+  .button {
+    background-color: #fcba36;
+    color: #000;
+    &:hover {
+      background-color: #e09603;
+    }
+  }
+
+  section.home {
+    .section-wrapper {
+      max-width: 81.25em;
+      margin-left: auto;
+      margin-right: auto;
+      @include pie-clearfix;
+    }
+
+    .home-header {
+      display: flex;
+      flex-flow: row wrap;
+      .welcome-image {
+        height: 65px;
+        background: url("/assets/skins/pghkids/frog_mobile.png") no-repeat;
+        // @include column()
+        @include breakpoint($breakpoint-xl) {
+          @include column(4);
+          @include last;
+          height: 90px;
+          background: url('/assets/skins/pghkids/frog.png') no-repeat;
+        }
+      }
+      .festival-date {
+        @include heading-1;
+        @include column(8);
+      }
+    }
+    .home-primary {
+      padding: 0 2em;
+      background-color: #00786E;
+      background: url('/assets/skins/pghkids/seafoam.jpg') no-repeat #00786E;
+      .primary-header {
+        padding-top: 1em;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 1em;
+        .primary-title {
+          @include heading-2;
+          color: #fff;
+        }
+      }
+      .primary-body {
+        padding-bottom: 2em;
+        color: #fff;
+        @include clearfix;
+        .primary-text {
+          margin-top: 1em;
+          @include column(12);
+          @include last;
+          @include breakpoint($breakpoint-nav) {
+            @include column(4);
+            @include last-col3;
+          }
+        }
+        .primary-img {
+          @include column(5);
+          @include breakpoint($breakpoint-nav) {
+            @include column(4);
+            @include last-col3;
+          }
+        }
+        .primary-button {
+          margin-bottom: 2em;
+        }
+      }
+    }
+  }
+
+  .secondary {
+    display: flex;
+    flex-flow: row wrap;
+    .home-secondary {
+      @include breakpoint($breakpoint-xl) {
+        @include column(6);
+        @include last-col2;
+      }
+      margin-top: 1em;
+      padding: 1em;
+      color: #fff;
+      &:nth-child(2n+1) {
+        background-color: #C65727;
+      }
+      &:nth-child(2) {
+        background-color: #CC0038;
+      }
+      .secondary-header {
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 1em;
+        .secondary-title {
+          @include heading-2;
+          color: #fff;
+        }
+      }
+      .secondary-body {
+        @include clearfix;
+        .secondary-img, .secondary-description {
+          @include breakpoint($breakpoint-s) {
+            @include column(6);
+            @include last-col2;
+          }
+        }
+        .secondary-img {
+          padding: .5em 1em .5em 1.5em;
+        }
+        .secondary-description {
+          .button {
+            width: 100%;
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .highlight {
+    display: flex;
+    flex-flow: row wrap;
+    .home-highlight{
+      @include column(12);
+      @include last;
+      margin-top: 1em;
+      padding: 1em;
+      &:nth-child(2n+1) {
+        background-color: #8BD7DD;
+      }
+      &:nth-child(2) {
+        background-color: #FFB54C;
+      }
+      @include breakpoint($breakpoint-nav) {
+        @include column(6);
+        @include last-col2;
+      }
+
+      .highlight-header {
+        border-bottom: 1px solid #000;
+        margin-bottom: 1em;
+        .highlight-title {
+          @include heading-3;
+          color: #000;
+        }
+      }
+      .highlight-description {
+        padding: 0 1em;
+      }
+    }
+  }
+}
