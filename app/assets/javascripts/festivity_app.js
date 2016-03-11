@@ -18,5 +18,5 @@
 //= require navigation
 //= require home-social
 //= require modal
-
+//= require faq
 //= require modernizr/modernizr
