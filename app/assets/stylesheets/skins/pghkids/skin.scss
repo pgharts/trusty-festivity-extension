@@ -26,32 +26,19 @@ $checkbox-bg-color: #daeef5;
 $header-bg-color: darken(#00A3B4, 10%);
 $header-border-color: #BCD762;
 $homepage-featured-background: #92D6ED;
-$utility-nav-color: #9cb2bd;
+$utility-nav-color: #555;
 $search-input-bg-color: #fff;
 
 $footer-color: #bfd857;
 $social-footer-color: $footer-color;
 
-$search-placeholder-color: $background-color;
+$search-placeholder-color: $utility-nav-color;
 
 // icon color variations - overrides original value with this theme's contextual value
 
 $icon-primary-color: $heading-color;
-$icon-secondary-color: #D81D4A;
+$icon-secondary-color: #CC0038;
 $icon-search-color: $text-color;
 
 
-@import "../../breakpoint";
-@import "library/general-mixins";
-@import "library/icons";
-
-@import "../../main.scss";
-@import "contexts/pghkids";
-@import "contexts/homepage";
-
-// this is a temporary spacer
-// @import "header";
-// @import "global";
-// @import "events";
-// @import "footer";
-// @import "home";
+@import "../../pghkids.scss";

@@ -1,5 +1,5 @@
 @mixin copy-face {
-  font-family: "proxima-nova", arial, "helvetica neue", helvetica, sans-serif;
+  font-family: "Open Sans", helvetica, arial, sans-serif;
   font-weight: 400;
 }
 
@@ -25,7 +25,7 @@
 }
 
 @mixin text-highlighted {
-	background-color: $text-highlight-color;
+	background-color: transparent;
 }
 
 @mixin callout-primary-link {
@@ -36,4 +36,3 @@
 @mixin callout-secondary-link {
 	color: $link-color;
 }
-

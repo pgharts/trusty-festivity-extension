@@ -1,13 +1,13 @@
 //Header
 
+.utility-navigation a:hover {
+  color: $text-color;
+}
+
 .site-header {
   background: url(/assets/skins/pghkids/header_mobile.png) no-repeat $header-bg-color;
   @include breakpoint($breakpoint-xl) {
     background: url(/assets/skins/pghkids/header.png) no-repeat $header-bg-color;
-  }
-
-  @include breakpoint($breakpoint-nav) {
-    padding-bottom: 1em;
   }
 }
 
@@ -48,8 +48,11 @@
 .utility-navigation {
 	a {
 		color: $background-color;
-		@include breakpoint($breakpoint-nav) {
+		@include breakpoint($breakpoint-xl) {
       color: $utility-nav-color;
+    }
+    &:hover {
+      color: $text-color;
     }
 	}
 }
@@ -57,7 +60,7 @@
 .site-search {
 	input {
 		background-color: $search-input-bg-color;
-    color: $background-color;
+    color: $search-placeholder-color;
     padding: 0.6em;
     border-radius: 3px 0 0 3px;
     @include reversed-text-smoothing;
@@ -67,12 +70,12 @@
     }
 	}
   button.search-submit {
-    background-color: $link-color-reverse;
+    background-color: $background-color;
     vertical-align:top;
     border-radius: 0 3px 3px 0;
     &:hover,
     &:focus {
-      background-color: darken($link-color-reverse, 5%);
+      background-color: darken($background-color, 5%);
     }
     .icon-search {
       vertical-align: baseline;
@@ -473,7 +476,6 @@
 }
 
 .social-footer {
-  // border-top: 1em solid #00A734;
   .title {
     color: $text-color;
   }
@@ -485,6 +487,9 @@
 .footer-navigation  {
   a {
     color: $text-color;
+    &:hover {
+      color: $background-color;
+    }
   }
   li {
     border-bottom: 1px solid $text-color-subtle;
@@ -499,8 +504,8 @@
 }
 
 button.search-submit .icon-search {
-    height: 16px;
-    width: 16px;
+    height: 19px;
+    width: 19px;
 }
 
 .logolink {
