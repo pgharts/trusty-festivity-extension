@@ -22,10 +22,10 @@ Gem::Specification.new do |s|
   # s.executables   = Dir['bin/*'] - ignores
   s.require_paths = ["lib"]
 
-  s.add_dependency "trusty-cms"                   , "~> 2.0"
-  s.add_dependency "trusty-clipped-extension"     , "~> 2.0"
-  s.add_dependency "trusty-snippets-extension"    , "~> 2.0"
-  s.add_dependency "trusty-reorder-extension"     , "~> 2.0"
+  s.add_dependency "trusty-cms"                   , "~> 2.0.16"
+  s.add_dependency "trusty-clipped-extension"     , "~> 2.0.6"
+  s.add_dependency "trusty-snippets-extension"    , "~> 2.0.6"
+  s.add_dependency "trusty-reorder-extension"     , "~> 2.0.5"
   s.add_dependency "trusty-layouts-extension"     , "~> 2.0"
   s.add_dependency "trusty-rad-social-extension"  , "~> 2.0"
   s.add_dependency "trusty-multi-site-extension"  , "~> 2.0"

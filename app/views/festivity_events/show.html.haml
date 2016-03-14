@@ -28,7 +28,7 @@
               .modal-content
                 %button.close-btn
                   %span.icon-close{:data => {'grunticon-embed' => true}}
-                = @event.video.html_safe
+                = sanitize(@event.video.try(:html_safe))
         - if @event.single_location?
           %li
             %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}

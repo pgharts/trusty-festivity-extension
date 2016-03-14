@@ -1,8 +1,44 @@
-// this is a temporary spacer
-@import "header";
-@import "global";
-@import "events";
-@import "footer";
-@import "home";
+$text-color: #000000; //black
+$heading-color: #00A3B4;
+$text-color-subtle: tint($text-color, 30%);
+$text-highlight-color: #f6d564;//green
+
+$link-color: #00A3B4;
+$link-color-hover: darken($link-color, 15%);
+
+$highlight-color: #DFFF95; //light green
+$highlight-color-hover: shade($highlight-color, 10%);
+
+$link-color-reverse: #bfd857; //light green
+$link-color-reverse-hover: lighten($link-color-reverse, 10%);
+$link-color-reverse-alt: $text-color;
+
+$heading-highlight-color: #dfe0e5;
+
+$border-color: #fff;
+
+$background-color: #fff;
+$background-color-subtle: #cbcbcb;
+$background-color-alt: #007D8A;
+
+$checkbox-bg-color: #daeef5;
+
+$header-bg-color: darken(#00A3B4, 10%);
+$header-border-color: #BCD762;
+$homepage-featured-background: #92D6ED;
+$utility-nav-color: #555;
+$search-input-bg-color: #fff;
+
+$footer-color: #bfd857;
+$social-footer-color: $footer-color;
+
+$search-placeholder-color: $utility-nav-color;
+
+// icon color variations - overrides original value with this theme's contextual value
+
+$icon-primary-color: $heading-color;
+$icon-secondary-color: #CC0038;
+$icon-search-color: $text-color;
 
 
+@import "../../pghkids.scss";
