@@ -3,6 +3,8 @@ class FestivityEventPage < FestivityBasePage
   has_many :festivity_page_categories, foreign_key: :page_id
   has_many :festivity_categories, through: :festivity_page_categories
 
+  include Concerns::FestivityArtistMethods
+
   def festivity_performances=(performances)
     performances.each do |performance|
       performance_id = performance.delete(:performance_id)
@@ -24,26 +26,6 @@ class FestivityEventPage < FestivityBasePage
 
   def can_buy?
     !self.buy_url.empty?
-  end
-
-  def has_social?
-    (has_twitter? or has_facebook? or has_homepage? or has_instagram?)
-  end
-
-  def has_twitter?
-    !self.artist_twitter.empty?
-  end
-
-  def has_facebook?
-    !self.artist_facebook.empty?
-  end
-
-  def has_instagram?
-    !self.artist_instagram.empty?
-  end
-
-  def has_homepage?
-    !self.artist_homepage.empty?
   end
 
   def event_locations
