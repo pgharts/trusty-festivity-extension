@@ -7,7 +7,6 @@ module Festivity
         main.css
         first-night.css
         traf.css
-        pghkids.css
         skins/pghkids/skin.css
         admin/festivity_admin.css
         admin/festivity_admin.js
