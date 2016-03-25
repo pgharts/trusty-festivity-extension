@@ -7,11 +7,11 @@ module Festivity
         main.css
         first-night.css
         traf.css
+        skins/pghkids/skin.css
         admin/festivity_admin.css
         admin/festivity_admin.js
         festivity.css
         festivity_app.js
-        skins/pghkids/skin.css
         grunticon/production/grunticon.loader.js
         grunticon/production/*.css)
     end

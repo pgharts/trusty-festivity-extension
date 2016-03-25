@@ -1,0 +1,87 @@
+//questions
+.FAQ {
+  .faq-wrapper {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .faq-list {
+    @include column(4);
+    ul.list-group {
+      z-index: 2;
+      color: $link-color;
+      background-color: $background-color;
+      margin-bottom: 1.25em;
+      a.list-group-item {
+        position: relative;
+        display: block;
+        padding: 1em;
+        border:1px solid #ddd;
+        &:hover {
+          cursor: pointer;
+          text-decoration: none;
+          background-color: #f5f5f5;
+        }
+        &.active, {
+          background-color: #00A3B4;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .faq-answers {
+    position: relative;
+    margin-bottom: 10em;
+    @include column(7);
+  }
+
+  //answers
+  .faq-header {
+    padding-bottom: 1rem;
+  }
+  .q {
+    padding-top: 4rem;
+  }
+
+  .q:first-child {
+    padding-top: 0;
+  }
+
+  nav.faq-navigation {
+    width: 300px;
+  }
+
+  // stuff for the affixed side menu
+
+  .affix-top,.affix{
+    position: static;
+  }
+
+  .affix-bottom {
+    position: fixed;
+  }
+
+  .affix {
+    position: fixed;
+    width: 300px;
+    top: 60px;
+  }
+
+  #totop {
+    a {
+      position: fixed;
+      right: 15px;
+      bottom: 20px;
+      text-align: center;
+      z-index: 1000;
+      background-color: $background-color;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      display: block;
+      @include breakpoint($breakpoint-l) {
+        display: none;
+      }
+    }
+  }
+}

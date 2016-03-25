@@ -1,0 +1,29 @@
+engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+  paths:
+  - app/**
+  - lib/**
+  - "**.rb"
+  - "**.go"
+exclude_paths:
+- spec/**/*
+- "**/vendor/**/*"
+- app/assets/stylesheets/grunticon/**/*
+- app/assets/stylesheets/bootstrap/**/*
+- app/assets/stylesheets/breakpoint/**/*
+- app/assets/images/**/*
+- app/assets/javascripts/bootstrap/**/*
+- app/assets/javascripts/jrespond/**/*
+- app/assets/javascripts/imagesloaded/**/*
+- app/assets/javascripts/masonry/**/*
+- node_modules
+- vendors/assets/components/*
+- db/migrate/**/*
