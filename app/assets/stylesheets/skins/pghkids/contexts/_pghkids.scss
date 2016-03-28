@@ -5,9 +5,9 @@
 }
 
 .site-header {
-  background: url(/production/assets/skins/pghkids/header_mobile.png) no-repeat $header-bg-color;
+  background: url(skins/pghkids/header_mobile.png) no-repeat $header-bg-color;
   @include breakpoint($breakpoint-xl) {
-    background: url(/production/assets/skins/pghkids/header.png) no-repeat $header-bg-color;
+    background: url(skins/pghkids/header.png) no-repeat $header-bg-color;
   }
 }
 
@@ -465,9 +465,9 @@
 
 .footer-banner {
   height: 102px;
-  background: url('/production/assets/skins/pghkids/footer_mobile.png') no-repeat;
+  background: url(skins/pghkids/footer_mobile.png) no-repeat;
   @include breakpoint($breakpoint-xl) {
-    background: url('/production/assets/skins/pghkids/footer.png') no-repeat;
+    background: url(skins/pghkids/footer.png) no-repeat;
     background-position: center top;
     background-repeat: no-repeat;
     margin-bottom: 20px;
