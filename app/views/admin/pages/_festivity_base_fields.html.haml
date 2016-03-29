@@ -7,6 +7,10 @@
     %label{for: "page_short_description"}
       Short Description
     = self.text_area( :page, :short_description, class: "textbox festivity-control", rows: 4)
+  %p.festivity-third
+    %label{for: "page_featured_item"}
+      Do Not Show In Sub-Navigation
+    = self.check_box( :page, :hide_from_subnav, class: "textbox festivity-control")
 
 - if @page.is_a?(FestivityBasePage) && @page.id
 
