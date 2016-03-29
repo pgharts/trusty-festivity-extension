@@ -29,13 +29,13 @@ section.homepage {
       flex-flow: row wrap;
       .welcome-image {
         height: 65px;
-        background: url(skins/pghkids/frog_mobile.png) no-repeat;
+        background: url(frog_mobile.png) no-repeat;
         // @include column()
         @include breakpoint($breakpoint-xl) {
           @include column(4);
           @include last;
           height: 90px;
-          background: url(skins/pghkids/frog.png) no-repeat;
+          background: url(frog.png) no-repeat;
         }
       }
       .festival-date {
@@ -46,7 +46,7 @@ section.homepage {
     .home-primary {
       padding: 0 2em;
       background-color: #00786E;
-      background: url(skins/pghkids/seafoam.jpg) no-repeat #00786E;
+      background: url(seafoam.jpg) no-repeat #00786E;
       .primary-header {
         padding-top: 1em;
         border-bottom: 1px solid $border-color;
