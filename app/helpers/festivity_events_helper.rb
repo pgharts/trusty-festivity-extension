@@ -10,7 +10,7 @@ module FestivityEventsHelper
   end
 
   def social_share_message(production)
-    "Check out #{production.title}!"
+    "Check out #{production.title} for #{fest_hashtag} @ #{production.locations.first.title}!"
   end
 
   def social_share_email_subject(production)
@@ -23,6 +23,15 @@ module FestivityEventsHelper
 
   def shared_production_url(production)
     "#{event_url}?cid=CDSocial"
+  end
+
+  def fest_hashtag
+    if site_id = 3
+      "#TRAF"
+    elsif site_id = 2
+      "#PGHkids"
+    end
+
   end
 
 end
