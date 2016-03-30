@@ -35,9 +35,9 @@
           %li
             %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
               Get Directions
-          %li
-            %a.modal-link{href: "#"}
-              Share This
+        %li
+          %a.modal-link{href: "#"}
+            Share This
         = render partial: 'social/share_modal', locals: {event_page: @event, url: shared_production_url(@event)}
 
   %aside.secondary-content
