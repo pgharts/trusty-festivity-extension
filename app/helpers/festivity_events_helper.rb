@@ -21,7 +21,7 @@ module FestivityEventsHelper
     "I thought you might be interested in seeing #{production.title}."
   end
 
-  def shared_production_url(production)
+  def shared_production_url
     "#{event_url}?cid=CDSocial"
   end
 

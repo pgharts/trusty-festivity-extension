@@ -38,7 +38,7 @@
         %li
           %a.modal-link{href: "#"}
             Share This
-        = render partial: 'social/share_modal', locals: {event_page: @event, url: shared_production_url(@event)}
+        = render partial: 'social/share_modal', locals: {event_page: @event, url: shared_production_url}
 
   %aside.secondary-content
     - if @event.can_buy?
