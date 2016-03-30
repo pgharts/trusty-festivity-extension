@@ -1,3 +1,5 @@
+= javascript_include_tag "modal"
+
 %header.page-header
   %h1.page-title
     = @event.title
@@ -33,10 +35,10 @@
           %li
             %a{target: "_blank", href: "#{@event.locations.first.festivity_directions_url}"}
               Get Directions
-          -# TODO: Get the modal working.
-          -#%li
-          -#  %a{href: "#", data: {toggle:"modal", target:"#share-modal"}}
-          -#    Share This
+          %li
+            %a.modal-link{href: "#"}
+              Share This
+        = render partial: 'social/share_modal', locals: {event_page: @event, url: shared_production_url(@event)}
 
   %aside.secondary-content
     - if @event.can_buy?
