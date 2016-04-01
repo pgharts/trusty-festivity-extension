@@ -11,4 +11,5 @@ TrustyCms::Application.routes.draw do
   resources :locations, controller: :festivity_locations, only: [:show]
   resources :areas, controller: :festivity_location_areas, only: [:show]
 
+  get "/500" => "errors#internal_server_error"
 end
