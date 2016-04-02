@@ -70,9 +70,9 @@
   - if @page.is_a?(FestivityMarketPage)
     - areas = FestivityLocationAreaPage.where(site_id: @page.site.id)
     %p.festivity-third
-      %label{for: "page_maket_start_date"}
+      %label{for: "page_market_start_date"}
         Start Date
-      = self.text_field :page, :maket_start_date, :class=> "date_field textbox date festivity-control", :value => (@page.maket_start_date ? format_date(@page.maket_start_date) : nil)
+      = self.text_field :page, :page_market_start_date, :class=> "date_field textbox date festivity-control", :value => (@page.page_market_start_date ? format_date(@page.page_market_start_date) : nil)
     %p.festivity-third
       %label{for: "page_market_start_date"}
         End Date
