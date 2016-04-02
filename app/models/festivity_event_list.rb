@@ -27,11 +27,18 @@ class FestivityEventList
     )
   end
 
-  def self.find_by_location(location_id)
+  def self.find_by_location(location_id, site)
+    begin
+      where_clause = parse_criteria(dates: collect_festival_dates(site).join(","), filter_type: site.festivity_filter_type)
+    rescue ActiveRecord::RecordNotFound
+      return FestivityEventList.new([])
+    end
+
     FestivityEventList.new(
         FestivityEventList::FestivityEventPerformance.
             includes(:assets).
             joins(:festivity_categories).
+            where(where_clause).
             where(location_id: location_id).
             group("performance_id").
             order("featured_item DESC, start_date ASC").
@@ -51,6 +58,16 @@ class FestivityEventList
             order("featured_item DESC, start_date ASC").
             preload(:festivity_categories)
     )
+  end
+
+  def self.collect_festival_dates(site)
+    festival_dates = site.festival_datetimes
+    if site.date_during_festival?(Time.now)
+      festival_dates = festival_dates.select{ |date| date.datetime == Time.now }
+    end
+
+    festival_dates.map{ |date| date.to_s }
+
   end
 
   private
