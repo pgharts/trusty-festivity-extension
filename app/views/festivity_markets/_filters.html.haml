@@ -1,0 +1,46 @@
+- current_date = FestivityDatetimePresenter.new current_site.festival_datetimes.first.datetime - 1.day
+%section.filters-wrapper
+  %h3.title Filters
+  %form.filters{:action => "#"}
+    .filter-type.toggler-root
+      %h4.filter-category.toggler-trigger{aria: {expanded: "false", controls: 'filters-list'}}
+        %span.category-text
+          Dates
+        %span.icon-chevron-down{:data => {'grunticon-embed' => true}}
+        %span.visually-hidden
+          Open/Close Filters
+      .toggler-content.filters-list{aria: {hidden: "true"}}
+        %ul.date-filters
+          - current_site.festival_datetimes.each do |datetime|
+            - checked = selected_dates.any? {|selected_date| selected_date == datetime}
+            %li
+              %label{for: datetime.to_s}
+                %input.input-checkbox{type: "checkbox", id: datetime.to_s, value: datetime.to_s, checked: checked,  data: {filter: "Date", sort: datetime.to_s}}
+                = datetime.display
+    - current_site.festivity_active_category_types.each do |type|
+      .filter-type.toggler-root
+        %h4.filter-category.toggler-trigger{aria: {expanded: "false", controls: 'filters-list'}}
+          %span.category-text
+            = type.name
+          %span.icon-chevron-down{:data => {'grunticon-embed' => true}}
+          %span.visually-hidden
+            Open/Close Filters
+        .toggler-content.filters-list{aria: {hidden: "true"}}
+          %ul.category-filters
+            - type.parent_categories.each do |parent|
+              - checked = selected_categories.include? parent.id.to_s
+              %li
+                %label{for: parent.id}
+                  %input.input-checkbox{type: "checkbox", id: parent.id, value: parent.id, data: {filter: type.name, sort: parent.name.downcase}, checked: checked}
+                  = parent.name
+
+                - if parent.children.any?
+                  %ul
+                    - parent.children.each do |child|
+                      - checked = selected_categories.include? child.id.to_s
+                      %li
+                        %label{for: child.id}
+                          %input.input-checkbox{type: "checkbox", id: child.id, value: child.id, data: {filter: type.name, sort: child.name.downcase}, checked: checked}
+                          = child.name
+    %a.cancel-filters Cancel
+    %a.submit-filters Filter

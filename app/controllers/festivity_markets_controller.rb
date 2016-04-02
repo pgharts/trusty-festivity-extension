@@ -21,7 +21,7 @@ class FestivityEventsController < ApplicationController
     @selected_sort = order_by
     # If the request is AJAX, only return the event list itself, not the full page
     if request.xhr?
-      render partial: "event_list"
+      render partial: "market_list"
     else
       render 'index'
     end

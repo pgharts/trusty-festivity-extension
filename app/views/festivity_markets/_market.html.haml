@@ -1,0 +1,40 @@
+- show_dates ||= false
+
+%article.event
+  - if market.image
+    .event-media
+      = image_tag market.image
+      - if market.featured_item
+        %span.is-featured
+          Featured Event!
+
+  .event-body
+    %h3.event-title
+      = link_to market_path(market.id) do
+        = market.title
+    - if market.header
+      %h4.event-subtitle
+        = market.header
+        - if market.sub_header
+          = market.sub_header
+
+    .event-location
+      = link_to area_path(id: market.area.area_slug) do
+        = market.area.area_title
+
+    - if show_dates
+      .event-date
+        %span.time
+          = market.market_start_date.strftime("%A, %B %d")
+          = " - "
+          = market.market_end_date.strftime("%A, %B %d")
+
+    .event-description
+      %p
+        %span.event-genre
+          = market.categories.first.name
+        = market.short_description
+    .event-tags-group
+      %ul.event-tags
+        %li
+          = link_to "Details", market_path(event.id)

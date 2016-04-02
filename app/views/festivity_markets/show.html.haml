@@ -1,0 +1,63 @@
+%header.page-header
+  %h1.page-title
+    = @market.title
+  - if @market.header
+    %h3.page-subtitle
+      = @market.header
+
+.content-wrapper
+  %section.primary-content
+    - if @market.sub_header
+      %h4.tertiary-title
+        = @market.sub_header
+
+    .event-media
+      %img{src: @market.image, alt: "Lead Image"}
+
+    .event-body
+      .event-body-text.event-long-description
+        = @market.body
+
+      %ul.event-tools
+        %li
+          %a{target: "_blank", href: "#{area_path(@market.area)}"}
+            Get Directions
+
+    .callout.location
+      %h3.callout-title
+        Area
+      .location-links
+        = link_to area_path(id: event_location.parent.slug) do
+          = event_location.parent.title
+
+    .callout.dates
+      %h3.callout-title
+        Dates/Times
+      .date-range
+        %span.day
+          = @market.market_start_date.strftime("%A, %B %d")
+          = " - "
+          = @market.market_end_date.strftime("%A, %B %d")
+    - if @market.has_social?
+      .callout.connect
+        %h3.callout-title
+          Connect with this artist
+        %ul
+          - if @market.has_twitter?
+            %li
+              = link_to @market.artist_twitter, target: "_blank" do
+                %span.icon-twitter{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Twitter
+          - if @market.has_facebook?
+            %li
+              = link_to @market.artist_facebook, target: "_blank" do
+                %span.icon-facebook{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Facebook
+          - if @market.has_homepage?
+            %li
+              = link_to @market.artist_homepage, target: "_blank" do
+                %span.icon-external-link{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Homepage
