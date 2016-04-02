@@ -1,0 +1,76 @@
+main {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    .traf-intro-background {
+      height: 800px;
+      background: url(traf-background.png) no-repeat top center;
+      background-color: $background-color-alt;
+      background-size: cover;
+  }
+}
+
+  .main {
+    @include container;
+    margin-top: -1em;
+    width: 95%;
+  .headline {
+    h1 {
+      @include heading-4;
+      color: #fff;
+    }
+  }
+  .headline-2 {
+    @include heading-3;
+  }
+  .headline-3 {
+    @include heading-1;
+  }
+  .buttons {
+    .button-wrapper {
+      .icon-chevron-right {
+        height: 15px;
+        margin-left: 2em;
+        margin-right: -1em;
+        svg {
+          fill: $text-color;
+        }
+      }
+    }
+  }
+}
+.announcements {
+  background: url(traf-bottom-wave.png) no-repeat top center;
+  .announcements-container {
+    @include container;
+    width: 95%;
+    padding: 10em 0;
+  }
+  h4 {
+    min-width: 20%;
+    color: #fff;
+    display:inline-block;;
+  }
+  .announcements-group {
+    min-width: 75%;
+    display: inline-block;
+    margin-left: 2em;
+    .date {
+      font-size: 1.5em;
+      display: inline-block;
+      color: $text-highlight-color;
+    }
+    .announcement-item-group {
+      @include divider-bottom;
+      @include last;
+      .announcement-item {
+        margin-left: 2em;
+        display: inline-block;
+        color: #fff;
+      }
+    }
+  }
+
+}
+
+}
