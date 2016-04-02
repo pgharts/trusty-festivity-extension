@@ -9,10 +9,10 @@ class FestivityEventsController < ApplicationController
     @filter_type = current_site.festivity_filter_type
     @events =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
       FestivityEventList.search(
-          {dates: search_dates.join(","),
-           categories: params[:categories],
-          filter_type: current_site.festivity_filter_type},
-          order_by).events
+        {dates: search_dates.join(","),
+         categories: params[:categories],
+         filter_type: current_site.festivity_filter_type},
+        order_by).events
     end
 
 
@@ -33,8 +33,8 @@ class FestivityEventsController < ApplicationController
     if @event
       @page = @event
       @related_events = FestivityEventList.find_related_events(
-          {dates: search_dates.join(","), event_id: @event.id,
-           categories: @event.festivity_categories.map{|cat| cat.id}}).events
+        {dates: search_dates.join(","), event_id: @event.id,
+         categories: @event.festivity_categories.map{|cat| cat.id}}).events
       @title = "#{current_site.festivity_festival_name}: #{@event.title}"
     else
       file_not_found_for_site
@@ -66,6 +66,5 @@ class FestivityEventsController < ApplicationController
     festival_dates.map{ |date| date.to_s }
 
   end
-
 
 end
