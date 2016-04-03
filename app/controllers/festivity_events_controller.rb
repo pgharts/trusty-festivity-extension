@@ -45,7 +45,7 @@ class FestivityEventsController < ApplicationController
   private
 
   def cache_key
-    "#{params[:categories.to_s]}-#{params[:dates].to_s}-#{params[:sort].to_s}-#{request.xhr?}-#{request.subdomain}.#{request.domain}"
+    "events-#{params[:categories.to_s]}-#{params[:dates].to_s}-#{params[:sort].to_s}-#{request.xhr?}-#{request.subdomain}.#{request.domain}"
   end
 
   def search_dates

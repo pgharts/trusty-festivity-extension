@@ -5,7 +5,7 @@ class FestivityMarketsController < ApplicationController
   def index
 
     order_by = params[:sort] ? params[:sort] : "start_date"
-    @title = "#{current_site.festivity_festival_name}: Events"
+    @title = "#{current_site.festivity_festival_name}: Artist's Market"
     @filter_type = current_site.festivity_filter_type
     @markets =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
       FestivityMarketList.search(
@@ -19,7 +19,7 @@ class FestivityMarketsController < ApplicationController
     @selected_dates = params[:dates] ? FestivityDatetimeFilterPresenter.parse(params[:dates].split(","), current_site.festivity_filter_type) : []
     @selected_categories = params[:categories] ? params[:categories].split(",") : []
     @selected_sort = order_by
-    # If the request is AJAX, only return the event list itself, not the full page
+    # If the request is AJAX, only return the market list itself, not the full page
     if request.xhr?
       render partial: "market_list"
     else
@@ -29,13 +29,10 @@ class FestivityMarketsController < ApplicationController
   end
 
   def show
-    @event = FestivityEventPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
-    if @event
-      @page = @event
-      @related_events = FestivityEventList.find_related_events(
-        {dates: search_dates.join(","), event_id: @event.id,
-         categories: @event.festivity_categories.map{|cat| cat.id}}).events
-      @title = "#{current_site.festivity_festival_name}: #{@event.title}"
+    @market = FestivityMarketPage.find_by_slug_and_status_id(params[:id], Status[:published].id)
+    if @market
+      @page = @market
+      @title = "#{current_site.festivity_festival_name}: #{@market.title}"
     else
       file_not_found_for_site
     end
@@ -45,7 +42,7 @@ class FestivityMarketsController < ApplicationController
   private
 
   def cache_key
-    "#{params[:categories.to_s]}-#{params[:dates].to_s}-#{params[:sort].to_s}-#{request.xhr?}-#{request.subdomain}.#{request.domain}"
+    "markets-#{params[:categories.to_s]}-#{params[:dates].to_s}-#{params[:sort].to_s}-#{request.xhr?}-#{request.subdomain}.#{request.domain}"
   end
 
   def search_dates

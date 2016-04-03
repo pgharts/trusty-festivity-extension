@@ -19,8 +19,12 @@ module Festivity
           super(Chronic.parse(value))
         end
 
-        def festivity_active_category_types
+        def festivity_active_category_types()
           self.festivity_category_types.where(["inactive = false"])
+        end
+
+        def festivity_active_category_types_for(page_class)
+          self.festivity_category_types.where(["inactive = false AND page_class = '#{page_class}'"])
         end
 
         def date_during_festival?(date)

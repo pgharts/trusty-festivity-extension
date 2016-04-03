@@ -16,7 +16,7 @@ class FestivityMarketList
       return FestivityMarketList.new([])
     end
 
-    # where in event ids
+    # where in market ids
     FestivityMarketList.new(
       FestivityMarketList::FestivityMarketDetail.
         includes(:assets).
@@ -31,7 +31,7 @@ class FestivityMarketList
   private
 
 
-  # Return a list of unique event ids that match the provided dates
+  # Return a list of unique market ids that match the provided dates
   def self.market_ids_for_datetimes(datetimes, filter_type)
     FestivityMarketList::FestivityMarketDetail.where(datetime_criteria(datetimes, filter_type)).map {|e| e.market_id}.uniq
   end
@@ -50,7 +50,7 @@ class FestivityMarketList
     end
 
     where_clause = "site_id = #{ Page.current_site.id}"
-    where_clause += " AND event_id IN (#{market_ids.join(",")})" if market_ids.present?
+    where_clause += " AND market_id IN (#{market_ids.join(",")})" if market_ids.present?
     where_clause += " AND #{parse_categories(criteria[:categories].split(","))}" if criteria[:categories]
     where_clause
   end

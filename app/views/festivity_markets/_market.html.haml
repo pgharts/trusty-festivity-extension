@@ -19,8 +19,8 @@
           = market.sub_header
 
     .event-location
-      = link_to area_path(id: market.area.area_slug) do
-        = market.area.area_title
+      = link_to area_path(id: market.area_slug) do
+        = market.area_title
 
     - if show_dates
       .event-date
