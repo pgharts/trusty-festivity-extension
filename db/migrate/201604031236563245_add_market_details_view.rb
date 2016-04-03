@@ -7,8 +7,8 @@ class AddMarketDetailsView < ActiveRecord::Migration
           market.header, market.sub_header, market.site_id,
           area.id AS area_id, area.slug as area_slug, area.title AS area_title
         FROM pages market
-        INNER JOIN pages location
-          ON location.id = market.area_id
+        INNER JOIN pages area
+          ON area.id = market.area_id
     SQL
 
   end
