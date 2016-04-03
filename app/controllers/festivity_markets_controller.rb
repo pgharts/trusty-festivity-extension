@@ -1,4 +1,4 @@
-class FestivityEventsController < ApplicationController
+class FestivityMarketsController < ApplicationController
   include Concerns::FestivityCustomPage
   include Concerns::FestivitySearchCaching
 
@@ -7,12 +7,12 @@ class FestivityEventsController < ApplicationController
     order_by = params[:sort] ? params[:sort] : "start_date"
     @title = "#{current_site.festivity_festival_name}: Events"
     @filter_type = current_site.festivity_filter_type
-    @events =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
-      FestivityEventList.search(
+    @markets =  Rails.cache.fetch("#{cache_key}", expires_in: 2.hours) do
+      FestivityMarketList.search(
         {dates: search_dates.join(","),
          categories: params[:categories],
-         filter_type: current_site.festivity_filter_type},
-        order_by).events
+         filter_type: current_site.festivity_filter_type}
+      ).markets
     end
 
 

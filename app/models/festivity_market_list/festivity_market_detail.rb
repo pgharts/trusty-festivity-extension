@@ -1,4 +1,4 @@
-class FestivityEventList::FestivityMarketDetail < ActiveRecord::Base
+class FestivityMarketList::FestivityMarketDetail < ActiveRecord::Base
   self.table_name = 'festivity_market_details'
   after_initialize :readonly!
 

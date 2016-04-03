@@ -33,7 +33,7 @@ class FestivityMarketList
 
   # Return a list of unique event ids that match the provided dates
   def self.market_ids_for_datetimes(datetimes, filter_type)
-    FestivityEventList::FestivityMarketDetail.where(datetime_criteria(datetimes, filter_type)).map {|e| e.market_id}.uniq
+    FestivityMarketList::FestivityMarketDetail.where(datetime_criteria(datetimes, filter_type)).map {|e| e.market_id}.uniq
   end
 
 
