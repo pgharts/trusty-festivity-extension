@@ -71,9 +71,9 @@ class FestivityEventList
       end_date = start_date.advance(advance_by(filter_type))
       <<-SQL
         (
-          (start_date BETWEEN'#{start_date}' AND '#{end_date}')
+          (start_date >= '#{start_date}' AND start_date <= '#{end_date}')
           OR
-          (end_date BETWEEN '#{start_date}' AND '#{end_date}')
+          (end_date >= '#{start_date}' AND end_date <= '#{end_date}')
         )
       SQL
     end
