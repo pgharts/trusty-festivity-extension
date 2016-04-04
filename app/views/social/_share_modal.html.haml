@@ -1,0 +1,10 @@
+.modal
+  .modal-wrapper
+    .modal-content
+      %button.close-btn
+        %span.icon-close{:data => {'grunticon-embed' => true}}
+      %h3.title Share This Event
+      %span
+        Share on Facebook, Twitter, or Email
+      %span.social-share-link-group
+        <r:rad_share_widget message = "#{social_share_message(event_page)}" email_message = "#{social_share_email_message(event_page)}"  url = "#{url}" email_subject = "#{social_share_email_subject(event_page)}" />
