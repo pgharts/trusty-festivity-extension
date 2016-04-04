@@ -27,8 +27,8 @@
       %h3.callout-title
         Area
       .location-links
-        = link_to area_path(id: event_location.parent.slug) do
-          = event_location.parent.title
+        = link_to area_path(id: @market.area) do
+          = @market.area.title
 
     .callout.dates
       %h3.callout-title
