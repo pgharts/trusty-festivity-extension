@@ -3,74 +3,88 @@ main {
     width: 100%;
     max-width: 100%;
     .traf-intro-background {
-      height: 800px;
+      height: 850px;
       background: url(traf-background.png) no-repeat top center;
       background-color: $background-color-alt;
       background-size: cover;
+    }
   }
-}
 
   .main {
     @include container;
     margin-top: -1em;
     width: 95%;
-  .headline {
-    h1 {
-      @include heading-4;
-      color: #fff;
+    padding-top: 5em;
+    .headline {
+      h1 {
+        @include heading-4;
+        color: #fff;
+      }
     }
-  }
-  .headline-2 {
-    @include heading-3;
-  }
-  .headline-3 {
-    @include heading-1;
-  }
-  .buttons {
-    .button-wrapper {
-      .icon-chevron-right {
-        height: 15px;
-        margin-left: 2em;
-        margin-right: -1em;
-        svg {
-          fill: $text-color;
+    .headline-2 {
+      @include heading-3;
+    }
+    .headline-3 {
+      @include heading-1;
+    }
+    .buttons {
+      .button-wrapper {
+        .icon-chevron-right {
+          height: 15px;
+          margin-left: 2em;
+          margin-right: -1em;
+          svg {
+            fill: $text-color;
+          }
         }
       }
     }
   }
-}
-.announcements {
-  background: url(traf-bottom-wave.png) no-repeat top center;
-  .announcements-container {
-    @include container;
-    width: 95%;
-    padding: 10em 0;
-  }
-  h4 {
-    min-width: 20%;
-    color: #fff;
-    display:inline-block;;
-  }
-  .announcements-group {
-    min-width: 75%;
-    display: inline-block;
-    margin-left: 2em;
-    .date {
-      font-size: 1.5em;
-      display: inline-block;
-      color: $text-highlight-color;
-    }
-    .announcement-item-group {
-      @include divider-bottom;
-      @include last;
-      .announcement-item {
-        margin-left: 2em;
-        display: inline-block;
-        color: #fff;
+  .announcements {
+    height: 515px;
+    background: url(traf-bottom-wave.png) no-repeat top center;
+    margin-bottom: 3em;
+    .announcements-container {
+      @include container;
+      width: 95%;
+      padding: 10em 0;
+
+      .announcements-header {
+        @include column(4);
+        vertical-align: top;
+        .icon-info {
+          margin-right: 1.5em;
+        }
+        h4 {
+          display: inline-block;
+          color: #fff;
+          font-size: 1.8em;
+        }
+      }
+      .announcements-group {
+        @include column(8);
+        @include last;
+        .date {
+          font-size: 1.5em;
+          display: inline-block;
+          color: $text-highlight-color;
+        }
+        .announcement-item-group {
+          @include divider-bottom;
+          @include last;
+          .announcement-item {
+            margin-left: 2em;
+            display: inline-block;
+            color: #fff;
+          }
+        }
       }
     }
+
   }
 
-}
+  .bubble-background {
+    background: url()
+  }
 
 }

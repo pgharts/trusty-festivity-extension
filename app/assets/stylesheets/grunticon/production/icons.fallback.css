@@ -54,3 +54,8 @@
 
 .icon-close { background-image: url('png/close.png'); background-repeat: no-repeat; }
 
+
+.icon-info {
+    background-image: url('png/info.png');
+    background-repeat: no-repeat;
+}
