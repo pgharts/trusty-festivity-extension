@@ -5,10 +5,7 @@
     .filter-type.toggler-root
       %h4.filter-category.toggler-trigger{aria: {expanded: "false", controls: 'filters-list'}}
         %span.category-text
-          - if current_site.date_filter?
-            Dates
-          -else
-            Times
+          Dates
         %span.icon-chevron-down{:data => {'grunticon-embed' => true}}
         %span.visually-hidden
           Open/Close Filters
@@ -20,7 +17,7 @@
               %label{for: datetime.to_s}
                 %input.input-checkbox{type: "checkbox", id: datetime.to_s, value: datetime.to_s, checked: checked,  data: {filter: "Date", sort: datetime.to_s}}
                 = datetime.display
-    - current_site.festivity_active_category_types_for("FestivityEventPage").each do |type|
+    - current_site.festivity_active_category_types_for("FestivityMarketPage").each do |type|
       .filter-type.toggler-root
         %h4.filter-category.toggler-trigger{aria: {expanded: "false", controls: 'filters-list'}}
           %span.category-text

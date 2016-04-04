@@ -1,0 +1,15 @@
+%input#events-url{type: "hidden", value: "#{markets_url}"}
+.content-wrapper
+  %aside.secondary-content
+    = render partial: 'filters', locals: {selected_dates: @selected_dates, selected_categories: @selected_categories}
+
+  %section.primary-content
+    %a.button.show-filters-trigger{href: '#'} Show Filters
+
+    .sorting-tools
+      %form.sort-results{:action => "#"}
+        %label{for: "sort"} Sort
+        %select{id: "sort"}
+          %option{value: "start_date"} Date/Time
+          %option{value: "market_title"} Alphabetical
+    = render partial: "market_list"

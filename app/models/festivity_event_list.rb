@@ -1,5 +1,7 @@
 class FestivityEventList
 
+  include Concerns::FestivitySqlBuilder
+
   attr_reader :events
 
   def initialize(event_performances)
@@ -27,11 +29,18 @@ class FestivityEventList
     )
   end
 
-  def self.find_by_location(location_id)
+  def self.find_by_location(location_id, site)
+    begin
+      where_clause = parse_criteria(dates: collect_festival_dates(site).join(","), filter_type: site.festivity_filter_type)
+    rescue ActiveRecord::RecordNotFound
+      return FestivityEventList.new([])
+    end
+
     FestivityEventList.new(
         FestivityEventList::FestivityEventPerformance.
             includes(:assets).
             joins(:festivity_categories).
+            where(where_clause).
             where(location_id: location_id).
             group("performance_id").
             order("featured_item DESC, start_date ASC").
@@ -53,6 +62,16 @@ class FestivityEventList
     )
   end
 
+  def self.collect_festival_dates(site)
+    festival_dates = site.festival_datetimes
+    if site.date_during_festival?(Time.now)
+      festival_dates = festival_dates.select{ |date| date.datetime == Time.now }
+    end
+
+    festival_dates.map{ |date| date.to_s }
+
+  end
+
   private
 
   # Return a list of unique event ids that match the provided dates
@@ -63,6 +82,7 @@ class FestivityEventList
   # Create a condition for start and end date between midnight and 11:59pm
   # for each date passed in and return the SQL condition
   def self.datetime_criteria(datetimes_string, filter_type)
+
     date_queries = datetimes_string.split(',').map do |date_string|
       start_date = Chronic.parse(URI.decode(date_string)).utc
       end_date = start_date.advance(advance_by(filter_type))
@@ -77,11 +97,6 @@ class FestivityEventList
     date_queries.join(" OR ")
   end
 
-  def self.advance_by(filter_type)
-    advance_by_hash = {minutes: 59}
-    advance_by_hash[:hours] = 23 if filter_type == "date"
-    advance_by_hash
-  end
 
   # The order of querying, depending on what is passed:
   # - If dates are passed, we search both start and end date between midnight and 11:59pm of that date.
@@ -98,15 +113,6 @@ class FestivityEventList
     where_clause += " AND event_id IN (#{event_ids.join(",")})" if event_ids.present?
     where_clause += " AND #{parse_categories(criteria[:categories].split(","))}" if criteria[:categories]
     where_clause
-  end
-
-  def self.parse_categories(category_ids)
-    grouped_ids = FestivityCategory.find(category_ids).group_by {|category| category.festivity_category_type}
-    category_clauses = grouped_ids.map do |categories|
-      "page_id IN (SELECT page_id FROM festivity_page_categories WHERE festivity_category_id IN (#{categories[1].map {|category| category.id}.join(",")}))"
-    end
-    "(#{category_clauses.join(" AND ")})"
-
   end
 
 

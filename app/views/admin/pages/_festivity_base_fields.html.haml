@@ -7,6 +7,10 @@
     %label{for: "page_short_description"}
       Short Description
     = self.text_area( :page, :short_description, class: "textbox festivity-control", rows: 4)
+  %p.festivity-third
+    %label{for: "page_featured_item"}
+      Do Not Show In Sub-Navigation
+    = self.check_box( :page, :hide_from_subnav, class: "textbox festivity-control")
 
 - if @page.is_a?(FestivityBasePage) && @page.id
 
@@ -17,8 +21,9 @@
   - if @page.status_id == Status[:published].id
     %p.festivity-full
       View page:
-      = link_to "http://#{@page.site.base_domain}#{event_path(@page)}" do
-        = "http://#{@page.site.base_domain}#{event_path(@page)}"
+      - path = @page.is_a?(FestivityMarketPage) ? market_path(@page) : event_path(@page)
+      = link_to "http://#{@page.site.base_domain}#{path}" do
+        = "http://#{@page.site.base_domain}#{path}"
   %p.festivity-full
     %label{for: "page_short_description"}
       Short Description
@@ -35,10 +40,11 @@
     %label{for: "page_featured_item"}
       Featured
     = self.check_box( :page, :featured_item, class: "textbox festivity-control")
-  %p.festivity-third
-    %label{for: "page_buy_url"}
-      Buy Tickets URL
-    = self.text_field( :page, :buy_url, class: "textbox festivity-control")
+  - if @page.is_a?(FestivityEventPage)
+    %p.festivity-third
+      %label{for: "page_buy_url"}
+        Buy Tickets URL
+      = self.text_field( :page, :buy_url, class: "textbox festivity-control")
 
   .festivity-div.festivity-title
     %h4
@@ -66,7 +72,24 @@
         %span{class: "fa fa-wrench fa-lg", aria: {hidden: "true"}}
         Performances
     = render partial: "admin/pages/partials/performances", locals: {performances: @page.festivity_performances, page_id: @page.id}
-
+  - if @page.is_a?(FestivityMarketPage)
+    - areas = FestivityLocationAreaPage.where(site_id: @page.site.id)
+    %p.festivity-third
+      %label{for: "page_market_start_date"}
+        Start Date
+      = self.text_field :page, :market_start_date, :class=> "date_field textbox date festivity-control", :value => (@page.market_start_date ? format_date(@page.market_start_date) : nil)
+    %p.festivity-third
+      %label{for: "page_market_end_date"}
+        End Date
+      = self.text_field :page, :market_end_date, :class=> "date_field textbox date festivity-control", :value => (@page.market_end_date ? format_date(@page.market_end_date) : nil)
+    %p.festivity-third
+      %label{for: "page_booth_number"}
+        Booth Number
+      = self.text_field(:page, :booth_number, class: "textbox festivity-control")
+    %p.festivity-third
+      %label{for: "page_booth_number"}
+        Area
+      = self.select :page, :area_id,  options_from_collection_for_select(areas, "id", "title", @page.area_id), :class=> "textbox festivity-control"
 
   .festivity-div.festivity-title
     %h4

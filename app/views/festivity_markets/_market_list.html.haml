@@ -1,0 +1,5 @@
+%section.events-group
+  - cache(@markets, selected_sort: @selected_sort,  base_domain: current_site.base_domain) do
+    - @markets.each do |market|
+      - cache(market, base_domain: current_site.base_domain) do
+        = render partial: 'market', locals: {market: market, show_dates: true}
