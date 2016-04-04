@@ -39,6 +39,14 @@ module Festivity
           page_image_url('featured_image')
         end
 
+        def market_start_date=(value)
+          super(Chronic.parse(value))
+        end
+
+        def market_end_date=(value)
+          super(Chronic.parse(value))
+        end
+
         def organization
           page_organization = nil
           page_parent = self.parent

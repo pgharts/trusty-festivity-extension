@@ -1,10 +1,6 @@
 class FestivityEventsController < ApplicationController
-  include Festivity::Mixins::NotFound
-  no_login_required
-  trusty_layout 'base'
-
-  caches_action :index, cache_path: proc { |c| c.params.except(:_).merge(format: request.xhr?, base_domain: "#{request.subdomain}.#{request.domain}")}
-  caches_action :show
+  include Concerns::FestivityCustomPage
+  include Concerns::FestivitySearchCaching
 
   def index
 
@@ -49,7 +45,7 @@ class FestivityEventsController < ApplicationController
   private
 
   def cache_key
-    "#{params[:categories.to_s]}-#{params[:dates].to_s}-#{params[:sort].to_s}-#{request.xhr?}-#{request.subdomain}.#{request.domain}"
+    "events-#{params[:categories.to_s]}-#{params[:dates].to_s}-#{params[:sort].to_s}-#{request.xhr?}-#{request.subdomain}.#{request.domain}"
   end
 
   def search_dates
