@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
-  no_login_required
-  trusty_layout 'base'
+  include Concerns::FestivityCustomPage
 
   def show
     query = params[:q].to_s

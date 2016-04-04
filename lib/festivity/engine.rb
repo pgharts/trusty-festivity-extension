@@ -6,7 +6,7 @@ module Festivity
       app.config.assets.precompile += %w(
         main.css
         first-night.css
-        traf.css
+        skins/traf/skin.css
         skins/pghkids/skin.css
         admin/festivity_admin.css
         admin/festivity_admin.js
