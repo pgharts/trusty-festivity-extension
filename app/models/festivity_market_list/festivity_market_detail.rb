@@ -7,4 +7,18 @@ class FestivityMarketList::FestivityMarketDetail < ActiveRecord::Base
   has_many :page_attachments, primary_key: :market_id, foreign_key: :page_id
   has_many :assets, through: :page_attachments
 
+
+  def id
+    market_id
+  end
+
+  def categories
+    festivity_categories
+  end
+
+  def image
+    image = assets.select { |asset| asset.title == "featured_image" }.first if assets.size > 0
+    image.thumbnail(:normal) unless image.nil?
+  end
+
 end

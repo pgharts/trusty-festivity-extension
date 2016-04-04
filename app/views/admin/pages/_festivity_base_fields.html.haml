@@ -72,9 +72,9 @@
     %p.festivity-third
       %label{for: "page_market_start_date"}
         Start Date
-      = self.text_field :page, :page_market_start_date, :class=> "date_field textbox date festivity-control", :value => (@page.page_market_start_date ? format_date(@page.page_market_start_date) : nil)
+      = self.text_field :page, :market_start_date, :class=> "date_field textbox date festivity-control", :value => (@page.market_start_date ? format_date(@page.market_start_date) : nil)
     %p.festivity-third
-      %label{for: "page_market_start_date"}
+      %label{for: "page_market_end_date"}
         End Date
       = self.text_field :page, :market_end_date, :class=> "date_field textbox date festivity-control", :value => (@page.market_end_date ? format_date(@page.market_end_date) : nil)
     %p.festivity-third

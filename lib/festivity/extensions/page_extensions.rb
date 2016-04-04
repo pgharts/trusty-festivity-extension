@@ -39,7 +39,7 @@ module Festivity
           page_image_url('featured_image')
         end
 
-        def page_market_start_date(value)
+        def market_start_date=(value)
           super(Chronic.parse(value))
         end
 

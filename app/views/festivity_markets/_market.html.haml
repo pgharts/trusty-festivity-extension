@@ -11,7 +11,7 @@
   .event-body
     %h3.event-title
       = link_to market_path(market.id) do
-        = market.title
+        = market.market_title
     - if market.header
       %h4.event-subtitle
         = market.header
@@ -25,9 +25,9 @@
     - if show_dates
       .event-date
         %span.time
-          = market.market_start_date.strftime("%A, %B %d")
+          = market.start_date.strftime("%A, %B %d")
           = " - "
-          = market.market_end_date.strftime("%A, %B %d")
+          = market.end_date.strftime("%A, %B %d")
 
     .event-description
       %p
@@ -37,4 +37,4 @@
     .event-tags-group
       %ul.event-tags
         %li
-          = link_to "Details", market_path(event.id)
+          = link_to "Details", market_path(market.id)

@@ -11,7 +11,7 @@ class FestivityMarketsController < ApplicationController
       FestivityMarketList.search(
         {dates: search_dates.join(","),
          categories: params[:categories],
-         filter_type: current_site.festivity_filter_type}
+         filter_type: current_site.festivity_filter_type}, order_by
       ).markets
     end
 
