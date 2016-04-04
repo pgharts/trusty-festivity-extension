@@ -17,8 +17,9 @@
   - if @page.status_id == Status[:published].id
     %p.festivity-full
       View page:
-      = link_to "http://#{@page.site.base_domain}#{event_path(@page)}" do
-        = "http://#{@page.site.base_domain}#{event_path(@page)}"
+      - path = @page.is_a?(FestivityMarketPage) ? market_path(@page) : event_path(@page)
+      = link_to "http://#{@page.site.base_domain}#{path}" do
+        = "http://#{@page.site.base_domain}#{path}"
   %p.festivity-full
     %label{for: "page_short_description"}
       Short Description
