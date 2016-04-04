@@ -3,13 +3,12 @@
 
 @import "library/reset";
 @import "library/grid";
-@import "traf-stylesheets/library/variables";
 @import "library/mediaqueries";
 @import "library/typographic-mixins";
 @import "library/general-mixins";
-@import "traf-stylesheets/library/general-mixins";
+@import "skins/traf/library/general-mixins";
 @import "library/icons";
-@import "traf-stylesheets/library/icons";
+@import "skins/traf/library/icons";
 
 @import "globals/forms.scss";
 @import "globals/general.scss";
@@ -28,4 +27,4 @@
 @import "modules/callout";
 
 ///// This is an override file for the TRAF theme
-@import "traf-stylesheets/contexts/traf";
+@import "skins/traf/contexts/traf";
