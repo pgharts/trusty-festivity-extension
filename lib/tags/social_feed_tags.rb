@@ -14,4 +14,17 @@ module Tags::SocialFeedTags
 
   end
 
+  desc %{Twitter posts feed
+
+        *Usage:*
+<pre><code><r:twitter_posts tag="culturaltrust">/code></pre>}
+  tag "twitter_posts" do |tag|
+    #posts = Rails.cache.fetch("twitter_posts/#{tag.attr['tag']}", expires_in: 5.minutes) do
+      posts = TwitterFeedService.new.get_feed_for_tag(tag.attr['tag'])
+    # end
+    request.env["action_controller.instance"].render_to_string :partial => "social/twitter_posts",
+                                                               :locals => {:posts => posts}
+
+  end
+
 end
