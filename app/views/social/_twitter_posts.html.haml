@@ -1,0 +1,16 @@
+%section.social-feed
+  .section-wrapper
+    %h3.section-title
+      Trending on Twitter
+    .social-posts
+      .grid-sizer
+      - posts.each do |post|
+        = link_to post.url.to_s do
+          %article.twitter-post
+            .post-text
+              %p.post
+                = post.text
+              %span.user-account
+                = "@#{post.user.screen_name}"
+              %time
+                = time_ago_in_words(post.created_at)
