@@ -50,7 +50,9 @@ main {
       padding: 10em 0;
 
       .announcements-header {
-        @include column(4);
+        @include breakpoint($breakpoint-nav) {
+          @include column(4);
+        }
         vertical-align: top;
         .icon-info {
           margin-right: 1.5em;
@@ -62,8 +64,10 @@ main {
         }
       }
       .announcements-group {
-        @include column(8);
-        @include last;
+        @include breakpoint($breakpoint-nav) {
+          @include column(8);
+          @include last;
+        }
         .date {
           font-size: 1.5em;
           display: inline-block;
