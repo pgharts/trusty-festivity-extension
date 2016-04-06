@@ -1,0 +1,82 @@
+h3.section-title {
+  @include reversed-text-smoothing;
+  color: $text-color;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+  margin-top: 2em;
+
+  @include breakpoint($breakpoint-m){
+    text-align:center;
+    @include heading-2;
+    color: $text-color;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+  }
+}
+
+.social-posts {
+  @include pie-clearfix;
+}
+.social-feed {
+  .section-wrapper {
+    padding: 1.5em;
+  }
+  .section-title {
+    text-align:center;
+    margin-bottom: 1.5em;
+    @include breakpoint($breakpoint-l) {
+      margin-top: 1.5em;
+    }
+    a {
+      color: $link-color;
+    }
+  }
+  article {
+    margin-bottom: 1em;
+    width: 100%;
+    @include breakpoint($breakpoint-s) {
+      width: 48.3%;
+    }
+    @include breakpoint($breakpoint-nav) {
+      width: 31.15%;
+    }
+    @include breakpoint($breakpoint-xl) {
+      width: 22.53%;
+    }
+  }
+  .grid-sizer {
+    width: 3.25%;
+  }
+  .instagram-post {
+    background: url('fn-instagram-bg.svg') no-repeat $text-color;
+    background-position: 90% 93%;
+    background-size: 35px auto;
+    .post-text {
+      color: #fff;
+      .user-account, time {
+        color: $background-color-alt;
+      }
+    }
+  }
+  .twitter-post {
+    background: url('fn-twitter-bg.svg') no-repeat $background-color-alt;
+    background-position: 90% 85%;
+    background-size: 38px 31px;
+    .post-text {
+      color: $text-color;
+      .user-account, time {
+        color: #fff;
+      }
+    }
+  }
+  .post-text {
+    overflow: hidden;
+    padding: 1.5em;
+    .user-account, time {
+      max-width: 85%;
+    }
+    .user-account {
+      display:block;
+    }
+  }
+}

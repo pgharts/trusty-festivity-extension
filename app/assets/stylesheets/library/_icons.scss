@@ -10,7 +10,7 @@
   @include icon-base;
 }
 
-$icons: menu search instagram twitter facebook envelope external-link chevron-down chevron-up chevron-right chevron-left close;
+$icons: menu search instagram twitter facebook envelope external-link chevron-down chevron-up chevron-right chevron-left close info;
 
 @each $icon in $icons {
 	.icon-#{$icon} {
@@ -37,6 +37,13 @@ $icons: menu search instagram twitter facebook envelope external-link chevron-do
     .social-link-item-group & {
       fill: $icon-primary-color;
     }
+  }
+}
+
+.icon-info {
+  svg {
+    width: 2.25em;
+    height: 2.25em;
   }
 }
 

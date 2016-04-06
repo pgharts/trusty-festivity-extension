@@ -1,0 +1,72 @@
+.featured-events {
+  padding-bottom: 3em;
+  @include breakpoint($breakpoint-nav) {
+    height: 750px;
+  }
+  @include container;
+  article.featured-event {
+    @include breakpoint($breakpoint-nav) {
+      @include column(8);
+    }
+    @include column(12);
+  }
+  article.featured-event, article.secondary-events {
+    border: 1px solid $background-color-subtle;
+    margin-bottom: 2em;
+    img {
+      width: 100%;
+    }
+    .genre-title {
+      margin-top: 1em;
+      border-left: .3em solid $highlight-color;
+      h3 {
+        @include heading-5;
+        color: $heading-highlight-color;
+        margin-left: 1em;
+      }
+    }
+    .event-information {
+      margin-left: 1em;
+      padding-bottom: 2em;
+      h4 {
+        @include heading-1;
+      }
+      .date-wrapper {
+        div {
+          display: inline-block;
+        }
+        .date, .time {
+          &::after {
+            content: ' \00b7';
+          }
+        }
+      }
+    }
+  }
+  article.secondary-events {
+    @include breakpoint($breakpoint-nav) {
+      @include column(4);
+      @include last;
+    }
+    @include column(12);
+
+    .event-information {
+      h4 {
+        @include heading-2;
+      }
+    }
+  }
+  .button-highlight {
+    color: #fff;
+    background-color: $link-color;
+    .icon-chevron-right {
+      margin-left: 1em;
+      svg {
+        path {
+          fill: #fff;
+        }
+
+      }
+    }
+  }
+}
