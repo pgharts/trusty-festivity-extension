@@ -98,5 +98,5 @@
 - if @related_events.any?
   %section.related-events
     %h3 Related Events
-    -#- @related_events[0..2].each do |e|
-    -#  = render partial: 'event', locals: {event: e}
+    - @related_events[0..2].each do |e|
+      = render partial: 'event', locals: {event: e}

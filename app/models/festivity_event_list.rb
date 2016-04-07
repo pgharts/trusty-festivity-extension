@@ -105,7 +105,10 @@ class FestivityEventList
   # - Any category ids passed are added to the where clause as well.
   def self.parse_criteria(criteria)
     if criteria[:dates]
-      event_ids = event_ids_for_datetimes(criteria[:dates], criteria[:filter_type])
+      # related events fails if filter_type is nil - this is a fallback for nil filter_type
+      site_filter = Site.find_by_id(Page.current_site.id).festivity_filter_type
+      filter = criteria[:filter_type] ||= site_filter
+      event_ids = event_ids_for_datetimes(criteria[:dates], filter)
       raise ActiveRecord::RecordNotFound unless event_ids.any?
     end
 
