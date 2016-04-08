@@ -22,9 +22,9 @@ module Tags::HeaderTags
     page = Page.find_by_slug_for_site(tag.locals.page.slug).first
     body_class = page && page == Page.current_site.homepage ? "home" : "internal"
     action_controller = request.env["action_controller.instance"].class
-    if action_controller == FestivityEventsController || FestivityMarketsController && request.env["action_controller.instance"].action_name == "index"
+    if (action_controller == FestivityEventsController || action_controller == FestivityMarketsController) && request.env["action_controller.instance"].action_name == "index"
       body_class += " events-list"
-    elsif action_controller == FestivityEventsController || FestivityMarketsController && request.env["action_controller.instance"].action_name == "show"
+    elsif (action_controller == FestivityEventsController || action_controller == FestivityMarketsController) && request.env["action_controller.instance"].action_name == "show"
       body_class += " event-detail"
     end
     body_class
