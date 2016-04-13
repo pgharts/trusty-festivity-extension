@@ -3,10 +3,13 @@
     width: 100%;
     max-width: 100%;
     .traf-intro-background {
-      height: 850px;
+      height: 550px;
       background: url(traf-background.png) no-repeat top center;
       background-color: $background-color-alt;
       background-size: cover;
+      @include breakpoint($breakpoint-nav) {
+        height: 850px;
+      }
     }
   }
 
@@ -22,10 +25,16 @@
       }
     }
     .headline-2 {
-      @include heading-3;
+      font-size: 1em;
+      @include breakpoint($breakpoint-nav) {
+        @include heading-3;
+      }
     }
     .headline-3 {
-      @include heading-1;
+      font-size: 1.5em;
+      @include breakpoint($breakpoint-nav) {
+        @include heading-1;
+      }
     }
     .buttons {
       .button-wrapper {
@@ -89,7 +98,11 @@
 
   .traf-bubbles {
     background: url(traf-bubbles.png) no-repeat top center;
-    height: 150px;
+    background-size: cover;
+    height: 75px;
+    @include breakpoint($breakpoint-nav) {
+      height: 100px;
+    }
   }
 
 }
