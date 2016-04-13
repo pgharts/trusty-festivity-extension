@@ -50,13 +50,18 @@
     }
   }
   .announcements {
-    height: 515px;
-    background: url(traf-bottom-wave.png) no-repeat top center;
-    margin-bottom: 3em;
+    background: url(traf-bottom-wave.png) no-repeat;
+    background-color: $text-color;
+    padding-top: 2em;
+    margin-bottom: 6em;
+    border-bottom: 5em;
+    border-image: url(traf-thin-wave.png) 0 27 75 repeat;
+    border-image-outset: 1;
     .announcements-container {
       @include container;
       width: 95%;
-      padding: 10em 0;
+      margin-bottom: -4em;
+      padding-top: 4em;
 
       .announcements-header {
         @include breakpoint($breakpoint-nav) {
@@ -91,6 +96,11 @@
             color: #fff;
           }
         }
+      }
+      &::after {
+        clear: both;
+        content: " ";
+        display: block;
       }
     }
 
