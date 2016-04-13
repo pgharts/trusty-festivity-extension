@@ -1,6 +1,7 @@
 .site-header {
   @include pie-clearfix;
-  background: url(image-path('/gc-header-bg.svg')) repeat-x $link-color;
+  //this will need moved to gallery crawl
+  //background: url('gc-header-bg.svg') repeat-x $link-color;
 
   @include breakpoint($breakpoint-nav) {
     padding-bottom: 1em;

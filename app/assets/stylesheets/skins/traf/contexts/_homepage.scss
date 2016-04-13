@@ -3,10 +3,13 @@
     width: 100%;
     max-width: 100%;
     .traf-intro-background {
-      height: 850px;
+      height: 550px;
       background: url(traf-background.png) no-repeat top center;
       background-color: $background-color-alt;
       background-size: cover;
+      @include breakpoint($breakpoint-nav) {
+        height: 850px;
+      }
     }
   }
 
@@ -22,13 +25,20 @@
       }
     }
     .headline-2 {
-      @include heading-3;
+      font-size: 1em;
+      @include breakpoint($breakpoint-nav) {
+        @include heading-3;
+      }
     }
     .headline-3 {
-      @include heading-1;
+      font-size: 1.5em;
+      @include breakpoint($breakpoint-nav) {
+        @include heading-1;
+      }
     }
     .buttons {
       .button-wrapper {
+        margin-right: 1em;
         .icon-chevron-right {
           height: 15px;
           margin-left: 2em;
@@ -41,13 +51,18 @@
     }
   }
   .announcements {
-    height: 515px;
-    background: url(traf-bottom-wave.png) no-repeat top center;
-    margin-bottom: 3em;
+    background: url(traf-bottom-wave.png) no-repeat;
+    background-color: $text-color;
+    padding-top: 2em;
+    margin-bottom: 6em;
+    border-bottom: 5em;
+    border-image: url(traf-thin-wave.png) 0 27 75 repeat;
+    border-image-outset: 1;
     .announcements-container {
       @include container;
       width: 95%;
-      padding: 10em 0;
+      margin-bottom: -4em;
+      padding-top: 4em;
 
       .announcements-header {
         @include breakpoint($breakpoint-nav) {
@@ -83,13 +98,22 @@
           }
         }
       }
+      &::after {
+        clear: both;
+        content: " ";
+        display: block;
+      }
     }
 
   }
 
   .traf-bubbles {
     background: url(traf-bubbles.png) no-repeat top center;
-    height: 150px;
+    background-size: cover;
+    height: 75px;
+    @include breakpoint($breakpoint-nav) {
+      height: 100px;
+    }
   }
 
 }
