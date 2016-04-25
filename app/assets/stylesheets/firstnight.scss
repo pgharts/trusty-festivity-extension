@@ -3,14 +3,14 @@
 
 @import "library/reset";
 @import "library/grid";
-@import "first-night-stylesheets/library/variables";
+@import "skins/first-night/library/variables";
 @import "library/mediaqueries";
 @import "library/typographic-mixins";
 @import "library/general-mixins";
-@import "first-night-stylesheets/library/general-mixins";
+@import "skins/first-night/library/general-mixins";
 @import "library/icons";
 @import "library/modal";
-@import "first-night-stylesheets/library/icons";
+@import "skins/first-night/library/icons";
 
 @import "globals/forms.scss";
 @import "globals/general.scss";
@@ -34,5 +34,5 @@
 @import "modules/callout";
 
 ///// This is an override file for the TRAF theme
-@import "first-night-stylesheets/contexts/first-night";
+@import "skins/first-night/contexts/first-night";
 
