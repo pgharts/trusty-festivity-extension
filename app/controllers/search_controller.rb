@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   include Concerns::FestivityCustomPage
+  before_action { expires_in 1.hour, :public => true }
 
   def show
     query = params[:q].to_s
