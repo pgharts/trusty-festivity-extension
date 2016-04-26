@@ -1,0 +1,7 @@
+.highlight-text {
+  color: $highlight-color;
+}
+
+.light-text {
+  color: lighten($text-color, 25%);
+}
