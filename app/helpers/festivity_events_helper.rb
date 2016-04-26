@@ -26,12 +26,7 @@ module FestivityEventsHelper
   end
 
   def fest_hashtag
-    if @event.site_id == 3
-      "#TRAF"
-    elsif @event.site_id == 2
-      "#PGHkids"
-    end
-
+    current_site.social_media_tag
   end
 
 end
