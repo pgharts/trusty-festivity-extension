@@ -30,5 +30,9 @@
   %label{for: "site_festivity_google_api_key"}
     Google Search API Key
   = self.text_field(:site, :festivity_google_api_key, class: "textbox festivity-control")
+%p.festivity-third
+  %label{for: "social_media_tag"}
+    "Share This" Social Media Tag
+  = self.text_field(:site, :social_media_tag, class: "textbox festivity-control")
 
 = render partial: 'admin/sites/partials/category_section'
