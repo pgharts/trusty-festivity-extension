@@ -1,5 +1,5 @@
 class ErrorsController < ApplicationController
-  trusty_layout 'base'
+  include Concerns::FestivityCustomPage
 
   def internal_server_error
     render(:status => 500)
