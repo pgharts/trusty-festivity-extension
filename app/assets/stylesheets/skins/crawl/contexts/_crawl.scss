@@ -9,15 +9,29 @@
   }
 }
 .intro {
+  @include breakpoint($breakpoint-xl) {
+    height: 500px;
+  }
   background-color: $background-color-subtle;
+  background: url(crawl-intro-bg.png) no-repeat;
+  background-size: cover;
+  height: 300px;
+  @include breakpoint($breakpoint-xl) {
+    font-size: 1.5em;
+  }
+
 
   .intro-text {
-    @include container;
+    text-align: center;
+    padding-top: 6em;
+    margin: 0 auto;
+
     h1 {
       color: #fff;
     }
     h2 {
-      @include heading-4;
+      @include heading-3;
+      font-weight: 100;
       color: #fff;
     }
   }
