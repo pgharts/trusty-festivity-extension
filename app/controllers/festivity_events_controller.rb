@@ -1,9 +1,9 @@
 class FestivityEventsController < ApplicationController
   include Concerns::FestivityCustomPage
   include Concerns::FestivitySearchCaching
+  before_action { expires_in 1.hour, :public => true }
 
   def index
-
     order_by = params[:sort] ? params[:sort] : "start_date"
     @title = "#{current_site.festivity_festival_name}: Events"
     @filter_type = current_site.festivity_filter_type

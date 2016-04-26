@@ -1,5 +1,6 @@
 class FestivityLocationsController < ApplicationController
   include Concerns::FestivityCustomPage
+  before_action { expires_in 1.hour, :public => true }
 
   def show
     @location = FestivityLocationPage.find_by_slug_for_site(params[:id]).first
