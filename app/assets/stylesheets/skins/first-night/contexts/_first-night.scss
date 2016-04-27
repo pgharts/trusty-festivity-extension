@@ -432,3 +432,16 @@
 		}
 	}
 }
+
+.social-feed {
+  .section-wrapper {
+    .social-posts {
+      .instagram-post {
+        background-color: $link-color;
+      }
+      .twitter-post {
+        color: $background-color;
+      }
+    }
+  }
+}

@@ -50,36 +50,40 @@ h3.section-title {
   .grid-sizer {
     width: 3.25%;
   }
-  .instagram-post {
-    background: url('fn-instagram-bg.svg') no-repeat $text-color;
-    background-position: 90% 93%;
-    background-size: 35px auto;
-    .post-text {
-      color: #fff;
-      .user-account, time {
-        color: $background-color-alt;
-      }
-    }
-  }
-  .twitter-post {
-    background: url('fn-twitter-bg.svg') no-repeat $background-color-alt;
-    background-position: 90% 85%;
-    background-size: 38px 31px;
-    .post-text {
-      color: $text-color;
-      .user-account, time {
+  .social-posts {
+    .instagram-post {
+      background: url('fn-instagram-bg.svg') no-repeat $text-color;
+      background-position: 90% 93%;
+      background-size: 35px auto;
+      .post-text {
         color: #fff;
+        .user-account, time {
+          color: $background-color-alt;
+        }
+      }
+    }
+    .twitter-post {
+      background: url('fn-twitter-bg.svg') no-repeat $homepage-featured-background;
+      background-position: 90% 85%;
+      background-size: 38px 31px;
+      .post-text {
+        color: $text-color;
+        .user-account, time {
+          color: #fff;
+        }
+      }
+    }
+    .post-text {
+      overflow: hidden;
+      padding: 1.5em;
+      .user-account, time {
+        max-width: 85%;
+      }
+      .user-account {
+        display:block;
       }
     }
   }
-  .post-text {
-    overflow: hidden;
-    padding: 1.5em;
-    .user-account, time {
-      max-width: 85%;
-    }
-    .user-account {
-      display:block;
-    }
-  }
+
 }
+
