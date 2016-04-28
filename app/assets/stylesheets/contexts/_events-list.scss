@@ -142,7 +142,7 @@
 	}
 }
 
-.event-body {
+.event-body, .dates {
   .toggler-trigger {
   	@include button-outlined;
 	  padding: 0.25em 0.5em;

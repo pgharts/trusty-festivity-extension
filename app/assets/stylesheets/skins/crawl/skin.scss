@@ -1,0 +1,34 @@
+$text-color: #323232;
+$heading-color: #000;
+$text-color-subtle: lighten($text-color, 30%);
+
+$link-color: #00a3b4;
+$link-color-hover: darken($link-color, 15%);
+
+$link-color-reverse: #7fd1d9;
+$link-color-reverse-hover: lighten($link-color-reverse, 10%);
+$link-color-reverse-alt: #e5f6f8;
+
+$highlight-color: #f06c70;
+$highlight-color-hover: darken($highlight-color, 25%);
+
+$border-color: #cbcdc6;
+
+$background-color: #fff;
+$background-color-subtle: #cbcbcb;
+
+$footer-color: $heading-color;
+$social-footer-color: $text-color;
+
+$search-placeholder-color: $link-color;
+
+$homepage-featured-background: lighten($text-color, 20%);
+
+// icon color variations - defined here and overridden in each theme
+
+$icon-primary-color: #CBCBCB;
+$icon-secondary-color: #F06C70;
+$icon-search-color: #00A3B4;
+
+
+@import "../../crawl";

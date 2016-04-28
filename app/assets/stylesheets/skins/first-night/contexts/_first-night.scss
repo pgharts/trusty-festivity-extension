@@ -172,9 +172,9 @@
     h1.featured-text {
       background-color: $homepage-featured-background;
       padding: 0.5em;
-      margin-bottom:0;
+      margin-bottom: 0;
       line-height: 1;
-      font-size:2em;
+      font-size: 2em;
       max-width: 800px;
 
       @include breakpoint($breakpoint-s) {
@@ -226,14 +226,14 @@
         padding: 4em 1.5em 3em 1.5em;
       }
       @include breakpoint($breakpoint-xl) {
-        padding-top:5em;
+        padding-top: 5em;
       }
     }
     .pin-img {
-      display:none;
-      @include breakpoint($breakpoint-s){
+      display: none;
+      @include breakpoint($breakpoint-s) {
         @include column(4);
-        display:block;
+        display: block;
         img {
           max-width: 150px;
         }
@@ -253,7 +253,7 @@
       @include breakpoint($breakpoint-nav) {
         @include column(6);
 
-        p{
+        p {
           font-size: 1.25em;
         }
       }
@@ -266,12 +266,12 @@
       @include breakpoint($breakpoint-nav) {
         @include column(3);
         @include last;
-        text-align:center;
-        margin-top:2em;
+        text-align: center;
+        margin-top: 2em;
       }
     }
     .title {
-      @include breakpoint($breakpoint-nav){
+      @include breakpoint($breakpoint-nav) {
         @include heading-2;
       }
     }
@@ -285,11 +285,11 @@
       }
     }
   }
-	.how-it-works {
+  .how-it-works {
     background: url(fn-homepage-howitworks-topbg.svg) -1.5em 0 no-repeat, url(fn-homepage-howitworks-bg-sm.jpg) no-repeat, $text-color;
-		@include pie-clearfix;
+    @include pie-clearfix;
 
-    @include breakpoint($breakpoint-l){
+    @include breakpoint($breakpoint-l) {
       background: url(fn-homepage-howitworks-topbg.svg) -1.5em 0 no-repeat, url(fn-homepage-howitworks-bg.jpg) no-repeat, $text-color;
     }
     h3.section-title {
@@ -299,8 +299,8 @@
       margin-bottom: 2em;
       margin-top: 2em;
 
-      @include breakpoint($breakpoint-m){
-        text-align:center;
+      @include breakpoint($breakpoint-m) {
+        text-align: center;
         @include heading-2;
         color: $background-color;
         text-transform: uppercase;
@@ -308,19 +308,19 @@
       }
     }
 
-		article {
+    article {
       @include pie-clearfix;
       @include divider-bottom;
       text-align: center;
       @include breakpoint($breakpoint-xs) {
         text-align: left;
       }
-			@include breakpoint($breakpoint-m) {
-				@include column(4);
+      @include breakpoint($breakpoint-m) {
+        @include column(4);
         border: 0 none;
         padding: 0;
         text-align: center;
-			}
+      }
       img {
         margin: 0 auto;
         width: 100%;
@@ -339,66 +339,11 @@
         @include reversed-text-smoothing;
         color: $background-color;
       }
-		}
+    }
     article.last {
       @include divider-none;
       @include breakpoint($breakpoint-m) {
         @include last;
-      }
-    }
-	}
-  .social-posts {
-    @include pie-clearfix;
-  }
-  .social-feed {
-    .section-wrapper {
-      padding: 1.5em;
-    }
-    .section-title {
-      text-align:center;
-      margin-bottom: 1.5em;
-      @include breakpoint($breakpoint-l) {
-        margin-top: 1.5em;
-      }
-      a {
-        color: $link-color;
-      }
-    }
-    article {
-      margin-bottom: 1em;
-      width: 100%;
-      @include breakpoint($breakpoint-s) {
-        width: 48.3%;
-      }
-      @include breakpoint($breakpoint-nav) {
-        width: 31.15%;
-      }
-      @include breakpoint($breakpoint-xl) {
-        width: 22.53%;
-      }
-    }
-    .grid-sizer {
-      width: 3.25%;
-    }
-    .instagram-post {
-      background: url('fn-instagram-bg.svg') no-repeat $link-color;
-      background-position: 90% 93%;
-      background-size: 35px auto;
-    }
-    .twitter-post {
-      background: url('fn-twitter-bg.svg') no-repeat $homepage-featured-background;
-      background-position: 90% 85%;
-      background-size: 38px 31px;
-    }
-    .post-text {
-      overflow: hidden;
-      padding: 1.5em;
-      .user-account, time {
-        max-width: 85%;
-      }
-      .user-account {
-        display:block;
-        font-weight: 700;
       }
     }
   }
@@ -486,4 +431,17 @@
 			@include callout-secondary-link;
 		}
 	}
+}
+
+.social-feed {
+  .section-wrapper {
+    .social-posts {
+      .instagram-post {
+        background-color: $link-color;
+      }
+      .twitter-post {
+        color: $background-color;
+      }
+    }
+  }
 }

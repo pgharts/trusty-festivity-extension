@@ -1,0 +1,16 @@
+.highlight-text {
+  color: $highlight-color;
+
+  &:hover {
+    text-decoration: none;
+    color: lighten($highlight-color, 15);
+  }
+}
+
+.light-text {
+  color: lighten($text-color, 25%);
+}
+
+.white-text {
+  color: #fff;
+}
