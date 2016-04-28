@@ -29,6 +29,20 @@ class FestivityEventList
     )
   end
 
+  def self.hourly
+    current_site = Page.current_site
+    festival_date_times = FestivityEventList.collect_festival_dates(current_site)
+    festival_dates = festival_date_times.map! {|date| date.to_date}
+
+    if festival_dates.include?(DateTime.now.to_date)
+      FestivityPerformance.where(start_date: DateTime.now...DateTime.now + 1.day).includes(:festivity_event_page).where(pages: {status_id: 100, site_id: Page.current_site.id, layout_id: nil}).compact.sort_by{|e| e[:date]}.first(3)
+    elsif festival_dates.first > DateTime.now.to_date
+      FestivityPerformance.includes(:festivity_event_page).where(pages: {status_id: 100, site_id: current_site.id, layout_id: nil}).compact.sort_by{|e| e[:date]}.first(3)
+    else
+      FestivityPerformance.includes(:festivity_event_page).where(pages: {status_id: 100, site_id: current_site.id, layout_id: nil}).compact.sort_by{|e| e[:date]}.last(3)
+    end
+  end
+
   def self.find_by_location(location_id, site)
     begin
       where_clause = parse_criteria(dates: collect_festival_dates(site).join(","), filter_type: site.festivity_filter_type)
