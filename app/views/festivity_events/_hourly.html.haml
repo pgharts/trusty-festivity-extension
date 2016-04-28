@@ -1,0 +1,6 @@
+- @hourly_events = FestivityEventList.hourly
+
+- @hourly_events.each do |performance|
+    = performance.start_date
+    = performance.end_date
+    = performance.festivity_event_page.title
