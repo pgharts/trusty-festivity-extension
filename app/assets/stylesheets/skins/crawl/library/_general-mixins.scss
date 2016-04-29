@@ -1,0 +1,15 @@
+@mixin button-link-reverse {
+  @include button;
+  background-color: $link-color-reverse;
+  color: $text-color;
+
+  &:hover,
+  &:focus {
+    background-color: $link-color-reverse-hover;
+    color: $text-color;
+  }
+}
+
+.button-link-reverse {
+  @include button-link-reverse;
+}

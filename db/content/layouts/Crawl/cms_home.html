@@ -1,31 +1,58 @@
-<section class='intro'>
+<section class="intro">
     <article class="intro-text">
-        <h1><span class='highlight-text'>IT'S ON.</span> TONIGHT, 5-10 PM.</h1>
-        <h2>20+ arts & culture events. All free.</h2>
+        <h1><span class="highlight-text">IT&#39;S ON.</span> TONIGHT, 5-10 PM.</h1>
+
+        <h2>20+ arts &amp; culture events. All free.</h2>
+
         <h2>Ready for more? crawl after dark, 10 PM til late.</h2>
     </article>
 </section>
+
 <section class="coming-up-next">
-    <article class="up-next-bg">
-        <div class="up-next-header">
-            <h1><span class="light-text">Coming up next:</span> 5-6pm</h1>
-        </div>
-    </article>
-    <article class="up-next-events"></article>
+    <r:homepage_performances />
 </section>
+
 <section class="crawl-after-dark">
     <article class="after-dark-bg">
         <div class="after-dark-header">
             <h1><span class="white-text">crawl after dark:</span> 10 PM until late</h1>
         </div>
     </article>
-    <article class="after-dark-events"></article>
-</section>
-<section class="get-map">
-    <article class="map text">
-        <h1>Get the map <span class="highlight-text">here</span>.</h1>
+
+    <article class="after-dark-events">
+        <div class="up-next-event">
+            <div class="up-next-image">
+                <div class="lead-image"><a href="events"><r:asset:image id="415" /></a></div>
+            </div>
+            <div class="up-next-info">
+                <div class="title">Title</div>
+                <div class="time">Time</div>
+                <div class="locations">Location</div>
+            </div>
+        </div>
+        <h2>Plus</h2>
+        <div class="up-next-events">
+            <div class="event">
+                <div class="title"><a href='#'>Title</a></div>
+                <div class="time">Time</div>
+            </div>
+        </div>
+        <div class="up-next-events">
+            <div class="event">
+                <div class="title"><a href='#'>Title</a></div>
+                <div class="time">Time</div>
+            </div>
+        </div>
+        <a class="button-link-reverse" href="events">All After Dark</a>
     </article>
 </section>
+
+<section class="get-map">
+    <article class="map text">
+        <h1>Get the map <a class="highlight-text" href='#'>here</a>.</h1>
+    </article>
+</section>
+
 <section class="section-wrapper instagram">
     <article class="social-header">
         <h1><span class="light-text">Follow along:</span> #CrawlPGH
@@ -35,5 +62,6 @@
         </span>
         </h1>
     </article>
-    <r:instagram_posts tag="CrawlPGH"/>
+    <r:instagram_posts tag="CrawlPGH"/><r:twitter_posts tag="CrawlPGH"/>
+
 </section>
