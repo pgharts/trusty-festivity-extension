@@ -1,0 +1,35 @@
+- @hourly_events = FestivityEventList.hourly
+
+%article.up-next-bg
+  .up-next-header
+    %h1
+      %span.light-text Coming up next:
+      - t = Time.now
+      - n = Time.now + 1.hour
+      = "#{t.strftime("%l")} - #{n.strftime("%l %P")}"
+%article.next-events
+  - @hourly_events.each_with_index do |performance, i|
+    - if i === 0
+      .up-next-event
+        .up-next-image
+          = link_to event_path(performance.event_page_id) do
+            .lead-image
+              = image_tag(performance.festivity_event_page.image)
+        .up-next-info
+          .title
+            = performance.festivity_event_page.title
+          .time
+            = "#{performance.start_date.strftime("%l")} - #{performance.end_date.strftime("%l %P")}"
+          .locations
+            = "#{performance.location} @ #{performance.area}"
+      %h2 PLUS
+    - else
+      .up-next-events
+        .event
+          .title
+            = link_to performance.festivity_event_page.title, event_path(performance.event_page_id)
+          .time
+            = "#{performance.start_date.strftime("%l")} - #{performance.end_date.strftime("%l %P")}"
+  %a.button{href: 'events'} See All Events
+
+

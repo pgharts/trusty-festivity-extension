@@ -18,6 +18,16 @@ class FestivityPerformance < ActiveRecord::Base
     super(FestivityLocationPage.find(location[:id])) unless location[:id].blank?
   end
 
+  def location
+    FestivityLocationPage.find_by_id(self.location_page_id).title
+  end
+
+  def area
+    location = FestivityLocationPage.find_by_id(self.location_page_id).parent_id
+    FestivityLocationAreaPage.find_by_id(location).title
+  end
+
+
   private
 
   def parse_date(date)

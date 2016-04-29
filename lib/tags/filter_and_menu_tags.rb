@@ -10,7 +10,10 @@ module Tags::FilterAndMenuTags
                                                                :locals => {:selected_dates => selected_dates,
                                                                            :selected_categories => selected_categories}
     end
+  end
 
-
+  desc "Render homepage performances on an hourly basis"
+  tag "homepage_performances" do |tag|
+    request.env["action_controller.instance"].render_to_string :partial => "festivity_events/hourly"
   end
 end

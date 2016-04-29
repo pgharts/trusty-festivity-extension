@@ -38,6 +38,7 @@
 }
 
 .coming-up-next {
+  @include clearfix;
   margin-bottom: 3em;
 
   .up-next-bg {
@@ -50,8 +51,68 @@
     height: 200px;
     padding-top: 7em;
   }
-  .up-next-events {
+  .next-events {
+    @include container;
     padding: 2em 0;
+
+    h2 {
+      @include heading-4;
+    }
+
+    .up-next-event {
+      position: relative;
+      margin-bottom: 2em;
+      @include column(12);
+      @include breakpoint($breakpoint-l) {
+        @include column(6);
+      }
+      .up-next-info {
+        padding: 2em;
+        color: $background-color;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        text-align: left;
+
+        @include breakpoint($breakpoint-xl) {
+          position: absolute;
+          bottom: 0;
+        }
+
+
+        .title {
+          @include heading-2;
+          font-weight: normal;
+          color: white;
+        }
+        .time, .locations {
+          font-weight: 100;
+          color: white;
+          display: inline;
+          @include breakpoint($breakpoint-l) {
+            font-size: 1.4em;
+          }
+        }
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .up-next-events {
+      @include column(12);
+      @include breakpoint($breakpoint-l) {
+        @include column(6);
+        @include last;
+      }
+      @include divider-bottom;
+      .title a {
+        @include heading-2;
+        color: $link-color;
+      }
+      .time {
+        font-size: 1.4em
+      }
+    }
   }
 }
 
