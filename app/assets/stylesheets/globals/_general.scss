@@ -232,3 +232,23 @@ img {
 .not-visually-hidden {
   @include not-visually-hidden;
 }
+
+//Bulleted List styles
+//////////////////////////////////////
+
+ul .bulleted-list, ol .ordered-list {
+  margin: 0 0 1.5em 2em;
+
+  li {
+    margin-bottom: 0.5em;
+  }
+}
+
+ul.bulleted-list {
+  list-style: disc;
+  margin-top: 0.5em;
+}
+
+ol.ordered-list {
+  list-style: decimal;
+}
