@@ -89,6 +89,12 @@
         %h3.callout-title
           Connect with this artist
         %ul
+          - if @event.has_instagram?
+            %li
+              = link_to @event.artist_instagram, target: "_blank" do
+                %span.icon-instagram{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Instagram
           - if @event.has_twitter?
             %li
               = link_to @event.artist_twitter, target: "_blank" do
