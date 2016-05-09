@@ -20,7 +20,7 @@
       = link_to area_path(id: market.area_slug) do
         = market.area_title
       .booth-number
-        = "Booth ##{FestivityMarketPage.find_by_id(market.market_id).booth_number}"
+        = "Booth ##{FestivityMarketPage.booth_number(market.market_id)}"
 
     - if show_dates
       .event-date
