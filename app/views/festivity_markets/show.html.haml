@@ -25,6 +25,8 @@
       .location-links
         = link_to area_path(id: @market.area) do
           = @market.area.title
+      .booth-number
+        = "Booth ##{@market.booth_number}"
 
     .callout.dates
       %h3.callout-title
