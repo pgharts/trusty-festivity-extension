@@ -60,23 +60,23 @@
     .callout.dates
       %h3.callout-title
         Dates/Times
-      - if @event.performances.count < 4
-        %ul
-          - @event.performances.each do |perf|
-            %li
-              %span.day
-                = perf.start_date.strftime("%A, %B %d")
-              %span.time
-                = perf.start_date.strftime("%I:%M%p").downcase
-                = "-"
-                = perf.end_date.strftime("%I:%M%p").downcase
-      - else
+      %ul
+        - performances = @event.performances.take(4)
+        - performances.each do |perf|
+          %li
+            %span.day
+              = perf.start_date.strftime("%A, %B %d")
+            %span.time
+              = perf.start_date.strftime("%I:%M%p").downcase
+              = "-"
+              = perf.end_date.strftime("%I:%M%p").downcase
+      - if @event.performances.count > 4
         %span.toggler-root
           %button.toggler-trigger{aria: {expanded: "false", controls: 'multiple-dates'}}
-            Show All
+            Show More
           .toggler-content.multiple-dates{aria: {hidden: "true"}}
             %ul
-              - @event.performances.each do |perf|
+              - @event.performances.drop(4).each do |perf|
                 %li
                   %span.day
                     = perf.start_date.strftime("%A, %B %d")
@@ -89,6 +89,12 @@
         %h3.callout-title
           Connect with this artist
         %ul
+          - if @event.has_instagram?
+            %li
+              = link_to @event.artist_instagram, target: "_blank" do
+                %span.icon-instagram{:data => {'grunticon-embed' => true}}
+                %span.icon-text
+                  Instagram
           - if @event.has_twitter?
             %li
               = link_to @event.artist_twitter, target: "_blank" do

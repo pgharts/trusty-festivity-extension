@@ -37,9 +37,8 @@
   }
 }
 
-.coming-up-next {
+.coming-up-next, .crawl-after-dark {
   @include clearfix;
-  margin-bottom: 3em;
 
   .up-next-bg {
     background: url(crawl-up-next-bg.png) no-repeat;
@@ -51,7 +50,7 @@
     height: 200px;
     padding-top: 7em;
   }
-  .next-events {
+  .next-events, .after-dark-events {
     @include container;
     padding: 2em 0;
 
@@ -61,7 +60,7 @@
 
     .up-next-event {
       position: relative;
-      margin-bottom: 2em;
+      margin-bottom: 5em;
       @include column(12);
       @include breakpoint($breakpoint-l) {
         @include column(6);
@@ -118,7 +117,6 @@
 
 .crawl-after-dark {
   background-color: $link-color;
-  padding-bottom: 3em;
   .after-dark-bg {
     background: url(crawl-after-dark-bg.png) no-repeat $link-color;
     background-size: cover;
@@ -130,6 +128,17 @@
   }
   .after-dark-events {
     padding: 2em 0;
+    .up-next-events {
+      .title a {
+        color: #fff;
+
+      }
+    }
+    .up-next-event {
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 
