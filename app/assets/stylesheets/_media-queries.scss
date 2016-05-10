@@ -1,9 +1,0 @@
-// some media queries to fix up a few details here and there
-
-// between small and extra small, the events-lists are just a little too wide
-
-@media (max-width: 47.9375em) and (min-width: 33.500em) {
-  .event-list-item {
-    padding: 0 5em;
-  }
-}

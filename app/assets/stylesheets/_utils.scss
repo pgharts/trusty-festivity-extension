@@ -1,8 +1,0 @@
-// some utility classes, mostly meant to be used with @extend
-
-// nopadding -- used override the default padding in bootstrap columns, so that we can set
-// it manually. things with borders and headers.
-%nopadding {
-   padding: 0 !important;
-   margin: 0 !important;
-}
