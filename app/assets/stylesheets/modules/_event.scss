@@ -39,7 +39,7 @@
 }
 .event-genre {
 	@include title-face;
-	color: $link-color;
+	color: $text-color;
 	&:after {
 		content: '\003a';
 		margin-left: -3px;
