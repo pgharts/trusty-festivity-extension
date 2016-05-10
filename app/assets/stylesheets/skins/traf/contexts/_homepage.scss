@@ -3,13 +3,22 @@
     width: 100%;
     max-width: 100%;
     .traf-intro-background {
-      height: 550px;
-      background: url(traf-background.png) no-repeat top center;
-      background-color: $background-color-alt;
-      background-size: cover;
       @include breakpoint($breakpoint-nav) {
-        height: 850px;
+        height: 550px;
+        background-size: 125%;
       }
+      @include breakpoint($breakpoint-xl) {
+        height: 600px;
+        background-size: 100%;
+      }
+      @include breakpoint($breakpoint-xxxl) {
+        height: 660px;
+        background-size: 100%;
+      }
+      background: url(traf-background.png) no-repeat bottom center;
+      background-color: $background-color-alt;
+      height: 420px;
+      background-size: 140%;
     }
   }
 
@@ -17,28 +26,29 @@
     @include container;
     margin-top: -1em;
     width: 95%;
-    padding-top: 5em;
+    @include breakpoint($breakpoint-nav) {
+      padding-top: 5em;
+    }
     .headline {
+      @include heading-6;
       h1 {
-        @include heading-4;
         color: #fff;
       }
     }
     .headline-2 {
-      font-size: 1em;
       @include breakpoint($breakpoint-nav) {
-        @include heading-3;
+        @include heading-4;
       }
     }
     .headline-3 {
-      font-size: 1.5em;
       @include breakpoint($breakpoint-nav) {
-        @include heading-1;
+        @include heading-2;
       }
     }
     .buttons {
       .button-wrapper {
         margin-right: 1em;
+        margin-bottom: .75em;
         .icon-chevron-right {
           height: 15px;
           margin-left: 2em;
