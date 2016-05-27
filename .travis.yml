@@ -1,0 +1,20 @@
+sudo: false
+cache: bundler
+
+language: ruby
+rvm:
+  - 2.2.4
+
+services: mysql
+
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+
+script:
+  - bundle exec rspec spec
+
+notifications:
+  recipients:
+    - martin@trustarts.org
+  slack: trustarts:FrVc7H8dDadhctfZ7NvHTZES
