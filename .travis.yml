@@ -8,11 +8,11 @@ rvm:
 services: mysql
 
 before_script:
-  - bundle exec rake app:db:create
-  - bundle exec rake app:db:migrate
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
 
 script:
-  - bundle exec rake app:spec
+  - bundle exec rspec spec
 
 notifications:
   recipients:

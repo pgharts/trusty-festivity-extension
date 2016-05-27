@@ -5,11 +5,6 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'database_cleaner'
-Capybara.javascript_driver = :poltergeist
-
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, timeout: 60)
-end
 
 require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation, {except: %w[config]}
@@ -19,7 +14,6 @@ config.include FactoryGirl::Syntax::Methods
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::TRUSTY_CMS_ROOT}/spec/fixtures"
 
   config.expect_with :rspec do |c|

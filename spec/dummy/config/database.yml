@@ -1,13 +1,13 @@
 development:
   adapter: mysql2
-  database: festivity_master_development
+  database: convoy_master_development
   username: root
   password:
   host: localhost
 
 test: &TEST
   adapter: mysql2
-  database: festivity_master_test
+  database: convoy_master_test
   username: root
   password:
   host: localhost
