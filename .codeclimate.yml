@@ -26,6 +26,7 @@ exclude_paths:
 - app/assets/javascripts/imagesloaded/**/*
 - app/assets/javascripts/masonry/**/*
 - "app/assets/javascripts/bootstrap.js"
+- "app/assets/javascripts/underscore.js"
 - node_modules
 - vendors/assets/components/*
 - db/migrate/**/*
