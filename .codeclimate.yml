@@ -19,7 +19,7 @@ exclude_paths:
 - app/assets/stylesheets/grunticon/**/*
 - app/assets/stylesheets/bootstrap/**/*
 - app/assets/stylesheets/breakpoint/**/*
-- "app/assets/javascripts/bootstrap.js"
+- app/assets/javascripts/bootstrap.js
 - app/assets/images/**/*
 - app/assets/javascripts/skins/**/*
 - app/assets/javascripts/bootstrap/**/*
