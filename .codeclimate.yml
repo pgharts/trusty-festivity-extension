@@ -20,10 +20,12 @@ exclude_paths:
 - app/assets/stylesheets/bootstrap/**/*
 - app/assets/stylesheets/breakpoint/**/*
 - app/assets/images/**/*
+- app/assets/javascripts/skins/**/*
 - app/assets/javascripts/bootstrap/**/*
 - app/assets/javascripts/jrespond/**/*
 - app/assets/javascripts/imagesloaded/**/*
 - app/assets/javascripts/masonry/**/*
+- "app/assets/javascripts/bootstrap.js"
 - node_modules
 - vendors/assets/components/*
 - db/migrate/**/*
