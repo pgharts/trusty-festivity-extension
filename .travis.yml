@@ -18,3 +18,7 @@ notifications:
   recipients:
     - martin@trustarts.org
   slack: trustarts:FrVc7H8dDadhctfZ7NvHTZES
+
+addons:
+    code_climate:
+        repo_token: d23b50594f7a760e32d6947dfaf5121471816a1fe00e5cc643f61f9860539fc5
