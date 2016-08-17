@@ -15,4 +15,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'faker'
+  gem 'codeclimate-test-reporter'
 end
