@@ -48,8 +48,8 @@ module TrustyCms
 
     config.encoding = 'utf-8'
 
-    config.extensions = [:layouts, :snippets, :multi_site, :clipped, :rad_social, :reorder]
-    config.extensions_migration_order = [:clipped, :layouts, :snippets, :reorder, :multi_site]
+    config.extensions = [:layouts, :snippets, :multi_site, :clipped, :rad_social]
+    config.extensions_migration_order = [:clipped, :layouts, :snippets, :multi_site]
 
     # TODO: We're not sure this is actually working, but we can't really test this until the app initializes.
     config.middleware.use Rack::Cache,
