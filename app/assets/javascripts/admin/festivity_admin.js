@@ -1,5 +1,5 @@
 // This is the Festivity admin javascript manifest
-
+//trying to shake da tree 9.7.2016
 // Base and external Javascript libraries
 //= require ../lodash.min
 //= require ../bootstrap.min

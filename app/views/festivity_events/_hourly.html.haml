@@ -4,9 +4,9 @@
   .up-next-header
     %h1
       %span.light-text Coming up next:
-      - t = Time.now
-      - n = Time.now + 1.hour
-      = "#{t.strftime("%l")} - #{n.strftime("%l %P")}"
+      - t = DateTime.now.in_time_zone("Eastern Time (US & Canada)").strftime("%a, %b %e, %Y, %l:%M %p")
+      - n = DateTime.now.in_time_zone("Eastern Time (US & Canada)").strftime("%a, %b %e, %Y, %l:%M %p") + 1.hour
+      = "#{t.strftime("%l:%M")} - #{n.strftime("%l:%M %P")}"
 %article.next-events
   - @hourly_events.each_with_index do |performance, i|
     - if i === 0
@@ -19,7 +19,7 @@
           .title
             = performance.festivity_event_page.title
           .time
-            = "#{performance.start_date.strftime("%l")} - #{performance.end_date.strftime("%l %P")}"
+            = "#{performance.start_date.strftime("%l:%M")} - #{performance.end_date.strftime("%l:%M %P")}"
           .locations
             = "#{performance.location} @ #{performance.area}"
       %h2 PLUS
@@ -29,7 +29,7 @@
           .title
             = link_to performance.festivity_event_page.title, event_path(performance.event_page_id)
           .time
-            = "#{performance.start_date.strftime("%l")} - #{performance.end_date.strftime("%l %P")}"
+            = "#{performance.start_date.strftime("%l:%M")} - #{performance.end_date.strftime("%l:%M %P")}"
   %a.button{href: 'events'} See All Events
 
 
