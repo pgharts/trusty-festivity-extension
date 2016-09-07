@@ -6,7 +6,7 @@
       %span.light-text Coming up next:
       - t = DateTime.now.in_time_zone("Eastern Time (US & Canada)")
       - n = DateTime.now.in_time_zone("Eastern Time (US & Canada)") + 1.hour
-      = "#{t.strftime("%l:%M")} - #{n.strftime("%l:%M %P")}"
+      = "#{t.strftime("%l")} - #{n.strftime("%l %P")}"
 %article.next-events
   - @hourly_events.each_with_index do |performance, i|
     - if i === 0
