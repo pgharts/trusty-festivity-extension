@@ -1,11 +1,12 @@
 class InstagramFeedService
 
   def initialize
-    @client = Instagram.client
+    @client = Instagram.client(:access_token => ENV['INSTAGRAM_ACCESS_TOKEN'])
   end
 
   def get_feed_for_tag(tag)
-    @client.tag_recent_media(tag).map do |post|
+    tagged_posts = @client.user_recent_media.select{|post| post[:tags].include?(tag.downcase)}
+    tagged_posts.map do |post|
       Social::InstagramPostPresenter.from_instagram_post(post)
     end
   end
