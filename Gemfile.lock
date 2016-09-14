@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    trusty-festivity-extension (2.5.10)
+    trusty-festivity-extension (2.5.11)
       actionpack-action_caching (~> 1.1.1)
       chronic (~> 0.10.2)
       dalli-elasticache (~> 0.1.2)
@@ -13,6 +13,7 @@ PATH
       trusty-layouts-extension (~> 2.0.4)
       trusty-multi-site-extension (~> 2.0.11)
       trusty-rad-social-extension (~> 2.2.6)
+      trusty-reorder-extension (~> 2.0.6)
       trusty-snippets-extension (~> 2.0.7)
       trusty_google_custom_search
       twitter (~> 5.15)
@@ -475,6 +476,10 @@ GEM
       roadie-rails (~> 1.0.6)
       trusty-cms (~> 2.0.0)
       trusty-layouts-extension (~> 2.0.2)
+    trusty-reorder-extension (2.0.6)
+      acts_as_list (= 0.4.0)
+      rake (< 11.0)
+      trusty-cms (~> 2.0.16)
     trusty-snippets-extension (2.0.7)
       rake (< 11.0)
       trusty-cms (~> 2.0.16)

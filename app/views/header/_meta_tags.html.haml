@@ -7,4 +7,4 @@
 %meta{:property=> "og:url", :content => url}
 %meta{:name=> "twitter:card", :content => "summary"}
 %title
-  = "#{page.title} - #{page.site.name}"
+  = "#{page.title} | #{page.site.name} |  #{Site.find_by_id(1).name}"

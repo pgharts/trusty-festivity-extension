@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "trusty-cms"                   , '>= 2.0.23'
   s.add_dependency "trusty-clipped-extension"     , "~> 2.0.13"
   s.add_dependency "trusty-snippets-extension"    , "~> 2.0.7"
-  # s.add_dependency "trusty-reorder-extension"     , "~> 2.0.6"
+  s.add_dependency "trusty-reorder-extension"     , "~> 2.0.6"
   s.add_dependency "trusty-layouts-extension"     , "~> 2.0.4"
   s.add_dependency "trusty-rad-social-extension"  , "~> 2.2.6"
   s.add_dependency "trusty-multi-site-extension"  , "~> 2.0.11"
