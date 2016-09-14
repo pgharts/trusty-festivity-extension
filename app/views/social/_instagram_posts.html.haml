@@ -8,7 +8,7 @@
             = image_tag post.standard_res_image_url, class: "insta-image", alt: "Lead Image"
           .post-text
             %p.post
-              = post.text
+              = post.text.truncate(160)
             %span.user-account
               = "@#{post.user_username}"
             %time
