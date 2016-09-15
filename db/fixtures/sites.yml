@@ -48,6 +48,16 @@ First Night Pittsburgh:
   festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
   position: 5
 
+Buzzword:
+  id: 13
+  name: Buzzwordpgh
+  subtitle: main
+  domain: .*buzzwordpgh.trustarts.[.\/]*
+  base_domain: buzzwordpgh.trustarts.org
+  festivity_festival_name: Buzzwordpgh
+  festivity_google_api_key: 004905679161489350096:p0nv7wwdf1m
+  position: 6
+
 default_site:
   id: 12
   name: default_site

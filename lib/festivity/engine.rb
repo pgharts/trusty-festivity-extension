@@ -5,10 +5,12 @@ module Festivity
     initializer "trusty_cms.assets.precompile" do |app|
       app.config.assets.precompile += %w(
         main.css
+        skins/buzzword/skin.css
         skins/crawl/skin.css
         skins/first-night/skin.css
         skins/pghkids/skin.css
         skins/traf/skin.css
+        skins/buzzword/skin.css
         admin/festivity_admin.css
         admin/festivity_admin.js
         festivity_app.js

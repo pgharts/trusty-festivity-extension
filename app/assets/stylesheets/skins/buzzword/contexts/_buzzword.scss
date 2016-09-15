@@ -1,0 +1,299 @@
+// Global
+
+.callout a {
+  @include link;
+}
+
+// Header
+
+.site-header {
+  background-color: $background-color-alt;
+  padding-top: 0.5em;
+  padding-bottom:0.5em;
+
+  @include breakpoint($breakpoint-nav) {
+    padding-top:0;
+    padding-bottom:0;
+  }
+
+  .traf-mark {
+    width: 90%;
+    height: inherit;
+    max-width: 100%;
+    margin-bottom: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+
+    svg {
+      max-width: 120px;
+      height: auto;
+    }
+
+    @include breakpoint($breakpoint-xs) {
+      @include column(7);
+      @include append(1);
+      text-align: left;
+    }
+
+    @include breakpoint($breakpoint-s) {
+      padding-top: 0.4em;
+    }
+
+    @include breakpoint($breakpoint-m) {
+      padding-top: 0.2em;
+    }
+
+    @include breakpoint($breakpoint-nav) {
+      @include column(2);
+      height: inherit;
+      margin-top: 1em;
+    }
+  }
+}
+.menu-trigger {
+  background-color: $text-color;
+  color: $highlight-color;
+  font-size: 1em;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  @include breakpoint($breakpoint-xs) {
+    margin-top: 2em;
+  }
+  &.is-active {
+  }
+}
+
+// Navigation
+.mobile-navigation {
+  padding-bottom: 0;
+}
+.nav-wrapper {
+  margin-top: 0;
+  @include breakpoint($breakpoint-nav) {
+    background:none;
+    float: right;
+    @include column(10);
+    @include last;
+    margin-top:0;
+  }
+}
+
+.primary-navigation, .utility-navigation {
+  ul {
+    li, li:first-of-type {
+      border-color: tint($text-color, 40%);
+      border-style: dashed;
+    }
+    li a{
+      @include navigation-link;
+      color: $text-color;
+      @include breakpoint($breakpoint-nav) {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.primary-navigation {
+  ul {
+    border-top: 1px dashed tint($text-color, 40%);
+    @include breakpoint($breakpoint-nav) {
+      border: 0 none;
+    }
+  }
+}
+
+.utility-navigation {
+  ul {
+    li {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.site-search {
+  padding: 1em 1em 0.25em 1em;
+  @include breakpoint($breakpoint-xs) {
+    padding-top: 0;
+  }
+  @include breakpoint($breakpoint-nav) {
+    padding-right: 0;
+    padding-top:0;
+  }
+  input {
+    background-color: $background-color;
+    color: $text-color-subtle;
+    border-radius: 6px;
+    width: 75%;
+    padding: 0.5em;
+    // Webkit & Blink
+    &::-webkit-input-placeholder {
+      color: $text-color-subtle;
+    }
+    // Firefox
+    &::-moz-placeholder {
+      color: $text-color-subtle;
+    }
+    // IE
+    &:-ms-input-placeholder {
+      color: $text-color-subtle;
+    }
+    @include breakpoint($breakpoint-nav) {
+      padding: 0.3em;
+    }
+  }
+}
+
+button.search-submit {
+  background-color: $text-color;
+  border-radius: 4px;
+  width: 22%;
+  margin-left: 1%;
+  &:hover,
+  &:focus {
+    background-color: darken($text-color, 10%);
+  }
+
+  @include breakpoint($breakpoint-nav) {
+    padding-top: 0.29em;
+    padding-bottom: 0.29em;
+
+    &:hover,
+    &:focus {
+      background-color: darken($text-color, 20%);
+    }
+  }
+  .icon-search {
+    vertical-align: baseline;
+  }
+}
+
+.show-filters-trigger {
+  @include button-highlight;
+  @include breakpoint($breakpoint-nav) {
+    display: none;
+  }
+}
+
+.overflow-wrapper .menu-content-wrapper .filters-wrapper {
+  .toggler-trigger {
+    color: $highlight-color;
+    @include breakpoint($breakpoint-nav) {
+      color: $link-color;
+    }
+  }
+  .submit-filters {
+    @include button-highlight;
+    @include breakpoint($breakpoint-nav) {
+      display: none;
+    }
+  }
+  .cancel-filters {
+    background-color: darken($text-color, 7%);
+    color: $background-color;
+    &:hover,
+    &:focus {
+      color: $background-color;
+      background-color: darken($text-color, 10%);
+    }
+  }
+  .toggler-trigger {
+    path {
+      fill: $highlight-color;
+      @include breakpoint($breakpoint-nav) {
+        fill: $link-color;
+      }
+    }
+  }
+}
+
+
+// Internal
+
+.internal {
+  .site-header {
+    background: url(traf-internalpage-bg.svg) no-repeat $background-color-alt;
+    @include breakpoint($breakpoint-s) {
+      background: $background-color-alt;
+    }
+
+    .container {
+      @include pie-clearfix;
+      @include breakpoint($breakpoint-s) {
+        background: url(traf-internalpage-bg.svg) no-repeat $background-color-alt;
+      }
+    }
+  }
+
+  .main-content {
+  }
+  .content-wrapper {
+    background: $background-color;
+  }
+
+  .event-media {
+    .is-featured {
+      @include reversed-text-smoothing;
+      background-color: $text-color;
+    }
+  }
+}
+.secondary-content {
+  .filters-wrapper {
+    h3.title {
+      @include title-face-highlight;
+    }
+  }
+}
+
+// Events List &
+
+.events-list {
+  .content-wrapper {
+    padding-top: 2em;
+  }
+  .events-group {
+    .event-media {
+      .is-featured {
+
+        @include breakpoint($breakpoint-xxl) {
+          margin-top:0;
+        }
+      }
+    }
+  }
+}
+
+.events-list, .event-detail {
+  .content-wrapper {
+    margin-top: 0;
+    @include breakpoint($breakpoint-s) {
+      padding-left:0;
+      margin-left:0;
+    }
+  }
+}
+
+.event-detail {
+  .page-header {
+    background:none;
+    padding-bottom: 0;
+    @include breakpoint($breakpoint-s) {
+      padding-left:0;
+      margin-left:0;
+    }
+    .page-title {
+      padding-bottom: 0.5em;
+    }
+  }
+
+}
+
+// Footer
+.social-footer {
+  .title {
+    color: $background-color;
+  }
+}
