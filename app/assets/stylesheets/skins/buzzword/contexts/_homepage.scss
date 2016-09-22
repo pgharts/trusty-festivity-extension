@@ -2,7 +2,7 @@
   .container {
     width: 100%;
     max-width: 100%;
-    .traf-intro-background {
+    .buzz-intro-background {
       @include breakpoint($breakpoint-nav) {
         height: 550px;
         background-size: 125%;
@@ -27,7 +27,7 @@
     margin-top: -1em;
     width: 95%;
     @include breakpoint($breakpoint-nav) {
-      padding-top: 5em;
+      padding-top: 0;
     }
     .headline {
       @include heading-6;
@@ -61,8 +61,8 @@
     }
   }
   .announcements {
-    background: url(traf-bottom-wave.png) no-repeat;
-    background-color: $text-color;
+    background: none;
+    background-color: #0b7b40;
     padding-top: 2em;
     margin-bottom: 6em;
     border-bottom: 5em;
@@ -117,7 +117,7 @@
 
   }
 
-  .traf-bubbles {
+  .buzz-bubbles {
     background: url(traf-bubbles.png) no-repeat top center;
     background-size: cover;
     height: 75px;

@@ -2,12 +2,12 @@ $text-color: #792d8f; //dark green
 //$heading-color: #404242;
 $heading-color: $text-color;
 $text-color-subtle: tint($text-color, 30%);
-$text-highlight-color: #fdcb36;//yellow
+$text-highlight-color: #fbd34b;//yellow
 
 $link-color: #f06a33; //orange
 $link-color-hover: darken($link-color, 15%);
 
-$highlight-color: #d7df23; //light green
+$highlight-color: #08B7BF; //light blue
 $highlight-color-hover: shade($highlight-color, 10%);
 
 $link-color-reverse: #08B7BF; //light Blue
@@ -20,7 +20,7 @@ $border-color: #cbcdc6;
 
 $background-color: #fff;
 $background-color-subtle: #cbcbcb;
-$background-color-alt: #26abe2;
+$background-color-alt: #fff;
 
 $homepage-featured-background: #92D6ED;
 $footer-color: $text-color;
@@ -30,7 +30,7 @@ $search-placeholder-color: $link-color;
 
 // icon color variations - overrides original value with this theme's contextual value
 
-$icon-primary-color: #D7DF23;
+$icon-primary-color: #08B7BF;
 $icon-secondary-color: #F06A33;
 $icon-search-color: $highlight-color;
 
