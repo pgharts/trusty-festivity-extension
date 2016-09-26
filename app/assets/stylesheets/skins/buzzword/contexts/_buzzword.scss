@@ -17,7 +17,6 @@
   }
 
   .buzz-mark {
-    width: 90%;
     height: inherit;
     max-width: 100%;
     margin-bottom: 1em;
@@ -27,7 +26,7 @@
     text-align:center;
 
     svg {
-      max-width: 420px;
+      max-width: 360px;
       height: auto;
     }
 
@@ -46,7 +45,7 @@
     }
 
     @include breakpoint($breakpoint-nav) {
-      @include column(2);
+      @include column(3);
       height: inherit;
       margin-top: 1em;
     }
@@ -74,7 +73,7 @@
   @include breakpoint($breakpoint-nav) {
     background:none;
     float: right;
-    @include column(10);
+    @include column(8);
     @include last;
     margin-top:0;
   }
