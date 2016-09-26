@@ -1,0 +1,129 @@
+.home main {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    .buzz-intro-background {
+      @include breakpoint($breakpoint-nav) {
+        height: 550px;
+        background-size: 125%;
+      }
+      @include breakpoint($breakpoint-xl) {
+        height: 600px;
+        background-size: 100%;
+      }
+      @include breakpoint($breakpoint-xxxl) {
+        height: 660px;
+        background-size: 100%;
+      }
+      background: url(buzzword-background.png) no-repeat bottom center;
+      height: 580px;
+      background-color: $background-color-alt;
+      background-size: 140%;
+    }
+  }
+
+  .main {
+    @include container;
+    margin-top: -1em;
+    width: 95%;
+    @include breakpoint($breakpoint-nav) {
+      padding-top: 0;
+    }
+    .headline {
+      @include heading-6;
+      h1 {
+        color: #fff;
+      }
+    }
+    .headline-2 {
+      @include breakpoint($breakpoint-nav) {
+        @include heading-4;
+      }
+    }
+    .headline-3 {
+      @include breakpoint($breakpoint-nav) {
+        @include heading-2;
+      }
+    }
+    .buttons {
+      .button-wrapper {
+        margin-right: 1em;
+        margin-bottom: .75em;
+        .icon-chevron-right {
+          height: 15px;
+          margin-left: 2em;
+          margin-right: -1em;
+          svg {
+            fill: $text-color;
+          }
+        }
+      }
+    }
+  }
+  .announcements {
+    background: none;
+    background-color: #0b7b40;
+    padding-top: 2em;
+    margin-bottom: 6em;
+    border-bottom: 5em;
+    border-image: url(traf-thin-wave.png) 0 27 75 repeat;
+    border-image-outset: 1;
+    .announcements-container {
+      @include container;
+      width: 95%;
+      margin-bottom: -4em;
+      padding-top: 4em;
+
+      .announcements-header {
+        @include breakpoint($breakpoint-nav) {
+          @include column(4);
+        }
+        vertical-align: top;
+        .icon-info {
+          margin-right: 1.5em;
+        }
+        h4 {
+          display: inline-block;
+          color: #fff;
+          font-size: 1.8em;
+        }
+      }
+      .announcements-group {
+        @include breakpoint($breakpoint-nav) {
+          @include column(8);
+          @include last;
+        }
+        .date {
+          font-size: 1.5em;
+          display: inline-block;
+          color: $text-highlight-color;
+        }
+        .announcement-item-group {
+          @include divider-bottom;
+          @include last;
+          .announcement-item {
+            margin-left: 2em;
+            display: inline-block;
+            color: #fff;
+          }
+        }
+      }
+      &::after {
+        clear: both;
+        content: " ";
+        display: block;
+      }
+    }
+
+  }
+
+  .buzz-bubbles {
+    background: url(traf-bubbles.png) no-repeat top center;
+    background-size: cover;
+    height: 75px;
+    @include breakpoint($breakpoint-nav) {
+      height: 100px;
+    }
+  }
+
+}
