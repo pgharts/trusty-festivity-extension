@@ -12,11 +12,13 @@
     <r:festivity_meta />
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     <link rel="stylesheet" media="all" href="/assets/skins/buzzword/skin.css">
+
+    <!--<link rel="stylesheet" media="all" href="http://testbuzzwordpgh.trustarts.org:9090/production/assets/skins/buzzword/skin.css">-->
     <script src="/assets/festivity_app.js"></script>
     <script>
         (function(d) {
             var config = {
-                        kitId: 'uqf2ehu',
+                        kitId: 'zbe5prw',
                         scriptTimeout: 3000,
                         async: true
                     },
@@ -33,75 +35,11 @@
         <link href="/assets/grunticon/production/icons.fallback.css" rel="stylesheet"></link>
     </noscript>
 </head>
-<body class="traf <r:festivity_body_class />">
+<body class="buzzword <r:festivity_body_class />">
 <div class="overflow-wrapper">
     <div class="menu-content-wrapper">
         <r:festivity_mobile_menus />
-        <header class="site-header">
-            <div class="container">
-                <section class="traf-mark">
-                    <a class="traf-logo" href="/">
-                        <h1 class="site-name visually-hidden">Three Rivers Arts Festival</h1>
-                        <r:snippet name="traf_logo" />
-                    </a>
-                </section>
-                <div class="mobile-navigation">
-                    <button class="menu-trigger">
-                        <div class="iconmenu-button x">
-                            <span class="iconmenu"></span>
-                        </div>
-                        <span class="trigger-text">Menu</span>
-                </div>
-                <div class="nav-wrapper">
-                    <form action="/search" class="site-search">
-                        <label for="site-search"><span class="visually-hidden">Search</span></label>
-                        <input id="site-search" name="q" placeholder="Search..." type="text"></input>
-                        <button class="search-submit" type="submit">
-                            <span class="icon-search" data-grunticon-embed="true"></span>
-    <span class="visually-hidden">
-      Search
-    </span>
-                        </button>
-                    </form>
-                    <nav class="utility-navigation" role="navigation">
-                        <ul>
-                            <li>
-                                <a href="/traf_home/about/faq">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="/traf_home/visit/map">Map</a>
-                            </li>
-                            <li>
-                                <a href="/traf_home/contact">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="/events">Schedule</a>
-                            </li>
-                        </ul>
-
-                    </nav>
-
-                    <nav class="primary-navigation" role="navigation">
-                        <ul>
-                            <li>
-                                <a href="/events">Events</a>
-                            </li>
-                            <li>
-                                <a href="/traf_home/visit">Plan Your Visit</a>
-                            </li>
-                            <li>
-                                <a href="/traf_home/get-involved">Get Involved</a>
-                            </li>
-
-                            <li>
-                                <a href="/traf_home/about">About</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-        </header>
+        <header class="site-header"></header>
 
         <main class="main-content" role="main">
             <div class="container">
@@ -112,35 +50,35 @@
             <div class="container">
                 <h3 class="title">Connect with us:</h3>
                 <ul class="social-link-item-group">
-                    <li class="social-link-item">
+                    <!--<li class="social-link-item">
                         <a href="https://www.instagram.com/3RiversArtsFest/">
                             <span class="icon-instagram" data-grunticon-embed="true"></span>
       <span class="visually-hidden">
         Follow the Three Rivers Arts Festival on Instagram
       </span>
                         </a>
-                    </li>
+                    </li>-->
                     <li class="social-link-item">
-                        <a href="https://www.facebook.com/3RiversArtsFest/">
+                        <a href="https://www.facebook.com/buzzwordpgh/events">
                             <span class="icon-facebook" data-grunticon-embed="true"></span>
-      <span class="visually-hidden">
-        Follow the Three Rivers Arts Festival on Facebook
+                            <span class="visually-hidden">
+        Follow Buzzword on Facebook
       </span>
                         </a>
                     </li>
                     <li class="social-link-item">
-                        <a href="https://twitter.com/3RiversArtsFest">
+                        <a href="https://twitter.com/buzzwordpgh">
                             <span class="icon-twitter" data-grunticon-embed="true"></span>
-      <span class="visually-hidden">
-        Follow the Three Rivers Arts Festival on Twitter
+                            <span class="visually-hidden">
+        Follow Buzzword on Twitter
       </span>
                         </a>
                     </li>
                     <li class="social-link-item">
-                        <a href="http://clicks.skem1.com/signup/?c=vNHhx&lid=43">
+                        <a href="mailto:buzzword@trustarts.org">
                             <span class="icon-envelope" data-grunticon-embed="true"></span>
-      <span class="visually-hidden">
-        Sign up for the Three Rivers Arts Fesitval Email Newsletter
+                            <span class="visually-hidden">
+        Email Us
       </span>
                         </a>
                     </li>
@@ -152,59 +90,65 @@
             <div class="container">
                 <nav class="footer-navigation" role="navigation">
                     <ul class="general">
+                        <!--<a class="cultural-trust-logo" href="http://www.trustarts.org">
+                            <h4 class="visually-hidden">Pittsburgh Cultural Trust</h4>
+                            <r:snippet name="buzzword_footer_logo" />
+                        </a>-->
                         <a class="cultural-trust-logo" href="http://www.trustarts.org">
                             <h4 class="visually-hidden">Pittsburgh Cultural Trust</h4>
-                            <r:snippet name="traf_footer_logo" />
+                            <img src="http://festivity-dev.s3.amazonaws.com/sipple/pnc.png" alt="PNC">
                         </a>
-                        <li>
-                            <a href="http://www.trustarts.org/about">About the Trust</a>
-                        </li>
-                        <li>
-                            <a href="http://pressroom.trustarts.org/">Press Room</a>
-                        </li>
-                        <li>
-                            <a href="http://www.trustarts.org/about/privacy-policy">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="http://www.trustarts.org/connect/contact_us/">Contact Us</a>
-                        </li>
 
-                    </ul>
-                    <ul class="attending">
-                        <h4>Attending</h4>
-                        <li>
-                            <a href="/traf_home/visit/parking-transportation/">Parking and Transportation</a>
-                        </li>
-                        <li>
-                            <a href="/traf_home/visit/food-drinks/">Food</a>
-                        </li>
-                        <li>
-                            <a href="/traf_home/visit/accessibility/">Accessibility</a>
-                        </li>
                     </ul>
                     <ul class="artists">
-                        <h4>Get Involved					</h4>
+                        <h4>Partners					</h4>
                         <li>
-                            <a href="/traf_home/get-involved/sing-off/">Sing Off</a>
+                            <a href="http://www.carnegiesciencecenter.org/">Carnegie Science Center</a>
                         </li>
                         <li>
-                            <a href="/traf_home/get-involved/parade-workshops/">Parade Workshops</a>
+                            <a href="https://pittsburghkids.org/">Children's Museum of Pittsburgh</a>
                         </li>
                         <li>
-                            <a href="/traf_home/get-involved/volunteer/">Volunteer</a>
+                            <a href="http://otsummerfest.org/">Opera Theater of Pittsburgh</a>
                         </li>
                         <li>
-                            <a href="/traf_home/about/current-supporters">Current Supporters</a>
+                            <a href="http://www.pbt.org/">Pittsburgh Ballet Theatre</a>
+                        </li>
+                        <li>
+                            <a href="http://www.trustarts.org/">Pittsburgh Cultural Trust</a>
+                        </li>
+                        <li>
+                            <a href="http://www.pittsburghparks.org/">Pittsburgh Parks Conservancy</a>
                         </li>
 
                     </ul>
+
                     <ul class="Blog">
-                        <h4>Blog					</h4>
+                        <h4>Resources					</h4>
                         <li>
-                            <a href="/traf_home/blog/new-facebook-twitter-and-instagram">NEW Facebook, Twitter and Instagram</a>
+                            <a href="http://www.carnegielibrary.org/">Carnegie Library</a>
                         </li>
                         <li>
-                            <a href="/traf_home/blog/admission-buttons-now-on-sale">Admission buttons now on sale</a>
+                            <a href="http://www.paeyc.org/">PAEYC</a>
+                        </li>
+                        <li>
+                            <a href="https://www.pnc.com/en/about-pnc/corporate-responsibility/grow-up-great/lesson-center.html">PNC Grow Up Great</a>
+                        </li>
+                    </ul>
+
+                    <ul class="involvement">
+                        <h4>Say Hi!</h4>
+                        <li>
+                            <a href="tel:412.456.7024">412.456.7024</a>
+                        </li>
+                        <li>
+                            <a href="mailto:buzzword@trustarts.org">buzzword@trustarts.org</a>
+                        </li>
+                        <li>
+                            <a href="#">803 Liberty Ave</a>
+                        </li>
+                        <li>
+                            <a href="#">Pittsburgh, PA 15222</a>
                         </li>
                     </ul>
                 </nav>
@@ -215,7 +159,7 @@
         </footer>
     </div>
 </div>
-<script src="https://s3.amazonaws.com/festivity-prod/omniture/firstnight/AppMeasurement.js" type="text/javascript"></script>
+<!--<script src="/omniture/traf/AppMeasurement.js" type="text/javascript"></script>-->
 <r:omniture_vars />
 </body>
 </html>

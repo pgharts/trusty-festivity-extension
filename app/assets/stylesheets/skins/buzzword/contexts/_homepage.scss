@@ -2,6 +2,19 @@
   .container {
     width: 100%;
     max-width: 100%;
+    .logo-container, .content-container {
+      @include breakpoint($breakpoint-xl) {
+        @include column(6);
+        @include last;
+        float: right;
+      }
+    }
+    .buzz-mark {
+        width: 75%;
+      @include breakpoint($breakpoint-xl) {
+        width: 100%;
+      }
+    }
     .buzz-intro-background {
       @include breakpoint($breakpoint-nav) {
         height: 550px;
@@ -24,10 +37,14 @@
 
   .main {
     @include container;
-    margin-top: -1em;
-    width: 95%;
-    @include breakpoint($breakpoint-nav) {
-      padding-top: 0;
+    height: 250px;
+    @include breakpoint($breakpoint-l) {
+      height: 325px;
+    }
+    @include breakpoint($breakpoint-xl) {
+      height: 200px;
+      margin-top: 5em;
+      width: 95%;
     }
     .headline {
       @include heading-6;
@@ -61,6 +78,7 @@
     }
   }
   .announcements {
+    clear: both;
     background: none;
     background-color: #0b7b40;
     padding-top: 2em;
@@ -126,4 +144,8 @@
     }
   }
 
+}
+
+.home .social-footer {
+  margin-top: -3.1em;
 }
