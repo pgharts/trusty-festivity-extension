@@ -7,16 +7,17 @@
 // Header
 
 .site-header {
-  background-color: $background-color-alt;
-  padding-top: 0.5em;
+  background-color: $heading-color;
+  padding-top: 1em;
   padding-bottom:0.5em;
 
   @include breakpoint($breakpoint-nav) {
-    padding-top:0;
+    padding-top:1em;
     padding-bottom:0;
   }
 
   .buzz-mark {
+    padding-top: 1em;
     height: inherit;
     max-width: 100%;
     margin-bottom: 1em;
