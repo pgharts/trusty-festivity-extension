@@ -13,6 +13,7 @@ before_script:
 
 script:
   - bundle exec rspec spec
+  - bundle exec codeclimate-test-reporter
 
 notifications:
   recipients:
