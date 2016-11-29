@@ -5,17 +5,17 @@ module Festivity
     initializer "trusty_cms.assets.precompile" do |app|
       app.config.assets.precompile += %w(
         main.css
-        skins/buzzword/skin.css
-        skins/crawl/skin.css
-        skins/first-night/skin.css
-        skins/pghkids/skin.css
-        skins/traf/skin.css
-        skins/buzzword/skin.css
-        admin/festivity_admin.css
-        admin/festivity_admin.js
+        skins/buzzword/*.css
+        skins/crawl/*.css
+        skins/first-night/*.css
+        skins/pghkids/*.css
+        skins/traf/*.css
+        skins/buzzword/*.css
+        admin/*.css
+        admin/*.js
         festivity_app.js
-        grunticon/production/grunticon.loader.js
-        grunticon/production/*.css)
+        production/grunticon.loader.js
+        production/*.css)
     end
   end
 
