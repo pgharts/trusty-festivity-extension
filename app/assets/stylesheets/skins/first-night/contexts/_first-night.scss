@@ -212,7 +212,7 @@
   }
   .get-access, .how-it-works {
     .section-wrapper {
-      padding: 1.5em;
+      padding: 5em 1.5em;
 
       @include breakpoint($breakpoint-xl) {
         padding: 4em 1.5em;
@@ -419,7 +419,7 @@
       color: $link-color;
 		}
 	}
-  &.dates ul .day,  {
+  &.dates ul .day  {
     @include copy-face;
     font-size: 1em;
   }
