@@ -69,7 +69,7 @@
   $iconDuration: 0.6s;
   $iconEasing: cubic-bezier(.25,1.7,.35,.8);
 
-  @include breakpoint($breakpoint-xs) {
+  @include breakpoint($breakpoint-xxs) {
     @include column(4);
     @include last;
   }

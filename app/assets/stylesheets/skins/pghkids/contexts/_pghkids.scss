@@ -15,7 +15,7 @@
 
 .mobile-navigation {
   padding: .5em 0;
-  @include breakpoint($breakpoint-xs) {
+  @include breakpoint($breakpoint-xxs) {
     float: right;
   }
 }
@@ -449,7 +449,7 @@
       color: $link-color;
 		}
 	}
-  &.dates ul .day,  {
+  &.dates ul .day  {
     @include copy-face;
     font-size: 1em;
   }
