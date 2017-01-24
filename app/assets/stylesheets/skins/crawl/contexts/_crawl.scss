@@ -13,15 +13,36 @@
     height: 500px;
   }
   background-color: $background-color-subtle;
-  background: url(crawl-intro-bg.png) no-repeat;
-  background-size: cover;
   height: 300px;
+  position: relative;
+  //background: url(crawl-intro-bg.png) no-repeat;
+  //background-size: cover;
   @include breakpoint($breakpoint-xl) {
     font-size: 1.5em;
   }
 
+  .crawl-intro {
+    @include breakpoint($breakpoint-xl) {
+      height: 500px;
+    }
+    @include breakpoint($breakpoint-m) {
+      width: 100%;
+    }
+    position: absolute;
+    height:300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+    max-width: none;
+    overflow-x: hidden;
+  }
 
   .intro-text {
+    position: relative;
     text-align: center;
     padding-top: 6em;
     margin: 0 auto;
